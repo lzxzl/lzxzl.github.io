@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzxzl.github.io</id>
-    <title>直木博客</title>
-    <updated>2021-11-10T02:33:22.215Z</updated>
+    <title>直木</title>
+    <updated>2021-11-10T02:35:38.321Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzxzl.github.io"/>
     <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
     <logo>https://lzxzl.github.io/images/avatar.png</logo>
     <icon>https://lzxzl.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 直木博客</rights>
+    <rights>All rights reserved 2021, 直木</rights>
 </feed>
