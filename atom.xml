@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzxzl.github.io</id>
     <title>直木</title>
-    <updated>2021-11-11T12:12:16.142Z</updated>
+    <updated>2021-11-11T12:29:26.280Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzxzl.github.io"/>
     <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
@@ -25,13 +25,13 @@
 <p>这就对了。想想吧。不管你是新手还是经验丰富的软件开发人员，这都不重要: 如果你不知道编译器和解释器是如何工作的，那么你就不知道计算机是如何工作的。就是这么简单。</p>
 <p>So, do you know how compilers and interpreters work? And I mean, are you 100% sure that you know how they work? If you don’t.</p>
 <p>那么，你知道编译器和解释器是如何工作的吗？我的意思是，你100% 确定你知道它们是如何工作的吗？如果你不知道。</p>
-<figure data-type="image" tabindex="1"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_i_dont_know.png&amp;sign=04e0eb92788863e7ca4ff4c286d664762f24e4b7449bbb85fcb24ecadf06882a" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1-1.png" alt="" loading="lazy"></figure>
 <p>Or if you don’t and you’re really agitated about it.</p>
 <p>或者如果你不知道并且你真的对此感到焦虑。</p>
-<figure data-type="image" tabindex="2"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_omg.png&amp;sign=e1a82acd0363cbb7776b15dad3cba83920e5ebd02c7df0110404f13d4e7579ca" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://lzxzl.github.io/post-images/1-2.png" alt="" loading="lazy"></figure>
 <p>Do not worry. If you stick around and work through the series and build an interpreter and a compiler with me you will know how they work in the end. And you will become a confident happy camper too. At least I hope so.</p>
 <p>别担心。如果你坚持读完这个系列，和我一起构建一个解释器和一个编译器，你最终就会知道它们是如何工作的。你也会成为一个自信快乐的露营者。至少我希望如此。（露营者？？是一个我不知道的英语典故吗？）</p>
-<figure data-type="image" tabindex="3"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_i_know.png&amp;sign=7a964202ac967adff6ce83895368e9a74beeec8441f65fbb0bd44f7a81742795" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://lzxzl.github.io/post-images/1-3.png" alt="" loading="lazy"></figure>
 <p>Why would you study interpreters and compilers? I will give you three reasons.</p>
 <p>为什么要学习解释器和编译器? 我给你三个理由。</p>
 <ol>
@@ -48,7 +48,7 @@
 <p>解释器或编译器的目标是将某种高级语言中的源程序翻译成另一种形式。很模糊是吗？请耐心等待，在本系列的后面，你将了解源程序到底被翻译成了什么。</p>
 <p>At this point you may also wonder what the difference is between an interpreter and a compiler. For the purpose of this series, let’s agree that if a translator translates a source program into machine language, it is a compiler. If a translator processes and executes the source program without translating it into machine language first, it is an interpreter. Visually it looks something like this:</p>
 <p>在这一点上，你可能还想知道解释器和编译器之间的区别。对于本系列文章，我们一致认为，如果翻译器将源程序翻译成机器语言，那么它就是编译器。如果翻译器在没有先将源程序翻译成机器语言的情况下处理并执行源程序，那么它就是一个解释器。从视觉上看是这样的:</p>
-<figure data-type="image" tabindex="4"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_compiler_interpreter.png&amp;sign=a46562f812a7e79e4fcc8db4f9464410aa4fedcd95b7beb45a613aa7af764454" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://lzxzl.github.io/post-images/1-4.png" alt="" loading="lazy"></figure>
 <p>I hope that by now you’re convinced that you really want to study and build an interpreter and a compiler. What can you expect from this series on interpreters?</p>
 <p>我希望到目前为止，你已经确信您真的想学习并构建一个解释器和编译器。你能从这个关于解释器的系列文章中期待些什么呢？</p>
 <p>Here is the deal. You and I are going to create a simple interpreter for a large subset of <a href="https://en.wikipedia.org/wiki/Pascal_%28programming_language%29">Pascal</a> language. At the end of this series you will have a working Pascal interpreter and a source-level debugger like Python’s <a href="https://docs.python.org/2/library/pdb.html">pdb</a>.</p>
@@ -80,16 +80,16 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <p>将输入字符串分解成token的过程称为词法分析。因此，你的解释器需要完成的第一步是读取字符输入并将其转换为token流。解释器中做这项工作的部分称为词法分析器，简称lexer。你还可能会遇到lexer的其他名称，如扫描器（scanner）或标记器（tokenizer）。它们的意思都是一样的： 解释器或编译器中将字符输入转换为token流的部分。</p>
 <p>The method get_next_token of the Interpreter class is your lexical analyzer. Every time you call it, you get the next token created from the input of characters passed to the interpreter. Let’s take a closer look at the method itself and see how it actually does its job of converting characters into tokens. The input is stored in the variable text that holds the input string and pos is an index into that string (think of the string as an array of characters). pos is initially set to 0 and points to the character ‘3’. The method first checks whether the character is a digit and if so, it increments pos and returns a token instance with the type INTEGER and the value set to the integer value of the string ‘3’, which is an integer 3:</p>
 <p>Interpreter 类的 get_next _ token 方法是词法分析器。每次调用它时，都会得到通过传递给解释器的字符输入创建的下一个token。让我们仔细研究一下这个方法本身，看看它实际上是如何将字符转换为token的。输入存储在变量text中，pos 是该字符串的索引（可以将字符串看作一个字符数组）。pos 最初设置为0，并指向字符“3”。该方法首先检查字符是否为数字，如果是，则递增 pos 并返回一个token实例，其类型为 INTEGER，值设置为字符串‘3’的整数值，即整数3:</p>
-<figure data-type="image" tabindex="5"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_lexer1.png&amp;sign=70d27a81613cc0f402e2465b633ae0f08cc1f72481245abd556c0c8a72c96db1" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://lzxzl.github.io/post-images/1-5.png" alt="" loading="lazy"></figure>
 <p>The pos now points to the ‘+’ character in the text. The next time you call the method, it tests if a character at the position pos is a digit and then it tests if the character is a plus sign, which it is. As a result the method increments pos and returns a newly created token with the type PLUS and value ‘+’:</p>
 <p>pos现在指向文本中的“ +”字符。下次调用该方法时，它将检查位置 pos 处的字符是否为数字，然后检查该字符是否为加号（它确实是加号）。因此，该方法使pos自增并返回一个新创建的token，其类型为 PLUS，值为 ‘+’ :</p>
-<figure data-type="image" tabindex="6"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_lexer2.png&amp;sign=9f7b00a78aa469b0f03d6f03282f8783fbc9d70a8fb2c5b1f3a9d5d1709f15e9" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://lzxzl.github.io/post-images/1-6.png" alt="" loading="lazy"></figure>
 <p>The pos now points to character ‘5’. When you call the get_next_token method again the method checks if it’s a digit, which it is, so it increments pos and returns a new INTEGER token with the value of the token set to integer 5:</p>
 <p>pos现在指向字符“5”。当你再次调用 get _ next _ token 方法时，这个方法会检查它是否是一个数字，确实是一个数字，所以它会自增 pos 并返回一个新的 INTEGER token，其值设置为整数5:</p>
-<figure data-type="image" tabindex="7"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_lexer3.png&amp;sign=40a73fe9f365b1bd4c4b5c45e1c762efc05a8a9561c3400e1825ca7244f70d83" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://lzxzl.github.io/post-images/1-7.png" alt="" loading="lazy"></figure>
 <p>Because the pos index is now past the end of the string “3+5” the get_next_token method returns the EOF token every time you call it:</p>
 <p>因为 pos 索引现在已经超过了字符串“3 + 5”的结尾，所以 get _ next _ token 方法在每次调用它时都返回 EOF token:</p>
-<figure data-type="image" tabindex="8"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_lexer4.png&amp;sign=8ffd9bff61f12f8bd07645aea00f33d6dc712a257de47db2cf1125af552f0ccf" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://lzxzl.github.io/post-images/1-8.png" alt="" loading="lazy"></figure>
 <p>Try it out and see for yourself how the lexer component of your calculator works:</p>
 <p>试一试，看看你的计算器的 lexer 组件是如何工作的:</p>
 <p>So now that your interpreter has access to the stream of tokens made from the input characters, the interpreter needs to do something with it: it needs to find the structure in the flat stream of tokens it gets from the lexer get_next_token. Your interpreter expects to find the following structure in that stream: INTEGER -&gt; PLUS -&gt; INTEGER. That is, it tries to find a sequence of tokens: integer followed by a plus sign followed by an integer.</p>
@@ -110,8 +110,7 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <p>祝贺你自己，你刚刚学会了如何建立你的第一个解释器！</p>
 <p>Now it’s time for exercises.</p>
 <p>现在是练习的时间了。</p>
-<p><img src="https://lzxzl.github.io/post-images/1636632728809.png" alt="" loading="lazy"><br>
-<img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_exercises2.png&amp;sign=be0d7802f7f4267f2145172f5b1182272f294e41ebf9122b6f3d2099b852a93e" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="9"><img src="https://lzxzl.github.io/post-images/1636632728809.png" alt="" loading="lazy"></figure>
 <p>You didn’t think you would just read this article and that would be enough, did you? Okay, get your hands dirty and do the following exercises:</p>
 <p>你不会认为你只是读了这篇文章就足够了吧？好的，把你的手“弄脏”（emmm），做以下练习:</p>
 <ol>
@@ -139,7 +138,7 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <ol start="3">
 <li>What’s the difference between an interpreter and a compiler? 解释器和编译器有什么区别？</li>
 </ol>
-<figure data-type="image" tabindex="9"><img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1636084656296-6b93410d-8d81-49e0-823d-c85589d24d1f.png" alt="image.png" title="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1636084656296-6b93410d-8d81-49e0-823d-c85589d24d1f.png" alt="image.png" title="image.png" loading="lazy"></figure>
 <ol start="4">
 <li>What is a token? 什么是token？</li>
 </ol>
@@ -171,7 +170,7 @@ scanner or tokenizer</p>
 <p>我，作为一个身心健康的人，在此承诺从今天开始学习解释器和编译器，直到我完全了解它们是如何工作的！</p>
 <p>Signature:<br>
 Date:</p>
-<figure data-type="image" tabindex="10"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_commitment_pledge.png&amp;sign=9337bf353c35869eca18709e8750c4f919d1dc5fa9eeea64a61783ae350da248" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="11"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_commitment_pledge.png&amp;sign=9337bf353c35869eca18709e8750c4f919d1dc5fa9eeea64a61783ae350da248" alt="" loading="lazy"></figure>
 <p>Sign it, date it, and put it somewhere where you can see it every day to make sure that you stick to your commitment. And keep in mind the definition of commitment:</p>
 <p>签名，注明日期，并把它放在你每天都能看到的地方，以确保你遵守你的承诺。记住承诺的定义:</p>
 <p>“Commitment is doing the thing you said you were going to do long after the mood you said it in has left you.” — Darren Hardy</p>
