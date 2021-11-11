@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzxzl.github.io</id>
     <title>直木</title>
-    <updated>2021-11-11T12:29:26.280Z</updated>
+    <updated>2021-11-11T12:31:25.621Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzxzl.github.io"/>
     <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
@@ -138,7 +138,7 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <ol start="3">
 <li>What’s the difference between an interpreter and a compiler? 解释器和编译器有什么区别？</li>
 </ol>
-<figure data-type="image" tabindex="10"><img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1636084656296-6b93410d-8d81-49e0-823d-c85589d24d1f.png" alt="image.png" title="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://lzxzl.github.io/post-images/1-4.png" alt="" loading="lazy"></figure>
 <ol start="4">
 <li>What is a token? 什么是token？</li>
 </ol>
