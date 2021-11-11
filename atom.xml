@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzxzl.github.io</id>
     <title>直木</title>
-    <updated>2021-11-11T12:09:41.734Z</updated>
+    <updated>2021-11-11T12:12:16.142Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzxzl.github.io"/>
     <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
@@ -110,7 +110,8 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <p>祝贺你自己，你刚刚学会了如何建立你的第一个解释器！</p>
 <p>Now it’s time for exercises.</p>
 <p>现在是练习的时间了。</p>
-<figure data-type="image" tabindex="9"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_exercises2.png&amp;sign=be0d7802f7f4267f2145172f5b1182272f294e41ebf9122b6f3d2099b852a93e" alt="" loading="lazy"></figure>
+<p><img src="https://lzxzl.github.io/post-images/1636632728809.png" alt="" loading="lazy"><br>
+<img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_exercises2.png&amp;sign=be0d7802f7f4267f2145172f5b1182272f294e41ebf9122b6f3d2099b852a93e" alt="" loading="lazy"></p>
 <p>You didn’t think you would just read this article and that would be enough, did you? Okay, get your hands dirty and do the following exercises:</p>
 <p>你不会认为你只是读了这篇文章就足够了吧？好的，把你的手“弄脏”（emmm），做以下练习:</p>
 <ol>
@@ -138,7 +139,7 @@ The implementation language of the Pascal interpreter will be Python, but you ca
 <ol start="3">
 <li>What’s the difference between an interpreter and a compiler? 解释器和编译器有什么区别？</li>
 </ol>
-<figure data-type="image" tabindex="10"><img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1636084656296-6b93410d-8d81-49e0-823d-c85589d24d1f.png" alt="image.png" title="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="9"><img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1636084656296-6b93410d-8d81-49e0-823d-c85589d24d1f.png" alt="image.png" title="image.png" loading="lazy"></figure>
 <ol start="4">
 <li>What is a token? 什么是token？</li>
 </ol>
@@ -170,7 +171,7 @@ scanner or tokenizer</p>
 <p>我，作为一个身心健康的人，在此承诺从今天开始学习解释器和编译器，直到我完全了解它们是如何工作的！</p>
 <p>Signature:<br>
 Date:</p>
-<figure data-type="image" tabindex="11"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_commitment_pledge.png&amp;sign=9337bf353c35869eca18709e8750c4f919d1dc5fa9eeea64a61783ae350da248" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://www.yuque.com/api/filetransfer/images?url=https%3A%2F%2Fruslanspivak.com%2Flsbasi-part1%2Flsbasi_part1_commitment_pledge.png&amp;sign=9337bf353c35869eca18709e8750c4f919d1dc5fa9eeea64a61783ae350da248" alt="" loading="lazy"></figure>
 <p>Sign it, date it, and put it somewhere where you can see it every day to make sure that you stick to your commitment. And keep in mind the definition of commitment:</p>
 <p>签名，注明日期，并把它放在你每天都能看到的地方，以确保你遵守你的承诺。记住承诺的定义:</p>
 <p>“Commitment is doing the thing you said you were going to do long after the mood you said it in has left you.” — Darren Hardy</p>
