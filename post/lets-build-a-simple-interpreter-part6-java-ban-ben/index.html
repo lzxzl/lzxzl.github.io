@@ -1,0 +1,526 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Let’s Build A Simple Interpreter. Part6. —— Java版本 | 直木</title>
+<link rel="shortcut icon" href="https://lzxzl.github.io/favicon.ico?v=1636641222591">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Let’s Build A Simple Interpreter. Part6. —— Java版本 | 直木 - Atom Feed" href="https://lzxzl.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="学到Part6，用Java重写了解释器。
+把这几个类拆开放了，共三个文件：
+src
+    ├── Interpreter.java
+    ├── Lexer.java
+    └── Token.java
+
+Token.java
+pub..." />
+    <meta name="keywords" content="编译原理" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lzxzl.github.io">
+  <img class="avatar" src="https://lzxzl.github.io/images/avatar.png?v=1636641222591" alt="">
+  </a>
+  <h1 class="site-title">
+    直木
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Let’s Build A Simple Interpreter. Part6. —— Java版本
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-11-11
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/" class="post-tag">
+                  # 编译原理
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>学到Part6，用Java重写了解释器。</p>
+<p>把这几个类拆开放了，共三个文件：</p>
+<pre><code class="language-powershell">src
+    ├── Interpreter.java
+    ├── Lexer.java
+    └── Token.java
+</code></pre>
+<h3 id="tokenjava">Token.java</h3>
+<pre><code class="language-java">public class Token {
+
+    private String type;
+    private String value;
+
+
+    public Token(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Token{&quot; +
+                &quot;type='&quot; + type + '\'' +
+                &quot;, value='&quot; + value + '\'' +
+                '}';
+    }
+}
+</code></pre>
+<h3 id="lexerjava-词法分析器">Lexer.java （词法分析器）</h3>
+<pre><code class="language-java">import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
+/**
+ * 词法解析器：输入字符串-&gt;token
+ */
+public  class Lexer{
+    private String text;
+    private int pos=0;
+    private char current_char;
+    public Lexer(String text) {
+        this.text = text;
+        this.current_char = text.charAt(this.pos);
+    }
+
+    private void error() throws InvalidCharException{
+        throw new InvalidCharException(&quot;Invalid character&quot;);
+    }
+
+    /**
+     * 字符串的解析前进一个字符
+     */
+    private void advance(){
+        this.pos += 1;
+        if(this.pos &gt; this.text.length()-1){
+            this.current_char = '\0';
+        }else{
+            this.current_char = this.text.charAt(pos);
+        }
+    }
+
+    /**
+     * 跳过空格
+     */
+    private void skip_whitespace(){
+        if(this.current_char!='\0' &amp;&amp; Character.isSpaceChar(this.current_char)){
+            advance();
+        }
+    }
+
+    /**
+     * 一/多个字符-&gt;整数
+     * @return
+     */
+    private String integer(){
+        String result = &quot;&quot;;
+        while(this.current_char != '\0' &amp;&amp; Character.isDigit(this.current_char)){
+            result += this.current_char;
+            advance();
+        }
+        return result;
+    }
+
+    /**
+     * 获取下一个token，并且使得pos加一
+     * @return
+     */
+    public Token get_next_token() throws InvalidCharException {
+
+        while(this.current_char != '\0' ){
+            // 判断当前字符是空格
+            if(Character.isSpaceChar(this.current_char)){
+                //跳过空格
+                skip_whitespace();
+                //然后继续循环
+                continue;
+            }else if(Character.isDigit(this.current_char)){ // 如果当前字符是整数
+                return new Token(Interpreter.INTEGER,integer());
+            }else if(this.current_char == '+'){// 如果当前字符是+
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.PLUS,&quot;+&quot;);
+            }else if(this.current_char == '-'){// 如果当前字符是-
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.MINUS,&quot;-&quot;);
+            }else if(this.current_char == '*'){// 如果当前字符是*
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.MUL,&quot;*&quot;);
+            }else if(this.current_char == '/'){// 如果当前字符是/
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.DIV,&quot;/&quot;);
+            }else if(this.current_char == '('){// 如果当前字符是(
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.LPAREN,&quot;(&quot;);
+            }else if(this.current_char == ')'){// 如果当前字符是)
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.RPAREN,&quot;)&quot;);
+            }else{
+                error();
+            }
+        }
+        return new Token(Interpreter.EOF,&quot;EOF&quot;);
+
+    }
+
+    public class InvalidCharException extends Exception{
+        public InvalidCharException(String message) {
+            super(message);
+        }
+    }
+
+}
+</code></pre>
+<h3 id="interpreterjava语法分析器和解释器">Interpreter.java（语法分析器和解释器）</h3>
+<pre><code class="language-java">
+import java.util.Scanner;
+
+public class Interpreter {
+    // expr : term ((PLUS | MINUS)term)*
+    // term : factor ((MUL|DIV)factor)*
+    // factor : INTEGER | LPAREN expr RPAREN
+
+    private Lexer lexer;
+    private Token current_token;
+
+    public final static String PLUS = &quot;PLUS&quot;;
+    public final static String MINUS = &quot;MINUS&quot;;
+    public final static String MUL = &quot;MUL&quot;;
+    public final static String DIV = &quot;DIV&quot;;
+    public final static String LPAREN = &quot;(&quot;;
+    public final static String RPAREN = &quot;)&quot;;
+    public final static String INTEGER = &quot;INTEGER&quot;;
+    public final static String EOF = &quot;EOF&quot;;
+
+
+
+    public Interpreter(Lexer lexer) throws Lexer.InvalidCharException {
+        this.lexer = lexer;
+        this.current_token = lexer.get_next_token();
+    }
+
+    /**
+     * 抛出语法异常
+     * @throws InvalidSyntaxException
+     */
+    public void error() throws InvalidSyntaxException {
+        throw new InvalidSyntaxException(&quot;Invalid syntax&quot;);
+    }
+
+    public class InvalidSyntaxException extends Exception{
+        public InvalidSyntaxException(String message) {
+            super(message);
+        }
+    }
+
+    private void eat(String token_type) throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 如果当前token的type和传入的type确实一样，那么就获取下一个token
+        if(this.current_token.getType() == token_type){
+            this.current_token = this.lexer.get_next_token();
+        }else{
+            throw new InvalidSyntaxException(&quot;Invalid Syntax&quot;);
+        }
+    }
+
+    /**
+     * factor : INTEGER | LPAREN expr RPAREN
+     * @return 基本单元
+     */
+    private int factor() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        int result=0;
+        if(this.current_token.getType() == INTEGER){
+            // 需要先取出当前INTEGER类型的token，否则下面eat之后的return返回的就是INTEGER的下一个token了
+            Token token = this.current_token;
+            eat(INTEGER);
+            result = Integer.valueOf(token.getValue());
+        }else if(this.current_token.getType() == LPAREN){
+            eat(LPAREN);
+            result = expr();
+            eat(RPAREN);
+        }
+        return result;
+    }
+
+    /**
+     * term : factor ((MUL|DIV)factor)*
+     * @return 中间计算结果
+     */
+    private int term() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 获取第一个factor
+        int result = factor();
+        // ()* -&gt; 循环
+        while(this.current_token.getType() == MUL || this.current_token.getType() == DIV){
+            // | -&gt; if-else
+            if(this.current_token.getType() == MUL){
+                eat(MUL);
+                result *= factor();
+            }else if(this.current_token.getType() == DIV){
+                eat(DIV);
+                result /= factor();
+            }
+        }
+        return result;
+    }
+
+    //
+
+    /**
+     * expr : term ((PLUS | MINUS)term)*
+     *
+     * calc&gt; 7 + 3 * (10 / (12 / (3 + 1) - 1))
+     * 22
+     *
+     * @return 最终计算结果
+     */
+    private int expr() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 获取第一个term
+        int result = term();
+        // ()* -&gt; 循环
+        while(this.current_token.getType() == PLUS || this.current_token.getType() == MINUS){
+            // | -&gt; if-else
+            if(this.current_token.getType() == PLUS){
+                // 吃掉当前token，设置this.current_token为下一个token
+                eat(PLUS);
+                // 加上第2个term
+                result += term();
+            }else if(this.current_token.getType() == MINUS){
+                // 吃掉当前token，设置this.current_token为下一个token
+                eat(MINUS);
+                // 减去第2个term
+                result -= term();
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) throws Lexer.InvalidCharException, InvalidSyntaxException {
+        Scanner sc = new Scanner(System.in);
+
+        while(true){
+            String text = &quot;&quot;;
+            try{
+                System.out.print(&quot;calc&gt; &quot;);
+                text = sc.nextLine();
+            }catch (Exception e){
+                break;
+            }
+            if(text.equals(&quot;&quot;)){
+                continue;
+            }
+            if(text.equals(&quot;exit&quot;)){
+                break;
+            }
+            // 将输入字符串转换为token
+            Lexer lexer = new Lexer(text);
+            // 将lexer输入解释器，new一个解释器
+            Interpreter interpreter = new Interpreter(lexer);
+            //执行解释器的expr，得到结果
+            int result = interpreter.expr();
+            // 打印结果
+            System.out.println(result);
+        }
+        sc.close();
+    }
+}
+</code></pre>
+<h3 id="测试">测试</h3>
+<pre><code class="language-powershell">calc&gt; 7 + 3 * (10 / (12 / (3 + 1) - 1))
+22
+calc&gt; 
+calc&gt; 2
+2
+calc&gt; 
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#tokenjava">Token.java</a></li>
+<li><a href="#lexerjava-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8">Lexer.java （词法分析器）</a></li>
+<li><a href="#interpreterjava%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8">Interpreter.java（语法分析器和解释器）</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95">测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part6/">
+              <h3 class="post-title">
+                [翻译与学习] Let’s Build A Simple Interpreter. Part6.
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '2a44a295dd16ae7d05b8',
+    clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+    repo: 'lzxzl.github.io',
+    owner: 'lzxzl',
+    admin: ['lzxzl'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lzxzl.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
