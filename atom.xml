@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lzxzl.github.io</id>
     <title>直木</title>
-    <updated>2021-12-06T09:27:12.373Z</updated>
+    <updated>2021-12-06T09:29:03.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lzxzl.github.io"/>
     <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
@@ -686,7 +686,7 @@ END.
 <img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1638782458074-e870f858-a7ea-4f49-9776-03a70bd1a474.png" alt="image.png" loading="lazy"></p>
 </blockquote>
 <p>That’s all for today. In the next article, I’ll talk about scopes and we’ll get our hands dirty with parsing nested procedures. Stay tuned and see you soon! And remember that no matter what, “Keep going!”</p>
-<p>今天就到这里吧。在下一篇文章中，我将讨论，并且我们将亲自操作解析嵌套过程。请继续关注，我们很快就会再见！记住，无论发生什么，“继续前进!”</p>
+<p>今天就到这里吧。在下一篇文章中，我将讨论 域，并且我们将亲自操作解析嵌套过程。请继续关注，我们很快就会再见！记住，无论发生什么，“继续前进!”</p>
 <blockquote>
 <p>get our hands dirty ：弄脏手，所以真实意思就是：亲自动手操作。</p>
 </blockquote>
