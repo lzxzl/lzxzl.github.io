@@ -1,0 +1,453 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[翻译与学习] Let’s Build A Simple Interpreter. Part 12. | 直木</title>
+<link rel="shortcut icon" href="https://lzxzl.github.io/favicon.ico?v=1638784853294">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[翻译与学习] Let’s Build A Simple Interpreter. Part 12. | 直木 - Atom Feed" href="https://lzxzl.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+“Be not afraid of going slowly; be afraid only of standing still.” - Chinese proverb.
+“不怕慢，只怕原地踏步”——中国谚语。
+
+Hello, and w..." />
+    <meta name="keywords" content="编译原理" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lzxzl.github.io">
+  <img class="avatar" src="https://lzxzl.github.io/images/avatar.png?v=1638784853294" alt="">
+  </a>
+  <h1 class="site-title">
+    直木
+  </h1>
+  <p class="site-description">
+    
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [翻译与学习] Let’s Build A Simple Interpreter. Part 12.
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-12-06
+              </span>
+              <span>
+                13 min read
+              </span>
+              
+                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/" class="post-tag">
+                  # 编译原理
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <blockquote>
+<p><em>“Be not afraid of going slowly; be afraid only of standing still.” - Chinese proverb.</em></p>
+<p>“不怕慢，只怕原地踏步”——中国谚语。</p>
+</blockquote>
+<p>Hello, and welcome back!</p>
+<p>大家好，欢迎回来！</p>
+<p>Today we are going to take a few more baby steps and learn how to parse Pascal procedure declarations.</p>
+<p>今天，我们将走更多的baby step，并学习如何解析 Pascal 过程声明（procedure declarations）。</p>
+<figure data-type="image" tabindex="1"><img src="https://ruslanspivak.com/lsbasi-part12/lsbasi_part12_babysteps.png" alt="" loading="lazy"></figure>
+<p>What is a <em><strong>procedure declaration</strong></em>? A <em><strong>procedure declaration</strong></em> is a language construct that defines an identifier (a procedure name) and associates it with a block of Pascal code.</p>
+<p><strong>什么是过程声明？过程声明是一种语言结构，它定义了一个标识符(过程名称) ，并将其与一组 Pascal 代码关联起来。</strong></p>
+<p>Before we dive in, a few words about Pascal procedures and their declarations:</p>
+<p>在我们深入讨论之前，先简单介绍一下 Pascal 的procedures及其声明:</p>
+<ul>
+<li>Pascal procedures don’t have return statements. They exit when they reach the end of their corresponding block. Pascal
+<ul>
+<li>过程没有返回语句，它们在到达相应块的末尾时退出</li>
+</ul>
+</li>
+<li>Pascal procedures can be nested within each other. Pascal
+<ul>
+<li>过程可以相互嵌套</li>
+</ul>
+</li>
+<li>For simplicity reasons, procedure declarations in this article won’t have any formal parameters. But, don’t worry, we’ll cover that later in the series.
+<ul>
+<li>为了简单起见，本文中的过程声明没有任何形参。但是，不要担心，我们将在本系列的后面讨论这个问题。</li>
+</ul>
+</li>
+</ul>
+<p>This is our test program for today:</p>
+<p>这是我们今天的测试程序:</p>
+<pre><code class="language-pascal">PROGRAM Part12;
+VAR
+   a : INTEGER;
+
+PROCEDURE P1;
+VAR
+   a : REAL;
+   k : INTEGER;
+
+   PROCEDURE P2;
+   VAR
+      a, z : INTEGER;
+   BEGIN {P2}
+      z := 777;
+   END;  {P2}
+
+BEGIN {P1}
+
+END;  {P1}
+
+BEGIN {Part12}
+   a := 10;
+END.  {Part12}
+</code></pre>
+<p>As you can see above, we have defined two procedures (<em>P1</em> and <em>P2</em>) and <em>P2</em> is nested within <em>P1</em>. In the code above, I used comments with a procedure’s name to clearly indicate where the body of every procedure begins and where it ends.</p>
+<p>正如您在上面看到的，我们已经定义了两个过程(P1和 P2) ，P2嵌套在 P1中。在上面的代码中，我使用带有过程名称的注释来清楚地指出每个过程的主体开始和结束的位置。</p>
+<p>Our objective for today is pretty clear: learn how to parse a code like that.</p>
+<p>我们今天的目标很明确: 学习如何解析这样的代码。</p>
+<p>First, we need to make some changes to our grammar to add procedure declarations. Well, let’s just do that!</p>
+<p>首先，我们需要对grammar进行一些修改，以添加过程声明！</p>
+<p>Here is the updated <em>declarations</em> grammar rule:</p>
+<p>下面是更新的 declarations grammar规则:</p>
+<figure data-type="image" tabindex="2"><img src="https://ruslanspivak.com/lsbasi-part12/lsbasi_part12_grammar.png" alt="" loading="lazy"></figure>
+<p>The procedure declaration sub-rule consists of the reserved keyword <strong>PROCEDURE</strong> followed by an identifier (a procedure name), followed by a semicolon, which in turn is followed by a <em>block</em> rule, which is terminated by a semicolon. Whoa! This is a case where I think the picture is actually worth however many words I just put in the previous sentence! 😃</p>
+<p>过程声明子规则包括保留关键字 PROCEDURE 后跟标识符(过程名称) ，后跟分号，分号后跟block规则，以分号结束。哇！在这种情况下，无论我在前面的句子中加入多少字，我都认为图片是值得的！😃</p>
+<p>Here is the updated syntax diagram for the <em>declarations</em> rule:</p>
+<p>下面是更新后的declarations规则语法图:</p>
+<figure data-type="image" tabindex="3"><img src="https://ruslanspivak.com/lsbasi-part12/lsbasi_part12_syntaxdiagram.png" alt="" loading="lazy"></figure>
+<p>From the grammar and the diagram above you can see that you can have as many procedure declarations on the same level as you want. For example, in the code snippet below we define two procedure declarations, <em>P1</em> and <em>P1A</em>, on the same level:</p>
+<p>从上面的语法和图表中可以看到，您可以在同一级别上拥有任意多的过程声明。例如，在下面的代码片段中，我们在同一级别定义了两个过程声明，P1和 P1A：</p>
+<pre><code class="language-pascal">PROGRAM Test;
+VAR
+   a : INTEGER;
+
+PROCEDURE P1;
+BEGIN {P1}
+
+END;  {P1}
+
+PROCEDURE P1A;
+BEGIN {P1A}
+
+END;  {P1A}
+
+BEGIN {Test}
+   a := 10;
+END.  {Test}
+</code></pre>
+<p>The diagram and the grammar rule above also indicate that procedure declarations can be nested because the <em>procedure declaration</em> sub-rule references the <em>block</em> rule which contains the <em>declarations</em> rule, which in turn contains the <em>procedure declaration</em> sub-rule. As a reminder, here is the syntax diagram and the grammar for the block rule from <a href="https://ruslanspivak.com/lsbasi-part10/">Part10</a>:</p>
+<p>上面的图和语法规则也表明过程declarations可以嵌套，因为过程declarations子规则引用了包含declarations规则的block规则，而block规则又包含过程declarations子规则。提醒一下，下面是第10部分中block规则的语法图和语法:</p>
+<figure data-type="image" tabindex="4"><img src="https://ruslanspivak.com/lsbasi-part12/lsbasi_part12_block_rule_from_part10.png" alt="" loading="lazy"></figure>
+<p>Okay, now let’s focus on the interpreter components that need to be updated to support procedure declarations:</p>
+<p>好的，现在让我们关注一下需要更新以支持过程声明的解释器组件:</p>
+<p><em><strong>Updating the Lexer</strong></em></p>
+<p>更新 Lexer</p>
+<p>All we need to do is add a new token named <strong>PROCEDURE</strong>:</p>
+<p>我们所需要做的就是添加一个名为 PROCEDURE 的新token：</p>
+<p>And add <em>‘PROCEDURE’</em> to the reserved keywords. Here is the complete mapping of reserved keywords to tokens:</p>
+<p>然后在保留关键字上添加‘ PROCEDURE’，这里是保留关键字到token的完整映射:</p>
+<pre><code class="language-python">RESERVED_KEYWORDS = {
+    'PROGRAM': Token('PROGRAM', 'PROGRAM'),
+    'VAR': Token('VAR', 'VAR'),
+    'DIV': Token('INTEGER_DIV', 'DIV'),
+    'INTEGER': Token('INTEGER', 'INTEGER'),
+    'REAL': Token('REAL', 'REAL'),
+    'BEGIN': Token('BEGIN', 'BEGIN'),
+    'END': Token('END', 'END'),
+    'PROCEDURE': Token('PROCEDURE', 'PROCEDURE'),
+}
+</code></pre>
+<p><em><strong>Updating the Parser</strong></em></p>
+<p>更新解析器</p>
+<p>Here is a summary of the parser changes:</p>
+<p>下面是解析器更改的摘要:</p>
+<ol>
+<li>New _ProcedureDecl _ AST  node</li>
+</ol>
+<p>新的_ProcedureDecl AST _节点</p>
+<ol start="2">
+<li>Update to the parser’s _declarations _method to support procedure declarations</li>
+</ol>
+<p>更新解析器的declarations方法来支持过程声明</p>
+<p>Let’s go over the changes.</p>
+<p>我们来复习一下这些改动。</p>
+<ol>
+<li>The <em>ProcedureDecl</em> AST node represents a <em>procedure declaration</em>. The class constructor takes as parameters the name of the procedure and the AST node of the block of code that the procedure’s name refers to.<br>
+<em>ProcedureDecl</em> AST 节点表示一个过程声明。类构造函数接受procedure的名称和procedure名称引用的代码块的 AST 节点作为参数。</li>
+</ol>
+<pre><code class="language-python">class ProcedureDecl(AST):
+    def __init__(self, proc_name, block_node):
+        self.proc_name = proc_name
+        self.block_node = block_node
+</code></pre>
+<ol start="2">
+<li>Here is the updated <em>declarations</em> method of the <em>Parser</em> class<br>
+下面是 Parser 类的更新声明方法</li>
+</ol>
+<pre><code class="language-python">def declarations(self):
+    &quot;&quot;&quot;declarations : VAR (variable_declaration SEMI)+
+                    | (PROCEDURE ID SEMI block SEMI)*
+                    | empty
+    &quot;&quot;&quot;
+    declarations = []
+
+    if self.current_token.type == VAR:
+        self.eat(VAR)
+        while self.current_token.type == ID:
+            var_decl = self.variable_declaration()
+            declarations.extend(var_decl)
+            self.eat(SEMI)
+
+    while self.current_token.type == PROCEDURE:
+        self.eat(PROCEDURE)
+        proc_name = self.current_token.value
+        self.eat(ID)
+        self.eat(SEMI)
+        block_node = self.block()
+        proc_decl = ProcedureDecl(proc_name, block_node)
+        declarations.append(proc_decl)
+        self.eat(SEMI)
+
+    return declarations
+</code></pre>
+<p>Hopefully, the code above is pretty self-explanatory. It follows the grammar/syntax diagram for procedure declarations that you’ve seen earlier in the article.<br>
+希望上面的代码非常容易理解。它遵循您在本文前面看到的过程声明的语法/语法图。</p>
+<p><em><strong>Updating the SymbolTable builder</strong></em></p>
+<p>更新 <em><strong>SymbolTable</strong></em> 生成器</p>
+<p>Because we’re not ready yet to handle nested procedure scopes, we’ll simply add an empty <em>visit_ProcedureDecl</em> method to the <em>SymbolTreeBuilder</em> AST visitor class. We’ll fill it out in the next article.</p>
+<p>因为我们还没有准备好处理嵌套的 procedure 域，我们只需要向_SymbolTreeBuilder AST visitor类添加一个空的_ _visit_ProcedureDecl _方法。我们将在下一篇文章中填写它。</p>
+<pre><code class="language-python">def visit_ProcedureDecl(self, node):
+    pass
+</code></pre>
+<p><em><strong>Updating the Interpreter</strong></em></p>
+<p>更新解释器</p>
+<p>We also need to add an empty <em>visit_ProcedureDecl</em> method to the <em>Interpreter</em> class, which will cause our interpreter to silently ignore all our procedure declarations.</p>
+<p>我们还需要在 Interpreter 类中添加一个空的 <em>visit_ProcedureDecl</em> 方法，这将导致我们的解释器静默地忽略所有的过程声明。</p>
+<p>So far, so good.</p>
+<p>到目前为止，一切顺利。</p>
+<p>Now that we’ve made all the necessary changes, let’s see what the <em>Abstract Syntax Tree</em> looks like with the new <em>ProcedureDecl</em> nodes.</p>
+<p>现在我们已经做了所有必要的修改，让我们来看看使用新的 ProcedureDecl 节点后的抽象语法树是什么样的。</p>
+<p>Here is our Pascal program again (you can download it directly from <a href="https://github.com/rspivak/lsbasi/blob/master/part12/python/part12.pas">GitHub</a>):</p>
+<p>下面是我们的 Pascal 程序(你可以直接从 GitHub 下载) :</p>
+<pre><code class="language-pascal">PROGRAM Part12;
+VAR
+   a : INTEGER;
+
+PROCEDURE P1;
+VAR
+   a : REAL;
+   k : INTEGER;
+
+   PROCEDURE P2;
+   VAR
+      a, z : INTEGER;
+   BEGIN {P2}
+      z := 777;
+   END;  {P2}
+
+BEGIN {P1}
+
+END;  {P1}
+
+BEGIN {Part12}
+   a := 10;
+END.  {Part12}
+</code></pre>
+<p>Let’s generate an AST and visualize it with the <a href="https://github.com/rspivak/lsbasi/blob/master/part12/python/genastdot.py">genastdot.py</a> utility:</p>
+<p>让我们生成一个 AST，并使用 genastdot.py 实用程序将其可视化:</p>
+<pre><code class="language-shell">$ python genastdot.py part12.pas &gt; ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://ruslanspivak.com/lsbasi-part12/lsbasi_part12_procdecl_ast.png" alt="" loading="lazy"></figure>
+<p>In the picture above you can see two <em>ProcedureDecl</em> nodes: <em>ProcDecl:P1</em> and <em>ProcDecl:P2</em> that correspond to procedures <em>P1</em> and <em>P2</em>. Mission accomplished. 😃</p>
+<p>在上面的图片中，您可以看到两个 ProcedureDecl 节点: ProcDecl: P1和 ProcDecl: P2，它们对应于过程 P1和 P2。任务完成。😃</p>
+<p>As a last item for today, let’s quickly check that our updated interpreter works as before when a Pascal program has procedure declarations in it. Download <a href="https://github.com/rspivak/lsbasi/blob/master/part12/python/spi.py">the interpreter</a> and <a href="https://github.com/rspivak/lsbasi/blob/master/part12/python/part12.pas">the test program</a> if you haven’t done so yet, and run it on the command line. Your output should look similar to this:</p>
+<p>作为今天的最后一项，让我们快速检查一下，当 Pascal 程序中包含过程声明时，我们更新的解释器是否像以前一样工作。下载解释器和测试程序(如果您还没有这样做的话) ，并在命令行上运行它。你的输出应该类似于这样:</p>
+<pre><code class="language-shell">$ python spi.py part12.pas
+Define: INTEGER
+Define: REAL
+Lookup: INTEGER
+Define: &lt;a:INTEGER&gt;
+Lookup: a
+
+Symbol Table contents:
+Symbols: [INTEGER, REAL, &lt;a:INTEGER&gt;]
+
+Run-time GLOBAL_MEMORY contents:
+a = 10
+</code></pre>
+<p>Okay, with all that knowledge and experience under our belt, we’re ready to tackle the topic of nested scopes that we need to understand in order to be able to analyze nested procedures and prepare ourselves to handle procedure and function calls. And that’s exactly what we are going to do in the next article: dive deep into nested scopes. So don’t forget to bring your swimming gear next time! Stay tuned and see you soon!</p>
+<p>好的，有了这些知识和经验，我们已经准备好处理嵌套作用域的主题，我们需要理解这些作用域，以便能够分析嵌套的过程，并为处理过程和函数调用做好准备。这正是我们在下一篇文章中要做的: 深入探究嵌套域。所以下次别忘了带上你的游泳装备！请继续关注，我们很快就会再见！</p>
+<p><strong>All articles in this series:</strong></p>
+<p>本系列的所有文章:</p>
+<ul>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/">Let's Build A Simple Interpreter. Part 1. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part2/">Let's Build A Simple Interpreter. Part 2. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part3/">Let's Build A Simple Interpreter. Part 3. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part4/">Let's Build A Simple Interpreter. Part 4. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part5/">Let's Build A Simple Interpreter. Part 5. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part6/">Let's Build A Simple Interpreter. Part 6. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part7/">Let's Build A Simple Interpreter. Part 7: Abstract Syntax Trees 让我们构建一个简单的解释器。第7部分: 抽象语法树</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part8/">Let's Build A Simple Interpreter. Part 8. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part9/">Let's Build A Simple Interpreter. Part 9. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part10/">Let's Build A Simple Interpreter. Part 10. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part11/">Let's Build A Simple Interpreter. Part 11. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part12/">Let's Build A Simple Interpreter. Part 12. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part13/">Let's Build A Simple Interpreter. Part 13: Semantic Analysis</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part14/">Let's Build A Simple Interpreter. Part 14: Nested Scopes and a Source-to-Source Compiler</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part15/">Let's Build A Simple Interpreter. Part 15.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part16/">Let's Build A Simple Interpreter. Part 16: Recognizing Procedure Calls</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part17/">Let's Build A Simple Interpreter. Part 17: Call Stack and Activation Records</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part18/">Let's Build A Simple Interpreter. Part 18: Executing Procedure Calls</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part19/">Let's Build A Simple Interpreter. Part 19: Nested Procedure Calls</a></li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/">
+              <h3 class="post-title">
+                [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11.
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '2a44a295dd16ae7d05b8',
+    clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+    repo: 'lzxzl.github.io',
+    owner: 'lzxzl',
+    admin: ['lzxzl'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lzxzl.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
