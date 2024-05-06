@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1715018654095" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1715018654095" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-12-06</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">33.5
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">6998</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">编译原理</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>I remember when I was in university (a long time ago) and learning systems programming, I believed that the only “real” languages were Assembly and C. And Pascal was - how to put it nicely - a very high-level language used by application developers who didn’t want to know what was going on under the hood.</p>
+<p>我记得当我在大学学习系统编程的时候(很久以前) ，我相信唯一“真正”的语言是汇编语言和 c 语言，而 Pascal 语言——怎么说好听点——是一种非常高级的语言，被那些不想知道背后发生了什么的应用程序开发人员所使用。</p>
+<p>Little did I know back then that I would be writing almost everything in Python (and love every bit of it) to pay my bills and that I would also be writing an interpreter and compiler for Pascal for the reasons I stated in <a href="https://ruslanspivak.com/lsbasi-part1/">the very first article of the series</a>.</p>
+<p>当时我并不知道，为了支付账单(???)，我几乎要用 Python 写所有的东西(并且喜欢它的每一点) ，而且我还要为 Pascal 编写一个解释器和编译器，原因我在本系列的第一篇文章中就提到过。</p>
+<p>These days, I consider myself a programming languages enthusiast, and I’m fascinated by all languages and their unique features. Having said that, I have to note that I enjoy using certain languages way more than others. I am biased and I’ll be the first one to admit that. 😃</p>
+<p>这些天，我认为自己是一个编程语言爱好者，我着迷于所有的语言和它们的独特功能。话虽如此，我必须指出，我比其他人更喜欢使用某些语言。我是有偏见的，我将是第一个承认这一点的人。😃</p>
+<p>This is me before:</p>
+<p>这是我以前的样子:</p>
+<figure data-type="image" tabindex="1"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_story_before.png" alt="" loading="lazy"></figure>
+<p>And now:</p>
+<p>现在:</p>
+<figure data-type="image" tabindex="2"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_story_now.png" alt="" loading="lazy"></figure>
+<p>Okay, let’s get down to business. Here is what you’re going to learn today:</p>
+<p>好了，让我们言归正传。以下是你今天要学习的内容:</p>
+<ol>
+<li>How to parse and interpret a Pascal program definition. 如何解析和解释 Pascal 程序定义</li>
+<li>How to parse and interpret compound statements. 如何解析和解释复合语句</li>
+<li>How to parse and interpret assignment statements, including variables. 如何解析和解释赋值语句，包括变量</li>
+<li>A bit about symbol tables and how to store and lookup variables. 关于符号表以及如何存储和查找变量</li>
+</ol>
+<p>I’ll use the following sample Pascal-like program to introduce new concepts:</p>
+<p>我将使用下面这个类似 pascal 的程序来介绍一些新的概念:</p>
+<pre><code class="language-python">BEGIN
+    BEGIN
+        number := 2;
+        a := number;
+        b := 10 * a + 10 * number / 4;
+        c := a - - b
+    END;
+    x := 11;
+END.
+</code></pre>
+<p>You could say that that’s quite a jump from the command line interpreter you wrote so far by following the previous articles in the series, but it’s a jump that I hope will bring excitement. It’s not “just” a calculator anymore, we’re getting serious here, Pascal serious. 😃</p>
+<p>可以说，这与您在本系列前几篇文章之后编写的命令行解释器相比，是一个相当大的跳转，但我希望这是一个将带来令人兴奋的结果的跳转。它不再只是一个“计算器”，我们在这里变得严肃认真，Pascal 认真。😃</p>
+<p>Let’s dive in and look at syntax diagrams for new language constructs and their corresponding grammar rules.</p>
+<p>让我们深入研究一下新语言结构的语法图及其相应的语法规则。</p>
+<p>On your marks: Ready. Set. Go!</p>
+<p>各就各位: 预备，开始！</p>
+<figure data-type="image" tabindex="3"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_syntax_diagram_01.png" alt="" loading="lazy"></figure>
+<ol>
+<li>I’ll start with describing what a Pascal <em>program</em> is. A Pascal <em><strong>program</strong></em> consists of a <em>compound statement</em> that ends with a dot. Here is an example of a program:<br>
+我将从描述什么是 Pascal 程序开始。Pascal 程序由一个以点结尾的复合语句组成。下面是一个程序的例子:</li>
+</ol>
+<pre><code class="language-pascal">“BEGIN  END.”
+</code></pre>
+<p>I have to note that this is not a complete program definition, and we’ll extend it later in the series.<br>
+我必须指出，这并不是一个完整的程序定义，我们将在本系列后面对其进行扩展。</p>
+<ol start="2">
+<li>What is a <em>compound statement</em>? A <em><strong>compound statement</strong></em> is a block marked with BEGIN and END that can contain a list (possibly empty) of statements including other compound statements. Every statement inside the compound statement, except for the last one, must terminate with a semicolon. The last statement in the block may or may not have a terminating semicolon. Here are some examples of valid compound statements:<br>
+什么是复合语句？复合语句是标记为 BEGIN 和 END 的块，它可以包含包含其他复合语句的语句列表(可能为空)。除了最后一个语句之外，复合语句中的所有语句都必须以分号结束。块中的最后一个语句可能有也可能没有终止分号。下面是一些有效的复合语句的例子:</li>
+</ol>
+<pre><code class="language-pascal">“BEGIN END”
+“BEGIN a := 5; x := 11 END”
+“BEGIN a := 5; x := 11; END”
+“BEGIN BEGIN a := 5 END; x := 11 END”
+</code></pre>
+<ol start="3">
+<li>
+<p>A <em><strong>statement list</strong></em> is a list of zero or more statements inside a compound statement. See above for some examples.<br>
+语句列表是复合语句中包含零个或多个语句的列表。</p>
+</li>
+<li>
+<p>A <em><strong>statement</strong></em> can be a <em>compound statement</em>, an <em>assignment statement</em>, or it can be an <em>empty</em> statement.<br>
+语句可以是复合语句、赋值语句，也可以是空语句。</p>
+</li>
+<li>
+<p>An <em><strong>assignment statement</strong></em> is a variable followed by an ASSIGN token (two characters, ‘:’ and ‘=’) followed by an expression.<br>
+赋值语句是一个变量，后跟一个 ASSIGN 标记(两个字符，‘ :’和‘ =’) ，然后是一个表达式。</p>
+</li>
+</ol>
+<pre><code class="language-pascal">“a := 11”
+“b := a + 9 - 5 * 2” 
+</code></pre>
+<ol start="6">
+<li>A <em><strong>variable</strong></em> is an identifier. We’ll use the ID token for variables. The value of the token will be a variable’s name like ‘a’, ‘number’, and so on. In the following code block ‘a’ and ‘b’ are variables:<br>
+变量是一个标识符。我们将对变量使用 ID 标记。token的value将是变量的名称，如‘ a’、‘ number’等等。在下面的代码块中 a 和 b 是变量:</li>
+</ol>
+<pre><code class="language-pascal">“BEGIN a := 11; b := a + 9 - 5 * 2 END” 
+</code></pre>
+<ol start="7">
+<li>
+<p>An <em><strong>empty</strong></em> statement represents a grammar rule with no further productions. We use the <em>empty_statement</em> grammar rule to indicate the end of the <em>statement_list</em> in the parser and also to allow for empty compound statements as in ‘BEGIN END’.<br>
+空语句表示没有进一步结果的语法规则。我们使用 empty _ statement 语法规则来指示语法分析器中 statement _ list 的结尾，并且允许使用空的复合语句，如‘ BEGIN END’。</p>
+</li>
+<li>
+<p>The <em><strong>factor</strong></em> rule is updated to handle variables.<br>
+factor规则被更新以处理变量。</p>
+</li>
+</ol>
+<p>Now let’s take a look at our complete grammar:</p>
+<p>现在让我们来看看完整的语法:</p>
+<pre><code>    program : compound_statement DOT
+
+    compound_statement : BEGIN statement_list END
+
+    statement_list : statement
+                   | statement SEMI statement_list
+
+    statement : compound_statement
+              | assignment_statement
+              | empty
+
+    assignment_statement : variable ASSIGN expr
+
+    empty :
+
+    expr: term ((PLUS | MINUS) term)*
+
+    term: factor ((MUL | DIV) factor)*
+
+    factor : PLUS factor
+           | MINUS factor
+           | INTEGER
+           | LPAREN expr RPAREN
+           | variable
+
+    variable: ID
+</code></pre>
+<p>You probably noticed that I didn’t use the star <strong>‘*’</strong> symbol in the <em>compound_statement</em> rule to represent zero or more repetitions, but instead explicitly specified the <em>statement_list</em> rule. This is another way to represent the ‘zero or more’ operation, and it will come in handy when we look at parser generators like <a href="http://www.dabeaz.com/ply/">PLY</a>, later in the series. I also split the “(PLUS | MINUS) factor” sub-rule into two separate rules.</p>
+<p>您可能已经注意到，在复合语句规则中，我没有使用星号‘ *’符号来表示零次或更多次的重复，而是明确指定了语句列表规则。这是表示“零或更多”操作的另一种方法，在本系列后面的文章中，当我们研究像 PLY 这样的解析器生成器时，它会派上用场。我还将(PLUS | MINUS) 这个factor 子规则分为两个独立的规则。</p>
+<p>In order to support the updated grammar, we need to make a number of changes to our lexer, parser, and interpreter. Let’s go over those changes one by one.</p>
+<p>为了支持更新后的语法，我们需要对词法分析器、语法分析器和解释器进行一些更改。让我们一个一个地复习一下这些变化。</p>
+<p>Here is the summary of the changes in our lexer: <img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_lexer.png" alt="" loading="lazy"></p>
+<p>下面是 lexer 中的更改摘要:</p>
+<ol>
+<li>To support a Pascal program’s definition, compound statements, assignment statements, and variables, our lexer needs to return new tokens:<br>
+为了支持 Pascal 程序的定义、复合语句、赋值语句和变量，lexer 需要返回新的token:</li>
+</ol>
+<ul>
+<li>BEGIN (to mark the beginning of a compound statement)
+<ul>
+<li>(标记复合语句的开头)</li>
+</ul>
+</li>
+<li>END (to mark the end of the compound statement)
+<ul>
+<li>(标记复合语句的结束)</li>
+</ul>
+</li>
+<li>DOT (a token for a dot character ‘.’ required by a Pascal program’s definition)
+<ul>
+<li>(Pascal 程序定义所要求的点字符“ .”的token)</li>
+</ul>
+</li>
+<li>ASSIGN (a token for a two character sequence ‘:=’). In Pascal, an assignment operator is different than in many other languages like C, Python, Java, Rust, or Go, where you would use single character ‘=’ to indicate assignment
+<ul>
+<li>(两个字符序列‘ : =’的token)。在 Pascal 中，赋值操作符不同于许多其他语言，如 c、 Python、 Java、 Rust 或 Go，在这些语言中，你可以使用单个字符‘ =’来表示赋值。</li>
+</ul>
+</li>
+<li>SEMI (a token for a semicolon character ‘;’ that is used to mark the end of a statement inside a compound statement)
+<ul>
+<li>(分号字符‘ ;’的token，用于标记复合语句中语句的结束)</li>
+</ul>
+</li>
+<li>ID (A token for a valid identifier. Identifiers start with an alphabetical character followed by any number of alphanumerical characters)
+<ul>
+<li>(表示有效标识符的token。标识符以字母字符开头，后跟任意数量的字母数字字符)</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Sometimes, in order to be able to differentiate between different tokens that start with the same character, (‘:’ vs ‘:=’ or ‘==’ vs ‘=&gt;’ ) we need to peek into the input buffer without actually consuming the next character. For this particular purpose, I introduced a <em>peek</em> method that will help us tokenize assignment statements. The method is not strictly required, but I thought I would introduce it earlier in the series and it will also make the <em>get_next_token</em> method a bit cleaner. All it does is return the next character from the text buffer without incrementing the <em>self.pos</em> variable. Here is the method itself:<br>
+有时候，为了能够区分以相同字符开头的不同token（ <code> :</code>vs<code>:=</code> 或 <code>= =</code>vs<code>=&gt;</code> ) ，我们需要查看输入缓冲区，而不需要实际消耗下一个字符。为此，我介绍了一个 peek 方法，它将帮助我们对赋值语句tokenize。这个方法并不是严格要求的，但是我认为我应该在本系列的前面介绍这个方法，它还将使 get_next _ token 方法更加清晰。它所做的只是从文本缓冲区返回下一个字符，而不增加 self.pos 变量。这就是方法本身:</li>
+</ol>
+<pre><code class="language-python">def peek(self):
+peek_pos = self.pos + 1
+if peek_pos &gt; len(self.text) - 1:
+    return None
+else:
+    return self.text[peek_pos]
+</code></pre>
+<ol start="3">
+<li>Because Pascal variables and reserved keywords are both identifiers, we will combine their handling into one method called _<em>id</em>. The way it works is that the lexer consumes a sequence of alphanumerical characters and then checks if the character sequence is a reserved word. If it is, it returns a pre-constructed token for that reserved keyword. And if it’s not a reserved keyword, it returns a new ID token whose value is the character string (lexeme). I bet at this point you think, “Gosh, just show me the code.” 😃 Here it is:<br>
+因为 Pascal 变量和保留关键字都是标识符，所以我们将它们的处理合并到一个名为 <code>_id</code> 的方法中。它的工作方式是，词法分析器“消耗”一个字母数字字符序列，然后检查字符序列是否是保留字。如果是，则返回该保留关键字的预构造token。如果它不是保留关键字，则返回一个新的 ID token，其值为字符串(lexeme)。我打赌此时你会想，“天哪，给我看看代码吧。”:)在这里:</li>
+</ol>
+<pre><code class="language-python">RESERVED_KEYWORDS = {
+'BEGIN': Token('BEGIN', 'BEGIN'),
+'END': Token('END', 'END'),
+}
+def _id(self):
+ &quot;&quot;&quot;Handle identifiers and reserved keywords&quot;&quot;&quot;
+ result = ''
+ while self.current_char is not None and self.current_char.isalnum():
+ result += self.current_char
+ self.advance()
+
+ token = RESERVED_KEYWORDS.get(result, Token(ID, result))
+ return token
+</code></pre>
+<ol start="4">
+<li>And now let’s take a look at the changes in the main lexer method <em>get_next_token</em>:<br>
+现在让我们来看看 lexer 方法 get _ next _ token 中的更改:</li>
+</ol>
+<pre><code class="language-python">def get_next_token(self):
+    while self.current_char is not None:
+        ...
+        if self.current_char.isalpha():
+            return self._id()
+
+        if self.current_char == ':' and self.peek() == '=':
+            self.advance()
+            self.advance()
+            return Token(ASSIGN, ':=')
+
+        if self.current_char == ';':
+            self.advance()
+            return Token(SEMI, ';')
+
+        if self.current_char == '.':
+            self.advance()
+            return Token(DOT, '.')
+        ...
+</code></pre>
+<p>It’s time to see our shiny new lexer in all its glory and action. Download the source code from <a href="https://github.com/rspivak/lsbasi/blob/master/part9/python">GitHub</a> and launch your Python shell from the same directory where you saved the <a href="https://github.com/rspivak/lsbasi/blob/master/part9/python/spi.py">spi.py</a> file:</p>
+<p>现在是时候看看我们新的 lexer 。从 GitHub 下载源代码，然后从保存 spi.py 文件的同一个目录启动 Python shell:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from spi import Lexer
+&gt;&gt;&gt; lexer = Lexer('BEGIN a := 2; END.')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(BEGIN, 'BEGIN')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(ID, 'a')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(ASSIGN, ':=')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(INTEGER, 2)
+&gt;&gt;&gt; lexer.get_next_token()
+Token(SEMI, ';')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(END, 'END')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(DOT, '.')
+&gt;&gt;&gt; lexer.get_next_token()
+Token(EOF, None)
+&gt;&gt;&gt;
+</code></pre>
+<p>Moving on to parser changes.</p>
+<p>继续更改解析器。</p>
+<p>Here is the summary of changes in our parser: <img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_parser.png" alt="" loading="lazy"></p>
+<p>以下是我们解析器中的变化总结:</p>
+<ol>
+<li>Let’s start with new AST nodes:<br>
+让我们从新的 AST 节点开始:</li>
+</ol>
+<ul>
+<li>
+<p><em>Compound</em> AST node represents a compound statement. It contains a list of statement nodes in its <em>children</em> variable.<br>
+<em>Compound</em> AST 节点表示一个复合语句，它的子变量中包含一个语句节点列表。</p>
+<pre><code class="language-python">class Compound(AST):
+&quot;&quot;&quot;Represents a 'BEGIN ... END' block&quot;&quot;&quot;
+def __init__(self):
+ self.children = []
+</code></pre>
+</li>
+<li>
+<p><em>Assign</em> AST node represents an assignment statement. Its <em>left</em> variable is for storing a <em>Var</em> node and its <em>right</em> variable is for storing a node returned by the expr parser method:<br>
+<em>Assign</em> AST 节点表示一个赋值语句。它的左变量用于存储 Var 节点，右变量用于存储 expr 解析方法返回的节点:</p>
+<pre><code class="language-python">class Assign(AST):
+def __init__(self, left, op, right):
+ self.left = left
+ self.token = self.op = op
+ self.right = right
+</code></pre>
+</li>
+<li>
+<p><em>Var</em> AST node (you guessed it) represents a variable. The <em>self.value</em> holds the variable’s name.<br>
+Var AST 节点(您猜对了)表示一个变量。</p>
+<pre><code class="language-python">class Var(AST):
+&quot;&quot;&quot;The Var node is constructed out of ID token.&quot;&quot;&quot;
+def __init__(self, token):
+ self.token = token
+ self.value = token.value
+</code></pre>
+</li>
+<li>
+<p><em>NoOp</em> node is used to represent an <em>empty</em> statement. For example ‘BEGIN END’ is a valid compound statement that has no statements.<br>
+NoOp 节点用于表示一个空语句。例如，BEGIN END 是一个没有语句的有效复合语句。</p>
+</li>
+</ul>
+<ol start="2">
+<li>As you remember, each rule from the grammar has a corresponding method in our recursive-descent parser. This time we’re adding seven new methods. These methods are responsible for parsing new language constructs and constructing new AST nodes. They are pretty straightforward:<br>
+正如您所记得的，文法中的每个规则在我们的递归下降分析器中都有一个对应的方法。这次我们增加了七种新方法。这些方法负责解析新的语言结构并构造新的 AST 节点。它们非常直截了当:</li>
+</ol>
+<pre><code class="language-python">def program(self):
+  &quot;&quot;&quot;program : compound_statement DOT&quot;&quot;&quot;
+  node = self.compound_statement()
+  self.eat(DOT)
+  return node
+
+def compound_statement(self):
+  &quot;&quot;&quot;
+  compound_statement: BEGIN statement_list END
+  &quot;&quot;&quot;
+  self.eat(BEGIN)
+  nodes = self.statement_list()
+  self.eat(END)
+
+  root = Compound()
+  for node in nodes:
+      root.children.append(node)
+
+  return root
+
+def statement_list(self):
+  &quot;&quot;&quot;
+  statement_list : statement
+                 | statement SEMI statement_list
+  &quot;&quot;&quot;
+  node = self.statement()
+
+  results = [node]
+
+  while self.current_token.type == SEMI:
+      self.eat(SEMI)
+      results.append(self.statement())
+
+  if self.current_token.type == ID:
+      self.error()
+
+  return results
+
+def statement(self):
+  &quot;&quot;&quot;
+  statement : compound_statement
+            | assignment_statement
+            | empty
+  &quot;&quot;&quot;
+  if self.current_token.type == BEGIN:
+      node = self.compound_statement()
+  elif self.current_token.type == ID:
+      node = self.assignment_statement()
+  else:
+      node = self.empty()
+  return node
+
+def assignment_statement(self):
+  &quot;&quot;&quot;
+  assignment_statement : variable ASSIGN expr
+  &quot;&quot;&quot;
+  left = self.variable()
+  token = self.current_token
+  self.eat(ASSIGN)
+  right = self.expr()
+  node = Assign(left, token, right)
+  return node
+
+def variable(self):
+  &quot;&quot;&quot;
+  variable : ID
+  &quot;&quot;&quot;
+  node = Var(self.current_token)
+  self.eat(ID)
+  return node
+
+def empty(self):
+  &quot;&quot;&quot;An empty production&quot;&quot;&quot;
+  return NoOp()
+</code></pre>
+<ol start="3">
+<li>We also need to update the existing <em>factor</em> method to parse variables:<br>
+我们还需要更新现有的 factor 方法来解析变量:</li>
+</ol>
+<pre><code class="language-python">def factor(self):
+    &quot;&quot;&quot;factor : PLUS  factor
+              | MINUS factor
+              | INTEGER
+              | LPAREN expr RPAREN
+              | variable
+    &quot;&quot;&quot;
+    token = self.current_token
+    if token.type == PLUS:
+        self.eat(PLUS)
+        node = UnaryOp(token, self.factor())
+        return node
+    ...
+    else:
+        node = self.variable()
+        return node
+</code></pre>
+<ol start="4">
+<li>The parser’s <em>parse</em> method is updated to start the parsing process by parsing a program definition:<br>
+解析器的 parse 方法通过解析程序定义来更新开始解析过程:</li>
+</ol>
+<pre><code class="language-python">def parse(self):
+    node = self.program()
+    if self.current_token.type != EOF:
+        self.error()
+
+    return node
+</code></pre>
+<p>Here is our sample program again:</p>
+<p>下面是我们的示例程序:</p>
+<pre><code class="language-pascal">BEGIN
+    BEGIN
+        number := 2;
+        a := number;
+        b := 10 * a + 10 * number / 4;
+        c := a - - b
+    END;
+    x := 11;
+END.
+</code></pre>
+<p>Let’s visualize it with <a href="https://github.com/rspivak/lsbasi/blob/master/part9/python/genastdot.py">genastdot.py</a> (For brevity, when displaying a <em>Var</em> node, it just shows the node’s variable name and when displaying an Assign node it shows ‘:=’ instead of showing ‘Assign’ text):</p>
+<p>让我们使用 genastdot.py 将其可视化(为了简便起见，在显示 Var 节点时，它只显示节点的变量名，而在显示 Assign 节点时，它显示‘ : =’而不显示‘ Assign’文本) :</p>
+<pre><code class="language-shell">$ python genastdot.py assignments.txt &gt; ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<p>​</p>
+<figure data-type="image" tabindex="4"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_full_ast.png" alt="" loading="lazy"></figure>
+<p>And finally, here are the required interpreter changes: <img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_interpreter.png" alt="" loading="lazy"></p>
+<p>最后，以下是所需的解释器更改:</p>
+<p>To interpret new AST nodes, we need to add corresponding visitor methods to the interpreter. There are four new visitor methods:</p>
+<p>要解释新的 AST 节点，我们需要向解释器添加相应的visitor方法。有四种新的访问方法:</p>
+<ul>
+<li>visit_Compound</li>
+<li>visit_Assign</li>
+<li>visit_Var</li>
+<li>visit_NoOp</li>
+</ul>
+<p><em>Compound</em> and <em>NoOp</em> visitor methods are pretty straightforward. The <em>visit_Compound</em> method iterates over its children and visits each one in turn, and the <em>visit_NoOp</em> method does nothing.</p>
+<p>Compound 和 NoOp 访问者方法非常简单。 _visit_Compound _方法迭代它的子元素并依次访问每个子元素，而_visit_NoOp_方法什么也不做。</p>
+<pre><code class="language-python">def visit_Compound(self, node):
+    for child in node.children:
+        self.visit(child)
+
+def visit_NoOp(self, node):
+    pass
+</code></pre>
+<p>The <em>Assign</em> and <em>Var</em> visitor methods deserve a closer examination.</p>
+<p>Assign 和 Var visitor 方法值得进一步研究。</p>
+<p>When we assign a value to a variable, we need to store that value somewhere for when we need it later, and that’s exactly what the <em>visit_Assign</em> method does:</p>
+<p>当我们为一个变量赋值时，我们需要将这个值存储在某个地方，以备以后需要时使用，而这正是 visit _ assign 方法所做的:</p>
+<pre><code class="language-python">def visit_Assign(self, node):
+    var_name = node.left.value
+    self.GLOBAL_SCOPE[var_name] = self.visit(node.right)
+</code></pre>
+<p>The method stores a key-value pair (a variable name and a value associated with the variable) in a <em>symbol table</em> GLOBAL_SCOPE. What is a <em>symbol table</em>? A <em><strong>symbol table</strong></em> is an abstract data type (<strong>ADT</strong>) for tracking various symbols in source code. The only symbol category we have right now is variables and we use the Python dictionary to implement the symbol table ADT. For now I’ll just say that the way the symbol table is used in this article is pretty “hacky”: it’s not a separate class with special methods but a simple Python dictionary and it also does double duty as a memory space. In future articles, I will be talking about symbol tables in much greater detail, and together we’ll also remove all the hacks.</p>
+<p>该方法在符号表 global_scope 中存储键值对(变量名和与变量关联的值)。什么是符号表？符号表是用于跟踪源代码中各种符号的抽象数据类型(ADT)。我们现在唯一的符号类别是变量，我们使用 Python 字典来实现符号表 ADT。现在我只想说，本文中使用符号表的方式非常“朴素”: 它不是一个带有特殊方法的单独类，而是一个简单的 Python 字典，它还兼有作为内存空间的双重任务。在以后的文章中，我将更详细地讨论符号表，我们还将一起删除所有的hacks。</p>
+<p>Let’s take a look at an AST for the statement “a := 3;” and the symbol table before and after the <em>visit_Assign</em> method does its job:</p>
+<p>让我们看一下语句“ a: = 3;”的 AST，并且在 visit _ assign 方法之前和之后的符号表完成了它的工作:</p>
+<figure data-type="image" tabindex="5"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_ast_st01.png" alt="" loading="lazy"></figure>
+<p>Now let’s take a look at an AST for the statement “b := a + 7;”</p>
+<p>现在让我们看一下语句“ b: = a + 7;”的 AST</p>
+<figure data-type="image" tabindex="6"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_ast_only_st02.png" alt="" loading="lazy"></figure>
+<p>As you can see, the right-hand side of the assignment statement - “a + 7” - references the variable ‘a’, so before we can evaluate the expression “a + 7” we need to find out what the value of ‘a’ is and that’s the responsibility of the <em>visit_Var</em> method:</p>
+<p>正如你所看到的，赋值语句的右边——“ a + 7”——引用了变量“ a”，所以在我们计算表达式“ a + 7”之前，我们需要找出“ a”的值，这是 visit _ var 方法的职责:</p>
+<pre><code class="language-python">def visit_Var(self, node):
+    var_name = node.value
+    val = self.GLOBAL_SCOPE.get(var_name)
+    if val is None:
+        raise NameError(repr(var_name))
+    else:
+        return val
+</code></pre>
+<p>When the method visits a <em>Var</em> node as in the above AST picture, it first gets the variable’s name and then uses that name as a key into the <em>GLOBAL_SCOPE</em> dictionary to get the variable’s value. If it can find the value, it returns it, if not - it raises a <em>NameError</em> exception. Here are the contents of the symbol table before evaluating the assignment statement “b := a + 7;”:</p>
+<p>当该方法访问上面 AST 图片中的 Var 节点时，它首先获取变量的名称，然后使用该名称作为 GLOBAL _ scope 字典中的键来获取变量的值。如果它能找到该值，则返回该值，如果不能，则引发 NameError 异常。下面是在计算赋值语句“ b: = a + 7;”之前的符号表的内容:</p>
+<figure data-type="image" tabindex="7"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part9_ast_st02.png" alt="" loading="lazy"></figure>
+<p>These are all the changes that we need to do today to make our interpreter tick. At the end of the main program, we simply print the contents of the symbol table GLOBAL_SCOPE to standard output.</p>
+<p>这些就是我们今天需要做的所有改变，以使我们的解释器工作起来。在主程序的最后，我们简单地将符号表 GLOBAL _ scope 的内容打印到标准输出。</p>
+<p>Let’s take our updated interpreter for a drive both from a Python interactive shell and from the command line. Make sure that you downloaded both the source code for the interpreter and the <a href="https://github.com/rspivak/lsbasi/blob/master/part9/python/assignments.txt">assignments.txt</a> file before testing:</p>
+<p>让我们从 Python 交互式 shell 和命令行获取已更新的解释器驱动器。在测试之前，确保你下载了解释器的源代码和 assignments.txt 文件:</p>
+<p>Launch your Python shell:</p>
+<p>启动你的 Python shell:</p>
+<pre><code class="language-shell">$ python
+&gt;&gt;&gt; from spi import Lexer, Parser, Interpreter
+&gt;&gt;&gt; text = &quot;&quot;&quot;\
+... BEGIN
+...
+...     BEGIN
+...         number := 2;
+...         a := number;
+...         b := 10 * a + 10 * number / 4;
+...         c := a - - b
+...     END;
+...
+...     x := 11;
+... END.
+... &quot;&quot;&quot;
+&gt;&gt;&gt; lexer = Lexer(text)
+&gt;&gt;&gt; parser = Parser(lexer)
+&gt;&gt;&gt; interpreter = Interpreter(parser)
+&gt;&gt;&gt; interpreter.interpret()
+&gt;&gt;&gt; print(interpreter.GLOBAL_SCOPE)
+{'a': 2, 'x': 11, 'c': 27, 'b': 25, 'number': 2}
+</code></pre>
+<p>And from the command line, using a source file as input to our interpreter:</p>
+<p>在命令行中，使用源文件作为解释器的输入:</p>
+<pre><code class="language-shell">$ python spi.py assignments.txt
+{'a': 2, 'x': 11, 'c': 27, 'b': 25, 'number': 2}
+</code></pre>
+<p>If you haven’t tried it yet, try it now and see for yourself that the interpreter is doing its job properly.</p>
+<p>如果你还没有尝试过，那么现在就试一试，看看译员是否正确地完成了它的工作。</p>
+<p>Let’s sum up what you had to do to extend the Pascal interpreter in this article:</p>
+<p>让我们总结一下在本文中扩展 Pascal 解释器所做的工作:</p>
+<ol>
+<li>Add new rules to the grammar</li>
+<li>在grammar中添加新规则</li>
+<li>Add new tokens and supporting methods to the lexer and update the _get_next_token _method</li>
+<li>向 lexer 添加新的token和支持方法，并更新_get_next_token_方法</li>
+<li>Add new nodes to the parser for new language constructs 为新语言结构添加新的node到解析器</li>
+<li>Add new methods corresponding to the new grammar rules to our recursive-descent parser and update any existing methods, if necessary (<em>factor</em> method, I’m looking at you. 😃</li>
+<li>向递归下降解析器中添加与新语法规则对应的新方法，并在必要时更新任何现有方法</li>
+<li>Add new visitor methods to the interpreter 向解释器添加新的visitor方法</li>
+<li>Add a dictionary for storing variables and for looking them up 添加一个用于存储变量和查找变量的字典</li>
+</ol>
+<p>In this part I had to introduce a number of “hacks” that we’ll remove as we move forward with the series:</p>
+<p>在这一部分中，我必须介绍一些“ hacks”，我们将在本系列后续文章中删除它们:</p>
+<figure data-type="image" tabindex="8"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_hacks.png" alt="" loading="lazy"></figure>
+<ol>
+<li>The _program _grammar rule is incomplete. We’ll extend it later with additional elements.</li>
+<li>program的语法规则是不完整的。我们稍后将使用其他元素对其进行扩展</li>
+<li>Pascal is a statically typed language, and you must declare a variable and its type before using it. But, as you saw, that was not the case in this article.</li>
+<li>Pascal 是一种静态类型语言，在使用它之前必须声明变量及其类型。但是，正如你所看到的，这篇文章并不是这样的</li>
+<li>No type checking so far. It’s not a big deal at this point, but I just wanted to mention it explicitly. Once we add more types to our interpreter we’ll need to report an error when you try to add a string and an integer, for example.</li>
+<li>到目前为止还没有类型检查。在这一点上，这不是什么大问题，但我只是想明确地提一下。一旦我们向解释器添加了更多的类型，我们就需要在尝试添加字符串和整数时报告一个错误</li>
+<li>A symbol table in this part is a simple Python dictionary that does double duty as a memory space. Worry not: symbol tables are such an important topic that I’ll have several articles dedicated just to them. And memory space (runtime management) is a topic of its own.</li>
+<li>本部分中的符号表是一个简单的 Python 字典，它兼有内存空间的双重任务。不用担心: 符号表是一个非常重要的主题，我将专门为它们写几篇文章。内存空间(运行时管理)是一个单独的话题</li>
+<li>In our simple calculator from previous articles, we used a forward slash character ‘/’ for denoting integer division. In Pascal, though, you have to use a keyword _div _ to specify integer division (See Exercise 1).</li>
+<li>在前面文章中的简单计算器中，我们使用了斜杠字符‘/’来表示整数除法。但在 Pascal 语言中，你必须使用关键词 div 来指定整数除法(请参阅练习1)。</li>
+<li>There is also one hack that I introduced on purpose so that you could fix it in Exercise 2: in Pascal all reserved keywords and identifiers are case insensitive, but the interpreter in this article treats them as case sensitive.</li>
+<li>我还故意介绍了一个hack，这样你就可以在练习2中修正它: 在 Pascal 语言中，所有保留的关键字和标识符都不区分大小写，但是本文中的解释器将它们视为区分大小写</li>
+</ol>
+<p>To keep you fit, here are new exercises for you:<br>
+练习：</p>
+<figure data-type="image" tabindex="9"><img src="https://ruslanspivak.com/lsbasi-part9/lsbasi_part9_exercises.png" alt="" loading="lazy"></figure>
+<ol>
+<li>
+<p>Pascal variables and reserved keywords are case insensitive, unlike in many other programming languages, so <em>BEGIN</em>, <em>begin</em>, and <em>BeGin</em> they all refer to the same reserved keyword. Update the interpreter so that variables and reserved keywords are case insensitive. Use the following program to test it:</p>
+</li>
+<li>
+<p>与许多其他编程语言不同，Pascal 变量和保留关键字不区分大小写，因此 BEGIN、 BEGIN 和 BEGIN 都引用同一个保留关键字。更新解释器，使变量和保留关键字不区分大小写。使用以下程序进行测试:</p>
+</li>
+</ol>
+<pre><code class="language-pascal">BEGIN
+    BEGIN
+        number := 2;
+        a := NumBer;
+        B := 10 * a + 10 * NUMBER / 4;
+        c := a - - b
+    end;
+
+    x := 11;
+END.
+</code></pre>
+<ol start="2">
+<li>
+<p>I mentioned in the “hacks” section before that our interpreter is using the forward slash character ‘/’ to denote integer division, but instead it should be using Pascal’s reserved keyword <em>div</em> for integer division. Update the interpreter to use the <em>div</em> keyword for integer division, thus eliminating one of the hacks.</p>
+</li>
+<li>
+<p>我在前面的“ hacks”部分提到过，我们的解释器使用正斜杠字符‘/’来表示整数除法，但是它应该使用 Pascal 的保留关键字 div 来表示整数除法。更新解释器，使其使用 div 关键字进行整数除法，从而消除一个 hacks。</p>
+</li>
+</ol>
+<p>​</p>
+<ol start="3">
+<li>Update the interpreter so that variables could also start with an underscore as in ‘_num := 5’.<br>
+更新解释器，使得变量也可以以<code>_num := 5</code>中的下划线开头。</li>
+</ol>
+<p>That’s all for today. Stay tuned and see you soon.</p>
+<p>今天就到这里，敬请期待。</p>
+<p>Here is a list of books I recommend that will help you in your study of interpreters and compilers:</p>
+<p>以下是我推荐的一些书籍，它们可以帮助你学习解释器和编译器:</p>
+<ol>
+<li><a href="http://www.amazon.com/gp/product/193435645X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=193435645X&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=MP4DCXDV6DJMEJBL">Language Implementation Patterns: Create Your Own Domain-Specific and General Programming Languages (Pragmatic Programmers)</a><br>
+语言实现模式: 创建您自己的特定领域和通用编程语言(实用程序员)</li>
+<li><a href="http://www.amazon.com/gp/product/0321486811/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321486811&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=GOEGDQG4HIHU56FQ">Compilers: Principles, Techniques, and Tools (2nd Edition)</a><br>
+编译器: 原理、技术和工具(第二版)</li>
+</ol>
+<p>If you want to get my newest articles in your inbox, then enter your email address below and click &quot;Get Updates!&quot;</p>
+<p>如果你想得到我的最新文章在您的收件箱，然后输入您的电子邮件地址下面，并点击“获取更新!”</p>
+<p><strong>All articles in this series:</strong></p>
+<p>本系列的所有文章:</p>
+<ul>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/">Let's Build A Simple Interpreter. Part 1. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part2/">Let's Build A Simple Interpreter. Part 2. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part3/">Let's Build A Simple Interpreter. Part 3. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part4/">Let's Build A Simple Interpreter. Part 4. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part5/">Let's Build A Simple Interpreter. Part 5. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part6/">Let's Build A Simple Interpreter. Part 6. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part7/">Let's Build A Simple Interpreter. Part 7: Abstract Syntax Trees 让我们构建一个简单的解释器。第7部分: 抽象语法树</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part8/">Let's Build A Simple Interpreter. Part 8. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part9/">Let's Build A Simple Interpreter. Part 9. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part10/">Let's Build A Simple Interpreter. Part 10. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part11/">Let's Build A Simple Interpreter. Part 11. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part12/">Let's Build A Simple Interpreter. Part 12. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part13/">Let's Build A Simple Interpreter. Part 13: Semantic Analysis 让我们建立一个简单的解释器。第13部分: 语义分析</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part14/">Let's Build A Simple Interpreter. Part 14: Nested Scopes and a Source-to-Source Compiler 让我们构建一个简单的解释器。第14部分: 嵌套作用域和源到源编译器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part15/">Let's Build A Simple Interpreter. Part 15. 让我们构建一个简单的解释器。第15部分</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part16/">Let's Build A Simple Interpreter. Part 16: Recognizing Procedure Calls 让我们建立一个简单的解释器。第16部分: 识别过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part17/">Let's Build A Simple Interpreter. Part 17: Call Stack and Activation Records 让我们构建一个简单的解释器。第17部分: 调用堆栈和激活记录</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part18/">Let's Build A Simple Interpreter. Part 18: Executing Procedure Calls 让我们构建一个简单的解释器。第18部分: 执行过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part19/">Let's Build A Simple Interpreter. Part 19: Nested Procedure Calls 让我们构建一个简单的解释器。第19部分: 嵌套过程调用</a></li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/">https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/&sharesource=qzone&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9&pics=https://lzxzl.github.io/images/avatar.png?v=1715018654095&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/&sharesource=weibo&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1715018654095 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">#
+                    编译原理
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-10/">
+                                                                                            [翻译与学习] Let’s Build A Simple Interpreter. Part 10.
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/">
+                                                                                                    [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8.
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1715018654095);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
