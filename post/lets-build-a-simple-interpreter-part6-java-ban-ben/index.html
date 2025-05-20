@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Let’s Build A Simple Interpreter. Part6. —— Java版本
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-11-11</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">5.8
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1111</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">编译原理</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>学到Part6，用Java重写了解释器。</p>
+<p>把这几个类拆开放了，共三个文件：</p>
+<pre><code class="language-powershell">src
+    ├── Interpreter.java
+    ├── Lexer.java
+    └── Token.java
+</code></pre>
+<h3 id="tokenjava">Token.java</h3>
+<pre><code class="language-java">public class Token {
+
+    private String type;
+    private String value;
+
+
+    public Token(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Token{&quot; +
+                &quot;type='&quot; + type + '\'' +
+                &quot;, value='&quot; + value + '\'' +
+                '}';
+    }
+}
+</code></pre>
+<h3 id="lexerjava-词法分析器">Lexer.java （词法分析器）</h3>
+<pre><code class="language-java">import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
+/**
+ * 词法解析器：输入字符串-&gt;token
+ */
+public  class Lexer{
+    private String text;
+    private int pos=0;
+    private char current_char;
+    public Lexer(String text) {
+        this.text = text;
+        this.current_char = text.charAt(this.pos);
+    }
+
+    private void error() throws InvalidCharException{
+        throw new InvalidCharException(&quot;Invalid character&quot;);
+    }
+
+    /**
+     * 字符串的解析前进一个字符
+     */
+    private void advance(){
+        this.pos += 1;
+        if(this.pos &gt; this.text.length()-1){
+            this.current_char = '\0';
+        }else{
+            this.current_char = this.text.charAt(pos);
+        }
+    }
+
+    /**
+     * 跳过空格
+     */
+    private void skip_whitespace(){
+        if(this.current_char!='\0' &amp;&amp; Character.isSpaceChar(this.current_char)){
+            advance();
+        }
+    }
+
+    /**
+     * 一/多个字符-&gt;整数
+     * @return
+     */
+    private String integer(){
+        String result = &quot;&quot;;
+        while(this.current_char != '\0' &amp;&amp; Character.isDigit(this.current_char)){
+            result += this.current_char;
+            advance();
+        }
+        return result;
+    }
+
+    /**
+     * 获取下一个token，并且使得pos加一
+     * @return
+     */
+    public Token get_next_token() throws InvalidCharException {
+
+        while(this.current_char != '\0' ){
+            // 判断当前字符是空格
+            if(Character.isSpaceChar(this.current_char)){
+                //跳过空格
+                skip_whitespace();
+                //然后继续循环
+                continue;
+            }else if(Character.isDigit(this.current_char)){ // 如果当前字符是整数
+                return new Token(Interpreter.INTEGER,integer());
+            }else if(this.current_char == '+'){// 如果当前字符是+
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.PLUS,&quot;+&quot;);
+            }else if(this.current_char == '-'){// 如果当前字符是-
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.MINUS,&quot;-&quot;);
+            }else if(this.current_char == '*'){// 如果当前字符是*
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.MUL,&quot;*&quot;);
+            }else if(this.current_char == '/'){// 如果当前字符是/
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.DIV,&quot;/&quot;);
+            }else if(this.current_char == '('){// 如果当前字符是(
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.LPAREN,&quot;(&quot;);
+            }else if(this.current_char == ')'){// 如果当前字符是)
+                // 前进一步
+                advance();
+                //然后返回当前字符对应的token
+                return new Token(Interpreter.RPAREN,&quot;)&quot;);
+            }else{
+                error();
+            }
+        }
+        return new Token(Interpreter.EOF,&quot;EOF&quot;);
+
+    }
+
+    public class InvalidCharException extends Exception{
+        public InvalidCharException(String message) {
+            super(message);
+        }
+    }
+
+}
+</code></pre>
+<h3 id="interpreterjava语法分析器和解释器">Interpreter.java（语法分析器和解释器）</h3>
+<pre><code class="language-java">
+import java.util.Scanner;
+
+public class Interpreter {
+    // expr : term ((PLUS | MINUS)term)*
+    // term : factor ((MUL|DIV)factor)*
+    // factor : INTEGER | LPAREN expr RPAREN
+
+    private Lexer lexer;
+    private Token current_token;
+
+    public final static String PLUS = &quot;PLUS&quot;;
+    public final static String MINUS = &quot;MINUS&quot;;
+    public final static String MUL = &quot;MUL&quot;;
+    public final static String DIV = &quot;DIV&quot;;
+    public final static String LPAREN = &quot;(&quot;;
+    public final static String RPAREN = &quot;)&quot;;
+    public final static String INTEGER = &quot;INTEGER&quot;;
+    public final static String EOF = &quot;EOF&quot;;
+
+
+
+    public Interpreter(Lexer lexer) throws Lexer.InvalidCharException {
+        this.lexer = lexer;
+        this.current_token = lexer.get_next_token();
+    }
+
+    /**
+     * 抛出语法异常
+     * @throws InvalidSyntaxException
+     */
+    public void error() throws InvalidSyntaxException {
+        throw new InvalidSyntaxException(&quot;Invalid syntax&quot;);
+    }
+
+    public class InvalidSyntaxException extends Exception{
+        public InvalidSyntaxException(String message) {
+            super(message);
+        }
+    }
+
+    private void eat(String token_type) throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 如果当前token的type和传入的type确实一样，那么就获取下一个token
+        if(this.current_token.getType() == token_type){
+            this.current_token = this.lexer.get_next_token();
+        }else{
+            throw new InvalidSyntaxException(&quot;Invalid Syntax&quot;);
+        }
+    }
+
+    /**
+     * factor : INTEGER | LPAREN expr RPAREN
+     * @return 基本单元
+     */
+    private int factor() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        int result=0;
+        if(this.current_token.getType() == INTEGER){
+            // 需要先取出当前INTEGER类型的token，否则下面eat之后的return返回的就是INTEGER的下一个token了
+            Token token = this.current_token;
+            eat(INTEGER);
+            result = Integer.valueOf(token.getValue());
+        }else if(this.current_token.getType() == LPAREN){
+            eat(LPAREN);
+            result = expr();
+            eat(RPAREN);
+        }
+        return result;
+    }
+
+    /**
+     * term : factor ((MUL|DIV)factor)*
+     * @return 中间计算结果
+     */
+    private int term() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 获取第一个factor
+        int result = factor();
+        // ()* -&gt; 循环
+        while(this.current_token.getType() == MUL || this.current_token.getType() == DIV){
+            // | -&gt; if-else
+            if(this.current_token.getType() == MUL){
+                eat(MUL);
+                result *= factor();
+            }else if(this.current_token.getType() == DIV){
+                eat(DIV);
+                result /= factor();
+            }
+        }
+        return result;
+    }
+
+    //
+
+    /**
+     * expr : term ((PLUS | MINUS)term)*
+     *
+     * calc&gt; 7 + 3 * (10 / (12 / (3 + 1) - 1))
+     * 22
+     *
+     * @return 最终计算结果
+     */
+    private int expr() throws InvalidSyntaxException, Lexer.InvalidCharException {
+        // 获取第一个term
+        int result = term();
+        // ()* -&gt; 循环
+        while(this.current_token.getType() == PLUS || this.current_token.getType() == MINUS){
+            // | -&gt; if-else
+            if(this.current_token.getType() == PLUS){
+                // 吃掉当前token，设置this.current_token为下一个token
+                eat(PLUS);
+                // 加上第2个term
+                result += term();
+            }else if(this.current_token.getType() == MINUS){
+                // 吃掉当前token，设置this.current_token为下一个token
+                eat(MINUS);
+                // 减去第2个term
+                result -= term();
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) throws Lexer.InvalidCharException, InvalidSyntaxException {
+        Scanner sc = new Scanner(System.in);
+
+        while(true){
+            String text = &quot;&quot;;
+            try{
+                System.out.print(&quot;calc&gt; &quot;);
+                text = sc.nextLine();
+            }catch (Exception e){
+                break;
+            }
+            if(text.equals(&quot;&quot;)){
+                continue;
+            }
+            if(text.equals(&quot;exit&quot;)){
+                break;
+            }
+            // 将输入字符串转换为token
+            Lexer lexer = new Lexer(text);
+            // 将lexer输入解释器，new一个解释器
+            Interpreter interpreter = new Interpreter(lexer);
+            //执行解释器的expr，得到结果
+            int result = interpreter.expr();
+            // 打印结果
+            System.out.println(result);
+        }
+        sc.close();
+    }
+}
+</code></pre>
+<h3 id="测试">测试</h3>
+<pre><code class="language-powershell">
+calc&gt; 7 + 3 * (10 / (12 / (3 + 1) - 1))
+22
+calc&gt; 
+calc&gt; 2
+2
+calc&gt; 
+</code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#tokenjava">Token.java</a></li>
+<li><a href="#lexerjava-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8">Lexer.java （词法分析器）</a></li>
+<li><a href="#interpreterjava%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8">Interpreter.java（语法分析器和解释器）</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95">测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/">https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/&sharesource=qzone&title=Let’s Build A Simple Interpreter. Part6. —— Java版本&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/&sharesource=weibo&title=Let’s Build A Simple Interpreter. Part6. —— Java版本 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">#
+                    编译原理
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part7-abstract-syntax-trees/">
+                                                                                            [翻译与学习] Let’s Build A Simple Interpreter. Part7. Abstract Syntax Trees
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part6/">
+                                                                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part6.
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

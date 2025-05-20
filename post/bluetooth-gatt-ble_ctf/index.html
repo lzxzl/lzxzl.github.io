@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Bluetooth - GATT - BLE_CTF
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-06-27</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">42.4
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">7092</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/Bluetooth/">Bluetooth</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="环境搭建">环境搭建</h1>
+<pre><code class="language-shell"># 1、安装esptool
+ztree@ubuntu2:~/bt/ble_ctf$ sudo apt install esptool
+
+# 2、clone ble_ctf仓库
+ztree@ubuntu2:~/bt$ git clone https://github.com/hackgnar/ble_ctf.git
+Cloning into 'ble_ctf'...
+remote: Enumerating objects: 667, done.
+remote: Counting objects: 100% (46/46), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 667 (delta 20), reused 24 (delta 6), pack-reused 621
+Receiving objects: 100% (667/667), 2.13 MiB | 3.38 MiB/s, done.
+Resolving deltas: 100% (348/348), done.
+
+# 3、cd进目录
+ztree@ubuntu2:~/bt$ cd ble_ctf/
+
+# 4、Flash the pre-compiled binaries
+ztree@ubuntu2:~/bt/ble_ctf$ esptool --chip esp32 --port /dev/ttyUSB0 \
+--baud 115200 --before default_reset --after hard_reset write_flash \
+-z --flash_mode dio --flash_freq 40m --flash_size detect \
+0x1000 build/bootloader/bootloader.bin \
+0x10000 build/gatt_server_service_table_demo.bin \
+0x8000 build/partitions_singleapp.bin
+esptool.py v2.8
+Serial port /dev/ttyUSB0
+Connecting........_
+Chip is ESP32D0WDQ5 (revision 3)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: c0:49:ef:66:26:dc
+Enabling default SPI flash mode...
+Configuring flash size...
+Auto-detected Flash size: 4MB
+Erasing flash...
+Flash params set to 0x0220
+Compressed 24832 bytes to 15374...
+Took 0.21s to erase flash block
+Wrote 24832 bytes (15374 compressed) at 0x00001000 in 1.6 seconds (effective 124.7 kbit/s)...
+Hash of data verified.
+Erasing flash...
+Compressed 725920 bytes to 429975...
+Took 2.73s to erase flash block
+Wrote 725920 bytes (429975 compressed) at 0x00010000 in 43.9 seconds (effective 132.4 kbit/s)...
+Hash of data verified.
+Erasing flash...
+Compressed 3072 bytes to 103...
+Took 0.07s to erase flash block
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 199.4 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/hackgnar/ble_ctf/blob/master/docs/setup.md">https://github.com/hackgnar/ble_ctf/blob/master/docs/setup.md</a></p>
+</blockquote>
+<p>扫描周围低功耗设备：hcitool lescan会看到一个名为 BLECTF 的设备</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf$ sudo hcitool lescan
+LE Scan ...
+C0:49:EF:66:26:DE BLECTF
+......
+</code></pre>
+<h1 id="flag-1">Flag 1</h1>
+<blockquote>
+<ul>
+<li>Description:</li>
+</ul>
+<p>This flag is a gift and can only be obtained from reading the hint!</p>
+<ul>
+<li>Hint:</li>
+</ul>
+<p>Flag one is a gift! You can only obtain it by reading this document or peaking at the source code. In short, this flag is to get you familiar with doing a simple write to a BLE handle. Do the following to get your first flag. Make sure you replace the MAC address in the examples below with your devices mac address!<br>
+First, check out your score:<br>
+gatttool -b de:ad:be:ef:be:f1 --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'</p>
+<p>Next, lets sumbmit the following flag.</p>
+<p>gatttool -b de:ad:be:ef:be:f1 --char-write-req -a 0x002c -n $(echo -n &quot;12345678901234567890&quot;|xxd -ps)</p>
+<p>Finaly, check out your score again to see your flag got accepted:<br>
+gatttool -b de:ad:be:ef:be:f1 --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'</p>
+</blockquote>
+<blockquote>
+<p>hmmm...执行命令后无反应，然后报错超时。。。试着配对连接了一下，才能开始做题。</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf$ bluetoothctl
+Agent registered
+[CHG] Controller A8:93:4A:6F:31:2E Pairable: yes
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller A8:93:4A:6F:31:2E Discovering: yes
+[NEW] Device C0:49:EF:66:26:DE BLECTF
+[NEW] Device 47:17:B7:A8:07:14 47-17-B7-A8-07-14
+[NEW] Device 76:9B:5D:FC:DE:FC 76-9B-5D-FC-DE-FC
+[CHG] Device 47:17:B7:A8:07:14 RSSI: -56
+......
+[bluetooth]# pair C0:49:EF:66:26:DE
+Attempting to pair with C0:49:EF:66:26:DE
+[CHG] Device C0:49:EF:66:26:DE Connected: yes
+[NEW] Primary Service (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0001
+	00001801-0000-1000-8000-00805f9b34fb
+	Generic Attribute Profile
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0001/char0002
+	00002a05-0000-1000-8000-00805f9b34fb
+	Service Changed
+[NEW] Descriptor (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0001/char0002/desc0004
+	00002902-0000-1000-8000-00805f9b34fb
+	Client Characteristic Configuration
+[NEW] Primary Service (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028
+	000000ff-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0029
+	0000ff01-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char002b
+	0000ff02-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char002d
+	0000ff03-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char002f
+	0000ff04-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0031
+	0000ff05-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0033
+	0000ff06-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0035
+	0000ff07-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0037
+	0000ff08-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0039
+	0000ff09-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char003b
+	0000ff0a-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char003d
+	0000ff0b-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char003f
+	0000ff0c-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0041
+	0000ff0d-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0043
+	0000ff0e-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0045
+	0000ff0f-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0047
+	0000ff10-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0049
+	0000ff11-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char004b
+	0000ff12-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char004d
+	0000ff13-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char004f
+	0000ff14-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0051
+	0000ff15-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0053
+	0000ff16-0000-1000-8000-00805f9b34fb
+	Unknown
+[NEW] Characteristic (Handle 0x0000)
+	/org/bluez/hci0/dev_C0_49_EF_66_26_DE/service0028/char0055
+	0000ff17-0000-1000-8000-00805f9b34fb
+	Unknown
+[CHG] Device C0:49:EF:66:26:DE ServicesResolved: no
+[CHG] Device C0:49:EF:66:26:DE Connected: no
+Failed to pair: org.bluez.Error.AuthenticationCanceled
+hmmm...这是连接失败？先不管了，至少能开始做题了
+</code></pre>
+<p>解题：</p>
+<pre><code class="language-shell"># 1、查看分数
+ztree@ubuntu2:~/bt/ble_ctf$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score: 0/20
+
+# 2、提交flag
+ztree@ubuntu2:~/bt/ble_ctf$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;12345678901234567890&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 3、再次查看分数
+ztree@ubuntu2:~/bt/ble_ctf$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:1 /20
+
+</code></pre>
+<p>分析一下这两个命令：</p>
+<ul>
+<li><code>-b</code>: 指定远程蓝牙设备的mac地址</li>
+<li><code>--char-read</code>:  读取Characteristics的Value/Descriptor</li>
+<li><code>--char-write-req</code>: 写Characteristics的Value/Descriptor，会往对端发送请求</li>
+<li><code>-a</code>： 上面读写命令的参数之一，指定handle</li>
+<li><code>-n</code>: 写 characteristic 的值，写操作需要的，读操作没有这个参数。</li>
+</ul>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf$ gatttool -h
+Usage:
+  gatttool [OPTION?]
+
+Help Options:
+  -h, --help                                Show help options
+  --help-all                                Show all help options
+  --help-gatt                               Show all GATT commands
+  --help-params                             Show all Primary Services/Characteristics arguments
+  --help-char-read-write                    Show all Characteristics Value/Descriptor Read/Write arguments
+
+Application Options:
+  -i, --adapter=hciX                        Specify local adapter interface
+  -b, --device=MAC                          Specify remote Bluetooth address
+  -t, --addr-type=[public | random]         Set LE address type. Default: public
+  -m, --mtu=MTU                             Specify the MTU size
+  -p, --psm=PSM                             Specify the PSM for GATT/ATT over BR/EDR
+  -l, --sec-level=[low | medium | high]     Set security level. Default: low
+  -I, --interactive                         Use interactive mode
+
+
+</code></pre>
+<p>查看gatt有哪些命令：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf$ gatttool --help-gatt
+Usage:
+  gatttool [OPTION?]
+
+GATT commands
+  --primary                                 Primary Service Discovery
+  --characteristics                         Characteristics Discovery
+  --char-read                               Characteristics Value/Descriptor Read
+  --char-write                              Characteristics Value Write Without Response (Write Command)
+  --char-write-req                          Characteristics Value Write (Write Request)
+  --char-desc                               Characteristics Descriptor Discovery
+  --listen                                  Listen for notifications and indications
+  -I, --interactive                         Use interactive mode
+
+</code></pre>
+<p>查看gatt读/写Characteristics Value/Descriptor 命令的参数</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf$ gatttool --help-char-read-write 
+Usage:
+  gatttool [OPTION?]
+
+Characteristics Value/Descriptor Read/Write arguments
+  -a, --handle=0x0001                       Read/Write characteristic by handle(required)
+  -n, --value=0x0001                        Write characteristic value (required for write operation)
+
+</code></pre>
+<h1 id="flag-0x002e">Flag 0x002e</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn how to read handles</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out the ascii value of handle 0x002e and submit it to the flag submision handle 0x002c. If you are using gatttool, make sure you convert it to hex with xxd. If you are using bleah, you can send it as a string value.</p>
+</blockquote>
+<h2 id="handle">handle</h2>
+<p>对于GATT Server来说，句柄是什么?GATT服务器上的每个attribute都有一个16位标识符，称为其句柄。句柄使得attribute可寻址（addressable），可以将其视为GATT Server上指向attribute位置的指针。在连接期间，以及连接期间进行绑定设备时，句柄都不会更改。</p>
+<pre><code class="language-shell"># 1、从handle 0x002e读取值
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002e|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+d205303e099ceff44835
+
+# 2、提交flag
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;d205303e099ceff44835&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 3、读取分数
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:2 /20
+
+</code></pre>
+<h1 id="flag-0x0030">Flag 0x0030</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Read handle puzzle fun</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out the ascii value of handle 0x0030. Do what it tells you and submit the flag you find to 0x002c.</p>
+</blockquote>
+<pre><code class="language-shell"># 1、读取handle 0x0030的值
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0030|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+MD5 of Device Name
+
+# 2、按照提示，md5,并取前20个字符（获取分数失败后，观察到前面两题的flag的长度都是20）
+ztree@ubuntu2:~$ echo -n &quot;BLECTF&quot; | md5sum | cut -b 1-20
+5cd56d74049ae40f442e
+
+# 3、提交flag
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;5cd56d74049ae40f442e&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 4、查看分数
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:3 /20
+</code></pre>
+<h1 id="flag-0x0016">Flag 0x0016</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about discoverable device attributes</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Bluetooth GATT services provide some extra device attributes. Try finding the value of the Generic Access -&gt; Device Name.</p>
+</blockquote>
+<pre><code class="language-shell"># 1、读取handle 0x0016的值
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0016|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+2b00042f7481c7b056c4b410d28f33cf
+# 2、取前20个字符
+ztree@ubuntu2:~$ echo -n &quot;2b00042f7481c7b056c4b410d28f33cf&quot; | cut -b 1-20
+2b00042f7481c7b056c4
+
+# 3、提交flag
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;2b00042f7481c7b056c4&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 4、查看分数
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:4 /20
+</code></pre>
+<blockquote>
+<p>Hint啥意思？Generic Access -&gt; Device Name在哪？？？</p>
+</blockquote>
+<h1 id="flag-0x0032">Flag 0x0032</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about reading and writing to handles</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Read handle 0032 and do what it says. Notice that its not telling you to write to the flag handle as you have been. When you find the flag, go ahead and write it to the flag handle you have used in the past flags.</p>
+</blockquote>
+<pre><code class="language-shell"># 1、读，让我随便写东西
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0032|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write anything here
+
+# 2、那就随便写
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0032 -n $(echo -n &quot;testtest&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 3、再次读0x0032
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0032|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+3873c0270763568cf7aa
+
+# 4、提交flag
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;3873c0270763568cf7aa&quot;|xxd -ps)
+Characteristic value was written successfully
+
+# 5、查看分数
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:5 /20
+</code></pre>
+<h1 id="flag-0x0034">Flag 0x0034</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about reading and writing ascii to handles</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Follow the instructions found from reading handle 0x0034. Keep in mind that some tools only write hex values while other provide methods for writing either hex or ascii</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0034|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write the ascii value &quot;yo&quot; here
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0034 -n $(echo -n &quot;yo&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0034|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+c55c6314b3db0a6128af
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;c55c6314b3db0a6128af&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:6 /20
+</code></pre>
+<h1 id="flag-0x0036">Flag 0x0036</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about reading and writing hex to handles</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Follow the instructions found from reading handle 0x0036. Keep in mind that some tools only write hex values while other provide methods for writing either hex or ascii</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0036|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write the hex value 0x07 here
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0036 -n 7
+Invalid value
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0036 -n 07
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0036|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+1179080b29f8da16ad66
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;1179080b29f8da16ad66&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:7 /20
+</code></pre>
+<h1 id="flag-0x0038">Flag 0x0038</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about reading and writing to handles differently</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Follow the instructions found from reading handle 0x0038. Pay attention to handles here. Keep in mind handles can be refrenced by integer or hex. Most tools such as gatttool and bleah allow you to specify handles both ways.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0038|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write 0xC9 to handle 58
+
+ztree@ubuntu2:~$ echo &quot;obase=16;58&quot; | bc
+3A
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003A -n 0x00c9
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0038|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write 0xC9 to handle 58
+
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003A -n c9
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0038|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+f8b136d937fad6a2be9f
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;f8b136d937fad6a2be9f&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:8 /20
+
+</code></pre>
+<h1 id="flag-0x003c">Flag 0x003c</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about write fuzzing</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Take a look at handle 0x003c and do what it says. You should script up a solution for this one. Also keep in mind that some tools write faster than others.</p>
+</blockquote>
+<pre><code class="language-python"># solution0x3c.py
+import os
+import time
+for i in range(256):
+    value = str(hex(i))[2:]
+    value = value.zfill(2)
+    command = &quot;gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003c -n &quot;+value
+    print(command)
+    time.sleep(0.1)
+    os.system(command)
+
+</code></pre>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003c|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Brute force my value 00 to ff
+
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ python solution0x3c.py 
+gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003c -n 00
+Characteristic value was written successfully
+gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003c -n 01
+Characteristic value was written successfully
+
+......
+gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x003c -n ff
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003c|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+933c1fcfa8ed52d2ec05
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;933c1fcfa8ed52d2ec05&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:9 /20
+</code></pre>
+<h1 id="flag-0x003e">Flag 0x003e</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about read and write speeds</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Talke a look at handle 0x003e and do what it says. Keep in mind that some tools have better connection speeds than other for doing reads and writes. This has to do with the functionality the tool provides or how it uses cached BT connections on the host OS. Try testing different tools for this flag. Once you find the fastest one, whip up a script or bash 1 liner to complete the task. FYI, once running, this task takes roughly 90 seconds to complete if done right.</p>
+</blockquote>
+<pre><code class="language-python">import os
+import time
+for i in range(1000):
+    command = &quot;gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003e&quot;
+    print(&quot;[&quot;+str(i)+&quot;]&quot;+command)
+    time.sleep(0.1)
+    os.system(command)
+</code></pre>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003e|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Read me 1000 times
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ cp solution0x3c.py solution0x3e.py 
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ vim solution0x3e.py
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ python solution0x3e.py 
+[0]gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003e
+......
+[999]gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003e
+Characteristic value/descriptor: 36 66 66 63 64 32 31 34 66 66 65 62 64 63 30 64 30 36 39 65 
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x003e|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+6ffcd214ffebdc0d069e
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;6ffcd214ffebdc0d069e&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:10/20
+
+</code></pre>
+<h1 id="flag-0x0040">Flag 0x0040</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about single response notifications</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x0040 and google search gatt notify. Some tools like gatttool have the ability to subscribe to gatt notifications</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0040 -n 00 --listen
+Characteristic value was written successfully
+Notification handle = 0x0040 value: 35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62 
+^C
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;35 65 63 33 37 37 32 62 63 64 30 30 63 66 30 36 64 38 65 62&quot; | xxd -r -p;printf '\n'
+5ec3772bcd00cf06d8eb
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;5ec3772bcd00cf06d8eb&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:11/20
+</code></pre>
+<h1 id="flag-0x0042">Flag 0x0042</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about single response indicate</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x0042 and google search gatt indicate. For single response indicate messages, like this challenge, tools such as gatttool will work just fine.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0042|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Listen to handle 0x0044 for a single indication
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0044 -n 00 --listen
+Characteristic value was written successfully
+Indication   handle = 0x0044 value: 63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33 
+^C
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;63 37 62 38 36 64 64 31 32 31 38 34 38 63 37 37 63 31 31 33&quot; | xxd -r -p;printf '\n'
+c7b86dd121848c77c113
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;c7b86dd121848c77c113&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:12/20
+</code></pre>
+<h1 id="flag-0x0046">Flag 0x0046</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about multi response notifications</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x0046 and do what it says. Keep in mind that this notification clallange requires you to recieve multiple responses in order to complete.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0046|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Listen to me for multi notifications
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0046 -n 00 --listen
+Characteristic value was written successfully
+Notification handle = 0x0046 value: 55 20 6e 6f 20 77 61 6e 74 20 74 68 69 73 20 6d 73 67 00 00 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+Notification handle = 0x0046 value: 63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64 
+^C
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;63 39 34 35 37 64 65 35 66 64 38 63 61 66 65 33 34 39 66 64&quot; | xxd -r -p;printf '\n'
+c9457de5fd8cafe349fd
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;c9457de5fd8cafe349fd&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:13/20
+
+</code></pre>
+<h2 id="gatt-indication和-gatt-notification的区别">Gatt Indication和 Gatt Notification的区别</h2>
+<p>Gatt Indications 和 Gatt Notifications 是 BLE 中的两种不同的数据交互方式，用于在设备之间传输数据。</p>
+<ul>
+<li>Gatt Indication：是一种<strong>双向</strong>的数据传输方式，更可靠和安全。
+<ul>
+<li>发送方发送数据后，接收方必须回复一个确认消息，以确认数据是否正确接收。</li>
+<li>数据传输速度较慢，因为必须等待接收方的确认消息。</li>
+<li>用于需要确保数据准确传输的关键应用场景，如固件升级。</li>
+</ul>
+</li>
+<li>Gatt Notification：是一种<strong>单向</strong>的数据传输方式。
+<ul>
+<li>发送方发送数据后，不需要接收方回复任何确认消息。</li>
+<li>数据传输速度快，因为没有等待确认消息的时间延迟。</li>
+<li>用于不需要确认的实时数据传输应用场景，如传感器数据。</li>
+</ul>
+</li>
+</ul>
+<p>综上所述，Gatt Indications 和 Gatt Notifications之间的主要区别在于数据传输的可靠性和速度。Gatt Indication 更可靠但速度较慢，而Gatt Notification 速度较快但可靠性较低。具体使用哪种方式取决于应用场景的需求。某种程度上，Indication像TCP，Notification像UDP</p>
+<h1 id="flag-0x0048">Flag 0x0048</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about multi response indicate</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x0042 （写错了，应该是48）and google search gatt indicate. Keep in mind that this chalange will require you to parse multiple indicate responses in order to complete the chalange.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0048|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Listen to handle 0x004a for multi indications
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x004a -n 00 --listen
+Characteristic value was written successfully
+Indication   handle = 0x004a value: 55 20 6e 6f 20 77 61 6e 74 20 74 68 69 73 20 6d 73 67 00 00 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+Indication   handle = 0x004a value: 62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61 
+^C
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;62 36 66 33 61 34 37 66 32 30 37 64 33 38 65 31 36 66 66 61&quot; | xxd -r -p;printf '\n'
+b6f3a47f207d38e16ffa
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;b6f3a47f207d38e16ffa&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:14/20
+</code></pre>
+<h1 id="flag-0x004c">Flag 0x004c</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about BT client device attributes</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x004c and do what it says. Much like ethernet or wifi devices, you can also change your bluetooth devices mac address.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/tools$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x004c|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Connect with BT MAC address 11:22:33:44:55:66
+</code></pre>
+<p>让以<code>11:22:33:44:55:66</code>为mac地址的设备去连接esp32，那就尝试修改mac，在Ubuntu22和16上试过了bdaddr工具，都不行。</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/tools/bdaddr$ hciconfig -a
+hci0:	Type: Primary  Bus: USB
+	BD Address: A8:93:4A:6F:31:2E  ACL MTU: 1021:6  SCO MTU: 240:8
+	UP RUNNING 
+	RX bytes:16891 acl:4 sco:0 events:2239 errors:0
+	TX bytes:539081 acl:4 sco:0 commands:2228 errors:0
+	Features: 0xbf 0x3e 0x8d 0xfe 0xdb 0xff 0x7b 0x87
+	Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+	Link policy: RSWITCH SNIFF 
+	Link mode: PERIPHERAL ACCEPT 
+	Name: 'BlueZ 5.64'
+	Class: 0x6c010c
+	Service Classes: Rendering, Capturing, Audio, Telephony
+	Device Class: Computer, Laptop
+	HCI Version: 5.2 (0xb)  Revision: 0x915
+	LMP Version: 5.2 (0xb)  Subversion: 0x2202
+	Manufacturer: MediaTek, Inc. (70)
+
+# 可看到修改失败
+ztree@ubuntu2:~/tools/bdaddr$ ./bdaddr -i hci0 11:22:33:44:55:66
+Manufacturer:   MediaTek, Inc. (70)
+Device address: A8:93:4A:6F:31:2E
+
+Unsupported manufacturer
+
+ztree@ubuntu2:~/tools/bdaddr$ hciconfig  
+hci0:	Type: Primary  Bus: USB
+	BD Address: A8:93:4A:6F:31:2E  ACL MTU: 1021:6  SCO MTU: 240:8
+	UP RUNNING 
+	RX bytes:17182 acl:4 sco:0 events:2243 errors:0
+	TX bytes:539093 acl:4 sco:0 commands:2232 errors:0
+</code></pre>
+<p>放弃，直接填答案：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;aca16920583e42bdcf5f&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:15/20
+</code></pre>
+<h1 id="flag-0x004e">Flag 0x004e</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about message sizes MTU</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Read handle 0x0048 and do what it says. Setting MTU can be a tricky thing. Some tools may provide mtu flags, but they dont seem to really trigger MTU negotiations on servers. Try using gatttool's interactive mode for this task. By default, the BLECTF server is set to force an MTU size of 20. The server will listen for MTU negotiations, and look at them, but we dont really change the MTU in the code. We just trigger the flag code if you trigger an MTU event with the value specified in handle 0x0048. GLHF!</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x004e|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Set your connection MTU to 444
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x004e --mtu=444 |awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Set your connection MTU to 444
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x004e -n 00 --mtu=444 |awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x004e -n 00 --mtu=444
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x004e |awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+
+
+# 无效，进交互模式
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE -I
+[C0:49:EF:66:26:DE][LE]&gt; mtu 444
+Command Failed: Disconnected
+[C0:49:EF:66:26:DE][LE]&gt; connect
+Attempting to connect to C0:49:EF:66:26:DE
+Connection successful
+[C0:49:EF:66:26:DE][LE]&gt; mtu 444
+MTU was exchanged successfully: 444
+[C0:49:EF:66:26:DE][LE]&gt; exit
+
+(gatttool:36338): GLib-WARNING **: 06:54:43.851: Invalid file descriptor.
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x004e |awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+b1e409e5a4eaf9fe5158
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;b1e409e5a4eaf9fe5158&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:16/20
+
+</code></pre>
+<h1 id="flag-0x0050">Flag 0x0050</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Learn about write responses</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out handle 0x0050 and do what it says. This chalange differs from other write chalanges as your tool that does the write needs to have write response ack messages implemente correctly. This flag is also tricky as the flag will come back as notification response data even though there is no &quot;NOTIFY&quot; property.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0050|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Write+resp 'hello'  
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0050 -n $(echo -n &quot;hello&quot;|xxd -ps)
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0050|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+d41d8cd98f00b204e980
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;d41d8cd98f00b204e980&quot;|xxd -ps)
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:17/20
+</code></pre>
+<h1 id="flag-0x0052">Flag 0x0052</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Hidden notify property</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Take a look at handle 0x0052. Notice it does not have a notify property. Do a write here and listen for notifications anyways! Things are not always what they seem!</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0052|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+No notifications here! really?
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0052 -n $(echo -n &quot;hello&quot;|xxd -ps) --listen
+Characteristic value was written successfully
+Notification handle = 0x0052 value: 66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62 
+^C
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;66 63 39 32 30 63 36 38 62 36 30 30 36 31 36 39 34 37 37 62&quot; | xxd -r -p;printf '\n'
+fc920c68b6006169477b
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;fc920c68b6006169477b&quot;|xxd -ps)
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:18/20
+
+</code></pre>
+<h1 id="flag-0x0054">Flag 0x0054</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>Use multiple handle properties</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Check out all of the handle properties on 0x0054! Poke around with all of them and find pieces to your flag.</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0054|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+So many properties!
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0054 -n $(echo -n &quot;hello&quot;|xxd -ps) --listen
+Characteristic value was written successfully
+Notification handle = 0x0054 value: 30 37 65 34 61 30 63 63 34 38 
+^C
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x0054 -n $(echo -n &quot;hello&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x0054|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+fbb966958f
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo &quot;30 37 65 34 61 30 63 63 34 38&quot; | xxd -r -p;printf '\n'
+07e4a0cc48
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;fbb966958f07e4a0cc48&quot;|xxd -ps)
+Characteristic value was written successfully
+
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:19/20
+</code></pre>
+<h1 id="flag-0x0056">Flag 0x0056</h1>
+<blockquote>
+<ul>
+<li>Description</li>
+</ul>
+<p>OSINT the author!</p>
+<ul>
+<li>Hint</li>
+</ul>
+<p>Figure out the authors twitter handle and do what 0x0056 tells you to do!</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo -n &quot;hackgnar&quot; | md5sum | cut -b 1-20
+fe40eb2449bda7f9a997
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;fe40eb2449bda7f9a997&quot;|xxd -ps)
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:19/20
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ echo -n &quot;@hackgnar&quot; | md5sum | cut -b 1-20
+d953bfb9846acc2e15ee
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-write-req -a 0x002c -n $(echo -n &quot;d953bfb9846acc2e15ee&quot;|xxd -ps)
+Characteristic value was written successfully
+ztree@ubuntu2:~/bt/ble_ctf/solutions$ gatttool -b C0:49:EF:66:26:DE --char-read -a 0x002a|awk -F':' '{print $2}'|tr -d ' '|xxd -r -p;printf '\n'
+Score:20/20
+
+</code></pre>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li><a href="https://github.com/hackgnar/ble_ctf">https://github.com/hackgnar/ble_ctf</a></li>
+<li><a href="https://bbs.kanxue.com/thread-271543.htm#msg_header_h1_2">https://bbs.kanxue.com/thread-271543.htm#msg_header_h1_2</a></li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">环境搭建</a></li>
+<li><a href="#flag-1">Flag 1</a></li>
+<li><a href="#flag-0x002e">Flag 0x002e</a>
+<ul>
+<li><a href="#handle">handle</a></li>
+</ul>
+</li>
+<li><a href="#flag-0x0030">Flag 0x0030</a></li>
+<li><a href="#flag-0x0016">Flag 0x0016</a></li>
+<li><a href="#flag-0x0032">Flag 0x0032</a></li>
+<li><a href="#flag-0x0034">Flag 0x0034</a></li>
+<li><a href="#flag-0x0036">Flag 0x0036</a></li>
+<li><a href="#flag-0x0038">Flag 0x0038</a></li>
+<li><a href="#flag-0x003c">Flag 0x003c</a></li>
+<li><a href="#flag-0x003e">Flag 0x003e</a></li>
+<li><a href="#flag-0x0040">Flag 0x0040</a></li>
+<li><a href="#flag-0x0042">Flag 0x0042</a></li>
+<li><a href="#flag-0x0046">Flag 0x0046</a>
+<ul>
+<li><a href="#gatt-indication%E5%92%8C-gatt-notification%E7%9A%84%E5%8C%BA%E5%88%AB">Gatt Indication和 Gatt Notification的区别</a></li>
+</ul>
+</li>
+<li><a href="#flag-0x0048">Flag 0x0048</a></li>
+<li><a href="#flag-0x004c">Flag 0x004c</a></li>
+<li><a href="#flag-0x004e">Flag 0x004e</a></li>
+<li><a href="#flag-0x0050">Flag 0x0050</a></li>
+<li><a href="#flag-0x0052">Flag 0x0052</a></li>
+<li><a href="#flag-0x0054">Flag 0x0054</a></li>
+<li><a href="#flag-0x0056">Flag 0x0056</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/">https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/&sharesource=qzone&title=Bluetooth - GATT - BLE_CTF&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/&sharesource=weibo&title=Bluetooth - GATT - BLE_CTF + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/Bluetooth/">#
+                    Bluetooth
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pwncollege-race-condictions-geng-xin-zhong/">
+                                                                                            pwn.college - race condictions
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/">
+                                                                                                    CodeQL入门 - U-Boot Challenge
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

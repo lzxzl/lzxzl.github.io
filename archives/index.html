@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="post-wrap archive">
+                    
+                        
+                            <h3>
+                                2025
+                            </h3>
+                            
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2024-43047-itw-map-collision-leads-to-uaf-on-4x-kernels-and-some-5x-kernel-configurations/">
+                                            CVE-2024-43047 (ITW) Map collision leads to UAF on 4.x kernels, and some 5.x kernel configurations
+                                        </a><span class="archive-item-date">2025-05-20 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2024-49848-fastrpc_attr_keep_map-logic-bug-allows-fastrpc_internal_munmap_fd-to-racily-free-in-use-mappings-leading-to-uaf/">
+                                            CVE-2024-49848 FASTRPC_ATTR_KEEP_MAP logic bug allows fastrpc_internal_munmap_fd to racily free in-use mappings leading to UAF
+                                        </a><span class="archive-item-date">2025-05-20 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pz-issue-42451713fixed-with-cve-2024-33060-incorrect-searching-algorithm-in-fastrpc_mmap_find-leads-to-kernel-address-space-info-leak/">
+                                            PZ Issue 42451713(fixed with CVE-2024-33060) - Incorrect searching algorithm in fastrpc_mmap_find leads to kernel address space info leak
+                                        </a><span class="archive-item-date">2025-01-27 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/solidity-hacks/">
+                                            Solidity Hacks
+                                        </a><span class="archive-item-date">2025-01-19 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2024-33060-uaf-race-of-global-maps-in-fastrpc_mmap_create-and-epilogue-functions/">
+                                            CVE-2024-33060 UAF race of global maps in fastrpc_mmap_create (and epilogue functions)
+                                        </a><span class="archive-item-date">2025-01-10 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/solidity-ru-men-bi-ji/">
+                                            solidity入门笔记
+                                        </a><span class="archive-item-date">2025-01-01 </span></article>
+                                    
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                            
+                            <h3>
+                                2024
+                            </h3>
+                            
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2023-6241-fen-xi-yu-fu-xian/">
+                                            CVE-2023-6241分析与复现
+                                        </a><span class="archive-item-date">2024-12-31 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2024-21455-is_compat-flag-leads-to-access-of-userland-provided-addresses-as-kernel-pointers/">
+                                            CVE-2024-21455 is_compat flag leads to access of userland provided addresses as kernel pointers
+                                        </a><span class="archive-item-date">2024-12-27 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2024-38402-refcount-leak-leading-to-uaf-in-fastrpc_get_process_gids/">
+                                            CVE-2024-38402 refcount leak leading to UAF in fastrpc_get_process_gids
+                                        </a><span class="archive-item-date">2024-12-24 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-25458-kernel-null-pointer-dereference-in-exynos-ion-implementation/">
+                                            CVE-2021-25458 Kernel NULL Pointer Dereference in Exynos ION Implementation
+                                        </a><span class="archive-item-date">2024-12-24 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2009-2910-linux-kernel-x86-64-register-leak-by-jon-oberheide/">
+                                            CVE-2009-2910-Linux Kernel x86-64 Register Leak by Jon Oberheide
+                                        </a><span class="archive-item-date">2024-05-07 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2009-3001-linux-kernel-getname-stack-memory-disclosures-by-jon-oberheide/">
+                                            CVE-2009-3001 — Linux Kernel getname() Stack Memory Disclosures by Jon Oberheide
+                                        </a><span class="archive-item-date">2024-05-06 </span></article>
+                                    
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                            
+                            <h3>
+                                2023
+                            </h3>
+                            
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2023-22436-linux-nei-he-yin-yong-ji-shu/">
+                                            CVE-2023-22436 - Linux内核 - 引用计数
+                                        </a><span class="archive-item-date">2023-10-24 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20447-lan-ya-pan-uaf/">
+                                            CVE-2022-20447 - 蓝牙PAN - UAF
+                                        </a><span class="archive-item-date">2023-09-19 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20410-lan-ya-zheng-shu-yi-chu-greateroob-read/">
+                                            CVE-2022-20410 - 蓝牙 - 整数溢出-&gt;OOB Read
+                                        </a><span class="archive-item-date">2023-09-17 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20395-mediaprovider-lu-jing-chuan-yue/">
+                                            CVE-2022-20395 - MediaProvider - 路径穿越
+                                        </a><span class="archive-item-date">2023-09-17 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20445-lan-ya-sdp-zheng-shu-yi-chu/">
+                                            CVE-2022-20445  - 蓝牙SDP - 整数溢出
+                                        </a><span class="archive-item-date">2023-09-16 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20224-lan-ya-hfp-client-yue-jie-du/">
+                                            CVE-2022-20224 - 蓝牙HFP Client - 越界读
+                                        </a><span class="archive-item-date">2023-09-15 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20229-lan-ya-hfp-client-yue-jie-xie/">
+                                            CVE-2022-20229 - 蓝牙HFP Client - 越界写
+                                        </a><span class="archive-item-date">2023-09-15 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2022-20344-surfaceflinger-race-condition/">
+                                            CVE-2022-20344 - SurfaceFlinger - Race Condition
+                                        </a><span class="archive-item-date">2023-09-14 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39805-lan-ya-l2cap-oob-read/">
+                                            CVE-2021-39805 - 蓝牙L2CAP - OOB Read
+                                        </a><span class="archive-item-date">2023-09-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39703-usb-fu-wu-luo-ji-lou-dong/">
+                                            CVE-2021-39703 - USB服务 - 逻辑漏洞
+                                        </a><span class="archive-item-date">2023-09-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39804-libheif-kong-zhi-zhen-jie-yin-yong/">
+                                            CVE-2021-39804 - libheif - 空指针解引用
+                                        </a><span class="archive-item-date">2023-09-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39675-nfc-oob-write/">
+                                            CVE-2021-39675 - NFC - OOB Write
+                                        </a><span class="archive-item-date">2023-09-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39665-libstagefright-oob-readmd/">
+                                            CVE-2021-39665 - libstagefright - OOB Read
+                                        </a><span class="archive-item-date">2023-09-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39629-nfc-uaf/">
+                                            CVE-2021-39629 - NFC - UAF
+                                        </a><span class="archive-item-date">2023-09-08 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39659-telecom-java-zheng-shu-yi-chu/">
+                                            CVE-2021-39659 - telecom - Java整数溢出
+                                        </a><span class="archive-item-date">2023-09-07 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/cve-2021-39623-media-libstagefright-heap-oob-write/">
+                                            CVE-2021-39623 - media - libstagefright - heap OOB Write
+                                        </a><span class="archive-item-date">2023-09-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/new_cve-2021-39632-recovery-yue-jie-xie/">
+                                            CVE-2021-39632 - Recovery - 越界写
+                                        </a><span class="archive-item-date">2023-09-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/android-an-quan-gong-gao-cve-fen-xi-kai-pian/">
+                                            Android安全公告CVE分析 - 开篇&amp;总览
+                                        </a><span class="archive-item-date">2023-09-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/aosp-shang-de-libfuzzer-chang-shi/">
+                                            AOSP上的libfuzzer尝试
+                                        </a><span class="archive-item-date">2023-08-27 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/angstromctf2023-pwn/">
+                                            angstromctf2023 - pwn
+                                        </a><span class="archive-item-date">2023-07-16 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/syzkaller-shi-yong-linux/">
+                                            syzkaller使用-Linux
+                                        </a><span class="archive-item-date">2023-07-04 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pwncollege-race-condictions-geng-xin-zhong/">
+                                            pwn.college - race condictions
+                                        </a><span class="archive-item-date">2023-06-27 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/">
+                                            Bluetooth - GATT - BLE_CTF
+                                        </a><span class="archive-item-date">2023-06-27 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/">
+                                            CodeQL入门 - U-Boot Challenge
+                                        </a><span class="archive-item-date">2023-06-11 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/">
+                                            Pawnyable4 - 熟悉Holstein模块与触发漏洞
+                                        </a><span class="archive-item-date">2023-03-12 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/">
+                                            Pawnyable3 - 编译和传输exp
+                                        </a><span class="archive-item-date">2023-03-11 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/">
+                                            Pawnyable2 - Linux Kernel 漏洞缓解技术
+                                        </a><span class="archive-item-date">2023-03-10 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/">
+                                            Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建
+                                        </a><span class="archive-item-date">2023-03-04 </span></article>
+                                    
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                            
+                            <h3>
+                                2022
+                            </h3>
+                            
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/">
+                                            《图解密码技术》第1-2章 - 笔记
+                                        </a><span class="archive-item-date">2022-04-29 </span></article>
+                                    
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                            
+                            <h3>
+                                2021
+                            </h3>
+                            
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-12/">
+                                            [翻译与学习] Let’s Build A Simple Interpreter. Part 12.
+                                        </a><span class="archive-item-date">2021-12-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/">
+                                            [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11.
+                                        </a><span class="archive-item-date">2021-12-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-10/">
+                                            [翻译与学习] Let’s Build A Simple Interpreter. Part 10.
+                                        </a><span class="archive-item-date">2021-12-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/">
+                                            [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9
+                                        </a><span class="archive-item-date">2021-12-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/">
+                                            [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8.
+                                        </a><span class="archive-item-date">2021-12-06 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part7-abstract-syntax-trees/">
+                                            [翻译与学习] Let’s Build A Simple Interpreter. Part7. Abstract Syntax Trees
+                                        </a><span class="archive-item-date">2021-12-05 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/">
+                                            Let’s Build A Simple Interpreter. Part6. —— Java版本
+                                        </a><span class="archive-item-date">2021-11-11 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part6/">
+                                            [翻译与学习] Let’s Build A Simple Interpreter. Part6.
+                                        </a><span class="archive-item-date">2021-11-11 </span></article>
+                                    
+                                        
+                                
+                                    <article class="archive-item">
+                                        <a class="archive-item-link" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part5/">
+                                            [翻译与学习] Let’s Build A Simple Interpreter. Part5.
+                                        </a><span class="archive-item-date">2021-11-11 </span></article>
+                                    
+                                        
+                                            
+                </div>
+                <div class="pagination-container">
+                    
+                        
+                                
+                                    <a href="https://lzxzl.github.io/archives/page/2" class="next">&#x4E0B;&#x4E00;&#x9875; <i class="icon-arrow-ios-forward-outline"></i></a>
+                                    
+                                        
+                </div>
+            </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+
+</html>

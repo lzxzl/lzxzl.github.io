@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                [翻译与学习] Let’s Build A Simple Interpreter. Part4.
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-11-11</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">33.8
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">7083</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">编译原理</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>Have you been passively learning the material in these articles or have you been actively practicing it? I hope you’ve been actively practicing it. I really do 😃</p>
+<p>你是被动地学习这些文章中的内容，还是主动地练习？我希望你已经积极练习过了。我真的是这么想的:)</p>
+<p>Remember what Confucius said?</p>
+<p>还记得孔子说过什么吗？</p>
+<blockquote>
+<p><em>“I hear and I forget.”</em></p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://ruslanspivak.com/lsbasi-part4/LSBAWS_confucius_hear.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p><em>“I see and I remember.”</em></p>
+</blockquote>
+<figure data-type="image" tabindex="2"><img src="https://ruslanspivak.com/lsbasi-part4/LSBAWS_confucius_see.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p><em>“I do and I understand.”</em></p>
+</blockquote>
+<figure data-type="image" tabindex="3"><img src="https://ruslanspivak.com/lsbasi-part4/LSBAWS_confucius_do.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>其实是荀子说的：“不闻不若闻之，闻之不若见之，见之不若知之，知之不若行之。”</p>
+</blockquote>
+<p>In the previous article you learned how to parse (recognize) and interpret arithmetic expressions with any number of plus or minus operators in them, for example “7 - 3 + 2 - 1”. You also learned about syntax diagrams and how they can be used to specify the syntax of a programming language.</p>
+<p>在前一篇文章中，你学习了如何解析（识别）和解释带有任意数量的加减运算符的算术表达式，例如“7-3 + 2-1”。你还了解了语法（syntax）图，以及如何使用它们指定编程语言的语法。</p>
+<p>Today you’re going to learn how to parse and interpret arithmetic expressions with any number of multiplication and division operators in them, for example “7 * 4 / 2 * 3”. The division in this article will be an integer division, so if the expression is “9 / 4”, then the answer will be an integer: 2.</p>
+<p>今天，你将学习如何解析和解释带有任意数量乘法和除法运算符的算术表达式，例如“7 * 4/2 * 3”。本文中的除法是整数除法，因此如果表达式是“9/4”，那么答案将是整数: 2。</p>
+<p>I will also talk quite a bit today about another widely used notation for specifying the syntax of a programming language. It’s called <em><strong>context-free grammars</strong></em> (<em><strong>grammars</strong></em>, for short) or <em><strong>BNF</strong></em> (Backus-Naur Form). For the purpose of this article I will not use pure <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">BNF</a> notation but more like a modified <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form">EBNF</a> notation.</p>
+<p>今天我还将相当详细地讨论另一种广泛使用的用于指定编程语言语法的符号。它被称为<strong>上下文无关文法</strong>(简称grammar)或 BNF (Backus-Naur Form)。基于本文的目的，我将不使用纯 BNF 符号，而更像是一种修改后的 EBNF 符号。</p>
+<p>Here are a couple of reasons to use grammars:</p>
+<p>以下是使用grammar的几个原因:</p>
+<ol>
+<li>A grammar specifies the syntax of a programming language in a concise manner. Unlike syntax diagrams, grammars are very compact. You will see me using grammars more and more in future articles.
+<ul>
+<li>grammar以简洁的方式指定了编程语言的syntax。与语法（syntax）图不同，grammar非常紧凑。在以后的文章中，你会看到我越来越多地使用grammar。</li>
+</ul>
+</li>
+<li>A grammar can serve as great documentation.
+<ul>
+<li>grammar可以作为很好的文档</li>
+</ul>
+</li>
+<li>A grammar is a good starting point even if you manually write your parser from scratch. Quite often you can just convert the grammar to code by following a set of simple rules.
+<ul>
+<li>即使你从头开始手动编写解析器，grammar也是一个很好的起点。通常情况下，你只需遵循一组简单的规则就可以将grammar转换为代码。</li>
+</ul>
+</li>
+<li>There is a set of tools, called <em>parser generators</em>, which accept a grammar as an input and automatically generate a parser for you based on that grammar. I will talk about those tools later on in the series.
+<ul>
+<li>有一组名为”Parser生成器”的工具，接受grammar作为输入，并根据该grammar自动为您生成解析器。稍后会谈论那些工具。</li>
+</ul>
+</li>
+</ol>
+<p>Now, let’s talk about the mechanical aspects of grammars, shall we?</p>
+<p>现在，让我们来谈谈grammar，好吗？</p>
+<p>Here is a grammar that describes arithmetic expressions like “7 * 4 / 2 * 3” (it’s just one of the many expressions that can be generated by the grammar):</p>
+<p>下面是一个描述算术表达式的grammar，比如“7 * 4/2 * 3”(这只是由grammar生成的众多表达式之一) :</p>
+<figure data-type="image" tabindex="4"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf1.png" alt="" loading="lazy"></figure>
+<p>A grammar consists of a sequence of <em>rules</em>, also known as <em>productions</em>. There are two rules in our grammar:</p>
+<p>grammar由一系列的规则（也称为_productions（产生式）_）组成。我们的grammar有两个规则:</p>
+<figure data-type="image" tabindex="5"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf2.png" alt="" loading="lazy"></figure>
+<p>A rule consists of a <em>non-terminal</em>, called the <em><strong>head</strong></em> or <em><strong>left-hand side</strong></em> of the production, a colon, and a sequence of terminals and/or non-terminals, called the <em><strong>body</strong></em> or <em><strong>right-hand side</strong></em> of the production:</p>
+<p>一个规则由一个非终结符(称为production的head或left-hand side)、冒号和一系列终结符/非终结符(称为production的body或right-hand side)组成:</p>
+<figure data-type="image" tabindex="6"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf3.png" alt="" loading="lazy"></figure>
+<p>In the grammar I showed above, tokens like MUL, DIV, and INTEGER are called <em><strong>terminals</strong></em> and variables like <em>expr</em> and <em>factor</em> are called <em><strong>non-terminals</strong></em>. Non-terminals usually consist of a sequence of terminals and/or non-terminals:</p>
+<p>在上面展示的grammar中，像 MUL、 DIV 和 INTEGER 这样的token称为终结符，像 expr 和 factor 这样的变量称为非终结符。非终结符通常由一系列终结符和或非终结符组成:</p>
+<figure data-type="image" tabindex="7"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf4.png" alt="" loading="lazy"></figure>
+<p>The non-terminal symbol on the left side of the first rule is called the <em><strong>start symbol</strong></em>. In the case of our grammar, the start symbol is <em>expr</em>:</p>
+<p>第一条规则左侧的非终结符称为<strong>开始符号</strong>。在我们的grammar中，开始符号是 expr:</p>
+<figure data-type="image" tabindex="8"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf5.png" alt="" loading="lazy"></figure>
+<p>You can read the rule <em>expr</em> as “An <em>expr</em> can be a <em>factor</em> optionally followed by a <em>multiplication</em> or <em>division</em> operator followed by another <em>factor</em>, which in turn is optionally followed by a <em>multiplication</em> or <em>division</em> operator followed by another <em>factor</em> and so on and so forth.”</p>
+<p>你可以将规则 expr 解读为“ 一个 expr 可以是一个factor，后面跟一个乘法或除法运算符，然后跟另一个factor，再后面跟一个乘法或除法运算符，再后面跟另一个factor，等等。”</p>
+<p>What is a <em>factor</em>? For the purpose of this article a <em>factor</em> is just an integer.</p>
+<p>什么是factor? 在本文中，factor只是一个整数。</p>
+<p>Let’s quickly go over the symbols used in the grammar and their meaning.</p>
+<p>让我们快速回顾一下grammar中使用的符号及其含义。</p>
+<ul>
+<li><strong>|</strong> - Alternatives. A bar means “or”. So (MUL | DIV) means either MUL or DIV.
+<ul>
+<li>二选一。或者的意思，所以（MUL｜DIV）意味着要么是MUL，要么是DIV</li>
+</ul>
+</li>
+<li><strong>( … )</strong> - An open and closing parentheses mean grouping of terminals and/or non-terminals as in (MUL | DIV).
+<ul>
+<li>开括号和闭括号表示终结符 和或 非终结符 的分组，如(MUL | DIV)。</li>
+</ul>
+</li>
+<li><strong>( … )</strong>* - Match contents within the group zero or more times.
+<ul>
+<li>匹配组内的内容0次或多次</li>
+</ul>
+</li>
+</ul>
+<p>If you worked with regular expressions in the past, then the symbols <strong>|</strong>, <strong>()</strong>, and <strong>(…)</strong>* should be pretty familiar to you.</p>
+<p>如果你过去使用过正则表达式，那么符号 | 、()和(...) * 对你来说应该非常熟悉。</p>
+<p>A grammar defines a <em>language</em> by explaining what sentences it can form. This is how you can <em>derive</em> an arithmetic expression using the grammar: first you begin with the start symbol <em>expr</em> and then repeatedly replace a non-terminal by the body of a rule for that non-terminal until you have generated a sentence consisting solely of terminals. Those sentences form a <em>language</em> defined by the grammar.</p>
+<p>grammar通过解释该语言可以构成什么样的句子来定义一种语言。这就是使用grammar派生算术表达式的方法: 首先从开始符号 expr 开始，然后用该非终结符的规则body重复替换非终结符，直到生成完全由终结符组成的句子。这些句子构成了由grammar定义的语言。</p>
+<p>If the grammar cannot derive a certain arithmetic expression, then it doesn’t support that expression and the parser will generate a syntax error when it tries to recognize the expression.</p>
+<p>如果grammar无法派生出某个算术表达式，那么它就不支持该表达式，解析器在尝试识别该表达式时将产生语法错误。</p>
+<p>I think a couple of examples are in order. This is how the grammar derives the expression <em>3</em>:</p>
+<p>我认为举几个例子是合理的。<br>
+这是grammar如何派生表达式3:</p>
+<figure data-type="image" tabindex="9"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_derive1.png" alt="" loading="lazy"></figure>
+<p>This is how the grammar derives the expression <em>3 * 7</em>:</p>
+<p>这是语法如何派生表达式3 * 7:</p>
+<figure data-type="image" tabindex="10"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_derive2.png" alt="" loading="lazy"></figure>
+<p>And this is how the grammar derives the expression <em>3 * 7 / 2</em>:</p>
+<p>这是语法如何派生表达式3 * 7/2:</p>
+<figure data-type="image" tabindex="11"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_derive3.png" alt="" loading="lazy"></figure>
+<p>Whoa, quite a bit of theory right there!</p>
+<p>哇，真是一大堆理论！</p>
+<p>I think when I first read about grammars, the related terminology, and all that jazz, I felt something like this:</p>
+<p>我想当我第一次读到grammar，相关的术语，以及所有的jazz的时候，我的感觉是这样的:</p>
+<figure data-type="image" tabindex="12"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf_hmm.png" alt="" loading="lazy"></figure>
+<p>I can assure you that I definitely was not like this:</p>
+<p>我可以向你保证，我绝对不是这样的:</p>
+<figure data-type="image" tabindex="13"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf_yes.png" alt="" loading="lazy"></figure>
+<p>It took me some time to get comfortable with the notation, how it works, and its relationship with parsers and lexers, but I have to tell you that it pays to learn it in the long run because it’s so widely used in practice and compiler literature that you’re bound to run into it at some point. So, why not sooner rather than later? 😃</p>
+<p>我花了一些时间来熟悉这个符号，它是如何工作的，以及它与语法分析器和词法分析器的关系，但我必须告诉你，从长远来看，学习它是值得的，因为它在实践和编译文献中被广泛使用，你在某个时候一定会遇到它。那么，为什么不早一点而不是晚一点呢？😃</p>
+<p>Now, let’s map that grammar to code, okay?</p>
+<p>现在，让我们把grammar映射到代码中，好吗？</p>
+<p>Here are the guidelines that we will use to convert the grammar to source code. By following them, you can literally translate the grammar to a working parser:</p>
+<p>下面是我们将用来将gramar转换为源代码的指导原则。通过跟随它们，你可以逐字地将grammar翻译成一个可以工作的解析器:</p>
+<ol>
+<li>Each rule, <strong>R</strong>, defined in the grammar, becomes a method with the same name, and references to that rule become a method call: <em><strong>R()</strong></em>. The body of the method follows the flow of the body of the rule using the very same guidelines.
+<ul>
+<li>在grammar中定义的每个<strong>规则R</strong>都成为一个具有相同名称的<strong>方法</strong>，以及<strong>对该规则的引用</strong>成为<strong>方法调用</strong>：R（）。该方法的方法体（即函数内容）使用相同的指导原则去变换规则（产生式）的body。</li>
+</ul>
+</li>
+<li>Alternatives <strong>(a1 | a2 | aN)</strong> become an <em><strong>if-elif-else</strong></em> statement
+<ul>
+<li>或（Alternatives） 变成一个 if-elif-else语句</li>
+</ul>
+</li>
+<li>An optional grouping <strong>(…)</strong>* becomes a <em><strong>while</strong></em> statement that can loop over zero or more times
+<ul>
+<li>一个可选组**(...)***变成一个可循环0次或多次的while语句</li>
+</ul>
+</li>
+<li>Each token reference <strong>T</strong> becomes a call to the method <em><strong>eat</strong></em>: <em><strong>eat(T)</strong></em>. The way the <em>eat</em> method works is that it consumes the token <em>T</em> if it matches the current <em>lookahead</em> token, then it gets a new token from the lexer and assigns that token to the <em>current_token</em> internal variable.
+<ul>
+<li>每个token引用T都成为对方法eat: eat(T)的调用。eat方法的工作方式是：如果token T的类型与当前内部变量current_token的类型相匹配，那么它将吃掉token T，然后从lexer获得一个新token，并将该token分配给current_token。</li>
+</ul>
+</li>
+</ol>
+<p>Visually the guidelines look like this:</p>
+<p>视觉上的指导原则是这样的:</p>
+<figure data-type="image" tabindex="14"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_rules.png" alt="" loading="lazy"></figure>
+<p>Let’s get moving and convert our grammar to code following the above guidelines.</p>
+<p>让我们按照上面的指导方针，将grammar转换为代码。</p>
+<p>There are two rules in our grammar: one <em>expr</em> rule and one <em>factor</em> rule. Let’s start with the <em>factor</em> rule (production). According to the guidelines, you need to create a method called <em>factor</em> (guideline 1) that has a single call to the <em>eat</em> method to consume the INTEGER token (guideline 4):</p>
+<p>我们的grammar中有两个规: 一个 expr 规则和一个factor规则。让我们从factor规则（产生式production）开始。根据指导原则，您需要创建一个名为 factor （指导原则1）的方法，该方法只调用 eat 方法来使用 INTEGER 标记（指导原则4） :</p>
+<pre><code class="language-python">def factor(self):
+    self.eat(INTEGER)
+</code></pre>
+<p>That was easy, wasn’t it?</p>
+<p>这很简单，不是吗？</p>
+<p>Onward!</p>
+<p>前进！</p>
+<p>The rule <em>expr</em> becomes the <em>expr</em> method (again according to the guideline 1). The body of the rule starts with a reference to <em>factor</em> that becomes a <em>factor()</em> method call. The optional grouping <em>(…)*</em> becomes a <em>while</em> loop and <em>(MUL | DIV)</em> alternatives become an <em>if-elif-else</em> statement. By combining those pieces together we get the following <em>expr</em> method:</p>
+<p>规则 expr 成为 expr 方法(根据指导原则1)。规则体以对 factor 的引用开始，那么expr方法以调用factor()开始。可选的分组(...) * 变成 while 循环，(MUL | DIV)替代项变成 if-elif-else 语句。通过将这些片段组合在一起，我们得到了下面的 expr 方法:</p>
+<pre><code class="language-python">def expr(self):
+    self.factor()
+
+    while self.current_token.type in (MUL, DIV):
+        token = self.current_token
+        if token.type == MUL:
+            self.eat(MUL)
+            self.factor()
+        elif token.type == DIV:
+            self.eat(DIV)
+            self.factor()
+</code></pre>
+<p>Please spend some time and study how I mapped the grammar to the source code. Make sure you understand that part because it’ll come in handy later on.</p>
+<p>请花些时间研究一下我是如何将grammar映射到源代码的。确保你理解了这一部分，因为它迟早会派上用场。</p>
+<p>For your convenience I put the above code into the <em>parser.py</em> file that contains a lexer and a parser without an interpreter. You can download the file directly from <a href="https://github.com/rspivak/lsbasi/blob/master/part4/parser.py">GitHub</a> and play with it. It has an interactive prompt where you can enter expressions and see if they are valid: that is, if the parser built according to the grammar can recognize the expressions.</p>
+<p>为了方便起见，我将上面的代码放到 parser.py 文件中，该文件包含一个 lexer 和一个不带解释器的解析器。你可以直接从 GitHub 下载这个文件并使用它。它有一个交互式提示符，您可以在其中输入表达式并查看它们是否有效：也就是说，如果根据grammar构建的解析器能够识别表达式。</p>
+<p>Here is a sample session that I ran on my computer:</p>
+<p>下面是我在电脑上运行的一个例子:</p>
+<pre><code class="language-python">$ python parser.py
+calc&gt; 3
+calc&gt; 3 * 7
+calc&gt; 3 * 7 / 2
+calc&gt; 3 *
+Traceback (most recent call last):
+  File &quot;parser.py&quot;, line 155, in &lt;module&gt;
+    main()
+  File &quot;parser.py&quot;, line 151, in main
+    parser.parse()
+  File &quot;parser.py&quot;, line 136, in parse
+    self.expr()
+  File &quot;parser.py&quot;, line 130, in expr
+    self.factor()
+  File &quot;parser.py&quot;, line 114, in factor
+    self.eat(INTEGER)
+  File &quot;parser.py&quot;, line 107, in eat
+    self.error()
+  File &quot;parser.py&quot;, line 97, in error
+    raise Exception('Invalid syntax')
+Exception: Invalid syntax
+</code></pre>
+<p>Try it out!</p>
+<p>试试吧！</p>
+<p>I couldn’t help but mention syntax diagrams again. This is how a syntax diagram for the same <em>expr</em> rule will look:</p>
+<p>我忍不住又提到了语法（syntax）图。下面是同一个 expr 规则的语法图:</p>
+<figure data-type="image" tabindex="15"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_sd.png" alt="" loading="lazy"></figure>
+<p>It’s about time we dug into the source code of our new arithmetic expression interpreter. Below is the code of a calculator that can handle valid arithmetic expressions containing integers and any number of multiplication and division (integer division) operators. You can also see that I refactored the lexical analyzer into a separate class <em>Lexer</em> and updated the <em>Interpreter</em> class to take the <em>Lexer</em> instance as a parameter:</p>
+<p>是时候深入研究我们新的算术表达式解释器的源代码了。下面是一个计算器的代码，它可以处理包含整数和任意数量的乘法和除法（整数除法）运算符的有效算术表达式。你还可以看到，我将词法分析器重构为一个单独的类 Lexer，并更新了 Interpreter 类，将 Lexer 实例作为参数:</p>
+<pre><code class="language-python"># Token types
+#
+# EOF (end-of-file) token is used to indicate that
+# there is no more input left for lexical analysis
+INTEGER, MUL, DIV, EOF = 'INTEGER', 'MUL', 'DIV', 'EOF'
+
+
+class Token(object):
+    def __init__(self, type, value):
+        # token type: INTEGER, MUL, DIV, or EOF
+        self.type = type
+        # token value: non-negative integer value, '*', '/', or None
+        self.value = value
+
+    def __str__(self):
+        &quot;&quot;&quot;String representation of the class instance.
+
+        Examples:
+            Token(INTEGER, 3)
+            Token(MUL, '*')
+        &quot;&quot;&quot;
+        return 'Token({type}, {value})'.format(
+            type=self.type,
+            value=repr(self.value)
+        )
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class Lexer(object):
+    def __init__(self, text):
+        # client string input, e.g. &quot;3 * 5&quot;, &quot;12 / 3 * 4&quot;, etc
+        self.text = text
+        # self.pos is an index into self.text
+        self.pos = 0
+        self.current_char = self.text[self.pos]
+
+    def error(self):
+        raise Exception('Invalid character')
+
+    def advance(self):
+        &quot;&quot;&quot;Advance the `pos` pointer and set the `current_char` variable.&quot;&quot;&quot;
+        self.pos += 1
+        if self.pos &gt; len(self.text) - 1:
+            self.current_char = None  # Indicates end of input
+        else:
+            self.current_char = self.text[self.pos]
+
+    def skip_whitespace(self):
+        while self.current_char is not None and self.current_char.isspace():
+            self.advance()
+
+    def integer(self):
+        &quot;&quot;&quot;Return a (multidigit) integer consumed from the input.&quot;&quot;&quot;
+        result = ''
+        while self.current_char is not None and self.current_char.isdigit():
+            result += self.current_char
+            self.advance()
+        return int(result)
+
+    def get_next_token(self):
+        &quot;&quot;&quot;Lexical analyzer (also known as scanner or tokenizer)
+
+        This method is responsible for breaking a sentence
+        apart into tokens. One token at a time.
+        &quot;&quot;&quot;
+        while self.current_char is not None:
+
+            if self.current_char.isspace():
+                self.skip_whitespace()
+                continue
+
+            if self.current_char.isdigit():
+                return Token(INTEGER, self.integer())
+
+            if self.current_char == '*':
+                self.advance()
+                return Token(MUL, '*')
+
+            if self.current_char == '/':
+                self.advance()
+                return Token(DIV, '/')
+
+            self.error()
+
+        return Token(EOF, None)
+
+
+class Interpreter(object):
+    def __init__(self, lexer):
+        self.lexer = lexer
+        # set current token to the first token taken from the input
+        self.current_token = self.lexer.get_next_token()
+
+    def error(self):
+        raise Exception('Invalid syntax')
+
+    def eat(self, token_type):
+        # compare the current token type with the passed token
+        # type and if they match then &quot;eat&quot; the current token
+        # and assign the next token to the self.current_token,
+        # otherwise raise an exception.
+        if self.current_token.type == token_type:
+            self.current_token = self.lexer.get_next_token()
+        else:
+            self.error()
+
+    def factor(self):
+        &quot;&quot;&quot;Return an INTEGER token value.
+
+        factor : INTEGER
+        &quot;&quot;&quot;
+        token = self.current_token
+        self.eat(INTEGER)
+        return token.value
+
+    def expr(self):
+        &quot;&quot;&quot;Arithmetic expression parser / interpreter.
+
+        expr   : factor ((MUL | DIV) factor)*
+        factor : INTEGER
+        &quot;&quot;&quot;
+        result = self.factor()
+
+        while self.current_token.type in (MUL, DIV):
+            token = self.current_token
+            if token.type == MUL:
+                self.eat(MUL)
+                result = result * self.factor()
+            elif token.type == DIV:
+                self.eat(DIV)
+                result = result // self.factor()
+
+        return result
+
+
+def main():
+    while True:
+        try:
+            text = input('calc&gt; ')
+        except EOFError:
+            break
+        if not text:
+            continue
+        lexer = Lexer(text)
+        interpreter = Interpreter(lexer)
+        result = interpreter.expr()
+        print(result)
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+<p>Save the above code into the <em>calc4.py</em> file or download it directly from <a href="https://github.com/rspivak/lsbasi/blob/master/part4/calc4.py">GitHub</a>. As usual, try it out and see for yourself that it works.</p>
+<p>将上面的代码保存到 calc4.py 文件中，或者直接从 GitHub 下载。像往常一样，尝试一下，看看它是否有效。</p>
+<p>This is a sample session that I ran on my laptop:</p>
+<p>这是我在笔记本电脑上运行的一个示例会话:</p>
+<pre><code class="language-python">$ python calc4.py
+calc&gt; 7 * 4 / 2
+14
+calc&gt; 7 * 4 / 2 * 3
+42
+calc&gt; 10 * 4  * 2 * 3 / 8
+30
+</code></pre>
+<p>I know you couldn’t wait for this part 😃 Here are new exercises for today:</p>
+<p>我知道你已经迫不及待了:)这里是今天的新练习:</p>
+<figure data-type="image" tabindex="16"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_exercises.png" alt="" loading="lazy"></figure>
+<ul>
+<li>Write a grammar that describes arithmetic expressions containing any number of +, -, *, or / operators. With the grammar you should be able to derive expressions like “2 + 7 * 4”, “7 - 8 / 4”, “14 + 2 * 3 - 6 / 2”, and so on.
+<ul>
+<li>编写一种 grammar，描述包含任意数量的 + 、-、 * 或/运算符的算术表达式。使用这种语法，你应该能够派生出“2 + 7 * 4”、“7-8/4”、“14 + 2 * 3-6/2”等表达式</li>
+</ul>
+</li>
+<li>Using the grammar, write an interpreter that can evaluate arithmetic expressions containing any number of +, -, *, or / operators. Your interpreter should be able to handle expressions like “2 + 7 * 4”, “7 - 8 / 4”, “14 + 2 * 3 - 6 / 2”, and so on.
+<ul>
+<li>使用grammar，编写一个解释器，它可以计算包含任意数量的 + 、-、 * 或/运算符的算术表达式。你的解释器应该能够处理“2 + 7 * 4”、“7-8/4”、“14 + 2 * 3-6/2”等表达式</li>
+</ul>
+</li>
+<li>If you’ve finished the above exercises, relax and enjoy 😃 如果你已经完成了上面的练习，放松并且享受:)</li>
+</ul>
+<p>我的答案（阅读完part5文字之后写的）：</p>
+<pre><code class="language-python">expr : term ((PLUS|MINUS)term)*
+term : factor ((MUL|DIV)factor)*
+factor : INTEGER
+</code></pre>
+<pre><code class="language-python"># Token types
+#
+# EOF (end-of-file) token is used to indicate that
+# there is no more input left for lexical analysis
+INTEGER, MUL, DIV,PLUS, MINUS, EOF = 'INTEGER', 'MUL', 'DIV', 'PLUS','MINUS','EOF'
+
+
+class Token(object):
+    def __init__(self, type, value):
+        # token type: INTEGER, MUL, DIV, or EOF
+        self.type = type
+        # token value: non-negative integer value, '*', '/', or None
+        self.value = value
+
+    def __str__(self):
+        &quot;&quot;&quot;String representation of the class instance.
+
+        Examples:
+            Token(INTEGER, 3)
+            Token(MUL, '*')
+        &quot;&quot;&quot;
+        return 'Token({type}, {value})'.format(
+            type=self.type,
+            value=repr(self.value)
+        )
+
+    def __repr__(self):
+        return self.__str__()
+
+
+class Lexer(object):
+    def __init__(self, text):
+        # client string input, e.g. &quot;3 * 5&quot;, &quot;12 / 3 * 4&quot;, etc
+        self.text = text
+        # self.pos is an index into self.text
+        self.pos = 0
+        self.current_char = self.text[self.pos]
+
+    def error(self):
+        raise Exception('Invalid character')
+
+    def advance(self):
+        &quot;&quot;&quot;Advance the `pos` pointer and set the `current_char` variable.&quot;&quot;&quot;
+        self.pos += 1
+        if self.pos &gt; len(self.text) - 1:
+            self.current_char = None  # Indicates end of input
+        else:
+            self.current_char = self.text[self.pos]
+
+    def skip_whitespace(self):
+        while self.current_char is not None and self.current_char.isspace():
+            self.advance()
+
+    def integer(self):
+        &quot;&quot;&quot;Return a (multidigit) integer consumed from the input.&quot;&quot;&quot;
+        result = ''
+        while self.current_char is not None and self.current_char.isdigit():
+            result += self.current_char
+            self.advance()
+        return int(result)
+
+    def get_next_token(self):
+        &quot;&quot;&quot;Lexical analyzer (also known as scanner or tokenizer)
+
+        This method is responsible for breaking a sentence
+        apart into tokens. One token at a time.
+        &quot;&quot;&quot;
+        while self.current_char is not None:
+
+            if self.current_char.isspace():
+                self.skip_whitespace()
+                continue
+
+            if self.current_char.isdigit():
+                return Token(INTEGER, self.integer())
+            
+            if self.current_char == '+':
+                self.advance()
+                return Token(PLUS,'+')
+            if self.current_char == '-':
+                self.advance()
+                return Token(MINUS,'-')
+
+            if self.current_char == '*':
+                self.advance()
+                return Token(MUL, '*')
+
+            if self.current_char == '/':
+                self.advance()
+                return Token(DIV, '/')
+
+            self.error()
+
+        return Token(EOF, None)
+
+
+class Interpreter(object):
+    def __init__(self, lexer):
+        self.lexer = lexer
+        # set current token to the first token taken from the input
+        self.current_token = self.lexer.get_next_token()
+
+    def error(self):
+        raise Exception('Invalid syntax')
+
+    def eat(self, token_type):
+        # compare the current token type with the passed token
+        # type and if they match then &quot;eat&quot; the current token
+        # and assign the next token to the self.current_token,
+        # otherwise raise an exception.
+        if self.current_token.type == token_type:
+            self.current_token = self.lexer.get_next_token()
+        else:
+            self.error()
+
+    def factor(self):
+        &quot;&quot;&quot;Return an INTEGER token value.
+
+        factor : INTEGER
+        &quot;&quot;&quot;
+        token = self.current_token
+        self.eat(INTEGER)
+        return token.value
+
+    def term(self):
+        result = self.factor()
+
+        while self.current_token.type in (MUL, DIV):
+            token = self.current_token
+            if token.type == MUL:
+                self.eat(MUL)
+                result = result * self.factor()
+            elif token.type == DIV:
+                self.eat(DIV)
+                result = result // self.factor()
+
+        return result
+
+    def expr(self):
+        &quot;&quot;&quot;Arithmetic expression parser / interpreter.
+
+        expr   : factor ((MUL | DIV) factor)*
+        factor : INTEGER
+        &quot;&quot;&quot;
+        result = self.term()
+
+        while self.current_token.type in (PLUS, MINUS):
+            token = self.current_token
+            if token.type == PLUS:
+                self.eat(PLUS)
+                result = result + self.term()
+            elif token.type == MINUS:
+                self.eat(MINUS)
+                result = result - self.term()
+            
+        return result
+
+def main():
+    while True:
+        try:
+            text = input('calc&gt; ')
+        except EOFError:
+            break
+        if not text:
+            continue
+        lexer = Lexer(text)
+        interpreter = Interpreter(lexer)
+        result = interpreter.expr()
+        print(result)
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+<p><strong>Check your understanding.</strong></p>
+<p>检查你的理解。</p>
+<p>Keeping in mind the grammar from today’s article, answer the following questions, referring to the picture below as needed:</p>
+<p>记住今天文章的grammar，回答以下问题，根据需要参考下面的图片:</p>
+<figure data-type="image" tabindex="17"><img src="https://ruslanspivak.com/lsbasi-part4/lsbasi_part4_bnf1.png" alt="" loading="lazy"></figure>
+<ol>
+<li>What is a context-free grammar (grammar)? 什么是上下文无关文法？</li>
+</ol>
+<blockquote></blockquote>
+<blockquote></blockquote>
+<blockquote>
+<p>应该如何理解「上下文无关文法」？ - Towser的回答 - 知乎 https://www.zhihu.com/question/21833944/answer/307309365<br>
+​</p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.zhihu.com/people/630612ff80641e9ec165af192743a792">@徐辰</a> 回答的特别好。<br>
+题主的主要疑惑应该在于：什么是上下文，上下文在哪里？为什么说这个文法上下文无关？<br>
+答案就是：在应用一个产生式进行推导时，前后已经推导出的部分结果就是上下文。上下文无关的意思的，只要文法的定义里有某个产生式，不管一个非终结符前后的串是什么，就可以应用相应的产生式进行推导。（从形式上来看，就是产生式的左边都是单独一个非终结符，即形如 S-&gt; ...，而不是非终结符左右还有别的东西，例如 aSb -&gt; ...）</p>
+</blockquote>
+<blockquote>
+<p>这么描述有点儿抽象，我举一个自然语言的例子：<br>
+<strong>上下文无关文法：</strong><br>
+产生式：<br>
+Sent -&gt; S V O<br>
+S -&gt; 人 | 天<br>
+V -&gt; 吃 | 下<br>
+O -&gt; 雨 | 雪 | 饭 | 肉</p>
+</blockquote>
+<blockquote>
+<p>其中英文字母都是非终结符（SVO 分别表示主谓宾），汉字都是终结符。<br>
+这个文法可以生成如下句子（共 2<em>2</em>4=16 种组合，懒得写全了，简单写 7 种意思意思）：<br>
+｛人吃饭，天下雨，人吃肉，天下雪，人下雪，天下饭，天吃肉，……｝<br>
+可以看到，其中有一些搭配在语义上是不恰当的，例如“天吃肉”。其（最左）推导过程为：<br>
+Sent -&gt; SVO -&gt; 天VO -&gt; 天吃O -&gt; 天吃肉<br>
+但是上下文无关文法里，因为有“V -&gt; 吃 | 下”这样一条产生式，V 就永远都可以推出“吃”这个词，它并不在乎应用“V -&gt; 吃 | 下”这个产生式进行推导时 V 所在的上下文（在这个例子里，就是”天VO“中 V 左右两边的字符串”天“和”O“）。事实上，在 V 推出“吃”这一步，它的左边是“天”这个词，而”天“和”吃“不搭配，导致最后的句子读起来很奇怪。</p>
+</blockquote>
+<blockquote>
+<p>那<strong>上下文有关文法</strong>呢？产生式可以定义为（其中前两条产生式仍是上下文无关的，后四条则是上下文有关的）：<br>
+Sent -&gt; S V O<br>
+S -&gt; 人 | 天<br>
+人V -&gt; 人吃<br>
+天V -&gt; 天下<br>
+下O -&gt; 下雨 | 下雪<br>
+吃O -&gt; 吃饭 | 吃肉</p>
+</blockquote>
+<blockquote>
+<p>可以看到，这里对 V 的推导过程施加了约束：虽然 V 还是能推出”吃“和”下“两个词，但是仅仅当 V 左边是”人“时，才允许它推导出”吃“；而当 V 左边是”天“时，允许它推导出”下“。这样通过上下文的约束，就保证了主谓搭配的一致性。类似地，包含 O 的产生式也约束了动宾搭配的一致性。<br>
+这样一来，这个语言包含的句子就只有｛人吃饭，天下雨，人吃肉，天下雪｝这四条，都是语义上合理的。<br>
+以”人吃饭“为例，推导过程为：<br>
+Sent -&gt; SVO -&gt; 人VO -&gt; 人吃O -&gt; 人吃饭<br>
+其中第三步推导是这样的：非终结符 V 的上文是“人”，因此可以应用“人V -&gt; 人吃”这条产生式，得到“人VO -&gt; 人吃O”。第四步也类似。</p>
+</blockquote>
+<blockquote>
+<p>而 <a href="https://www.zhihu.com/people/20529960b7c64153695a7488fb49aeab">@范彬</a> 回答的是语法的歧义性，这和 CFG 无关。最简单的例子：<br>
+假设有如下上下文无关文法：<br>
+S -&gt; S1 | S2<br>
+S1 -&gt; ab<br>
+S2 -&gt; AB<br>
+A -&gt; a<br>
+B -&gt; b<br>
+那么对于 &quot;ab&quot; 这个串，一种推倒方式是 S -&gt; S1 -&gt; ab，另一种是 S -&gt; S2 -&gt; AB -&gt; aB -&gt; ab。前一种要把 &quot;ab&quot; 合起来，后一种要分开，这只是说明该文法有歧义，而不能说这是一个上下文有关文法。事实上，还有一些上下文无关语言是固有歧义的（能产生该语言的每一种上下文无关文法都有歧义）。</p>
+</blockquote>
+<ol start="2">
+<li>How many rules / productions does the grammar have? 语法有多少个规则/产生式？</li>
+</ol>
+<blockquote>
+<p>多个<br>
+图中有两个</p>
+</blockquote>
+<ol start="3">
+<li>What is a terminal? (Identify all terminals in the picture) 什么是终结符? (识别图片中的所有终结符)</li>
+</ol>
+<blockquote>
+<p>像MUL、 DIV 和 INTEGER 这样的token称为终结符<br>
+图中的终结符有MUL、DIV、INTEGER</p>
+</blockquote>
+<ol start="4">
+<li>What is a non-terminal? (Identify all non-terminals in the picture) 什么是非终结符? (识别图片中的所有非终结符)</li>
+</ol>
+<blockquote>
+<p>像 expr 和 factor 这样的变量称为非终结符<br>
+图中的非终结符有factor和expr</p>
+</blockquote>
+<ol start="5">
+<li>What is a head of a rule? (Identify all heads / left-hand sides in the picture) 什么是规则的头部? (识别图片中所有的header/left-head sides)</li>
+</ol>
+<blockquote>
+<p>一条规则中冒号左边的终结符是规则的head<br>
+图中的header有：expr和factor</p>
+</blockquote>
+<ol start="6">
+<li>What is a body of the rule? (Identify all bodies / right-hand sides in the picture) 规则的主体是什么? (识别图片中所有的bodies/right-hand sides)</li>
+</ol>
+<blockquote>
+<p>一条规则中冒号右边的一系列终结符和/或非终结符是规则的body</p>
+</blockquote>
+<ol start="7">
+<li>What is the start symbol of a grammar? 语法的开始符号是什么？</li>
+</ol>
+<blockquote>
+<p>第一条规则左侧的非终结符称为<strong>开始符号</strong>。<br>
+图中的grammar中，开始符号是 expr。</p>
+</blockquote>
+<p>Hey, you read all the way to the end! This post contained quite a bit of theory, so I’m really proud of you that you finished it.</p>
+<p>嘿，你从头读到尾！这篇文章包含了相当多的理论，所以我为你完成了它而感到骄傲。</p>
+<p>I’ll be back next time with a new article - stay tuned and don’t forget to do the exercises, they will do you good.</p>
+<p>下次我会带着一篇新文章回来——请继续关注，别忘了做练习，它们会对你有好处的。</p>
+<p>Here is a list of books I recommend that will help you in your study of interpreters and compilers:</p>
+<p>以下是我推荐的一些书籍，它们可以帮助你学习解释器和编译器:</p>
+<ol>
+<li><a href="http://www.amazon.com/gp/product/193435645X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=193435645X&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=MP4DCXDV6DJMEJBL">Language Implementation Patterns: Create Your Own Domain-Specific and General Programming Languages (Pragmatic Programmers)</a><br>
+语言实现模式: 创建您自己的特定领域和通用编程语言(实用程序员)</li>
+<li><a href="http://www.amazon.com/gp/product/0470177071/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0470177071&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=UCLGQTPIYSWYKRRM">Writing Compilers and Interpreters: A Software Engineering Approach</a><br>
+编写编译器和解释器: 一种软件工程方法</li>
+<li><a href="http://www.amazon.com/gp/product/052182060X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=052182060X&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=ZSKKZMV7YWR22NMW">Modern Compiler Implementation in Java</a><br>
+现代编译器在 Java 中的实现</li>
+<li><a href="http://www.amazon.com/gp/product/1461446988/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1461446988&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=PAXWJP5WCPZ7RKRD">Modern Compiler Design</a><br>
+现代编译器设计</li>
+<li><a href="http://www.amazon.com/gp/product/0321486811/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321486811&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=GOEGDQG4HIHU56FQ">Compilers: Principles, Techniques, and Tools (2nd Edition)</a><br>
+编译器: 原理、技术和工具(第二版)</li>
+</ol>
+<p><strong>All articles in this series:</strong></p>
+<p>本系列的所有文章:</p>
+<ul>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/">Let's Build A Simple Interpreter. Part 1. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part2/">Let's Build A Simple Interpreter. Part 2. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part3/">Let's Build A Simple Interpreter. Part 3. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part4/">Let's Build A Simple Interpreter. Part 4. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part5/">Let's Build A Simple Interpreter. Part 5. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part6/">Let's Build A Simple Interpreter. Part 6. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part7/">Let's Build A Simple Interpreter. Part 7: Abstract Syntax Trees 让我们构建一个简单的解释器。第7部分: 抽象语法树</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part8/">Let's Build A Simple Interpreter. Part 8. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part9/">Let's Build A Simple Interpreter. Part 9. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part10/">Let's Build A Simple Interpreter. Part 10. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part11/">Let's Build A Simple Interpreter. Part 11. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part12/">Let's Build A Simple Interpreter. Part 12. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part13/">Let's Build A Simple Interpreter. Part 13: Semantic Analysis 让我们建立一个简单的解释器。第13部分: 语义分析</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part14/">Let's Build A Simple Interpreter. Part 14: Nested Scopes and a Source-to-Source Compiler 让我们构建一个简单的解释器。第14部分: 嵌套作用域和源到源编译器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part15/">Let's Build A Simple Interpreter. Part 15. 让我们构建一个简单的解释器。第15部分</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part16/">Let's Build A Simple Interpreter. Part 16: Recognizing Procedure Calls 让我们建立一个简单的解释器。第16部分: 识别过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part17/">Let's Build A Simple Interpreter. Part 17: Call Stack and Activation Records 让我们构建一个简单的解释器。第17部分: 调用堆栈和激活记录</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part18/">Let's Build A Simple Interpreter. Part 18: Executing Procedure Calls 让我们构建一个简单的解释器。第18部分: 执行过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part19/">Let's Build A Simple Interpreter. Part 19: Nested Procedure Calls 让我们构建一个简单的解释器。第19部分: 嵌套过程调用</a></li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/">https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/&sharesource=qzone&title=[翻译与学习] Let’s Build A Simple Interpreter. Part4.&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/&sharesource=weibo&title=[翻译与学习] Let’s Build A Simple Interpreter. Part4. + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">#
+                    编译原理
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part5/">
+                                                                                            [翻译与学习] Let’s Build A Simple Interpreter. Part5.
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part3/">
+                                                                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part3.
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

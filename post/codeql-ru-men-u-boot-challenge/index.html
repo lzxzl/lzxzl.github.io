@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                CodeQL入门 - U-Boot Challenge
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-06-11</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">21.2
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">4402</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/CodeAudit/">CodeAudit</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <blockquote>
+<p>根据<a href="https://securitylab.github.com/ctf/uboot/">GitHub Security Lab CTF 2: U-Boot Challenge</a>来学习codeql，</p>
+<p>官方的那个github机器人好像已经没了？那就自己写完跟网上的“标准答案”对比一下吧</p>
+</blockquote>
+<h1 id="1-环境搭建">1 环境搭建</h1>
+<h2 id="11-codeql-cli-visual-studio-code-插件codeql">1.1 codeql-cli &amp; visual studio code &amp; 插件codeql</h2>
+<p>略:)</p>
+<p>好吧，安装与配置请参考：https://blog.csdn.net/weixin_43847838/article/details/130657057</p>
+<h2 id="12-clone-vscode-codeql-starter">1.2 clone vscode-codeql-starter</h2>
+<pre><code class="language-shell">git clone --recursive https://github.com/github/vscode-codeql-starter
+</code></pre>
+<p>如果报错ssl timeout，那就在<code>/etc/hosts</code>里加上github的ip，比如这样：<code>140.82.113.3  github.com</code></p>
+<blockquote>
+<p>查询github ip的网址：https://www.ipaddress.com/site/github.com</p>
+</blockquote>
+<h2 id="13-下载u-boot已有数据库">1.3 下载u-boot已有数据库</h2>
+<p>下载：<a href="https://downloads.lgtm.com/snapshots/cpp/uboot/u-boot_u-boot_cpp-srcVersion_d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5-dist_odasa-2019-07-25-linux64.zip">U-Boot CodeQL database</a></p>
+<p>然后解压</p>
+<pre><code class="language-shell">❯ unzip u-boot_u-boot_cpp-srcVersion_d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5-dist_odasa-2019-07-25-linux64.zip
+
+❯ ll
+total 1011776
+drwxr-xr-x   5 lzx  staff   160B  6  6 23:33 attach
+drwxr-xr-x  38 lzx  staff   1.2K  6  5 23:02 codeql
+drwxr-xr-x@ 22 lzx  staff   704B  5 24 18:28 codeql-cli
+-rw-r--r--@  1 lzx  staff   420M  6  5 23:01 codeql-cli.zip
+-rw-r--r--@  1 lzx  staff   2.1K  6  7 00:00 codeql.md
+-rw-r--r--@  1 lzx  staff    74M  6  5 23:21 u-boot_u-boot_cpp-srcVersion_d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5-dist_odasa-2019-07-25-linux64.zip
+drwxr-xr-x@  9 lzx  staff   288B  6  7 00:01 u-boot_u-boot_d0d07ba  &lt;-- 解压结果
+drwxr-xr-x  21 lzx  staff   672B  6  6 22:51 vscode-codeql-starter
+</code></pre>
+<h2 id="14-导入vscode-codeql-starter">1.4 导入vscode-codeql-starter</h2>
+<p>VSCode：<code>File</code>-&gt;<code>Open workspace from file...</code>-&gt;<code>选择vscode-codeql-starter.code-workspace</code></p>
+<figure data-type="image" tabindex="1"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230606233444.png" alt="image-20230606233351463" loading="lazy"></figure>
+<h2 id="15-导入u-boot-数据库">1.5 导入u-boot 数据库</h2>
+<p>VSCode Extension CODEQL:<code>From a folder</code>（因为我前面解压了）</p>
+<figure data-type="image" tabindex="2"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607000544.png" alt="image-20230607000543064" loading="lazy"></figure>
+<blockquote>
+<p>参考：<a href="https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#choosing-a-database">choosing-a-database</a></p>
+<p>这个数据库对应的u-boot版本是<a href="https://github.com/u-boot/u-boot/tree/d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5">d0d07ba86afc8074d79e436b1ba4478fa0f0c1b5</a></p>
+<p>如果要自己创建数据库，那就clone这个版本的代码，然后再用codeql-cli创建</p>
+<pre><code class="language-shell">proxychains4 git clone https://github.com/u-boot/u-boot.git
+
+cd u-boot
+
+git reset --hard d0d07ba86afc8074d79e436b1ba4478fa0f0c1b
+</code></pre>
+</blockquote>
+<h2 id="16-clone-课程仓库">1.6 clone 课程仓库</h2>
+<p>现在是2023年，官方的仓库没了？那就在github上找一个。</p>
+<pre><code class="language-shell">git clone https://github.com/hluwa/codeql-uboot.git
+</code></pre>
+<h2 id="17-把课程仓库添加到前面的starter-workspace">1.7 把课程仓库添加到前面的starter workspace</h2>
+<p><code>File</code> -&gt; <code>Add Folder to Workspace...</code></p>
+<p>添加完之后长下面这样，环境就搭建完了。</p>
+<figure data-type="image" tabindex="3"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607004026.png" alt="image-20230607001122417" loading="lazy"></figure>
+<p>到这里，环境就算搭建好了。接下来看看这个实验的描述：</p>
+<blockquote>
+<p>The goal of this challenge is to find the 13 remote-code-execution vulnerabilities <a href="https://securitylab.github.com/research/uboot-rce-nfs-vulnerability">that our security researchers found</a> in the <a href="https://en.wikipedia.org/wiki/Das_U-Boot">U-Boot loader</a>. The vulnerabilities can be triggered when U-Boot is configured to use the network for fetching the next stage boot resources. MITRE has issued the following CVEs for the 13 vulnerabilities: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14192">CVE-2019-14192</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14193">CVE-2019-14193</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14194">CVE-2019-14194</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14195">CVE-2019-14195</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14196">CVE-2019-14196</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14197">CVE-2019-14197</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14198">CVE-2019-14198</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14199">CVE-2019-14199</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14200">CVE-2019-14200</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14201">CVE-2019-14201</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14202">CVE-2019-14202</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14203">CVE-2019-14203</a>, and <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14204">CVE-2019-14204</a>.</p>
+<p>Through these vulnerabilities an attacker in the same network (or controlling a malicious NFS server) could gain code execution at the U-Boot powered device. The <strong>first two</strong> occurrences of the vulnerability were plain <strong>memcpy overflows</strong> with an attacker-<strong>controlled size coming from the network packet without any validation</strong>. The <code>memcpy</code> function copies <code>n</code> bytes from memory area <code>src</code> to memory area <code>dest</code>. This can be unsafe when the size being parsed is not appropriately validated, allowing an attacker to fully control the data and length being passed through.</p>
+<p>U-Boot contains hundreds of calls to <code>memcpy</code> and <code>libc</code> functions that read from the network such as <code>ntohl</code> and <code>ntohs</code>. In this challenge, you will use <a href="https://codeql.com/">CodeQL</a> to find those calls. Of course many of those calls are safe, so throughout this challenge you will refine your query to reduce the number of false positives.</p>
+<p>Upon completion of the challenge, you will have a query that is able to find many of the vulnerabilities that allow for remote execution of arbitrary code on U-Boot powered devices.</p>
+</blockquote>
+<h1 id="2-step-0-finding-the-definition-of-memcpy-ntohl-ntohll-and-ntohs">2 Step 0: Finding the definition of memcpy, ntohl, ntohll, and ntohs</h1>
+<h2 id="21-找到所有名为strlen的函数定义">2.1 找到所有名为strlen的函数定义</h2>
+<p>把下面这段代码拷贝到<code>3_function_definitions.ql</code></p>
+<pre><code class="language-sql">import cpp
+
+from Function f
+where f.getName() = &quot;strlen&quot;
+select f, &quot;a function named strlen&quot;
+</code></pre>
+<p>选中<code>3_function_definitions.ql</code>，<code>右键</code>-&gt;<code>CodeQL: Run Queries in Selected Files</code></p>
+<figure data-type="image" tabindex="4"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607004020.png" alt="image-20230607003603971" loading="lazy"></figure>
+<p><strong>Question 0.0: Can you work out what the above query is doing?</strong></p>
+<ul>
+<li>功能是查询所有名为strlen的函数定义，根据结果来看，包括函数定义和函数声明。</li>
+<li><code>import cpp</code> : 导入 c++ 规则库</li>
+<li><code>From Function f</code> : 声明一个 Function 类的变量为 f</li>
+<li><code>where f.getName() = &quot;strlen&quot;</code> : <code>f.getName()</code> 用于获取此变量的名称，也就是满足条件：和strlen相同的Function会被选出来</li>
+<li><code>select f,&quot;a function named strlen&quot;</code> : select的作用是选择要显示的结果，用逗号分隔。嗯，和sql一样。</li>
+</ul>
+<h2 id="22-找到所有名为memcpy的函数定义">2.2 找到所有名为memcpy的函数定义</h2>
+<p><strong>Question 0.1: Modify the query to find the definition of memcpy.</strong></p>
+<ul>
+<li>Hint: Queries have a from, where, and select clause. Have a look at this <a href="https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/">introduction to the QL language</a>.</li>
+<li>这个简单，直接上代码：</li>
+</ul>
+<pre><code class="language-sql">import cpp
+
+from Function f
+where f.getName() = &quot;memcpy&quot;
+select f, &quot;a function named memcpy&quot;
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607004016.png" alt="" loading="lazy"></figure>
+<h2 id="23-找到所有名为ntohl-ntohll和-ntohs的函数定义或宏定义">2.3 找到所有名为<code>ntohl</code>、 <code>ntohll</code>和 <code>ntohs</code>的函数定义或宏定义</h2>
+<p><strong>Question 0.2: <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code> can either be functions or macros (depending on the platform where the code is compiled).</strong></p>
+<p>As these snapshots for U-Boot were built on Linux, we know they are going to be macros. Write a query to find the definition of these macros.</p>
+<ul>
+<li>Hint: The CodeQL Query Console has an auto-completion feature. Hit <code>Ctrl-Space</code> after the from clause to get the list of objects you can query. Wait a second after typing <code>myObject.</code> to get the list of methods.
+<ul>
+<li>hmm..query cosole？<code>ctrl-space</code>？</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607005927.png" alt="image-20230607005925556" loading="lazy"></figure>
+<ul>
+<li>Hint: We can use a regular expression to write a query that searches for all three macros at once.
+<ul>
+<li>借助正则表达式，一次查询三个宏的定义</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607010525.png" alt="image-20230607010523312" loading="lazy"></figure>
+<pre><code class="language-sql">import cpp
+from Macro m
+where m.getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;)
+select m, &quot;ntohl, ntohll, and ntohs&quot;
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031619.png" alt="image-20230607010817254" loading="lazy"></figure>
+<p>或者可以通过集合表达式来查询：</p>
+<pre><code class="language-sql">import cpp
+from Macro m
+// where m.getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;)
+// select m, &quot;ntohl, ntohll, and ntohs&quot;
+
+// where &lt;your_variable_name&gt; in [“bar”, “baz”, “quux”]
+where m.getName() in [&quot;ntohs&quot;,&quot;ntohl&quot;,&quot;ntohll&quot;]
+select m, &quot;ntohl, ntohll, and ntohs 22222&quot;
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031627.png" alt="image-20230607011018919" loading="lazy"></figure>
+<blockquote>
+<p>ntoh 族函数通常用来进行网络字节序到主机字节序的转换</p>
+<p>参考：</p>
+<ul>
+<li>https://bestwing.me/codeql.html</li>
+<li>https://milkii0.github.io/2022/06/10/CodeQLU-BootChallenge%20(CC++)/</li>
+</ul>
+</blockquote>
+<h1 id="3-step-1-finding-the-calls-to-memcpy-ntohl-ntohll-and-ntohs">3 Step 1: Finding the calls to memcpy, ntohl, ntohll, and ntohs</h1>
+<h2 id="31-找到所有memcpy的调用">3.1 找到所有memcpy的调用</h2>
+<p><strong>Question 1.0: Find all the calls to <code>memcpy</code>.</strong></p>
+<ul>
+<li>Hint: Use the auto-completion feature on the function call variable to guess how to express the relation between a function call and a function, and how to bind them.</li>
+</ul>
+<figure data-type="image" tabindex="10"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031634.png" alt="image-20230607013754557" loading="lazy"></figure>
+<pre><code class="language-sql">import cpp
+from FunctionCall fc
+
+// FunctionCall.getTarget()：返回值类型的是Function，功能是获取被这个函数调用fc所调用的函数
+
+where fc.getTarget().getName() = &quot;memcpy&quot; // 如果fc调用的函数的名称是memcpy
+select fc
+</code></pre>
+<figure data-type="image" tabindex="11"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031640.png" alt="image-20230607014018304" loading="lazy"></figure>
+<h2 id="32-找到所有ntohl-ntohll-和-ntohs的调用">3.2 找到所有<code>ntohl</code>、 <code>ntohll</code> 和 <code>ntohs</code>的调用</h2>
+<p><strong>Question 1.1: Find all the calls to <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code>.</strong></p>
+<ul>
+<li>Hint: calls to <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code> are macro invocations, unlike memcpy which is a function call.
+<ul>
+<li>MacroInvocation类似上面的FunctionCall</li>
+</ul>
+</li>
+</ul>
+<figure data-type="image" tabindex="12"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031646.png" alt="image-20230607014820654" loading="lazy"></figure>
+<p>如下图，<code>MacorInvocation.getMacro()</code>的功能是获取被这个Invocation访问的宏。</p>
+<figure data-type="image" tabindex="13"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230607014950.png" alt="image-20230607014945489" loading="lazy"></figure>
+<p>答案如下，看结果好像项目里没有调用ntohll宏的地方？</p>
+<pre><code class="language-sql">import cpp
+from MacroInvocation mi
+where mi.getMacro().getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;)
+select mi
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031654.png" alt="image-20230607015614373" loading="lazy"></figure>
+<h2 id="33-找到所有包含上面宏调用的表达式">3.3 找到所有包含上面宏调用的表达式</h2>
+<p><strong>Question 1.2: Find the expressions that resulted in these macro invocations.</strong></p>
+<ul>
+<li>Hint: We need to get the expression of the macro invocation we found in 1.1</li>
+</ul>
+<p>找到有Q1.1宏调用的表达式？一开始我不大理解这个问题，上面不是找到宏调用的地方了吗？然后想了想，Q1.1是要找到所有calls，而这里要找到有calls的expressions。那么前面的where限定应该不用改，MacroInvocation应该可以get Expression，那就在用代码补全再看看吧：</p>
+<figure data-type="image" tabindex="15"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031700.png" alt="image-20230608231257894" loading="lazy"></figure>
+<p>获取这个宏调用相关的top-level expression，并且如果top-level的expanded元素不是表达式的话，会获取失败。所以，<code>mi.getExpr()</code>的结果应该是<code>mi</code>的子集。果然，执行后，翻了翻结果，数量和内容和Q1.1是一样的。</p>
+<blockquote>
+<p>另外，这个top-level expression是什么？</p>
+<p><a href="https://www.reddit.com/r/learnprogramming/comments/95ywhi/what_is_a_toplevel_expression/">What is a top-level expression?</a></p>
+<figure data-type="image" tabindex="16"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031709.png" alt="image-20230608233430142" loading="lazy"></figure>
+</blockquote>
+<pre><code class="language-sql">import cpp
+from MacroInvocation mi
+where mi.getMacro().getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;)
+select mi.getExpr()
+</code></pre>
+<p>结果如下：</p>
+<figure data-type="image" tabindex="17"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031714.png" alt="image-20230608231409995" loading="lazy"></figure>
+<h1 id="4-step-2-data-flow-analysis">4 Step 2: Data flow analysis</h1>
+<p>For this step, we want to detect cases where some data read from the network will end up being used by a call to memcpy. To do this, we’ll use the CodeQL taint tracking library, and its predicate <code>hasFlowPath</code> that will tell us when some data coming from a <em>source</em> flows to a <em>sink</em>. Use the boiler plate provided below to complete your <a href="https://codeql.github.com/codeql-standard-libraries/cpp/semmle/code/cpp/dataflow/TaintTracking.qll/module.TaintTracking$TaintTracking.html">taint tracking</a> query.</p>
+<p>想要检测这样的情况：从网络读取的数据最终被传给memcpy使用。为了做到这个，将使用CodeQL污点跟踪库。它有一个名叫<code>hasFlowPath</code>的谓词，其作用是告诉我们来自<code>source</code>的数据什么时候流向<code>sink</code>。用下面提供的样板来完成污点跟踪查询。这个样板在下面的Q2.1（写这句废话是因为在Q2.0加了一些东西，可能你一下看不到）。</p>
+<p>上面文字有个链接，点进去后，是对TaintTracking模块的简单介绍：</p>
+<figure data-type="image" tabindex="18"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031720.png" alt="image-20230608235348841" loading="lazy"></figure>
+<p><strong>Question 2.0: Write a <a href="https://codeql.github.com/docs/ql-language-reference/types/#classes">QL class</a> that finds all the top-level expressions associated with the macro invocations to the calls to <code>ntohl</code>, <code>ntohll</code>, and <code>ntohs</code>.</strong></p>
+<ul>
+<li>Hint: Querying this class should give you the same results as in question 1.2</li>
+<li>就是让换种写法来获取Q1.2的结果，要用QL Class。根据它给的链接学一下QL Class，然后重写Q1.2的答案：</li>
+</ul>
+<pre><code class="language-sql">import cpp
+// 定义一个类：
+// 1. 要有class关键字
+// 2. 类名首字母必须大写
+// 3. 类的supertypes需要由关键字 extends 或者 instanceof 来声明
+// 4. 类的body要闭合
+
+class MyMacroInvocation extends MacroInvocation{ // 这个类继承MacroInvocation
+    MacroInvocation mi;// 声明一个宏调用的变量
+    MyMacroInvocation(){ // characteristic predicate， 类似构造函数
+        // mi满足下面的条件，并且this等于mi
+        mi.getMacro().getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;) and this = mi
+    }
+}
+from MyMacroInvocation mmi
+select mmi.getExpr() // 获取满足上面条件的宏调用的表达式
+</code></pre>
+<p>当然，如果要定义一个extends Expr类的类，方法也是类似的：</p>
+<pre><code class="language-sql">// 解法3:
+import cpp
+class MyExpr extends Expr {
+    MacroInvocation mi;
+    
+    MyExpr(){
+        mi.getMacro().getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;) and this = mi.getExpr()
+    }
+}
+from MyExpr me
+select me, &quot;33333&quot;
+</code></pre>
+<figure data-type="image" tabindex="19"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031729.png" alt="image-20230610155919624" loading="lazy"></figure>
+<p>后来看了<a href="https://milkii0.github.io/2022/06/10/CodeQLU-BootChallenge%20(CC++)/">这篇文章</a>，发现还有exists关键词，另一种解法：</p>
+<pre><code class="language-sql">import cpp
+
+class NetworkByteSwap extends Expr {
+    NetworkByteSwap() { 
+        exists(MacroInvocation mi | mi.getMacro().getName().regexpMatch(&quot;ntoh.*&quot;) | mi.getExpr() = this)
+     }
+}
+
+from NetworkByteSwap n
+select n, &quot;Network byte swap&quot;
+</code></pre>
+<p><strong>Question 2.1: Create the <a href="https://codeql.github.com/codeql-standard-libraries/cpp/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTrackingImpl.qll/type.TaintTrackingImpl$Configuration.html">configuration</a> class, by defining the source and sink.</strong> The source should be calls to <code>ntohl</code>, <code>ntohll</code>, or <code>ntohs</code>. The sink should be the size argument of an unsafe call to memcpy.</p>
+<p>创建一个定义了source和sink的configuration类，source应该对<code>notch*</code>的调用，sink则应该是不安全函数memcpy的size参数。</p>
+<blockquote>
+<p>ntoh 族函数通常用来进行网络字节序到主机字节序的转换。所以这里的意思应该是noth族函数会将外部传入的数据包中的某些数据转换一个数值，而这个数值可能最终会被传给memcpy作为size参数，使得拷贝的长度被攻击者控制，就可能会产生安全风险。</p>
+</blockquote>
+<ul>
+<li>Hint: The source should be an instance of the class you wrote in part 2.0.</li>
+<li>Hint: The sink should be the size argument of calls to memcpy.</li>
+<li>下面这个是模板</li>
+</ul>
+<pre><code class="language-sql">/**
+* @kind path-problem
+*/
+
+import cpp
+import semmle.code.cpp.dataflow.TaintTracking
+import DataFlow::PathGraph
+
+class YOUR_CLASS_HERE extends Expr {
+  // 2.0 Todo 
+}
+
+class Config extends TaintTracking::Configuration {
+  Config() { this = &quot;NetworkToMemFuncLength&quot; }
+
+  override predicate isSource(DataFlow::Node source) {
+      // 2.1 Todo
+  }
+  override predicate isSink(DataFlow::Node sink) {
+     // 2.1Todo
+}
+
+from Config cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink, source, sink, &quot;ntoh flows to memcpy&quot;
+</code></pre>
+<p>先研究一下模板，先从“main函数”部分开始看：</p>
+<pre><code class="language-sql">// 1. 声明3个变量，Config类型的cfg，PathNode类型的source和sink
+from Config cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+
+// 2. 将source 和 sink 作为参数传入hasFlowPath。顾名思义，也就是判断是否有从source到sink的数据流动的path
+where cfg.hasFlowPath(source, sink)
+
+// 3. 打印sink 和source，不过为啥要打印两遍sink？
+select sink, source, sink, &quot;ntoh flows to memcpy&quot;
+</code></pre>
+<p>看看cfg.hasFlowPath的描述，ctrl+左击：</p>
+<pre><code class="language-sql">  /**
+   * Holds if data may flow from `source` to `sink` for this configuration.
+   *
+   * The corresponding paths are generated from the end-points and the graph
+   * included in the module `PathGraph`.
+   */
+   
+   相应的path是通过模块PathGraph里的end-points和graph来生成的
+</code></pre>
+<p>再来看看Configuration类的子类：</p>
+<pre><code class="language-sql">class Config extends TaintTracking::Configuration {
+  Config() { this = &quot;NetworkToMemFuncLength&quot; }
+
+  override predicate isSource(DataFlow::Node source) { 
+      // 2.1 Todo
+  }
+  override predicate isSink(DataFlow::Node sink) {
+     // 2.1Todo
+}
+</code></pre>
+<blockquote>
+<p>提炼一下官方文档 <a href="https://codeql.github.com/codeql-standard-libraries/cpp/semmle/code/cpp/dataflow/internal/tainttracking1/TaintTrackingImpl.qll/type.TaintTrackingImpl$Configuration.html">configuration</a>对这个类的描述：</p>
+<ol>
+<li>该类定义了对于一个analysis来说，sources、sinks等可配置的选项。也就是说这是一个包含谓词的类，这些谓词定义了数据如何在<code>source</code>和<code>sink</code>之间流动</li>
+<li>为了创建一个configuration，需要创建一个继承该类的子类。它的characteristic predicate（可看作构造函数）是一个独一无二的字符串，比如模版中写的<code>NetworkToMemFuncLength</code></li>
+<li>Configuration类的override member predicate（可看作成员函数）中，必须要覆写的有<code>isSource</code>和<code>isSink</code>，其他都是可选的。</li>
+<li>为了查询是否有从<code>source</code>到<code>sink</code>的流，写法如下：<code>exists(MyAnalysisConfiguration cfg | cfg.hasFlow(source, sink))</code></li>
+<li>多个Configuration可以共存，但是不支持在一个Configuration类的override predicate里去写怎么依赖另一个Configuration。hmm...这个还是得看例子才知道怎么写。</li>
+</ol>
+</blockquote>
+<p>按照一般写代码的经验，<code>isSource</code>和<code>isSink</code>这两个is开头的谓词（函数）应该是写：判断这个source/sink要满足什么条件，然后返回true/false。但是呢，搂一眼<a href="https://codeql.github.com/docs/ql-language-reference/predicates/">介绍predicate的官方文档</a>，按照文档上面的例子来看，只需要写需要满足什么条件就ok：</p>
+<blockquote>
+<p>Predicates are used to describe the logical relations that make up a QL program. 谓词用来描述QL程序里的逻辑关系</p>
+<p>Strictly speaking, a predicate evaluates to a set of tuples. 严格来讲，谓词的计算结果是一组元组</p>
+</blockquote>
+<pre><code class="language-sql">predicate isCountry(string country) {
+  country = &quot;Germany&quot;
+  or
+  country = &quot;Belgium&quot;
+  or
+  country = &quot;France&quot;
+}
+</code></pre>
+<p>那大概就知道怎么写这两个谓词了：</p>
+<pre><code class="language-sql">/**
+* @kind path-problem
+*/
+
+import cpp
+import semmle.code.cpp.dataflow.TaintTracking
+import DataFlow::PathGraph
+
+class MyExpr extends Expr {
+  // 2.0 Todo 
+  MacroInvocation mi;
+    
+  MyExpr(){
+      mi.getMacro().getName().regexpMatch(&quot;ntoh(l|ll|s)&quot;) and this = mi.getExpr()
+  }
+}
+
+class Config extends TaintTracking::Configuration {
+  Config() { this = &quot;NetworkToMemFuncLength&quot; }
+
+  override predicate isSource(DataFlow::Node source) {
+      // 2.1 Todo
+      source.asExpr() instanceof MyExpr
+
+  }
+  override predicate isSink(DataFlow::Node sink) {
+     // 2.1Todo
+     // 存在memcpy的函数调用，并且该调用的第二个参数是sink.asExpr()
+     exists(FunctionCall fc | fc.getTarget().hasName(&quot;memcpy&quot;) | sink.asExpr() = fc.getArgument(2))
+  }
+}
+
+from Config cfg, DataFlow::PathNode source, DataFlow::PathNode sink
+where cfg.hasFlowPath(source, sink)
+select sink, source, sink, &quot;ntoh flows to memcpy&quot;
+</code></pre>
+<figure data-type="image" tabindex="20"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031743.png" alt="image-20230610172948004" loading="lazy"></figure>
+<h2 id="5-step-3-find-additional-vulnerabilities">5 Step 3: Find additional vulnerabilities</h2>
+<h2 id="根据q21查询结果进行代码审计">根据Q2.1查询结果进行代码审计</h2>
+<p><strong>Question 3.0: There are 13 known vulnerabilities in U-Boot.</strong></p>
+<p>The query you completed above probably found 9 of them. See if you can refine your query to find 1 or more additional vulnerabilities.</p>
+<p>上面完成的查询可能找到13个漏洞中的9个。这里让我们尝试改进查询，以找到更多的漏洞。</p>
+<p>在改进前，我们先根据前面的查询结果看看是不是已经能找到9个漏洞了。</p>
+<h3 id="cve-2019-14192-cve-2019-14193-和-cve-2019-14199">CVE-2019-14192、 CVE-2019-14193 和 CVE-2019-14199</h3>
+<p>结果【1】和【2】的source是在函数<code>net_process_received_packet</code>的末尾，此处很明显会发生integer underflow：</p>
+<figure data-type="image" tabindex="21"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031750.png" alt="image-20230610220449399" loading="lazy"></figure>
+<p>然后将underflow的整数传递进函数<code>nc_input_packet</code>，但是第149行检测了len的大小，这样我觉得即使传入一个很大的len，这里的memcpy也不会发生越界写。。然而我查了一下，<a href="https://securitylab.github.com/research/uboot-rce-nfs-vulnerability/">U-Boot NFS RCE Vulnerabilities (CVE-2019-14192)</a>说这里是会越界写的。。。但是他就一句话，没懂。。。</p>
+<figure data-type="image" tabindex="22"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031757.png" alt="image-20230610221242234" loading="lazy"></figure>
+<p>然后找了一下<a href="https://source.denx.de/u-boot/u-boot/-/commit/fe7288069d2e6659117049f7d27e261b550bb725">patch</a>，对应的编号有CVE-2019-14192、 CVE-2019-14193 和 CVE-2019-14199。三个？</p>
+<figure data-type="image" tabindex="23"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031803.png" alt="image-20230611024205527" loading="lazy"></figure>
+<h3 id="cve-2019-14197-cve-2019-14200-cve-2019-14201-cve-2019-14202-cve-2019-14203-和-cve-2019-14204">CVE-2019-14197、CVE-2019-14200、 CVE-2019-14201、CVE-2019-14202、CVE-2019-14203 和 CVE-2019-14204</h3>
+<p>结果【1】【2】的source边上很明显还有一个整数回绕，将underflow的整数传递给函数指针<code>udp_packet_handler</code>，QL的查询结果里没有此处。</p>
+<figure data-type="image" tabindex="24"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031813.png" alt="image-20230611015647333" loading="lazy"></figure>
+<p>先审计一下是否存在漏洞，搜索<code>udp_packet_handler</code>，只有两处赋值的地方：</p>
+<figure data-type="image" tabindex="25"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031819.png" alt="image-20230611015913129" loading="lazy"></figure>
+<p>再搜索函数<code>net_set_udp_handler</code>，可以看到分别给nc、dhcp、bootp和nfs都设置了handler。</p>
+<figure data-type="image" tabindex="26"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031824.png" alt="image-20230611020024472" loading="lazy"></figure>
+<p>不想一个一个审计了，直接看文章<a href="https://securitylab.github.com/research/uboot-rce-nfs-vulnerability/">U-Boot NFS RCE Vulnerabilities (CVE-2019-14192)</a>知道漏洞都存在于<code>nfs_handler</code>。那就只审计它。可以看到，该函数仍然未校验len，直接在不同分支里将其分别传递给函数:</p>
+<pre><code class="language-c">static void nfs_handler(uchar *pkt, unsigned dest, struct in_addr sip,
+			unsigned src, unsigned len)
+{
+	int rlen;
+	int reply;
+
+	debug(&quot;%s\n&quot;, __func__);
+
+	if (dest != nfs_our_port)
+		return;
+
+	switch (nfs_state) {
+	case STATE_PRCLOOKUP_PROG_MOUNT_REQ:
+		if (rpc_lookup_reply(PROG_MOUNT, pkt, len) == -NFS_RPC_DROP)
+			break;
+		......
+		break;
+
+	case STATE_PRCLOOKUP_PROG_NFS_REQ:
+		if (rpc_lookup_reply(PROG_NFS, pkt, len) == -NFS_RPC_DROP)
+			break;
+		......
+		break;
+
+	case STATE_MOUNT_REQ:
+		reply = nfs_mount_reply(pkt, len);
+		......
+		break;
+
+	case STATE_UMOUNT_REQ:
+		reply = nfs_umountall_reply(pkt, len);
+		......
+		break;
+
+	case STATE_LOOKUP_REQ:
+		reply = nfs_lookup_reply(pkt, len);
+		......
+		break;
+
+	case STATE_READLINK_REQ:
+		reply = nfs_readlink_reply(pkt, len);
+		......
+		break;
+
+	case STATE_READ_REQ:
+		rlen = nfs_read_reply(pkt, len);
+		......
+		break;
+	}
+}
+</code></pre>
+<ul>
+<li><code>rpc_lookup_reply</code> -&gt;未检验len，直接<code>memcpy(&amp;rpc_pkt.u.data[0], pkt, len);</code> -&gt; 存在越界写漏洞</li>
+<li><code>nfs_mount_reply</code>-&gt;未检验len，直接<code>memcpy(&amp;rpc_pkt.u.data[0], pkt, len);</code> -&gt; 存在越界写漏洞</li>
+<li><code>nfs_umountall_reply</code>-&gt;未检验len，直接<code>memcpy(&amp;rpc_pkt.u.data[0], pkt, len);</code> -&gt; 存在越界写漏洞</li>
+<li><code>nfs_lookup_reply</code>-&gt;未检验len，直接<code>memcpy(&amp;rpc_pkt.u.data[0], pkt, len);</code> -&gt; 存在越界写漏洞</li>
+<li><code>nfs_readlink_reply</code>-&gt;未检验len，直接<code>memcpy((unsigned char *)&amp;rpc_pkt, pkt, len);</code>-&gt; 存在越界写漏洞</li>
+<li><code>nfs_read_reply</code>-&gt;差点就错过了
+<ul>
+<li><code>memcpy(&amp;rpc_pkt.u.data[0], pkt, sizeof(rpc_pkt.u.reply));</code></li>
+<li>pkt的大小可能没有<code>sizeof(rpc_pkt.u.reply)</code>这么大，存在越界读</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-c">struct rpc_t {
+	union {
+		uint8_t data[NFS_READ_SIZE + (6 + NFS_MAX_ATTRS) *
+			sizeof(uint32_t)];
+		struct {
+			uint32_t id;
+			uint32_t type;
+			uint32_t rpcvers;
+			uint32_t prog;
+			uint32_t vers;
+			uint32_t proc;
+			uint32_t data[1];
+		} call;
+		struct {
+			uint32_t id;
+			uint32_t type;
+			uint32_t rstatus;
+			uint32_t verifier;
+			uint32_t v2;
+			uint32_t astatus;
+			uint32_t data[NFS_READ_SIZE / sizeof(uint32_t) +
+				NFS_MAX_ATTRS];
+		} reply;
+	} u;
+} __attribute__((packed));
+</code></pre>
+<p>所以，这里有6个漏洞，经查询<a href="https://source.denx.de/u-boot/u-boot/-/commit/741a8a08ebe5bc3ccfe3cde6c2b44ee53891af21">patch</a>，对应的CVE编号为：CVE-2019-14197、CVE-2019-14200、 CVE-2019-14201、CVE-2019-14202、CVE-2019-14203 和 CVE-2019-14204。</p>
+<figure data-type="image" tabindex="27"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031834.png" alt="image-20230611022343305" loading="lazy"></figure>
+<h3 id="cve-2019-14195">CVE-2019-14195</h3>
+<p>结果【4】【5】对应存在一个漏洞，从packet获取rlen之后，没有校验就直接传给memcpy。</p>
+<figure data-type="image" tabindex="28"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031839.png" alt="image-20230610174908752" loading="lazy"></figure>
+<p>经查询，CVE编号为：CVE-2019-14195，<a href="https://source.denx.de/u-boot/u-boot/-/commit/cf3a4f1e86ecdd24f87b615051b49d8e1968c230">patch</a>如下：</p>
+<figure data-type="image" tabindex="29"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031843.png" alt="image-20230610191127384" loading="lazy"></figure>
+<h3 id="cve-2019-14196">CVE-2019-14196</h3>
+<p>【6】<code>nfs_lookup_reply()</code>，目标buffer：filefh的长度是64，传入的长度是负数的时候就会越界写。漏洞+1。</p>
+<figure data-type="image" tabindex="30"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031849.png" alt="image-20230610182803631" loading="lazy"></figure>
+<p>查询后，该漏洞编号是CVE-2019-14196，<a href="https://source.denx.de/u-boot/u-boot/-/commit/5d14ee4e53a81055d34ba280cb8fd90330f22a96">patch</a>如下：</p>
+<figure data-type="image" tabindex="31"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031854.png" alt="image-20230610190350286" loading="lazy"></figure>
+<h3 id="cve-2019-14194cve-2019-14198">CVE-2019-14194/CVE-2019-14198</h3>
+<p>继续，结果【7】【8】又对应两个漏洞，他两的souce分别在函数<code>nfs_read_reply</code>的if和else分支里，将可控的rlen传入函数<code>store_block</code>中进行memcpy，可进行任意长度的越界写。96行的函数<code>flash_write</code>同样存在问题。</p>
+<figure data-type="image" tabindex="32"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031901.png" alt="image-20230610175257327" loading="lazy"></figure>
+<p>分别对应的CVE编号：CVE-2019-14194/CVE-2019-14198。<a href="https://source.denx.de/u-boot/u-boot/-/commit/aa207cf3a6d68f39d64cd29057a4fb63943e9078">patch</a>如下：</p>
+<figure data-type="image" tabindex="33"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230611031910.png" alt="image-20230610190705382" loading="lazy"></figure>
+<p><strong>Question 3.1: Generalize your query to find other untrusted inputs (not only networking) such as ext4 fs.</strong></p>
+<p>菜鸡不懂，ext4 fs的输入有啥类似<code>ntoh*</code>的特征？</p>
+<h1 id="总结">总结</h1>
+<p>简单入了个门吧。。。</p>
+<h2 id="遗留问题">遗留问题</h2>
+<ul>
+<li>遗留问题：
+<ul>
+<li>CVE-2019-14192、 CVE-2019-14193 和 CVE-2019-14199是咋回事？</li>
+<li>Q3.0说能根据查询结果找到9个漏洞，是哪9个？</li>
+<li>Q3.1</li>
+<li>对于通过设置handler的情况，怎么查询？</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://securitylab.github.com/ctf/uboot/</li>
+<li>https://github.com/githubpartners/learning-lab-markdown/blob/b6f23b5f6573b031e0bbb7178268f4802b04b132/codeql-uboot.md</li>
+<li>https://milkii0.github.io/2022/06/10/CodeQLU-BootChallenge%20(CC++)/</li>
+<li>https://securitylab.github.com/research/uboot-rce-nfs-vulnerability/</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#1-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">1 环境搭建</a>
+<ul>
+<li><a href="#11-codeql-cli-visual-studio-code-%E6%8F%92%E4%BB%B6codeql">1.1 codeql-cli &amp; visual studio code &amp; 插件codeql</a></li>
+<li><a href="#12-clone-vscode-codeql-starter">1.2 clone vscode-codeql-starter</a></li>
+<li><a href="#13-%E4%B8%8B%E8%BD%BDu-boot%E5%B7%B2%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93">1.3 下载u-boot已有数据库</a></li>
+<li><a href="#14-%E5%AF%BC%E5%85%A5vscode-codeql-starter">1.4 导入vscode-codeql-starter</a></li>
+<li><a href="#15-%E5%AF%BC%E5%85%A5u-boot-%E6%95%B0%E6%8D%AE%E5%BA%93">1.5 导入u-boot 数据库</a></li>
+<li><a href="#16-clone-%E8%AF%BE%E7%A8%8B%E4%BB%93%E5%BA%93">1.6 clone 课程仓库</a></li>
+<li><a href="#17-%E6%8A%8A%E8%AF%BE%E7%A8%8B%E4%BB%93%E5%BA%93%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%89%8D%E9%9D%A2%E7%9A%84starter-workspace">1.7 把课程仓库添加到前面的starter workspace</a></li>
+</ul>
+</li>
+<li><a href="#2-step-0-finding-the-definition-of-memcpy-ntohl-ntohll-and-ntohs">2 Step 0: Finding the definition of memcpy, ntohl, ntohll, and ntohs</a>
+<ul>
+<li><a href="#21-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%90%8D%E4%B8%BAstrlen%E7%9A%84%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89">2.1 找到所有名为strlen的函数定义</a></li>
+<li><a href="#22-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%90%8D%E4%B8%BAmemcpy%E7%9A%84%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89">2.2 找到所有名为memcpy的函数定义</a></li>
+<li><a href="#23-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%90%8D%E4%B8%BAntohl-ntohll%E5%92%8C-ntohs%E7%9A%84%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E6%88%96%E5%AE%8F%E5%AE%9A%E4%B9%89">2.3 找到所有名为<code>ntohl</code>、 <code>ntohll</code>和 <code>ntohs</code>的函数定义或宏定义</a></li>
+</ul>
+</li>
+<li><a href="#3-step-1-finding-the-calls-to-memcpy-ntohl-ntohll-and-ntohs">3 Step 1: Finding the calls to memcpy, ntohl, ntohll, and ntohs</a>
+<ul>
+<li><a href="#31-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89memcpy%E7%9A%84%E8%B0%83%E7%94%A8">3.1 找到所有memcpy的调用</a></li>
+<li><a href="#32-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89ntohl-ntohll-%E5%92%8C-ntohs%E7%9A%84%E8%B0%83%E7%94%A8">3.2 找到所有<code>ntohl</code>、 <code>ntohll</code> 和 <code>ntohs</code>的调用</a></li>
+<li><a href="#33-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%8C%85%E5%90%AB%E4%B8%8A%E9%9D%A2%E5%AE%8F%E8%B0%83%E7%94%A8%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F">3.3 找到所有包含上面宏调用的表达式</a></li>
+</ul>
+</li>
+<li><a href="#4-step-2-data-flow-analysis">4 Step 2: Data flow analysis</a>
+<ul>
+<li><a href="#5-step-3-find-additional-vulnerabilities">5 Step 3: Find additional vulnerabilities</a></li>
+<li><a href="#%E6%A0%B9%E6%8D%AEq21%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1">根据Q2.1查询结果进行代码审计</a>
+<ul>
+<li><a href="#cve-2019-14192-cve-2019-14193-%E5%92%8C-cve-2019-14199">CVE-2019-14192、 CVE-2019-14193 和 CVE-2019-14199</a></li>
+<li><a href="#cve-2019-14197-cve-2019-14200-cve-2019-14201-cve-2019-14202-cve-2019-14203-%E5%92%8C-cve-2019-14204">CVE-2019-14197、CVE-2019-14200、 CVE-2019-14201、CVE-2019-14202、CVE-2019-14203 和 CVE-2019-14204</a></li>
+<li><a href="#cve-2019-14195">CVE-2019-14195</a></li>
+<li><a href="#cve-2019-14196">CVE-2019-14196</a></li>
+<li><a href="#cve-2019-14194cve-2019-14198">CVE-2019-14194/CVE-2019-14198</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a>
+<ul>
+<li><a href="#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98">遗留问题</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/">https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/&sharesource=qzone&title=CodeQL入门 - U-Boot Challenge&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/&sharesource=weibo&title=CodeQL入门 - U-Boot Challenge + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/CodeAudit/">#
+                    CodeAudit
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/">
+                                                                                            Bluetooth - GATT - BLE_CTF
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/">
+                                                                                                    Pawnyable4 - 熟悉Holstein模块与触发漏洞
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

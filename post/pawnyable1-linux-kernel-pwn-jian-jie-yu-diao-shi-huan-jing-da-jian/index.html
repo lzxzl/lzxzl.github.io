@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-03-04</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">10.4
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2071</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/LKPWN/">Linux Kernel PWN</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="1-内核漏洞利用的特点">1 内核漏洞利用的特点</h1>
+<figure data-type="image" tabindex="1"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230304222019.png" alt="" loading="lazy"></figure>
+<h1 id="2-调试环境搭建">2 调试环境搭建</h1>
+<h2 id="21-启动">2.1 启动</h2>
+<pre><code class="language-sh">########## 1、安装qemu
+lzx@ubuntu:~$ sudo apt install qemu-system
+
+########## 2、解压
+lzx@ubuntu:~/LKPWN/pawnyable$ tar xzvf LK01.tar.gz
+LK01/
+LK01/qemu/
+LK01/qemu/run.sh
+LK01/qemu/rootfs.cpio
+LK01/qemu/bzImage
+LK01/src/
+LK01/src/vuln.c
+LK01/src/vuln.ko
+LK01/src/Makefile
+
+########## 3、运行run.sh，启动qemu
+lzx@ubuntu:~/LKPWN/pawnyable$ cd LK01/qemu/
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ ./run.sh
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID.01H:ECX.vmx [bit 5]
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Saving random seed: OK
+Starting network: udhcpc: started, v1.34.0
+udhcpc: broadcasting discover
+udhcpc: broadcasting select for 10.0.2.15, server 10.0.2.2
+udhcpc: lease of 10.0.2.15 obtained from 10.0.2.2, lease time 86400
+deleting routers
+adding dns 10.0.2.3
+OK
+Starting dhcpcd...
+dhcpcd-9.4.0 starting
+DUID 00:01:00:01:2b:94:cc:35:52:54:00:12:34:56
+eth0: IAID 00:12:34:56
+eth0: soliciting an IPv6 router
+eth0: Router Advertisement from fe80::2
+eth0: adding address fec0::45db:ad18:6e76:7422/64
+eth0: adding route to fec0::/64
+eth0: adding default route via fe80::2
+eth0: soliciting a DHCP lease
+eth0: offered 10.0.2.15 from 10.0.2.2
+eth0: leased 10.0.2.15 for 86400 seconds
+eth0: adding route to 10.0.2.0/24
+eth0: adding default route via 10.0.2.2
+forked to background, child pid 105
+
+Boot took 5.67 seconds
+
+[ Holstein v1 (LK01) - Pawnyable ]
+/ $ id
+uid=1337 gid=1337 groups=1337
+/ $ uname -a
+Linux zer0pts 5.10.7 #1 SMP PREEMPT Wed Oct 6 21:20:36 JST 2021 x86_64 GNU/Linux
+</code></pre>
+<blockquote>
+<p><a href="https://pawnyable.cafe/linux-kernel/LK01/distfiles/LK01.tar.gz">LK01.tar.gz</a></p>
+</blockquote>
+<h2 id="22-gdb调试内核">2.2 gdb调试内核</h2>
+<h3 id="221-获取root权限">2.2.1 获取root权限</h3>
+<p>内核启动时会先运行一个程序，此程序根据配置的不同，路径会不同，但在大多数情况下是 <code>/init</code> 和 <code>/sbin/init</code>。该环境下存在<code>/init</code> ，所以会先执行该脚本，那么先来查看qemu中根目录下的init脚本：</p>
+<pre><code class="language-sh">########## 1、创建rootfs目录
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ mkdir rootfs
+
+########## 2、使用cpio命令解压cpio文件
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ cd rootfs; cpio -idv &lt; ../rootfs.cpio
+.
+sbin
+sbin/sulogin
+sbin/setconsole
+sbin/iptunnel
+......
+bin/ls
+bin/base32
+tmp
+run
+3928 blocks
+
+########## 3、查看/init脚本
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs$ ls
+bin  dev  etc  init  lib  lib64  linuxrc  media  mnt  opt  proc  root  run  sbin  sys  tmp  usr  var
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs$ cat init
+#!/bin/sh
+# devtmpfs does not get automounted for initramfs
+/bin/mount -t devtmpfs devtmpfs /dev
+
+# use the /dev/console device node from devtmpfs if possible to not
+# confuse glibc's ttyname_r().
+# This may fail (E.G. booted with console=), and errors from exec will
+# terminate the shell, so use a subshell for the test
+if (exec 0&lt;/dev/console) 2&gt;/dev/null; then
+    exec 0&lt;/dev/console
+    exec 1&gt;/dev/console
+    exec 2&gt;/dev/console
+fi
+
+exec /sbin/init &quot;$@&quot;
+</code></pre>
+<blockquote>
+<p><code>$@：所有参数列表。如&quot;$@&quot;用「&quot;」括起来的情况、以&quot;$1&quot; &quot;$2&quot; … &quot;$n&quot; 的形式输出所有参数。</code><br>
+https://www.cnblogs.com/fhefh/archive/2011/04/15/2017613.html</p>
+</blockquote>
+<p><code>/init</code>会执行<code>/sbin/init</code>程序：</p>
+<pre><code class="language-sh">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs$ ls sbin/ -al | grep init
+lrwxrwxrwx  1 lzx lzx     14 Mar  3 23:27 init -&gt; ../bin/busybox
+lrwxrwxrwx  1 lzx lzx     14 Mar  3 23:27 run-init -&gt; ../bin/busybox
+</code></pre>
+<p>最后会执行脚本<code>etc/init.d/rcS</code>（虽然没搞懂中间的过程，后面再补吧），该脚本又会执行同目录下的所有S开头的脚本：</p>
+<pre><code class="language-sh">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs/etc/init.d$ ls
+rcK  rcS  S01syslogd  S02klogd  S02sysctl  S20urandom  S40network  S41dhcpcd  S99pawnyable
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs/etc/init.d$ cat rcS
+#!/bin/sh
+
+
+# Start all init scripts in /etc/init.d
+# executing them in numerical order.
+#
+for i in /etc/init.d/S??* ;do
+
+     # Ignore dangling symlinks (if any).
+     [ ! -f &quot;$i&quot; ] &amp;&amp; continue
+
+     case &quot;$i&quot; in
+	*.sh)
+	    # Source shell script for speed.
+	    (
+		trap - INT QUIT TSTP
+		set start
+		. $i
+	    )
+	    ;;
+	*)
+	    # No sh extension, so fork subprocess.
+	    $i start
+	    ;;
+    esac
+done
+</code></pre>
+<p>其中有一个脚本<code>S99pawnyable</code>，它关系到qemu虚拟机以什么身份启动。所以下面以root身份启动qemu的时候要改这个脚本：</p>
+<pre><code class="language-sh">########## 1、修改etc/init.d/S99pawnyable
+########## 1.1 将 setsid 命令的参数 1337 改为 0
+########## 1.2 将 kptr_restrict 所在行注释掉，理由后面讲
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs/etc/init.d$ vim S99pawnyable
+
+ 12 #echo 2 &gt; /proc/sys/kernel/kptr_restrict     &lt;-- 注释掉
+ 13 #echo 1 &gt; /proc/sys/kernel/dmesg_restrict
+ 14
+ 15 ##
+ 16 ## Install driver
+ 17 ##
+ 18 insmod /root/vuln.ko
+ 19 mknod -m 666 /dev/holstein c `grep holstein /proc/devices | awk '{print $1;}'` 0
+ 20
+ 21 ##
+ 22 ## User shell
+ 23 ##
+ 24 echo -e &quot;\nBoot took $(cut -d' ' -f1 /proc/uptime) seconds\n&quot;
+ 25 echo &quot;[ Holstein v1 (LK01) - Pawnyable ]&quot;
+ 26 #setsid cttyhack setuidgid 1337 sh          &lt;-- 注释掉
+ 27 setsid cttyhack setuidgid 0 sh              &lt;-- 1337 改为 0
+
+########## 2、重新打包rootfs（因为Host中当前用户不是root，所以在命令中加上了选项 --owner=root 选项）
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs$ find . -print0 | cpio -o --format=newc --null --owner=root &gt; ../rootfs_updated.cpio
+3928 blocks
+
+########## 3、将 run.sh 中 initrd 选项的参数由 rootfs.cpio 改为 rootfs_updated.cpio
+
+########## 4、重新启动
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ ./run.sh
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID.01H:ECX.vmx [bit 5]
+Starting syslogd: OK
+......
+
+[ Holstein v1 (LK01) - Pawnyable ]
+/ # id
+uid=0(root) gid=0(root) groups=0(root)
+/ #
+</code></pre>
+<blockquote>
+<p>对于命令：setsid cttyhack setuidgid 1337 sh：<br>
+<code>cttyhack</code>：允许使用 Ctrl+C 等输入的命令。<br>
+<code>setuidgid</code>：将用户标识和组标识设置为 1337<br>
+sh：并以<code>/bin/sh</code>启动</p>
+</blockquote>
+<h3 id="222-attach到gdb">2.2.2 attach到gdb</h3>
+<p>qemu提供了在gdb中调试的功能，通过设置qemu的<code>-gdb</code>选项，可以指定协议、主机和端口号来监听。比如通过在run.sh中编辑并添加以下选项，就可以在本地主机上的tcp端口1234上监听gdb。</p>
+<pre><code class="language-sh">#!/bin/sh
+qemu-system-x86_64 \
+    -m 64M \
+    -nographic \
+    -kernel bzImage \
+    -append &quot;console=ttyS0 loglevel=3 oops=panic panic=-1 nopti nokaslr&quot; \
+    -no-reboot \
+    -cpu qemu64 \
+    -smp 1 \
+    -monitor /dev/null \
+    -initrd rootfs_updated.cpio \
+    -net nic,model=virtio \
+    -net user \
+    -gdb tcp::1234
+</code></pre>
+<p>重新启动qemu虚拟机，然后在Host里用gdb attach上去：</p>
+<pre><code class="language-sh">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ gdb
+......
+pwndbg&gt; target remote localhost:1234
+Remote debugging using localhost:1234
+......
+</code></pre>
+<p>然后就可以使用gdb调试qemu虚拟机了。如果gdb不知道要调试的目标的架构，那么可以用下面的命令来设置（默认是会自动识别的），这次的架构是x86-64:</p>
+<pre><code class="language-sh">pwndbg&gt; set arch i386:x86-64:intel
+The target architecture is assumed to be i386:x86-64:intel
+</code></pre>
+<h3 id="223-gdb基础调试">2.2.3 gdb基础调试</h3>
+<p>先看一下内核加载基址，并获得commit_creds函数的地址。</p>
+<blockquote>
+<p>前面已经将etc/init.d/S99pawnyable 里的 kptr_restrict 所在行注释掉了，这个操作的目的是为了关闭 KADR（Kernel Address Display Restriction）。否则即使是root权限，内核地址也是不可见的。</p>
+</blockquote>
+<ul>
+<li>qemu</li>
+</ul>
+<pre><code class="language-sh">/ # head -n 3 /proc/kallsyms
+ffffffff81000000 T startup_64
+ffffffff81000000 T _stext
+ffffffff81000000 T _text
+/ # grep &quot;commit_creds&quot; /proc/kallsyms
+ffffffff8106e390 T commit_creds
+</code></pre>
+<ul>
+<li>Host</li>
+</ul>
+<pre><code class="language-sh">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ gdb
+pwndbg&gt; target remote localhost:1234
+Remote debugging using localhost:1234
+......
+</code></pre>
+<p>此时使用gdb为<code>commit_creds</code>函数设置断点：<code>b *0xffffffff8106e390</code>，然后输入<code>c</code>让系统继续运行。接着，在Host里执行一个命令，比如<code>ls</code>。那么控制流就会被gdb中断，断在<code>commit_creds</code>，而后就可以继续进行调试了。</p>
+<pre><code class="language-sh">pwndbg&gt; b *0xffffffff8106e390
+Breakpoint 1 at 0xffffffff8106e390
+pwndbg&gt; c
+Continuing.
+
+Breakpoint 1, 0xffffffff8106e390 in ?? ()
+......
+</code></pre>
+<p>第一个参数 RDI 包含一个内核空间指针，看看这个指针指向的内存：</p>
+<pre><code class="language-sh">pwndbg&gt; p/x $rdi
+$2 = 0xffff8880032b7200
+pwndbg&gt; x/16gx 0xffff8880032b7200
+0xffff8880032b7200:	0x0000000000000001	0x0000000000000000
+0xffff8880032b7210:	0x0000000000000000	0x0000000000000000
+0xffff8880032b7220:	0x0000000000000000	0x0000000000000000
+0xffff8880032b7230:	0x000001ffffffffff	0x000001ffffffffff
+0xffff8880032b7240:	0x000001ffffffffff	0x0000000000000000
+0xffff8880032b7250:	0xffffffff81e32b00	0xffffffff81e32b80
+0xffff8880032b7260:	0xffff888002d16540	0x0000000000000000
+0xffff8880032b7270:	0x0000000000000000	0x0000000000000000
+</code></pre>
+<h3 id="224-gdb调试驱动">2.2.4 gdb调试驱动</h3>
+<p>LK01 加载了一个名为 vuln 的内核模块。可以在<code>/proc/modules</code>找到已加载模块及其基址的列表：</p>
+<pre><code class="language-sh">/ # cat /proc/modules
+vuln 16384 0 - Live 0xffffffffc0000000 (O)
+</code></pre>
+<p>可以看到名为vuln的模块被加载到 0xfffffffc0000000。该模块的源代码和二进制文件都在目录<code>src</code>中：</p>
+<pre><code class="language-sh">lzx@ubuntu:~/LKPWN/pawnyable/LK01/src$ ls
+Makefile  vuln.c  vuln.ko
+</code></pre>
+<p>如果用ida打开<code>vuln.ko</code>，可以看到其中的函数，比如<code>module_close</code>，它的相对地址是0x20f。<br>
+<img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230304222326.png" alt="" loading="lazy"><br>
+所以，这个函数应该在内核的 0xffffffffc0000000 + 0x20f 处，在这里打个断点：</p>
+<pre><code class="language-sh">pwndbg&gt; x/4i 0xffffffffc0000000+0x20f
+   0xffffffffc000020f:	push   rbp
+   0xffffffffc0000210:	mov    rbp,rsp
+   0xffffffffc0000213:	sub    rsp,0x10
+   0xffffffffc0000217:	mov    QWORD PTR [rbp-0x8],rdi
+pwndbg&gt; b *(0xffffffffc0000000+0x20f)
+Breakpoint 1 at 0xffffffffc000020f
+pwndbg&gt; c
+Continuing.
+
+</code></pre>
+<p>从<code>module_initialize</code>可以看出vuln被映射到一个名为<code>/dev/holstein</code>的驱动<br>
+<img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230304222333.png" alt="" loading="lazy"><br>
+在虚拟机终端中执行<code>cat /dev/holstein</code>后控制流将会运行到断点处，触发断点：<br>
+<img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230304222340.png" alt="" loading="lazy"></p>
+<p>如果要在调试时使用驱动程序的符号，则可以使用add-symbol-file 命令，将驱动程序作为第一个参数传递，将基地址作为第二个参数传递，以读取符号信息。然后就可以使用函数名称设置断点了。</p>
+<pre><code class="language-sh">pwndbg&gt; add-symbol-file vuln.ko 0xffffffffc0000000
+add symbol table from file &quot;vuln.ko&quot; at
+	.text_addr = 0xffffffffc0000000
+Reading symbols from vuln.ko...(no debugging symbols found)...done.
+pwndbg&gt; b module_close
+Breakpoint 1 at 0xffffffffc0000213
+pwndbg&gt; b *module_close
+Breakpoint 2 at 0xffffffffc000020f
+</code></pre>
+<p>至此，gdb如何调试内核及内核模块的基操就完了，其他操作与用户态调试没有太大区别。</p>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li>https://pawnyable.cafe/linux-kernel/introduction/introduction.html</li>
+<li>https://pawnyable.cafe/linux-kernel/introduction/debugging.html</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#1-%E5%86%85%E6%A0%B8%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E7%9A%84%E7%89%B9%E7%82%B9">1 内核漏洞利用的特点</a></li>
+<li><a href="#2-%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">2 调试环境搭建</a>
+<ul>
+<li><a href="#21-%E5%90%AF%E5%8A%A8">2.1 启动</a></li>
+<li><a href="#22-gdb%E8%B0%83%E8%AF%95%E5%86%85%E6%A0%B8">2.2 gdb调试内核</a>
+<ul>
+<li><a href="#221-%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90">2.2.1 获取root权限</a></li>
+<li><a href="#222-attach%E5%88%B0gdb">2.2.2 attach到gdb</a></li>
+<li><a href="#223-gdb%E5%9F%BA%E7%A1%80%E8%B0%83%E8%AF%95">2.2.3 gdb基础调试</a></li>
+<li><a href="#224-gdb%E8%B0%83%E8%AF%95%E9%A9%B1%E5%8A%A8">2.2.4 gdb调试驱动</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/">https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/&sharesource=qzone&title=Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/&sharesource=weibo&title=Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/LKPWN/">#
+                    Linux Kernel PWN
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/">
+                                                                                            Pawnyable2 - Linux Kernel 漏洞缓解技术
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/">
+                                                                                                    《图解密码技术》第1-2章 - 笔记
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

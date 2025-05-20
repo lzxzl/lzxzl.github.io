@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                syzkaller使用-Linux
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-07-04</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">46.1
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">8755</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/ns5QF4Wmy/">FUZZ</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="1-环境准备">1 环境准备</h1>
+<blockquote>
+<p>前提：支持kvm</p>
+</blockquote>
+<p>宿主机OS版本：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 22.04.2 LTS
+Release:	22.04
+Codename:	jammy
+</code></pre>
+<h2 id="11-安装软件依赖">1.1 安装软件依赖</h2>
+<pre><code class="language-shell">sudo apt update
+sudo apt-get install debootstrap
+sudo apt install qemu-kvm
+sudo apt-get install subversion
+sudo apt-get install git
+sudo apt-get install make
+sudo apt-get install qemu
+sudo apt install libssl-dev libelf-dev
+sudo apt-get install flex bison libc6-dev libc6-dev-i386 linux-libc-dev linux-libc-dev:i386 libgmp3-dev libmpfr-dev libmpc-dev
+sudo apt-get install g++
+sudo apt-get install build-essential
+sudo apt install gcc
+sudo apt install openssh-server
+</code></pre>
+<p>因为我后面还要将syzkaller用于fuzz Android，所以还要安装交叉编译工具：</p>
+<pre><code class="language-shell">sudo apt install gcc-aarch64-linux-gnu
+
+sudo apt install g++-aarch64-linux-gnu
+</code></pre>
+<h2 id="12-安装golang环境">1.2 安装golang环境</h2>
+<blockquote>
+<p>参考go官网：https://go.dev/doc/install</p>
+</blockquote>
+<pre><code class="language-shell"># 安装当前最新版
+ztree@ubuntu2:~$ cd Downloads/
+ztree@ubuntu2:~/Downloads$ proxychains4 wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz
+
+# 解压到/usr/local/go
+sudo rm -rf /usr/local/go &amp;&amp; sudo tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
+
+# 配置环境变量
+sudo vim /etc/profile
+# 写入
+export PATH=$PATH:/usr/local/go/bin
+# 使生效
+source /etc/profile
+
+# 检查是否安装成功
+ztree@ubuntu2:~$ go version
+go version go1.20.5 linux/amd64
+</code></pre>
+<h2 id="13-设置golang工作目录">1.3 设置golang工作目录</h2>
+<pre><code class="language-shell"># 创建工作目录
+ztree@ubuntu2:~/fuzz/kernel$ mkdir gopath
+
+# 配置环境变量
+ztree@ubuntu2:~/fuzz/kernel$ sudo vim /etc/profile
+# 写入
+export PATH=$PATH:/home/ztree/fuzz/kernel/gopath
+# 使生效
+ztree@ubuntu2:~/fuzz/kernel$ source /etc/profile
+</code></pre>
+<h2 id="14-编译syzkaller">1.4 编译syzkaller</h2>
+<pre><code class="language-sh"># 后续syzkaller的源码需要放在工作目录下的这个子目录下
+ztree@ubuntu2:~/fuzz/kernel/gopath$ mkdir -p github.com/google
+
+ztree@ubuntu2:~/fuzz/kernel/gopath$ cd github.com/google
+
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google$ git clone https://github.com/google/syzkaller.git
+# git clone https://gitclone.com/github.com/google/syzkaller.git
+
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google$ cd syzkaller
+
+# 编译linux-amd64架构的syzkaller
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ make
+go list -f '{{.Stale}}' ./sys/syz-sysgen | grep -q false || go install ./sys/syz-sysgen
+make .descriptions
+bin/syz-sysgen
+touch .descriptions
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-manager github.com/google/syzkaller/syz-manager
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-runtest github.com/google/syzkaller/tools/syz-runtest
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-repro github.com/google/syzkaller/tools/syz-repro
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-mutate github.com/google/syzkaller/tools/syz-mutate
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-prog2c github.com/google/syzkaller/tools/syz-prog2c
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-db github.com/google/syzkaller/tools/syz-db
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-upgrade github.com/google/syzkaller/tools/syz-upgrade
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_amd64 &quot; -o ./bin/linux_amd64/syz-fuzzer github.com/google/syzkaller/syz-fuzzer
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_amd64 &quot; -o ./bin/linux_amd64/syz-execprog github.com/google/syzkaller/tools/syz-execprog
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_amd64 &quot; -o ./bin/linux_amd64/syz-stress github.com/google/syzkaller/tools/syz-stress
+mkdir -p ./bin/linux_amd64
+gcc -o ./bin/linux_amd64/syz-executor executor/executor.cc \
+	-m64 -O2 -pthread -Wall -Werror -Wparentheses -Wunused-const-variable -Wframe-larger-than=16384 -static  -DGOOS_linux=1 -DGOARCH_amd64=1 \
+	-DHOSTGOOS_linux=1 -DGIT_REVISION=\&quot;6a383ecfb767c80c9fa63c7708b25e568a4ebfec\&quot;
+
+# 查看编译结果
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin
+linux_amd64  syz-db  syz-manager  syz-mutate  syz-prog2c  syz-repro  syz-runtest  syz-sysgen  syz-upgrade
+
+# bin/linux_amd64/是linux-amd64架构的一些二进制程序
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin/linux_amd64/
+syz-execprog  syz-executor  syz-fuzzer  syz-stress
+
+# 编译linux-arm64架构的syzkaller（for Android）
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ make TARGETOS=linux TARGETARCH=arm64
+go list -f '{{.Stale}}' ./sys/syz-sysgen | grep -q false || go install ./sys/syz-sysgen
+make .descriptions
+make[1]: '.descriptions' is up to date.
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-manager github.com/google/syzkaller/syz-manager
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-runtest github.com/google/syzkaller/tools/syz-runtest
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-repro github.com/google/syzkaller/tools/syz-repro
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-mutate github.com/google/syzkaller/tools/syz-mutate
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-prog2c github.com/google/syzkaller/tools/syz-prog2c
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-db github.com/google/syzkaller/tools/syz-db
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; -o ./bin/syz-upgrade github.com/google/syzkaller/tools/syz-upgrade
+GOOS=linux GOARCH=arm64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_arm64 &quot; -o ./bin/linux_arm64/syz-fuzzer github.com/google/syzkaller/syz-fuzzer
+GOOS=linux GOARCH=arm64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_arm64 &quot; -o ./bin/linux_arm64/syz-execprog github.com/google/syzkaller/tools/syz-execprog
+GOOS=linux GOARCH=arm64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=20210325-083211'&quot; &quot;-tags=syz_target syz_os_linux syz_arch_arm64 &quot; -o ./bin/linux_arm64/syz-stress github.com/google/syzkaller/tools/syz-stress
+mkdir -p ./bin/linux_arm64
+aarch64-linux-gnu-gcc -o ./bin/linux_arm64/syz-executor executor/executor.cc \
+	-O2 -pthread -Wall -Werror -Wparentheses -Wunused-const-variable -Wframe-larger-than=16384 -static  -DGOOS_linux=1 -DGOARCH_arm64=1 \
+	-DHOSTGOOS_linux=1 -DGIT_REVISION=\&quot;6a383ecfb767c80c9fa63c7708b25e568a4ebfec\&quot;
+
+# 编译结果
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin
+linux_amd64  linux_arm64  syz-db  syz-manager  syz-mutate  syz-prog2c  syz-repro  syz-runtest  syz-sysgen  syz-upgrade
+
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin/linux_arm64/
+syz-execprog  syz-executor  syz-fuzzer  syz-stress
+
+# Android-32位
+# make TARGETOS=linux TARGETARCH=arm
+</code></pre>
+<h1 id="2-linux-kernel-amd64">2 Linux Kernel - Amd64</h1>
+<h2 id="21-拉取linux代码">2.1 拉取linux代码</h2>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel$ git clone https://mirrors.tuna.tsinghua.edu.cn/git/linux.git
+
+ztree@ubuntu2:~/fuzz/kernel$ cd linux/
+</code></pre>
+<h2 id="22-生成默认的内核配置文件">2.2 生成默认的内核配置文件</h2>
+<p>使用<code>/usr/bin/gcc</code>作为编译器，生成默认的内核配置文件（也称为defconfig），该配置文件包含了系统中已经支持的硬件设备和选项。</p>
+<pre><code class="language-shell">make CC=&quot;/usr/bin/gcc&quot; defconfig
+</code></pre>
+<blockquote>
+<p><code>CC=&quot;/usr/bin/gcc&quot;</code>用于指定GCC编译器的路径。这是因为编译内核时需要使用编译器来生成可执行代码。通过指定GCC编译器的路径，可以确保使用特定的编译器进行编译。</p>
+<p>生成defconfig文件的主要目的是为了提供一个默认的配置文件<code>.config</code>，方便用户快速开始使用。<code>.config</code>文件中包含了一组默认的配置选项，这些选项通常是在大多数情况下都适用的。</p>
+<p>在生成defconfig文件时，会根据一些常见的配置选项和硬件支持信息自动生成一个默认的配置文件。然后，用户可以根据自己的需要选择是否更改这些配置选项。</p>
+</blockquote>
+<p>看一下执行效果：</p>
+<pre><code class="language-shell"># 执行前，没有.config文件
+ztree@ubuntu2:~/fuzz/kernel/linux$ ls -a | grep config
+.cocciconfig
+Kconfig
+
+# 执行，生成默认配置文件
+ztree@ubuntu2:~/fuzz/kernel/linux$ make CC=&quot;/usr/bin/gcc&quot; defconfig
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+  HOSTCC  scripts/kconfig/expr.o
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+*** Default configuration is based on 'x86_64_defconfig'
+#
+# configuration written to .config
+#
+
+# 执行后，有.config文件
+ztree@ubuntu2:~/fuzz/kernel/linux$ ls -a | grep config
+.cocciconfig
+.config
+Kconfig
+</code></pre>
+<h2 id="23-基于默认配置文件合并kvm_guestconfig">2.3 基于默认配置文件合并<code>kvm_guest.config</code></h2>
+<p>下面的输出很明显地说明了这条命令的作用，使用<code>.config</code>作为基础，合并<code>kvm_guest.config</code>文件，然后将结果写入<code>.config</code>作为最终的内核配置文件。<code>kvm_guest.config</code>是一种特殊的配置文件，用于构建适用于KVM虚拟机的内核。</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/linux$ make CC=&quot;/usr/bin/gcc&quot; kvm_guest.config
+Using .config as base
+Merging ./kernel/configs/kvm_guest.config
+#
+# merged configuration written to .config (needs make)
+#
+#
+# configuration written to .config
+#
+
+</code></pre>
+<blockquote>
+<p><code>kvm_guest.config</code>作为内核配置文件并不是所有情况下都适用的。它是专门为KVM虚拟化环境而设置的，包含了一些针对虚拟化的特定配置选项。这些选项可能与普通的物理机配置有所不同。</p>
+<p>通过合并使用配置文件<code>kvm_guest.config</code>，可以确保内核在KVM环境中有更好的性能和兼容性。</p>
+</blockquote>
+<h2 id="24-修改配置文件config">2.4 修改配置文件<code>.config</code></h2>
+<pre><code class="language-shell">vim .config
+
+### 在.config中添加以下内容：
+
+# 启用内核代码覆盖率检测功能。通过在内核代码中插入特殊的探针来确定哪些代码路径已执行，以便测试覆盖率
+CONFIG_KCOV=y         # must
+
+# 启用内核调试信息。编译内核时将生成额外的调试信息，这些信息可用于调试内核问题
+CONFIG_DEBUG_INFO=y
+
+# Memory bug detector
+# 启用KASAN，用于检测内核地址访问错误，可以检测越界访问、UAF等
+CONFIG_KASAN=y
+# 指定KASAN代码是否内联到内核中。将其设置为y可以使内核更小更快，但KASAN报告的堆栈跟踪可能不完整
+CONFIG_KASAN_INLINE=y
+
+# Code coverage works better when KASLR Is disabled 
+# CONFIG_RANDOMIZE_BASE is not set
+
+# 可选
+# 指定要覆盖的代码范围。设置为y时，将覆盖内核所有函数。否则，只覆盖具有适当注释的函数。
+CONFIG_KCOV_INSTRUMENT_ALL=y
+# 启用KCOV比较功能。当设置为y时，将记录if语句的结果是否为真。
+CONFIG_KCOV_ENABLE_COMPARISONS=y
+# 启用内核调试文件系统（debugfs）。它提供了一种向内核发送调试信息的机制，例如通过读写特定文件进行调试和监视。
+CONFIG_DEBUG_FS=y
+# 启用内核内存泄漏检测器（Kernel Memory Leak Detector）。它可以检测到内核中未释放的内存分配。
+CONFIG_DEBUG_KMEMLEAK=y
+
+# 需要配置以下两个，否则后面fuzz 启动的时候可能出现文件系统的挂载错误
+# 启用Linux内核中的ConfigFS文件系统。ConfigFS是一个用于动态配置和调整Linux内核中各种配置项的文件系统，它允许用户通过文件系统接口来访问和修改内核中的配置信息。
+CONFIG_CONFIGFS_FS=y
+# 启用Linux内核中的SecurityFS文件系统。SecurityFS是一个用于安全模块管理的文件系统，它允许安全模块向用户空间提供安全策略、状态和控制信息。通过SecurityFS，安全模块可以将相关信息和接口暴露给用户空间进&gt;行管理和配置。
+CONFIG_SECURITYFS=y
+</code></pre>
+<h2 id="25-确认修改后的config和内核源代码树中的配置选项是匹配的">2.5 确认修改后的<code>.config</code>和内核源代码树中的配置选项是匹配的</h2>
+<p><code>make oldconfig</code>是Linux内核的一个Makefile目标命令，其作用是使用当前配置文件更新内核源代码树中的新配置选项。</p>
+<p>当我们需要升级或更改内核版本时，新版本的内核可能会引入一些新的配置选项，这些配置选项在原有的配置文件中是不存在的。如果我们直接使用旧版本的配置文件去编译新版本的内核，编译过程中会报错，因为找不到这些新的配置选项。</p>
+<p><code>make oldconfig</code>的作用就是解决这个问题，它会使用当前配置文件中的配置选项去更新内核源代码树中的新配置选项，使得编译过程能够顺利进行。在更新过程中，会提示用户输入新配置选项的值，并将其添加到配置文件中。</p>
+<p>总结来说，make oldconfig的作用就是将当前配置文件与新版本的内核源代码进行对比，并将新版本的配置选项添加到配置文件中，以保持配置文件的最新状态，使得编译过程能够成功进行。</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/linux$ make CC=&quot;/usr/bin/gcc&quot; olddefconfig
+.config:5179:warning: override: reassigning to symbol KCOV
+.config:5185:warning: override: reassigning to symbol KASAN
+.config:5189:warning: override: reassigning to symbol RANDOMIZE_BASE
+.config:5194:warning: override: reassigning to symbol DEBUG_FS
+.config:5196:warning: override: reassigning to symbol DEBUG_KMEMLEAK
+.config:5199:warning: override: reassigning to symbol CONFIGFS_FS
+.config:5201:warning: override: reassigning to symbol SECURITYFS
+#
+# configuration written to .config
+#
+</code></pre>
+<p>上面执行的结果中有一些<code>warning</code>，这些warning是无关紧要的。出现的原因是<code>.config</code>中，这些配置选项本来是用注释表示其未设置，比如：</p>
+<pre><code class="language-shell"># CONFIG_KCOV is not set
+</code></pre>
+<p>然后步骤2.4修改的时候，我是直接将新的配置拷贝到文件末尾。当执行完<code>make oldconfig</code>后，删掉了这些注释，并将新增的配置选项移动到了之前相应的注释那里。因为<code>.config</code>里所有配置选项是分块存放的，这样会方便查看。</p>
+<pre><code class="language-shell">#
+# Kernel Testing and Coverage
+#
+# CONFIG_KUNIT is not set
+......
+CONFIG_KCOV=y
+
+</code></pre>
+<p>当然，如果你将新配置放在<code>.config</code>的开头，那么需要将原来相应的注释给删掉，否则新配置不会生效，因为被后面相应的注释给rewrite了。</p>
+<h2 id="26-开始编译linux内核">2.6 开始编译Linux内核</h2>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/linux$ make CC=&quot;/usr/bin/gcc&quot; -j16
+......
+  BUILD   arch/x86/boot/bzImage
+Kernel: arch/x86/boot/bzImage is ready  (#1) 
+</code></pre>
+<h2 id="27-构建文件系统镜像">2.7 构建文件系统镜像</h2>
+<p>下载sh脚本：create-image.sh，该脚本会借助 debootstrap 构建文件系统镜像。而debootstrap在<code>1.1安装软件依赖</code>的时候已经安装好了。</p>
+<pre><code class="language-shell"># 下载脚本
+ztree@ubuntu2:~/fuzz/kernel/linux/image$ wget https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh -O create-image.sh
+--2023-06-30 00:57:05--  https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 0.0.0.0, ::
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|0.0.0.0|:443... failed: Connection refused.
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|::|:443... failed: Connection refused.
+
+# 下载失败，进网页拷贝内容到create-image.sh
+
+# 修改权限
+ztree@ubuntu2:~/fuzz/kernel/linux/image$ chmod +x create-image.sh
+
+# 构建文件系统镜像
+ztree@ubuntu2:~/fuzz/kernel/linux/image$ ./create-image.sh
+......
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done 
+
++ sudo mkdir -p /mnt/chroot
++ sudo mount -o loop bullseye.img /mnt/chroot
++ sudo cp -a chroot/. /mnt/chroot/.
++ sudo umount /mnt/chroot
+
+# 查看构建结果
+ztree@ubuntu2:~/fuzz/kernel/linux/image$ ls
+bullseye.id_rsa  bullseye.id_rsa.pub  bullseye.img  chroot  create-image.sh
+</code></pre>
+<blockquote>
+<p>debootstrap是一个基于Debian的工具，用于从已有的Debian系统中创建一个基本的Debian系统环境。它用于在一个新的、空的文件系统上进行安装，可以用于创建一个完整的Debian环境，或者用于创建chroot环境。debootstrap是Debian Installer的一个组件，可以通过命令行进行操作，并根据指定的参数下载并安装Debian软件包。它提供了一个简单的方法来创建一个简洁、最小的Debian系统，以及一个可定制的环境。可以通过debootstrap来创建不同版本的Debian系统，包括stable、testing、unstable等。</p>
+</blockquote>
+<h2 id="28-运行syzkaller">2.8 运行syzkaller</h2>
+<pre><code class="language-shell"># 创建一个工作目录
+ztree@ubuntu2:~/fuzz/kernel$ mkdir syzkaller-workdir
+
+</code></pre>
+<p>下面介绍两种运行syzkaller的方法：</p>
+<h3 id="281-isolated模式">2.8.1 isolated模式</h3>
+<p>isolated模式需要先启动 qemu，然后再连过去。启动qemu的命令如下：</p>
+<pre><code class="language-shell">qemu-system-x86_64 \
+ -kernel /home/ztree/fuzz/kernel/linux/arch/x86/boot/bzImage \
+ -append &quot;console=ttyS0 root=/dev/sda debug earlyprintk=serial slub_debug=QUZ&quot;\
+ -hda /home/ztree/fuzz/kernel/linux/image/bullseye.img \
+ -net user,hostfwd=tcp::10021-:22 -net nic   \
+ -enable-kvm \
+ -nographic \
+ -m 2560M \
+ -smp 2 \
+ -pidfile vm.pid \
+ 2&gt;&amp;1 | tee vm.log
+
+</code></pre>
+<p>有一个Error：</p>
+<pre><code class="language-shell">[FAILED] Failed to start Raise network interfaces.
+See 'systemctl status networking.service' for details.
+</code></pre>
+<p>参考：https://github.com/google/syzkaller/blob/master/docs/linux/troubleshooting.md</p>
+<p>解决办法有两个：</p>
+<ul>
+<li>将以下两行添加到Kernel的配置文件<code>.config</code>中，重新编译Linux内核</li>
+</ul>
+<pre><code class="language-shell">CONFIG_CMDLINE_BOOL=y
+CONFIG_CMDLINE=&quot;net.ifnames=0&quot;
+</code></pre>
+<ul>
+<li>当用qemu模式的时候，在syzkaller manager的配置文件中，在VM的属性里添加以下一行，具体的例子见下一小节。</li>
+</ul>
+<pre><code class="language-shell">&quot;cmdline&quot;: &quot;net.ifnames=0&quot;
+</code></pre>
+<p>再次运行，nice，没报Error了，最后显示：</p>
+<pre><code class="language-shell">......
+Debian GNU/Linux 11 syzkaller ttyS0
+
+syzkaller login: 
+</code></pre>
+<p>输入<code>root</code>，显示：</p>
+<pre><code class="language-shell">Debian GNU/Linux 11 syzkaller ttyS0
+
+syzkaller login: root
+Linux syzkaller 6.4.0-04247-g3a8a670eeeaa #2 SMP PREEMPT_DYNAMIC Sat Jul  1 23:58:09 CST 2023 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+A valid context for root could not be obtained.
+Last login: Sat Jul  1 14:48:25 UTC 2023 on ttyS0
+root@syzkaller:~# 
+</code></pre>
+<p>另开一个窗口，宿主机ssh连接</p>
+<pre><code class="language-shell">ztree@ubuntu2:~$ ssh -i /home/lzx/fuzz/kernel/linux/image/bullseye.id_rsa -p 10021 -o &quot;StrictHostKeyChecking no&quot; root@syzkaller
+</code></pre>
+<p>连接成功：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~$ ssh -i ~/fuzz/kernel/linux/image/bullseye.id_rsa  -p 10021 -o &quot;StrictHostKeyChecking no&quot; root@localhost
+Warning: Permanently added '[localhost]:10021' (ED25519) to the list of known hosts.
+Linux syzkaller 6.4.0-04247-g3a8a670eeeaa #2 SMP PREEMPT_DYNAMIC Sat Jul  1 23:58:09 CST 2023 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+A valid context for root could not be obtained.
+Last login: Sat Jul  1 16:00:24 2023
+root@syzkaller:~# ls   
+root@syzkaller:~# id
+uid=0(root) gid=0(root) groups=0(root) context=system_u:system_r:kernel_t:s0
+</code></pre>
+<blockquote>
+<p>如果显示宿主机ssh连接不上虚拟机，则需要在 <code>/etc/hosts.allow</code>中加上一句 <code>sshd: ALL</code></p>
+</blockquote>
+<blockquote>
+<p>关虚拟机：虚拟机内执行命令<code>poweroff</code>，或者宿主机执行命令<code>kill $(cat vm.pid)</code></p>
+</blockquote>
+<p>给vm建立一个工作目录</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel$ mkdir vm-workdir
+</code></pre>
+<p>接着，编写syzkaller manager的配置文件：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/syzkaller-workdir$ vim test-isolated.cfg
+</code></pre>
+<pre><code class="language-json">{
+        &quot;target&quot;: &quot;linux/amd64&quot;,
+        &quot;http&quot;: &quot;127.0.0.1:56741&quot;,
+        &quot;rpc&quot;: &quot;127.0.0.1:0&quot;,
+        &quot;workdir&quot;: &quot;/home/ztree/fuzz/kernel/syzkaller-workdir&quot;,
+        &quot;kernel_obj&quot;: &quot;/home/ztree/fuzz/kernel/linux&quot;,
+        &quot;image&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.img&quot;,
+        &quot;sshkey&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.id_rsa&quot;,
+        &quot;syzkaller&quot;: &quot;/home/ztree/fuzz/kernel/gopath/github.com/google/syzkaller&quot;,
+        &quot;sandbox&quot;: &quot;setuid&quot;,
+        &quot;procs&quot;: 8,
+        &quot;type&quot;: &quot;isolated&quot;,
+        &quot;vm&quot;: {
+                &quot;targets&quot; : [ &quot;127.0.0.1:10021&quot; ],
+                &quot;pstore&quot;: false,
+          		  &quot;target_dir&quot; : &quot;/home/ztree/fuzz/kernel/vm-workdir&quot;,
+    		        &quot;target_reboot&quot; : false
+        }
+}
+</code></pre>
+<blockquote>
+<p>vm的属性target_dir代表虚拟机的工作目录。该目录用于存储各种与虚拟机相关的文件，例如内核映像、内核配置文件、文件系统映像等。</p>
+</blockquote>
+<p>运行成功：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller/bin$ ./syz-manager -config=/home/ztree/fuzz/kernel/syzkaller-workdir/test-isolated.cfg
+2023/07/02 00:19:41 loading corpus...
+2023/07/02 00:19:41 serving http on http://127.0.0.1:56741
+2023/07/02 00:19:41 serving rpc on tcp://127.0.0.1:40457
+2023/07/02 00:19:41 booting test machines...
+2023/07/02 00:19:41 wait for the connection from test machine...
+
+2023/07/02 00:20:07 machine check:
+2023/07/02 00:20:07 syscalls                : 1757/4124
+2023/07/02 00:20:07 code coverage           : enabled
+2023/07/02 00:20:07 comparison tracing      : enabled
+2023/07/02 00:20:07 extra coverage          : enabled
+2023/07/02 00:20:07 setuid sandbox          : enabled
+2023/07/02 00:20:07 namespace sandbox       : /proc/self/ns/user does not exist
+2023/07/02 00:20:07 Android sandbox         : enabled
+2023/07/02 00:20:07 fault injection         : CONFIG_FAULT_INJECTION is not enabled
+2023/07/02 00:20:07 leak checking           : enabled
+2023/07/02 00:20:07 net packet injection    : /dev/net/tun does not exist
+2023/07/02 00:20:07 net device setup        : enabled
+2023/07/02 00:20:07 concurrency sanitizer   : /sys/kernel/debug/kcsan does not exist
+2023/07/02 00:20:07 devlink PCI setup       : PCI device 0000:00:10.0 is not available
+2023/07/02 00:20:07 USB emulation           : /dev/raw-gadget does not exist
+2023/07/02 00:20:07 hci packet injection    : /dev/vhci does not exist
+2023/07/02 00:20:07 wifi device emulation   : /sys/class/mac80211_hwsim/ does not exist
+2023/07/02 00:20:07 802.15.4 emulation      : /sys/bus/platform/devices/mac802154_hwsim does not exist
+2023/07/02 00:20:07 corpus                  : 36 (deleted 0 broken)
+2023/07/02 00:20:08 seeds                   : 18/683
+2023/07/02 00:20:11 VMs 1, executed 2, cover 0, signal 0/0, crashes 0, repro 0
+2023/07/02 00:20:21 VMs 1, executed 8, cover 0, signal 0/0, crashes 0, repro 0
+2023/07/02 00:20:31 VMs 1, executed 450, cover 11255, signal 13405/13916, crashes 0, repro 0
+2023/07/02 00:20:41 VMs 1, executed 489, cover 11261, signal 13450/14022, crashes 0, repro 0
+2023/07/02 00:20:51 VMs 1, executed 520, cover 11261, signal 13450/14065, crashes 0, repro 0
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230704221512.png" alt="image.png" loading="lazy"></figure>
+<h3 id="282-qemu模式">2.8.2 qemu模式</h3>
+<p>这种模式不需要先启动qemu，创建好配置文件后，直接执行syz-manager就ok了。在工作目录下创建一个syzkaller的配置文件：</p>
+<pre><code class="language-json">{
+        &quot;target&quot;: &quot;linux/amd64&quot;,
+        &quot;http&quot;: &quot;127.0.0.1:56741&quot;,
+        &quot;workdir&quot;: &quot;/home/ztree/fuzz/kernel/syzkaller-workdir&quot;,
+        &quot;kernel_obj&quot;: &quot;/home/ztree/fuzz/kernel/linux&quot;,
+        &quot;image&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.img&quot;,
+        &quot;sshkey&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.id_rsa&quot;,
+        &quot;syzkaller&quot;: &quot;/home/ztree/fuzz/kernel/gopath/github.com/google/syzkaller&quot;,
+        &quot;procs&quot;: 8,
+        &quot;type&quot;: &quot;qemu&quot;,
+        &quot;enable_syscalls&quot;: [
+            &quot;open$proc&quot;,
+            &quot;read$proc&quot;,
+            &quot;write$proc&quot;,
+            &quot;close$proc&quot;
+        ],
+        &quot;vm&quot;: {
+                &quot;count&quot;: 4,
+                &quot;kernel&quot;: &quot;/home/ztree/fuzz/kernel/linux/arch/x86/boot/bzImage&quot;,
+                &quot;cpu&quot;: 2,
+                &quot;mem&quot;: 2048,
+                &quot;cmdline&quot;: &quot;net.ifnames=0&quot;,
+		            &quot;qemu_args&quot;:&quot;-enable-kvm&quot;
+        }
+}
+</code></pre>
+<p>接着运行syzkaller:</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller/bin$ ./syz-manager -config=/home/ztree/fuzz/kernel/syzkaller-workdir/test.cfg
+2023/07/01 22:51:12 loading corpus...
+2023/07/01 22:51:12 serving http on http://127.0.0.1:56741
+2023/07/01 22:51:12 serving rpc on tcp://[::]:40619
+2023/07/01 22:51:12 booting test machines...
+2023/07/01 22:51:12 wait for the connection from test machine...
+2023/07/01 22:51:42 machine check:
+2023/07/01 22:51:42 syscalls                : 1961/4124
+2023/07/01 22:51:42 code coverage           : enabled
+2023/07/01 22:51:42 comparison tracing      : enabled
+2023/07/01 22:51:42 extra coverage          : enabled
+2023/07/01 22:51:42 setuid sandbox          : enabled
+2023/07/01 22:51:42 namespace sandbox       : /proc/self/ns/user does not exist
+2023/07/01 22:51:42 Android sandbox         : enabled
+2023/07/01 22:51:42 fault injection         : CONFIG_FAULT_INJECTION is not enabled
+2023/07/01 22:51:42 leak checking           : enabled
+2023/07/01 22:51:42 net packet injection    : /dev/net/tun does not exist
+2023/07/01 22:51:42 net device setup        : enabled
+2023/07/01 22:51:42 concurrency sanitizer   : /sys/kernel/debug/kcsan does not exist
+2023/07/01 22:51:42 devlink PCI setup       : PCI device 0000:00:10.0 is not available
+2023/07/01 22:51:42 USB emulation           : /dev/raw-gadget does not exist
+2023/07/01 22:51:42 hci packet injection    : /dev/vhci does not exist
+2023/07/01 22:51:42 wifi device emulation   : /sys/class/mac80211_hwsim/ does not exist
+2023/07/01 22:51:42 802.15.4 emulation      : /sys/bus/platform/devices/mac802154_hwsim does not exist
+2023/07/01 22:51:42 corpus                  : 0 (deleted 0 broken)
+2023/07/01 22:51:43 seeds                   : 162/683
+2023/07/01 22:51:52 VMs 3, executed 8, cover 0, signal 0/0, crashes 0, repro 0
+2023/07/01 22:52:02 VMs 4, executed 24, cover 0, signal 0/0, crashes 0, repro 0
+2023/07/01 22:52:12 VMs 4, executed 443, cover 14018, signal 16936/17461, crashes 0, repro 0
+2023/07/01 22:52:22 VMs 4, executed 866, cover 16119, signal 20305/20423, crashes 0, repro 0
+2023/07/01 22:52:32 VMs 4, executed 890, cover 16232, signal 20354/20558, crashes 0, repro 0
+2023/07/01 22:52:42 VMs 4, executed 923, cover 16233, signal 20486/22089, crashes 0, repro 0
+2023/07/01 22:52:52 VMs 4, executed 972, cover 16233, signal 20489/22476, crashes 0, repro 0
+2023/07/01 22:53:02 VMs 4, executed 1032, cover 16264, signal 20529/23384, crashes 0, repro 0
+2023/07/01 22:53:12 VMs 4, executed 1083, cover 16264, signal 20529/23471, crashes 0, repro 0
+2023/07/01 22:53:22 VMs 4, executed 1176, cover 16264, signal 20543/23767, crashes 0, repro 0
+2023/07/01 22:53:32 VMs 4, executed 1193, cover 16350, signal 20653/23875, crashes 0, repro 0
+2023/07/01 22:53:42 VMs 4, executed 1282, cover 16948, signal 21334/23911, crashes 0, repro 0
+2023/07/01 22:53:52 VMs 4, executed 1327, cover 16963, signal 21362/23972, crashes 0, repro 0
+2023/07/01 22:54:02 VMs 4, executed 1387, cover 16965, signal 21390/24070, crashes 0, repro 0
+2023/07/01 22:54:12 VMs 4, executed 1431, cover 16987, signal 21437/24098, crashes 0, repro 0
+</code></pre>
+<p>然后浏览器输入<code>http://127.0.0.1:56741</code>就可以访问syz-manager了：</p>
+<figure data-type="image" tabindex="2"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230704221521.png" alt="image.png" loading="lazy"></figure>
+<h2 id="29-例子-fuzz驱动">2.9 例子 - fuzz驱动</h2>
+<h3 id="291-编译一个带漏洞的驱动">2.9.1 编译一个带漏洞的驱动</h3>
+<blockquote>
+<p>参考这两篇文章：</p>
+<p>https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/harbian_qa/fuzz_testing/test.c</p>
+<p>https://bbs.kanxue.com/thread-265405.htm#msg_header_h1_5</p>
+</blockquote>
+<p>因为之前下载的是master分支，所以先看看这是啥版本：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/linux$ git describe --tags
+v6.4-4247-g3a8a670eeeaa
+ztree@ubuntu2:~/fuzz/kernel/linux$ make kernelversion
+6.4.0
+</code></pre>
+<p>准备编译环境，编译需要头文件的支持：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/test$ mkdir 6.4.0
+ztree@ubuntu2:~/fuzz/kernel/test$ cd 6.4.0/
+ztree@ubuntu2:~/fuzz/kernel/test/6.4.0$ mkdir kernel
+ztree@ubuntu2:~/fuzz/kernel/test/6.4.0$ ln -s /home/ztree/fuzz/kernel/linux ./source
+ztree@ubuntu2:~/fuzz/kernel/test/6.4.0$ ln -s /home/ztree/fuzz/kernel/linux ./build
+ztree@ubuntu2:~/fuzz/kernel/test/6.4.0$ ll
+total 12
+drwxrwxr-x 3 ztree ztree 4096  7月  3 23:19 ./
+drwxrwxr-x 3 ztree ztree 4096  7月  3 23:16 ../
+lrwxrwxrwx 1 ztree ztree   29  7月  3 23:19 build -&gt; /home/ztree/fuzz/kernel/linux/
+drwxrwxr-x 2 ztree ztree 4096  7月  3 23:16 kernel/
+lrwxrwxrwx 1 ztree ztree   29  7月  3 23:19 source -&gt; /home/ztree/fuzz/kernel/linux/
+</code></pre>
+<p>然后创建含有漏洞的代码文件：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel$ mkdir test
+ztree@ubuntu2:~/fuzz/kernel$ cd test
+ztree@ubuntu2:~/fuzz/kernel/test$ vim test.c
+ztree@ubuntu2:~/fuzz/kernel/test$ vim Makefile
+</code></pre>
+<p><code>test.c</code>如下：</p>
+<pre><code class="language-c">#include &lt;linux/init.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/proc_fs.h&gt;
+#include &lt;linux/uaccess.h&gt;
+#include &lt;linux/slab.h&gt;
+
+#define MY_DEV_NAME &quot;test&quot;
+#define DEBUG_FLAG &quot;PROC_DEV&quot;
+
+static ssize_t proc_read (struct file *proc_file, char __user *proc_user, size_t n, loff_t *loff);
+static ssize_t proc_write (struct file *proc_file, const char __user *proc_user, size_t n, loff_t *loff);
+static int proc_open (struct inode *proc_inode, struct file *proc_file);
+static struct file_operations a = {
+                                .open = proc_open,
+                                .read = proc_read,
+                                .write = proc_write,
+};
+
+
+static int __init mod_init(void)
+{
+    struct proc_dir_entry *test_entry;
+    const struct file_operations *proc_fops = &amp;a;
+    printk(DEBUG_FLAG&quot;:proc init start!\n&quot;);
+
+    test_entry = proc_create(MY_DEV_NAME, S_IRUGO|S_IWUGO, NULL, proc_fops);
+    if(!test_entry)
+       printk(DEBUG_FLAG&quot;:there is somethings wrong!\n&quot;);
+    
+    printk(DEBUG_FLAG&quot;:proc init over!\n&quot;);
+    return 0;
+}
+
+static ssize_t proc_read (struct file *proc_file, char __user *proc_user, size_t n, loff_t *loff)
+{
+    printk(DEBUG_FLAG&quot;:finish copy_from_use,the string of newbuf is&quot;);
+
+    return 0;
+}
+
+static ssize_t proc_write (struct file *proc_file, const char __user *proc_user, size_t n, loff_t *loff)
+{
+    char *c = kmalloc(512, GFP_KERNEL);
+
+    copy_from_user(c, proc_user, 4096); // 很明显的堆溢出
+    printk(DEBUG_FLAG&quot;:into write!\n&quot;);
+    return 0;
+}
+
+int proc_open (struct inode *proc_inode, struct file *proc_file)
+{
+    printk(DEBUG_FLAG&quot;:into open!\n&quot;);
+    return 0;
+}
+
+module_init(mod_init);
+</code></pre>
+<p><code>Makefile</code>如下：</p>
+<pre><code class="language-makefile"># Linux内核配置选项，用于启用或禁用内核模块的数字签名验证功能。当配置为y时，表示启用数字签名验证；当配置为n时，表示禁用数字签名验证。数字签名验证可以验证加载的内核模块是否经过数字签名认证，以确保模块的完整性和安全性。启用数字签名验证可以增强系统的安全性，防止恶意或未经授权的模块加载到内核中。
+CONFIG_MODULE_SIG=n
+ 
+obj-m += test.o
+ 
+EXTRA_CFLAGS += -fno-stack-protector -no-pie
+all:
+	make -C /home/ztree/fuzz/kernel/test/6.4.0/build M=$(PWD) modules
+clean:
+	rm -rf *.ko
+	rm -rf *.mod
+	rm -rf *.mod.*
+	rm -rf *.o
+	rm .tmp_versions/test.mod
+	rm .test.ko.cmd
+	rm .test.mod.o.cmd
+	rm .test.o.cmd
+	rm Module.symvers
+	rm modules.order
+</code></pre>
+<blockquote>
+<p>注意：Makefile中使用Tab作为前导空白字符，而不是空格。否则会报错：<code>*** missing separator. Stop</code></p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/test$ make
+make -C /home/ztree/fuzz/kernel/test/6.4.0/build M=/home/ztree/fuzz/kernel/test modules
+make[1]: Entering directory '/home/ztree/fuzz/kernel/linux'
+  CC [M]  /home/ztree/fuzz/kernel/test/test.o
+/home/ztree/fuzz/kernel/test/test.c: In function ‘mod_init’:
+/home/ztree/fuzz/kernel/test/test.c:26:66: error: passing argument 4 of ‘proc_create’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   26 |     test_entry = proc_create(MY_DEV_NAME, S_IRUGO|S_IWUGO, NULL, proc_fops);
+      |                                                                  ^~~~~~~~~
+      |                                                                  |
+      |                                                                  const struct file_operations *
+In file included from /home/ztree/fuzz/kernel/test/test.c:3:
+./include/linux/proc_fs.h:110:122: note: expected ‘const struct proc_ops *’ but argument is of type ‘const struct file_operations *’
+  110 | struct proc_dir_entry *proc_create(const char *name, umode_t mode, struct proc_dir_entry *parent, const struct proc_ops *proc_ops);
+      |                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/home/ztree/fuzz/kernel/test/test.c: In function ‘proc_write’:
+/home/ztree/fuzz/kernel/test/test.c:45:5: error: ignoring return value of ‘copy_from_user’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+   45 |     copy_from_user(c, proc_user, 4096);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./arch/x86/include/asm/preempt.h:9,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/spinlock.h:56,
+                 from ./include/linux/kref.h:16,
+                 from ./include/linux/mm_types.h:8,
+                 from ./include/linux/buildid.h:5,
+                 from ./include/linux/module.h:14,
+                 from /home/ztree/fuzz/kernel/test/test.c:2:
+In function ‘check_copy_size’,
+    inlined from ‘copy_from_user’ at ./include/linux/uaccess.h:182:6,
+    inlined from ‘proc_write’ at /home/ztree/fuzz/kernel/test/test.c:45:5:
+./include/linux/thread_info.h:246:25: error: call to ‘__bad_copy_to’ declared with attribute error: copy destination size is too small
+  246 |                         __bad_copy_to();
+      |                         ^~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[2]: *** [scripts/Makefile.build:252: /home/ztree/fuzz/kernel/test/test.o] Error 1
+make[1]: *** [Makefile:2032: /home/ztree/fuzz/kernel/test] Error 2
+make[1]: Leaving directory '/home/ztree/fuzz/kernel/linux'
+make: *** [Makefile:8: all] Error 2
+</code></pre>
+<p>执行<code>make</code> 后，报错如上。</p>
+<ul>
+<li>第一个报错：<code>proc_create</code>的最后一个参数要求是 <code>const struct proc_ops *</code> 而不是旧的 <code>const struct file_operations *</code>。</li>
+<li>第二个报错：原因是代码中使用了<code>copy_from_user</code>函数，并且默认将其声明为具有<code>warn_unused_result</code>属性。这个属性表示编译器会在发现函数返回值没有被使用时产生一个警告。
+<ul>
+<li>所以为了解决这个错误，我们可以获取其返回值进行检查，但更方便的方法是在编译时加入<code>-Wno-error=unused-result</code>参数，该参数告诉编译器将<code>unused-result</code>警告转换为普通的警告，而不是将其视为错误。</li>
+</ul>
+</li>
+<li>第三个报错：编译运行时会检查<code>copy_from_user</code>的参数，检测到了4096明显比destination buffer更大，会发生溢出。hmmm，为什么网上其他的文章都没提这个？
+<ul>
+<li>我的解决办法是把4096换成参数<code>n</code>。不检查n的话也是可能会发生堆溢出的。</li>
+</ul>
+</li>
+</ul>
+<p>最终修改后的<code>test.c</code>如下：</p>
+<pre><code class="language-c">#include &lt;linux/init.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/proc_fs.h&gt;
+#include &lt;linux/uaccess.h&gt;
+#include &lt;linux/slab.h&gt;
+
+#define MY_DEV_NAME &quot;test&quot;
+#define DEBUG_FLAG &quot;PROC_DEV&quot;
+
+static ssize_t proc_read (struct file *proc_file, char __user *proc_user, size_t n, loff_t *loff);
+static ssize_t proc_write (struct file *proc_file, const char __user *proc_user, size_t n, loff_t *loff);
+static int proc_open (struct inode *proc_inode, struct file *proc_file);
+static struct proc_ops a = { // [1]file_operations -&gt; proc_ops
+                                .proc_open = proc_open, // [2] .open -&gt; .proc_open
+                                .proc_read = proc_read, // [3] .read -&gt; .proc_read
+                                .proc_write = proc_write, //[4] .write -&gt; .proc_write
+};
+
+
+static int __init mod_init(void)
+{
+    struct proc_dir_entry *test_entry;
+    // const struct file_operations *proc_fops = &amp;a; // [5] 注释
+    const struct proc_ops *proc_fops = &amp;a; // [6] 添加这行
+    printk(DEBUG_FLAG&quot;:proc init start!\n&quot;);
+
+    test_entry = proc_create(MY_DEV_NAME, S_IRUGO|S_IWUGO, NULL, proc_fops);
+    if(!test_entry)
+       printk(DEBUG_FLAG&quot;:there is somethings wrong!\n&quot;);
+    
+    printk(DEBUG_FLAG&quot;:proc init over!\n&quot;);
+    return 0;
+}
+......
+static ssize_t proc_write (struct file *proc_file, const char __user *proc_user, size_t n, loff_t *loff)
+{
+    char *c = kmalloc(512, GFP_KERNEL);
+
+    copy_from_user(c, proc_user, n); // 4096 -&gt; n
+    printk(DEBUG_FLAG&quot;:into write!\n&quot;);
+    return 0;
+}
+......
+module_init(mod_init);
+</code></pre>
+<p><code>Makefile</code>修改这一行：</p>
+<pre><code class="language-makefile">EXTRA_CFLAGS += -fno-stack-protector -no-pie -Wno-error=unused-result -Wno-error=error
+</code></pre>
+<blockquote>
+<p>如果想要连warning都不显示，可以加上编译选项：<code>KBUILD_CFLAGS += -w</code></p>
+</blockquote>
+<p>最后再次make，成功生成<code>test.ko</code>：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/test$ make
+make -C /home/ztree/fuzz/kernel/test/6.4.0/build M=/home/ztree/fuzz/kernel/test modules
+make[1]: Entering directory '/home/ztree/fuzz/kernel/linux'
+  CC [M]  /home/ztree/fuzz/kernel/test/test.o
+/home/ztree/fuzz/kernel/test/test.c: In function ‘proc_write’:
+/home/ztree/fuzz/kernel/test/test.c:47:5: warning: ignoring return value of ‘copy_from_user’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   47 |     copy_from_user(c, proc_user, n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  MODPOST /home/ztree/fuzz/kernel/test/Module.symvers
+  LD [M]  /home/ztree/fuzz/kernel/test/test.ko
+make[1]: Leaving directory '/home/ztree/fuzz/kernel/linux'
+
+ztree@ubuntu2:~/fuzz/kernel/test$ ls
+6.4.0  Makefile  Makefile.bak  modules.order  Module.symvers  test.c  test.ko  test.mod  test.mod.c  test.mod.o  test.o
+</code></pre>
+<p>接下来，把<code>test.c</code> 拷贝到<code>/linux/drivers/char/</code>下，然后<code>vim /linux/drivers/char/Kconfig</code></p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/test$ cp test.c ../linux/drivers/char/
+ztree@ubuntu2:~/fuzz/kernel/test$ vim ../linux/drivers/char/Kconfig
+</code></pre>
+<p>添加如下内容：</p>
+<pre><code class="language-shell"># SPDX-License-Identifier: GPL-2.0
+#
+# Character device configuration
+#
+
+menu &quot;Character devices&quot;
+
+source &quot;drivers/tty/Kconfig&quot;
+
+config TEST_MODULE                                  #### 添加开始
+        tristate &quot;Heap Overflow Test&quot;
+        default y
+        help
+          This file is to test a buffer overflow.   #### 添加结束
+
+config TTY_PRINTK
+
+</code></pre>
+<p>在char目录下的Makefile末尾添加：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/linux$ vim drivers/char/Makefile
+</code></pre>
+<pre><code class="language-makefile">EXTRA_CFLAGS += -Wno-error=unused-result
+obj-$(CONFIG_TEST_MODULE)       += test.o
+</code></pre>
+<p>然后重新编译内核，可以看到确实是编译了：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/test$ cd ../linux
+ztree@ubuntu2:~/fuzz/kernel/linux$ make -j16
+......
+  CC      drivers/char/test.o
+drivers/char/test.c: In function ‘proc_write’:
+drivers/char/test.c:47:5: warning: ignoring return value of ‘copy_from_user’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   47 |     copy_from_user(c, proc_user, n);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......
+</code></pre>
+<p>使用新编译好的内核镜像启动qemu，进去看看是否ok：</p>
+<pre><code class="language-shell">root@syzkaller:~# ls /proc/test
+/proc/test
+</code></pre>
+<p>Nice！继续！</p>
+<h3 id="292-添加syzkaller规则">2.9.2 添加syzkaller规则</h3>
+<p>进入<code>gopath/github.com/google/syzkaller/sys/linux/</code>目录，新建<code>proc_operation.txt</code>：</p>
+<pre><code class="language-txt">include &lt;linux/fs.h&gt;
+ 
+open$proc(file ptr[in, string[&quot;/proc/test&quot;]], flags flags[proc_open_flags], mode flags[proc_open_mode]) fd
+read$proc(fd fd, buf buffer[out], count len[buf])
+write$proc(fd fd, buf buffer[in], count len[buf])
+close$proc(fd fd)
+ 
+proc_open_flags = O_RDONLY, O_WRONLY, O_RDWR, O_APPEND, FASYNC, O_CLOEXEC, O_CREAT, O_DIRECT, O_DIRECTORY, O_EXCL, O_LARGEFILE, O_NOATIME, O_NOCTTY, O_NOFOLLOW, O_NONBLOCK, O_PATH, O_SYNC, O_TRUNC, __O_TMPFILE
+proc_open_mode = S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IWGRP, S_IXGRP, S_IROTH, S_IWOTH, S_IXOTH
+</code></pre>
+<ul>
+<li><code>open$proc</code>等
+<ul>
+<li><code>$</code>号前的syscallname是系统调用名，<code>$</code>号后的type是指特定类型的系统调用。</li>
+<li>proc类型的open系统调用</li>
+<li>这个名字是由规则编写者确定的，具体行为靠的是后面的参数去确定。</li>
+</ul>
+</li>
+<li><code>file ptr[in, string[&quot;/proc/test&quot;]]</code>等
+<ul>
+<li><code>ArgumentName ArgumentType[Limit]</code>
+<ul>
+<li>ArgumentName是指参数名</li>
+<li>ArgumentType指的是参数类型，例如上述例子有string、flags等类型。</li>
+<li><code>[Limit]</code>就是具体的参数的值，不指定的时候由syzkaller自动生成，若要指定须在后文指定。
+<ul>
+<li>比如<code>proc_open_flags</code>和<code>proc_open_mode</code>就在后面指定了值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>因为例子是通过<code>/proc/test</code>这个内核接口的写操作来触发堆溢出，因此我们需要控制的参数是open函数中的file参数为<code>/proc/test</code>即可，其他操作参考<code>sys.txt</code>。</p>
+<h3 id="293-确认编译了syz-extract和syz-sysgen">2.9.3 确认编译了syz-extract和syz-sysgen</h3>
+<pre><code class="language-shell"># 之前只编译了 syz-sysgen
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin
+linux_amd64  linux_arm64  syz-db  syz-manager  syz-mutate  syz-prog2c  syz-repro  syz-runtest  syz-sysgen  syz-upgrade  vm.log
+
+# 编译syz-extract
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ make bin/syz-extract
+GOOS=linux GOARCH=amd64 go build &quot;-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=6a383ecfb767c80c9fa63c7708b25e568a4ebfec -X 'github.com/google/syzkaller/prog.gitRevisionDate=2021032
+
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ ls bin
+linux_amd64  linux_arm64  syz-db  syz-extract  syz-manager  syz-mutate  syz-prog2c  syz-repro  syz-runtest  syz-sysgen  syz-upgrade  vm.log
+</code></pre>
+<h3 id="294-使用-syz-extract-生成-const-文件">2.9.4 使用 <strong>syz-extract</strong> 生成 .const 文件</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ bin/syz-extract -os linux -sourcedir &quot;/home/ztree/fuzz/kernel/linux&quot; -arch amd64 proc_operation.txt
+generating linux/amd64...
+
+# 生成const文件
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ find . -name &quot;proc_operation.txt.const&quot;
+./sys/linux/proc_operation.txt.const
+
+# 查看该const文件
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ cat sys/linux/proc_operation.txt.const
+# Code generated by syz-sysgen. DO NOT EDIT.
+arches = amd64
+FASYNC = amd64:8192
+O_APPEND = amd64:1024
+O_CLOEXEC = amd64:524288
+O_CREAT = amd64:64
+O_DIRECT = amd64:16384
+O_DIRECTORY = amd64:65536
+O_EXCL = amd64:128
+O_LARGEFILE = amd64:32768
+O_NOATIME = amd64:262144
+O_NOCTTY = amd64:256
+O_NOFOLLOW = amd64:131072
+O_NONBLOCK = amd64:2048
+O_PATH = amd64:2097152
+O_RDONLY = amd64:0
+O_RDWR = amd64:2
+O_SYNC = amd64:1052672
+O_TRUNC = amd64:512
+O_WRONLY = amd64:1
+S_IRGRP = amd64:32
+S_IROTH = amd64:4
+S_IRUSR = amd64:256
+S_IWGRP = amd64:16
+S_IWOTH = amd64:2
+S_IWUSR = amd64:128
+S_IXGRP = amd64:8
+S_IXOTH = amd64:1
+S_IXUSR = amd64:64
+__NR_close = amd64:3
+__NR_open = amd64:2
+__NR_read = amd64:0
+__NR_write = amd64:1
+__O_TMPFILE = amd64:4194304
+</code></pre>
+<h3 id="295-运行syz-gen">2.9.5 运行syz-gen</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ bin/syz-sysgen
+</code></pre>
+<h3 id="296-重新编译syzkaller">2.9.6 重新编译syzkaller</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ make clean
+rm -rf ./bin .descriptions sys/*/gen executor/defs.h executor/syscalls.h
+ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ make all
+</code></pre>
+<h3 id="297-修改testcfg">2.9.7 修改test.cfg</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ vim /home/ztree/fuzz/kernel/syzkaller-workdir/test.cfg
+</code></pre>
+<p>添加<code>enable_syscalls</code>：</p>
+<pre><code class="language-json">{
+        &quot;target&quot;: &quot;linux/amd64&quot;,
+        &quot;http&quot;: &quot;127.0.0.1:56741&quot;,
+        &quot;workdir&quot;: &quot;/home/ztree/fuzz/kernel/syzkaller-workdir&quot;,
+        &quot;kernel_obj&quot;: &quot;/home/ztree/fuzz/kernel/linux&quot;,
+        &quot;image&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.img&quot;,
+        &quot;sshkey&quot;: &quot;/home/ztree/fuzz/kernel/linux/image/bullseye.id_rsa&quot;,
+        &quot;syzkaller&quot;: &quot;/home/ztree/fuzz/kernel/gopath/github.com/google/syzkaller&quot;,
+        &quot;procs&quot;: 8,
+        &quot;type&quot;: &quot;qemu&quot;,
+        &quot;enable_syscalls&quot;: [
+            &quot;open$proc&quot;,
+            &quot;read$proc&quot;,
+            &quot;write$proc&quot;,
+            &quot;close$proc&quot;
+        ],
+        &quot;vm&quot;: {
+                &quot;count&quot;: 4,
+                &quot;kernel&quot;: &quot;/home/ztree/fuzz/kernel/linux/arch/x86/boot/bzImage&quot;,
+                &quot;cpu&quot;: 2,
+                &quot;mem&quot;: 2048,
+                &quot;cmdline&quot;: &quot;net.ifnames=0&quot;,
+                &quot;qemu_args&quot;:&quot;-enable-kvm&quot;
+        }
+}
+</code></pre>
+<h3 id="298-fuzz-驱动test">2.9.8 fuzz 驱动test</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/fuzz/kernel/gopath/github.com/google/syzkaller$ bin/syz-manager -config=/home/ztree/fuzz/kernel/syzkaller-workdir/test.cfg
+</code></pre>
+<p>不一会，跑出3个crash：</p>
+<figure data-type="image" tabindex="3"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230704221541.png" alt="image-20230704022726578" loading="lazy"></figure>
+<p>查看<code>copy_overflow</code>：</p>
+<figure data-type="image" tabindex="4"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230704221550.png" alt="image-20230704022838665" loading="lazy"></figure>
+<p><code>Call Trace</code>定位到<code>proc_write</code>。Nice！</p>
+<figure data-type="image" tabindex="5"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230704221559.png" alt="image-20230704023028703" loading="lazy"></figure>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://www.freebuf.com/vuls/322630.html</li>
+<li>http://pwn4.fun/2019/10/29/Syzkaller-Fuzz-Android-Kernel/</li>
+<li>http://www.gandalf.site/2019/02/syzkallerfuzz-android-kernel.html</li>
+<li>https://www.cnblogs.com/m00nflower/p/16474927.html</li>
+<li>https://blog.senyuuri.info/posts/2020-04-16-fuzzing-a-pixel-3a-kernel-with-syzkaller/</li>
+<li>https://github.com/google/syzkaller/blob/master/docs/linux/troubleshooting.md</li>
+<li>https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_android-device_arm-kernel.md</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">1 环境准备</a>
+<ul>
+<li><a href="#11-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E4%BE%9D%E8%B5%96">1.1 安装软件依赖</a></li>
+<li><a href="#12-%E5%AE%89%E8%A3%85golang%E7%8E%AF%E5%A2%83">1.2 安装golang环境</a></li>
+<li><a href="#13-%E8%AE%BE%E7%BD%AEgolang%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95">1.3 设置golang工作目录</a></li>
+<li><a href="#14-%E7%BC%96%E8%AF%91syzkaller">1.4 编译syzkaller</a></li>
+</ul>
+</li>
+<li><a href="#2-linux-kernel-amd64">2 Linux Kernel - Amd64</a>
+<ul>
+<li><a href="#21-%E6%8B%89%E5%8F%96linux%E4%BB%A3%E7%A0%81">2.1 拉取linux代码</a></li>
+<li><a href="#22-%E7%94%9F%E6%88%90%E9%BB%98%E8%AE%A4%E7%9A%84%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">2.2 生成默认的内核配置文件</a></li>
+<li><a href="#23-%E5%9F%BA%E4%BA%8E%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6kvm_guestconfig">2.3 基于默认配置文件合并<code>kvm_guest.config</code></a></li>
+<li><a href="#24-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6config">2.4 修改配置文件<code>.config</code></a></li>
+<li><a href="#25-%E7%A1%AE%E8%AE%A4%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84config%E5%92%8C%E5%86%85%E6%A0%B8%E6%BA%90%E4%BB%A3%E7%A0%81%E6%A0%91%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9%E6%98%AF%E5%8C%B9%E9%85%8D%E7%9A%84">2.5 确认修改后的<code>.config</code>和内核源代码树中的配置选项是匹配的</a></li>
+<li><a href="#26-%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91linux%E5%86%85%E6%A0%B8">2.6 开始编译Linux内核</a></li>
+<li><a href="#27-%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F">2.7 构建文件系统镜像</a></li>
+<li><a href="#28-%E8%BF%90%E8%A1%8Csyzkaller">2.8 运行syzkaller</a>
+<ul>
+<li><a href="#281-isolated%E6%A8%A1%E5%BC%8F">2.8.1 isolated模式</a></li>
+<li><a href="#282-qemu%E6%A8%A1%E5%BC%8F">2.8.2 qemu模式</a></li>
+</ul>
+</li>
+<li><a href="#29-%E4%BE%8B%E5%AD%90-fuzz%E9%A9%B1%E5%8A%A8">2.9 例子 - fuzz驱动</a>
+<ul>
+<li><a href="#291-%E7%BC%96%E8%AF%91%E4%B8%80%E4%B8%AA%E5%B8%A6%E6%BC%8F%E6%B4%9E%E7%9A%84%E9%A9%B1%E5%8A%A8">2.9.1 编译一个带漏洞的驱动</a></li>
+<li><a href="#292-%E6%B7%BB%E5%8A%A0syzkaller%E8%A7%84%E5%88%99">2.9.2 添加syzkaller规则</a></li>
+<li><a href="#293-%E7%A1%AE%E8%AE%A4%E7%BC%96%E8%AF%91%E4%BA%86syz-extract%E5%92%8Csyz-sysgen">2.9.3 确认编译了syz-extract和syz-sysgen</a></li>
+<li><a href="#294-%E4%BD%BF%E7%94%A8-syz-extract-%E7%94%9F%E6%88%90-const-%E6%96%87%E4%BB%B6">2.9.4 使用 <strong>syz-extract</strong> 生成 .const 文件</a></li>
+<li><a href="#295-%E8%BF%90%E8%A1%8Csyz-gen">2.9.5 运行syz-gen</a></li>
+<li><a href="#296-%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91syzkaller">2.9.6 重新编译syzkaller</a></li>
+<li><a href="#297-%E4%BF%AE%E6%94%B9testcfg">2.9.7 修改test.cfg</a></li>
+<li><a href="#298-fuzz-%E9%A9%B1%E5%8A%A8test">2.9.8 fuzz 驱动test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/syzkaller-shi-yong-linux/">https://lzxzl.github.io/post/syzkaller-shi-yong-linux/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/syzkaller-shi-yong-linux/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/syzkaller-shi-yong-linux/&sharesource=qzone&title=syzkaller使用-Linux&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/syzkaller-shi-yong-linux/&sharesource=weibo&title=syzkaller使用-Linux + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/ns5QF4Wmy/">#
+                    FUZZ
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/angstromctf2023-pwn/">
+                                                                                            angstromctf2023 - pwn
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/pwncollege-race-condictions-geng-xin-zhong/">
+                                                                                                    pwn.college - race condictions
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

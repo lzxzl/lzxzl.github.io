@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Pawnyable2 - Linux Kernel 漏洞缓解技术
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-03-10</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">35.9
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">8475</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/LKPWN/">Linux Kernel PWN</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>本文是以pawnyable里对内核漏洞缓解技术的文章<a href="https://pawnyable.cafe/linux-kernel/introduction/security.html">security mechanism</a>的学习、扩展。借鉴<a href="https://ctf-wiki.org/pwn/linux/kernel-mode/defense/readme/">ctf-wiki</a>里对内核漏洞缓解技术的分类方式，从异常检测、随机化、隔离、访问控制四个角度来学习内核中的防御机制。其中有部分文字从<a href="https://ctf-wiki.org/pwn/linux/kernel-mode/defense/readme/">ctf-wiki</a> 和 <a href="https://blog.wohin.me/posts/kernel-mitigation-ctr-related/">容器环境相关的内核漏洞缓解技术</a> 直接拷贝的。</p>
+<figure data-type="image" tabindex="1"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230310012847.png" alt="image-20230310012843454" loading="lazy"></figure>
+<h1 id="异常检测">异常检测</h1>
+<h2 id="kernel-stack-canary">Kernel Stack Canary</h2>
+<p>开始学内核pwn，那大概率已经学过用户态pwn了，就不介绍Canary了。顾名思义，此种技术就是内核里的Canary。</p>
+<p>在 x86 架构中，同一个 task 中使用相同的 Canary。</p>
+<h3 id="查看开启状态">查看开启状态</h3>
+<p>可以使用如下方式来检查是否开启了 Canary 保护：</p>
+<ol>
+<li><code>checksec</code></li>
+<li>人工分析二进制文件，看函数中是否有保存和检查 Canary 的代码</li>
+</ol>
+<h3 id="开启">开启</h3>
+<p>在编译内核时，设置 CONFIG_CC_STACKPROTECTOR 选项，来开启该保护。</p>
+<h3 id="关闭">关闭</h3>
+<p>关闭编译选项并重新编译内核，才可以关闭 Canary 保护。</p>
+<h3 id="绕过">绕过</h3>
+<p>根据 x86 架构下 Canary 实现的特点，只要泄漏了一次系统调用中的 Canary，同一 task 的其它系统调用中的 Canary 也就都被泄漏了。</p>
+<h1 id="随机化">随机化</h1>
+<h2 id="kaslr">KASLR</h2>
+<ul>
+<li>
+<p>KASLR（Kernel Address Space Layout Randomization，内核地址空间布局随机化）</p>
+</li>
+<li>
+<p>FGKASLR（Function Granular KASLR，函数粒度的KASLR）</p>
+</li>
+</ul>
+<p>KASLR就是内核中的ASLR。同样不详细介绍ASLR了，可自己去找例子熟悉ASLR。</p>
+<blockquote>
+<ul>
+<li>
+<p><code>/proc/sys/kernel/randomize_va_space</code>值为0时，ASLR完全关闭；</p>
+</li>
+<li>
+<p>值为1时，仅仅对mmap基址、栈地址和VDSO页地址做随机化处理（共享库也将被加载到随机地址）</p>
+</li>
+<li>
+<p>值为2时，在值为1的基础上，加上对堆的随机化。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="查看开启状态-2">查看开启状态</h3>
+<p>可以通过比较两次系统启动时的内核基址来判断KASLR是否开启，例如：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo cat /proc/kallsyms | grep 'T startup_64'
+ffffffff9be00000 T startup_64
+
+lzx@ubuntu:~/LKPWN/pawnyable$ sudo init 6 # 重启
+
+lzx@ubuntu:~/LKPWN/pawnyable$ sudo cat /proc/kallsyms | grep 'T startup_64'
+ffffffffaa800000 T startup_64
+</code></pre>
+<p>从上述输出可以看到，第一次系统启动时内核基址是<code>ffffffff9be00000</code>，重启后变为<code>ffffffffaa800000</code>，说明KASLR开启。由于之前没有对KASLR的配置做过更改，所以也说明KASLR是默认开启的。</p>
+<h3 id="关闭-2">关闭</h3>
+<h4 id="物理机虚拟机">物理机/虚拟机</h4>
+<p>通过修改<code>/etc/default/grub</code>文件来达到目的。找到该文件中的<code>GRUB_CMDLINE_LINUX</code>配置项，在最后加上<code>nokaslr</code>，例如：</p>
+<pre><code>GRUB_CMDLINE_LINUX=&quot;find_preseed=/preseed.cfg auto noprompt priority=critical locale=en_US nokaslr&quot;
+</code></pre>
+<p>然后执行更新即可：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo update-grub
+Sourcing file `/etc/default/grub'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.4.0-135-generic
+Found initrd image: /boot/initrd.img-5.4.0-135-generic
+Found linux image: /boot/vmlinuz-5.4.0-90-generic
+Found initrd image: /boot/initrd.img-5.4.0-90-generic
+Found memtest86+ image: /boot/memtest86+.elf
+Found memtest86+ image: /boot/memtest86+.bin
+done
+</code></pre>
+<p>再次重启，可以发现地址已经变成了默认值<code>ffffffff81000000</code>，说明KASLR已经被关闭：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo cat /proc/kallsyms | grep 'T startup_64'
+ffffffff81000000 T startup_64
+</code></pre>
+<h4 id="qemu">qemu</h4>
+<p>如果是使用 qemu 启动的内核，可以在 <code>-append</code> 选项中添加 <code>nokaslr</code> 来关闭 KASLR。</p>
+<h3 id="开启-2">开启</h3>
+<h4 id="物理机虚拟机-2">物理机/虚拟机</h4>
+<p>修改<code>/etc/default/grub</code>文件，找到该文件中的<code>GRUB_CMDLINE_LINUX</code>配置项，去掉<code>nokaslr</code>。</p>
+<h4 id="qemu-2">qemu</h4>
+<p>如果是使用 qemu 启动的内核，可以在 <code>-append</code> 选项中添加 <code>kaslr</code> 来开启 KASLR。</p>
+<h3 id="绕过-2">绕过</h3>
+<p>与ASLR类似，KASLR也提高了攻击者对内核漏洞的利用门槛。例如，内核漏洞往往被用来进行提升权限或从容器中逃逸。攻击者在利用漏洞劫持控制流后，往往会去调用一个经典的内核函数组合以获取高权限：</p>
+<pre><code class="language-c">commit_creds(prepare_creds());
+</code></pre>
+<p>系统启用KASLR后，攻击者在exploit中直接使用默认的内核符号地址就不再有效，攻击成本提高。然而，KASLR并不是完美的，后面提到的几种打印符号地址的方法即可能用来绕过KASLR。</p>
+<p>同绕过ASLR一样，只要通过泄漏内核某个段的地址，就可以得到这个段内的所有地址。比如当我们泄漏了内核的代码段地址，就知道内核代码段的所有地址。</p>
+<h2 id="fgkaslr">FGKASLR</h2>
+<p>2020 年，出现了更强大的 KASLR，称为<a href="(https://lwn.net/Articles/824307/)">FGKASLR （Function Granular KASLR）</a>。，它默认被禁用。这是一项为每个 Linux 内核函数随机化地址的技术。即FGKASLR 在 KASLR 基地址随机化的基础上，在加载时刻，以函数粒度重新排布内核代码。</p>
+<p>这项技术使得攻击者即使可以泄露Linux内核中某个函数的地址，也无法获取到基地址。但是，FGKASLR 并没有随机化数据部分，因此如果可以泄露数据的地址，就可以找到基地址。当然，不能从基地址中获取特定函数的地址，但可以用于特殊攻击向量。</p>
+<p>目前，FGKASLR 只支持 x86_64 架构。其实现相对比较简单，主要在两个部分进行了修改。</p>
+<ul>
+<li>编译阶段</li>
+<li>加载阶段</li>
+</ul>
+<h3 id="开启-3">开启</h3>
+<p>如果想要开启内核的 FGKASLR，需要开启 <code>CONFIG_FG_KASLR=y</code> 选项。</p>
+<p>FGKASLR 也支持模块的随机化，尽管 FGKASLR 只支持 x86_64 架构下的内核，但是该特性可以支持其它架构下的模块。可以使用 <code>CONFIG_MODULE_FG_KASLR=y</code> 来开启这个特性。</p>
+<h3 id="关闭-3">关闭</h3>
+<p>通过在命令行使用 <code>nokaslr</code> 关闭 KASLR 也同时会关闭 FGKASLR。当然，我们可以单独使用 <code>nofgkaslr</code> 来关闭 FGKASLR。</p>
+<p>关于FGKASLR更详细的内容可参考<a href="https://ctf-wiki.org/pwn/linux/kernel-mode/defense/randomization/fgkaslr/">ctf-wiki-fgkaslr</a>。</p>
+<h1 id="隔离">隔离</h1>
+<h2 id="默认userkernel">默认（User&amp;Kernel）</h2>
+<p>用户态不可以直接访问内核态的数据、执行内核态的代码。</p>
+<h2 id="smepuserkernel">SMEP（User&amp;Kernel）</h2>
+<p>SMEP（Supervisor Mode Execution Prevention，管理模式执行保护）。SMEP基于CPU提供的新特性，用来阻止不受信任应用程序以特权模式执行用户空间的代码，类似于NX。</p>
+<h3 id="出现的原因">出现的原因</h3>
+<p>起初，在内核态执行代码时，可以直接执行用户态的代码。那如果攻击者控制了内核中的执行流，就可以执行处于用户态的代码。由于用户态的代码是攻击者可控的，所以更容易实施攻击。为了防范这种攻击，研究者提出当位于内核态时，不能执行用户态的代码。在 Linux 内核中，这个防御措施的实现是与指令集架构相关的。</p>
+<p>下面看看这种攻击场景：攻击者利用内核空间的漏洞控制了 RIP，同时攻击者在用户空间中准备了一段shellcode。如果SMEP被禁用，那么用户空间中的shellcode将会被执行。反之，如果SMEP开启了，执行shellcode时则会导致内核崩溃。</p>
+<pre><code class="language-c">// mmap一段空间
+char *shellcode = mmap( NULL , 0x1000 , PROT_READ|PROT_WRITE|PROT_EXECUTE, 
+                       MAP_ANONYMOUS | MAP_PRIVATE, -1 , 0 ); 
+
+// 将shellcode拷贝到刚刚分配的那段内存空间中
+memcpy (shellcode, SHELLCODE, sizeof (SHELLCODE));
+
+// 控制rip指向shellcode
+control_rip(shellcode); // RIP = shellcode
+</code></pre>
+<blockquote>
+<p>函数：<code>void *mmap(void *start,size_t length,int prot,int flags,int fd,off_t offsize);</code></p>
+<ul>
+<li>
+<p>功能（三种）</p>
+<ul>
+<li>1、将一个普通文件映射到内存中，通常在需要对文件进行频繁读写时使用，这样用内存读写取代I/O读写，以获得较高的性能；</li>
+<li>2、将特殊文件进行匿名内存映射，可以为关联进程提供共享内存空间；</li>
+<li>3、为无关联的进程提供共享内存空间，一般也是将一个普通文件映射到内存中。</li>
+</ul>
+</li>
+<li>
+<p>参数</p>
+<ul>
+<li>
+<p>start：指向欲映射的内存起始地址，通常设为 NULL，代表让系统自动选定地址，映射成功后返回该地址。</p>
+</li>
+<li>
+<p>length：代表将文件中多大的部分映射到内存。</p>
+</li>
+<li>
+<p>prot：映射区域的保护方式。可以为以下几种方式的组合：</p>
+<ul>
+<li>PROT_EXEC 映射区域可被执行</li>
+<li>PROT_READ 映射区域可被读取</li>
+<li>PROT_WRITE 映射区域可被写入</li>
+<li>PROT_NONE 映射区域不能存取</li>
+</ul>
+</li>
+<li>
+<p>flags：影响映射区域的各种特性。在调用mmap()时必须要指定MAP_SHARED 或MAP_PRIVATE。</p>
+<ul>
+<li>MAP_FIXED 如果参数start所指的地址无法成功建立映射时，则放弃映射，不对地址做修正。通常不鼓励用此旗标。</li>
+<li>MAP_SHARED对映射区域的写入数据会复制回文件内，而且允许其他映射该文件的进程共享。</li>
+<li>MAP_PRIVATE 对映射区域的写入操作会产生一个映射文件的复制，即private的“写入时复制”（copy on write）对此区域作的任何修改都不会写回原来的文件内容。</li>
+<li>MAP_ANONYMOUS建立匿名映射。此时会忽略参数fd，不涉及文件，而且映射区域无法和其他进程共享。</li>
+<li>MAP_DENYWRITE只允许对映射区域的写入操作，其他对文件直接写入的操作将会被拒绝。</li>
+<li>MAP_LOCKED 将映射区域锁定住，这表示该区域不会被置换（swap）。</li>
+</ul>
+</li>
+<li>
+<p>fd：要映射到内存中的文件描述符。如果使用匿名内存映射时，即flags中设置了MAP_ANONYMOUS，fd设为-1。有些系统不支持匿名内存映射，则可以使用fopen打开/dev/zero文件，然后对该文件进行映射，可以同样达到匿名内存映射的效果。</p>
+</li>
+<li>
+<p>offset：文件映射的偏移量，通常设置为0，代表从文件最前方开始对应，offset必须是分页大小的整数倍。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>返回值：若映射成功则返回映射区的内存起始地址，否则返回MAP_FAILED(－1)，错误原因存于errno 中。</p>
+</li>
+<li>
+<p>错误代码</p>
+<ul>
+<li>EBADF 参数fd 不是有效的文件描述词</li>
+<li>EACCES 存取权限有误。如果是MAP_PRIVATE 情况下文件必须可读，使用MAP_SHARED则要有PROT_WRITE以及该文件要能写入。</li>
+<li>EINVAL 参数start、length 或offset有一个不合法。</li>
+<li>EAGAIN 文件被锁住，或是有太多内存被锁住。</li>
+<li>ENOMEM 内存不足。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="查看开启状态-3">查看开启状态</h3>
+<p>SMEP的开闭受CPU中CR4寄存器第20标识位的控制：</p>
+<ul>
+<li>标识位设置1时，保护开启；</li>
+<li>标识位设置0时，保护关闭。</li>
+</ul>
+<p>下图为x86架构下的CR4寄存器。</p>
+<figure data-type="image" tabindex="2"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230309001228.png" alt="20180220141919-fc10512e-1605-1" loading="lazy"></figure>
+<p>可以从<code>/proc/cpuinfo</code>来知晓 SMEP是否开启，输出结果中<code>flags</code>包含了<code>smep</code>和<code>smap</code>，即说明SMEP/SMAP处于开启状态。下面有四个结果是因为这个虚拟机是4核的，且4个都开启了smep。</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/cpuinfo | grep smep
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+</code></pre>
+<h3 id="开启-4">开启</h3>
+<h4 id="物理机虚拟机-3">物理机/虚拟机</h4>
+<p>默认情况下，SMEP 保护是开启的。上面查看的<code>/proc/cpuinfo</code>是虚拟机的默认情况，可以看出时默认开启的。</p>
+<h4 id="qemu-3">qemu</h4>
+<p>我在LK01上测试的结果是，默认关闭smep。若要qemu 启动内核时启用SMEP，设置如下参数：</p>
+<pre><code class="language-shell">-cpu qemu64,+smep
+</code></pre>
+<p>修改LK01的run.sh，启用SMEP：</p>
+<figure data-type="image" tabindex="3"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230309001221.png" alt="image-20230308233504871" loading="lazy"></figure>
+<h3 id="关闭-4">关闭</h3>
+<p>在 <code>/etc/default/grub</code> 的如下两行中添加 nosmep</p>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;  
+GRUB_CMDLINE_LINUX=&quot;initrd=/install/initrd.gz&quot;
+</code></pre>
+<p>然后运行 <code>update-grub</code> 并且重启系统就可以关闭 smep。</p>
+<p>如果是使用 <code>qemu-system-x86_64</code>启动的内核，默认是关闭 SMEP的。</p>
+<h3 id="绕过-3">绕过</h3>
+<p>把 CR4 寄存器中的第 20 位置为 0 后，我们就可以执行用户态的代码。一般而言，我们会使用 0x6f0 来设置 CR4，这样 SMAP 和 SMEP 都会被关闭。</p>
+<p>内核中修改 cr4 的代码最终会调用到 <code>native_write_cr4</code>，当我们能够劫持控制流后，我们可以执行内核中的 gadget 来修改 CR4。从另外一个维度来看，内核中存在固定的修改 cr4 的代码，比如在 <code>refresh_pce</code> 函数、<code>set_tsc_mode</code> 等函数里都有。</p>
+<p>具体的例子等后面遇到的时候再看吧。</p>
+<h2 id="smapuserkernel">SMAP（User&amp;Kernel ）</h2>
+<p>SMAP（Supervisor Mode Access Prevention，管理模式访问保护）建立在SMEP的基础上，可以视为SMEP的补充。用户空间不能读写内核空间的内存，这对于安全来说是理所当然的。而通过SMAP可阻止不受信任应用程序以特权模式读写用户空间的数据。</p>
+<h3 id="出现的原因-2">出现的原因</h3>
+<p>为什么要阻止从高权限内核空间往低权限用户空间中读取和写入数据呢？有两个原因：</p>
+<ul>
+<li>阻止栈迁移：在劫持控制流后，攻击者可以通过栈迁移将栈迁移到用户态，然后进行 ROP，进一步达到提权的目的</li>
+<li>防止内核编程错误导致的问题。</li>
+</ul>
+<h4 id="阻止stack-pivot">阻止Stack Pivot</h4>
+<p>在SMEP给出的例子中，即使可以控制RIP，也无法执行shellcode。但是别忘了，还有gadget这东西。比如：</p>
+<pre><code class="language-assembly">mov esp, 0x12345678; ret;
+</code></pre>
+<p>无论移入 ESP 的值是什么，当调用此 ROP  gadget时，RSP 都会更改为该值。若攻击者同时在0x12345678如此布局：</p>
+<pre><code class="language-c">void *p = mmap( 0x12340000 , 0x10000 , ...); 
+unsigned  long *chain = ( unsigned  long *)(p + 0x5678 ); 
+*chain++ = rop_pop_rdi; 
+*chain++ = 0 ; 
+*chain++ = ...; 
+.. .
+
+control_rip（rop_mov_esp_12345678h）；
+  
+/**
+把0x12345678当作栈，布局如下：
+0x12345678
+0x12345680 rop_pop_rdi
+0x12345688 0
+......
+**/
+</code></pre>
+<p>那么，即使启用了 SMEP，攻击者也可以通过获取 RIP 来执行上面的 ROP 链。</p>
+<p>但是，如果启用了SMAP，则在用户空间（ROP 链）中映射的数据在内核空间中是不可见的，也就是没法把栈迁移到0x12345678。所以 stack pivot 时指令<code>ret</code>会导致内核崩溃。因此，SMEP 之外再启用 SMAP，可以缓解 ROP 的攻击。</p>
+<h4 id="防止内核编程错误">防止内核编程错误</h4>
+<ul>
+<li>内核驱动</li>
+</ul>
+<pre><code class="language-c">char buffer[0x10];
+
+static long mydevice_ioctl(struct file *filp, unsigned int cmd, unsigned long arg) {
+  if (cmd == 0xdead) { // 若cmd为0xdead，则将用户空间数据拷贝到内核空间
+    memcpy(buffer, arg, 0x10);
+  } else if (cmd == 0xcafe) {// 若cmd为0xcafe，则将内核空间数据拷贝到用户空间
+    memcpy(arg, buffer, 0x10);
+  }
+  return 
+}
+</code></pre>
+<ul>
+<li>用户</li>
+</ul>
+<pre><code class="language-c">int fd = open(&quot;/dev/mydevice&quot;, O_RDWR);
+
+char src[0x10] = &quot;Hello, World!&quot;;
+char dst[0x10];
+
+ioctl(fd, 0xdead, src); // 将 &quot;Hello, World!&quot; 拷贝到内核的buffer中
+ioctl(fd, 0xcafe, dst); // 从内核的buffer拷贝数据到用户空间的dst
+
+printf(&quot;%s\n&quot;, dst); // --&gt; Hello, World!
+</code></pre>
+<p>memcpy的长度是0x10，好像没问题。但是如果SMAP 被禁用的时候，执行下面这样的代码：</p>
+<pre><code class="language-c">ioctl(fd，0xdead，0xffffffffdeadbeef);
+</code></pre>
+<p><code>0xffffffffdeadbeef</code>是用户空间的无效地址，但假设这是一个包含 Linux 内核中的秘密数据的地址。然后驱动执行memcpy，会将秘密数据拷贝到buffer，然后这个驱动就能读取到这个秘密数据了，这就导致了AAR。</p>
+<pre><code class="language-c">memcpy(buffer, 0xffffffffdeadbeef, 0x10);
+</code></pre>
+<p>同样，若传入的cmd为0xcafe，也能修改那个秘密数据，导致AAW。</p>
+<h3 id="查看开启状态-4">查看开启状态</h3>
+<p>SMAP的开闭受CPU中CR4寄存器第21标识位的控制：</p>
+<ul>
+<li>标识位设置1时，保护开启；</li>
+<li>标识位设置0时，保护关闭。</li>
+</ul>
+<p>因此，一种绕过SMAP的手段是在高权限下通过修改CR4寄存器来关闭它。</p>
+<p>同SMEP，可以从<code>/proc/cpuinfo</code>来知晓 SMAP是否开启：</p>
+<pre><code class="language-shell"># 查看smap是否开启
+cat /proc/cpuinfo | grep smap
+
+# 查看smep/smap是否开启
+cat /proc/cpuinfo | grep -E &quot;smep|smap&quot;
+</code></pre>
+<h3 id="开启-5">开启</h3>
+<h4 id="物理机虚拟机-4">物理机/虚拟机</h4>
+<p>默认开启。</p>
+<h4 id="qemu-4">qemu</h4>
+<p>同SMEP，只不过将smep换成smap：</p>
+<pre><code class="language-shell">-cpu qemu64,+smap
+</code></pre>
+<h3 id="关闭-5">关闭</h3>
+<p>在 <code>/etc/default/grub</code> 的如下两行中添加 nosmap</p>
+<pre><code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;  
+GRUB_CMDLINE_LINUX=&quot;initrd=/install/initrd.gz&quot;
+</code></pre>
+<p>然后运行 <code>update-grub</code> ，重启系统就可以关闭 smap。</p>
+<h3 id="绕过-4">绕过</h3>
+<h4 id="设置-cr4-寄存器">设置 CR4 寄存器</h4>
+<p>把 CR4 寄存器中的第 21 位置为 0 后，我们就可以访问用户态的数据。一般而言，我们会使用 0x6f0 来设置 CR4，这样 SMAP 和 SMEP 都会被关闭。</p>
+<p>内核中修改 cr4 的代码最终会调用到 <code>native_write_cr4</code>，当我们能够劫持控制流后，我们就可以执行内核中对应的 gadget 来修改 CR4。从另外一个维度来看，内核中存在固定的修改 cr4 的代码，比如在 <code>refresh_pce</code> 函数、<code>set_tsc_mode</code> 等函数里都有。</p>
+<h4 id="copy_fromto_user">copy_from/to_user</h4>
+<p>在劫持控制流后，攻击者可以调用 <code>copy_from_user</code> 和 <code>copy_to_user</code> 来访问用户态的内存。这两个函数会临时清空禁止访问用户态内存的标志。</p>
+<h2 id="kptiuserkernel">KPTI（User&amp;Kernel）</h2>
+<p>KPTI（Kernel page-table isolation，内核页表隔离）也简称PTI，旧称KAISER。2018 年，在 Intel 等 CPU 上发现了一种名为<a href="https://ja.wikipedia.org/wiki/Meltdown">Meltdown</a>的侧信道攻击。该攻击可以用用户权限读取内核空间内存，并且可以绕过KASLR。</p>
+<p>为了缓解改漏洞，提出了 KPTI 机制。该机制使得内核态空间的内存和用户态空间的内存的隔离进一步得到了增强。</p>
+<ul>
+<li>内核态中的页表包括<strong>用户空间内存的页表和内核空间内存的页表</strong>。</li>
+<li>用户态的页表只包括<strong>用户空间内存的页表以及必要的内核空间内存的页表</strong>，如用于处理系统调用、中断等信息的内存。</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230309001212.png" alt="File:Kernel page-table isolation.svg" loading="lazy"></figure>
+<p>在 x86_64 的 PTI 机制中，内核态的用户空间内存映射部分被全部标记为不可执行。也就是说，之前不具有 SMEP 特性的硬件，如果开启了 KPTI 保护，也具有了类似于 SMEP 的特性。此外，SMAP 模拟也可以以类似的方式引入，只是现在还没有引入。因此，在目前开启了 KPTI 保护的内核中，如果没有开启 SMAP 保护，那么内核仍然可以访问用户态空间的内存，只是不能跳转到用户态空间执行 Shellcode。</p>
+<h3 id="查看开启状态-5">查看开启状态</h3>
+<pre><code class="language-shell"># 方法1:
+/ # cat /proc/cpuinfo | grep pti
+fpu_exception	: yes
+
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/cpuinfo | grep pti
+fpu_exception	: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+fpu_exception	: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+fpu_exception	: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+fpu_exception	: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon nopl xtopology tsc_reliable nonstop_tsc cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves arat md_clear flush_l1d arch_capabilities
+
+# 方法2:
+/ # dmesg | grep 'page table'   // 这个在LK01的qemu上没有回显
+/ #
+
+lzx@ubuntu:~/LKPWN/pawnyable$ dmesg | grep 'page table'  // Host
+[    0.381988] Kernel/User page tables isolation: enabled
+[    4.059612] x86/mm: Checking user space page tables
+</code></pre>
+<h3 id="qemu开启和关闭">qemu开启和关闭</h3>
+<p>如果是使用 qemu 启动的内核，在 <code>-append</code> 选项中添加 <code>kpti=1</code> 来开启 KPTI。</p>
+<p>如果是使用 qemu 启动的内核，在 <code>-append</code> 选项中添加 <code>nopti</code> 来关闭 KPTI。</p>
+<h3 id="绕过-5">绕过</h3>
+<p>见<a href="https://ctf-wiki.org/pwn/linux/kernel-mode/defense/isolation/user-kernel/kpti/">ctf-wiki</a>，后面遇到例子再细看。</p>
+<h3 id="cpu-漏洞缓解技术">CPU 漏洞缓解技术</h3>
+<p>前面提到KPTI是为了Meltdown漏洞而提出的。像Meltdown这些处理器级别的漏洞，虽然无法对已有硬件修复，但也会从软件层面用一些技术做缓解，路径 <code>/sys/devices/system/cpu/vulnerabilities/</code> 下列出了所有针对 CPU 漏洞的缓解技术：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ ls /sys/devices/system/cpu/vulnerabilities/
+itlb_multihit  l1tf  mds  meltdown  mmio_stale_data  retbleed  spec_store_bypass  spectre_v1  spectre_v2  srbds  tsx_async_abort
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /sys/devices/system/cpu/vulnerabilities/*
+KVM: Vulnerable
+Mitigation: PTE Inversion
+Mitigation: Clear CPU buffers; SMT Host state unknown
+Mitigation: PTI
+Mitigation: Clear CPU buffers; SMT Host state unknown
+Mitigation: IBRS
+Mitigation: Speculative Store Bypass disabled via prctl and seccomp
+Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+Mitigation: IBRS, IBPB: conditional, RSB filling, PBRSB-eIBRS: Not affected
+Unknown: Dependent on hypervisor status
+Not affected
+</code></pre>
+<p>每个文件对应一个漏洞，并且文件内容的字段有三种：</p>
+<ul>
+<li>Vulnerable：CPU 存在该漏洞，并且没有缓解技术</li>
+<li>Not affected：该漏洞不存在</li>
+<li>Mitigation：漏洞存在，并使用了缓解技术（对应的值就是具体技术）</li>
+</ul>
+<p>比如 Meltdown 漏洞：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ cat /sys/devices/system/cpu/vulnerabilities/meltdown
+Mitigation: PTI
+</code></pre>
+<p>表示使用了 PTI 缓解技术，实际上就是 KPTI，表示当前的系统已经启用了 KPTI。</p>
+<h2 id="堆块隔离inside-kernel">堆块隔离（Inside Kernel）</h2>
+<p>如果在使用 <code>kmem_cache_create</code> 创建一个 cache 时，传递了 <code>**SLAB_ACCOUNT**</code> 标记，那么这个 cache 就会单独存在，不会与其它相同大小的 cache 合并。</p>
+<pre><code class="language-c">Currently, if we want to account all objects of a particular kmem cache,
+we have to pass __GFP_ACCOUNT to each kmem_cache_alloc call, which is
+inconvenient. This patch introduces SLAB_ACCOUNT flag which if passed to
+kmem_cache_create will force accounting for every allocation from this
+cache even if __GFP_ACCOUNT is not passed.
+
+This patch does not make any of the existing caches use this flag - it
+will be done later in the series.
+
+Note, a cache with SLAB_ACCOUNT cannot be merged with a cache w/o
+SLAB_ACCOUNT, i.e. using this flag will probably reduce the number of
+merged slabs even if kmem accounting is not used (only compiled in).
+</code></pre>
+<p>在早期，许多结构体（如 <strong>cred 结构体</strong>）对应的堆块并不单独存在，会和相同大小的堆块使用相同的 cache。在 Linux 4.5 版本引入了这个 flag 后，许多结构体就单独使用了自己的 cache。然而，根据上面的描述，这一特性似乎最初并不是为了安全性引入的。</p>
+<h1 id="访问控制">访问控制</h1>
+<h2 id="dmesg_restrict信息泄露">dmesg_restrict（信息泄露）</h2>
+<p>限制内核日志暴露，以防绕过KASLR。内核日志中可能会有一些地址信息或者敏感信息，所以需要对内核日志的访问进行限制。<code>dmesg_restrict</code>可用来决定是否限制非特权用户使用<code>dmesg</code>查看内核日志缓冲区中的消息。</p>
+<ul>
+<li>值为0时，非特权用户对内核日志的查看将不受限制；</li>
+<li>值为1时，只有具有<code>CAP_SYSLOG</code>特权的用户才能查看内核日志。</li>
+</ul>
+<h3 id="查看开启状态-6">查看开启状态</h3>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/kernel/dmesg_restrict
+0
+</code></pre>
+<h3 id="开启-6">开启</h3>
+<p>从上面查看开启状态可看出，<code>dmesg_restrict</code>默认是关闭的，非特权用户能够读取到内核日志：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ whoami
+lzx
+lzx@ubuntu:~/LKPWN/pawnyable$ grep CapEff /proc/self/status
+CapEff:	0000000000000000
+lzx@ubuntu:~/LKPWN/pawnyable$ dmesg | tail -n 3
+[20382.441195] usb 2-2.1: reset full-speed USB device number 4 using uhci_hcd
+[33640.723833] e1000: ens33 NIC Link is Down
+[33644.753863] e1000: ens33 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: None
+</code></pre>
+<p>开启的方法就是将<code>dmesg_restrict</code>的值设置为1，然后非特权用户就不被允许读取内核日志了：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 1 &gt; /proc/sys/kernel/dmesg_restrict&quot;
+lzx@ubuntu:~/LKPWN/pawnyable$ dmesg | tail -n 3
+dmesg: read kernel buffer failed: Operation not permitted
+</code></pre>
+<p>此时，只要具备了<code>CAP_SYSLOG</code>权限，依然能够读取内核日志：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ grep CapEff  /proc/self/status
+CapEff:	0000000000000000
+
+lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;grep CapEff /proc/self/status&quot;
+[sudo] password for lzx:
+CapEff:	0000003fffffffff
+
+lzx@ubuntu:~/LKPWN/pawnyable$ capsh --decode=0000003fffffffff | grep &quot;cap_syslog&quot;
+0x0000003fffffffff=cap_chown,cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_linux_immutable,cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw,cap_ipc_lock,cap_ipc_owner,cap_sys_module,cap_sys_rawio,cap_sys_chroot,cap_sys_ptrace,cap_sys_pacct,cap_sys_admin,cap_sys_boot,cap_sys_nice,cap_sys_resource,cap_sys_time,cap_sys_tty_config,cap_mknod,cap_lease,cap_audit_write,cap_audit_control,cap_setfcap,cap_mac_override,cap_mac_admin,cap_syslog,cap_wake_alarm,cap_block_suspend,cap_audit_read
+
+lzx@ubuntu:~/LKPWN/pawnyable$ sudo dmesg | tail -n 3
+[20382.441195] usb 2-2.1: reset full-speed USB device number 4 using uhci_hcd
+[33640.723833] e1000: ens33 NIC Link is Down
+[33644.753863] e1000: ens33 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: None
+</code></pre>
+<p>那么，设置<code>dmesg_restrict</code>限制有什么意义呢？<code>dmesg_restrict</code>的设置是为了避免非特权用户利用内核日志泄露的敏感信息绕过KASLR机制。我们知道，KASLR只是将内核基址在启动时做了随机化处理，但是内核中各符号之间的相对偏移是不受KASLR影响的。因此，只要能够获得内核基址或某符号地址，再结合偏移量，就能够计算出其他符号的准确地址，从而绕过KASLR。</p>
+<p>例如，在以前的Linux环境下，我们可以直接从<code>dmesg</code>中获得内核基址：</p>
+<pre><code class="language-shell">dmesg | grep 'Freeing SMP'
+</code></pre>
+<p>能获得类似下面一样的输出：</p>
+<pre><code class="language-shell">Freeing SMP alternatives memory: 32K (ffffffff9e309000 - ffffffff9e311000)
+</code></pre>
+<p>其中，<code>ffffffff9e309000</code>就是内核基址了。然而，后来的一个<a href="https://lore.kernel.org/patchwork/patch/728905/">内核补丁</a>使得内核隐去了基址信息。补丁如下：</p>
+<pre><code class="language-c">diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 2b3bf67..3f63973 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -6508,8 +6508,8 @@  unsigned long free_reserved_area(void *start, void *end, int poison, char *s)
+ 	}
+
+ 	if (pages &amp;&amp; s)
+-		pr_info(&quot;Freeing %s memory: %ldK (%p - %p)\n&quot;,
+-			s, pages &lt;&lt; (PAGE_SHIFT - 10), start, end);
++		pr_info(&quot;Freeing %s memory: %ldK\n&quot;,
++			s, pages &lt;&lt; (PAGE_SHIFT - 10));
+
+ 	return pages;
+ }
+</code></pre>
+<p>因此，在我的测试环境中，执行上述命令也只能获得以下输出了：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo dmesg | grep 'Freeing SMP'
+[    0.375721] Freeing SMP alternatives memory: 40K
+</code></pre>
+<p>可见，Linux内核的安全性是在不断提升的。但是，这并不说明<code>dmesg</code>不再能够泄露内核符号地址。在特定的场景下，攻击者可能通过其他手段让内核将某些符号地址主动输出到日志中，从而计算出所需的内核特定符号地址。</p>
+<h3 id="关闭-6">关闭</h3>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 0 &gt; /proc/sys/kernel/dmesg_restrict&quot;
+lzx@ubuntu:~/LKPWN/pawnyable$ dmesg | tail -n 3
+[20382.441195] usb 2-2.1: reset full-speed USB device number 4 using uhci_hcd
+[33640.723833] e1000: ens33 NIC Link is Down
+[33644.753863] e1000: ens33 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: None
+</code></pre>
+<h2 id="kadrkptr_restrict信息泄露">KADR（kptr_restrict）（信息泄露）</h2>
+<p>KADR（Kernel Address Display Restriction，内核地址显示限制）限制内核符号地址暴露，以防绕过KASLR。此技术通过<code>kptr_restrict</code>的值来决定是否限制通过<code>/proc</code>或其他接口暴露内核中的符号地址（例如，通过<code>/proc/kallsyms</code>接口查看）。</p>
+<ul>
+<li>值为0时，非特权用户能够查看内核符号地址（较新版本的内核还需要 <code>perf_event_paranoid&lt;=1</code>）；</li>
+<li>值为1时，只有具有<code>CAP_SYSLOG</code>特权的用户才能查看内核符号地址；</li>
+<li>值为2时，即使是特权用户也无法查看内核符号地址。</li>
+</ul>
+<p>当开启该保护后，攻击者就不能通过 <code>/proc/kallsyms</code> 来获取内核中某些敏感的地址了，如 commit_creds、prepare_kernel_cred。</p>
+<h3 id="查看开启状态-7">查看开启状态</h3>
+<p>可以看到是默认开启的，查看的内核符号地址都是0</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/kernel/kptr_restrict
+1
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/kallsyms | tail -n 2
+0000000000000000 t cleanup_module	[pata_acpi]
+0000000000000000 r __mod_pci__pacpi_pci_tbl_device_table	[pata_acpi]
+</code></pre>
+<h3 id="开启-7">开启</h3>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 1 &gt; /proc/sys/kernel/kptr_restrict&quot;
+或者
+lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 2 &gt; /proc/sys/kernel/kptr_restrict&quot;
+</code></pre>
+<h3 id="关闭-7">关闭</h3>
+<p>可以看到即使（5.4版本内核中）将<code>kptr_restrict</code>设置为0，非特权用户也无法获得内核符号地址。</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 0 &gt; /proc/sys/kernel/kptr_restrict&quot;
+[sudo] password for lzx:
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/kernel/kptr_restrict
+0
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/kallsyms | tail -n 2
+0000000000000000 t cleanup_module	[pata_acpi]
+0000000000000000 r __mod_pci__pacpi_pci_tbl_device_table	[pata_acpi]
+
+lzx@ubuntu:~/LKPWN/pawnyable$ uname -a
+Linux ubuntu 5.4.0-135-generic #152~18.04.2-Ubuntu SMP Tue Nov 29 08:23:49 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>原因很简单，还需要再设置一个值。先来看一下内核中与<code>kptr_restrict</code>相关的函数<code>kallsyms_show_value</code></p>
+<pre><code class="language-c">/*
+ * We show kallsyms information even to normal users if we've enabled
+ * kernel profiling and are explicitly not paranoid (so kptr_restrict
+ * is clear, and sysctl_perf_event_paranoid isn't set).
+ *
+ * Otherwise, require CAP_SYSLOG (assuming kptr_restrict isn't set to
+ * block even that).
+ * 
+ * 返回1，表示可以显示内核符号地址；返回0，则表示不能显示
+ */
+int kallsyms_show_value(void)
+{
+	switch (kptr_restrict) {
+	case 0: // 当kptr_restrict为0时，还需要kallsyms_for_perf()返回1才能return 1
+		if (kallsyms_for_perf())
+			return 1;
+	/* fallthrough */
+	case 1: // 当kptr_restrict为1时，还需要具备CAP_SYSLOG能力才能return 1
+		if (has_capability_noaudit(current, CAP_SYSLOG))
+			return 1;
+	/* fallthrough */
+	default:
+		return 0;
+	}
+}
+</code></pre>
+<p>可以看到，<code>kptr_restrict</code>为0时，内核还要去判断<code>kallsyms_for_perf</code>函数是否返回真。这个函数就更简单了：</p>
+<pre><code class="language-c">static inline int kallsyms_for_perf(void)
+{
+#ifdef CONFIG_PERF_EVENTS // 配置了CONFIG_PERF_EVENTS
+	extern int sysctl_perf_event_paranoid;
+	if (sysctl_perf_event_paranoid &lt;= 1) // 且sysctl_perf_event_paranoid&lt;=1
+		return 1; // 才会 return 1
+#endif
+	return 0;
+}
+</code></pre>
+<p>因此，对于上述版本的内核来说，只有在配置了<code>CONFIG_PERF_EVENTS</code>的情况下，设置<code>kptr_restrict = 0</code>，且设置<code>perf_event_paranoid &lt;= 1</code>，非特权用户才能够获取到内核符号地址。安全性是有所提升的。</p>
+<p>再试一下：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 0 &gt; /proc/sys/kernel/perf_event_paranoid&quot;
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/kernel/perf_event_paranoid
+0
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/kernel/kptr_restrict
+0
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/kallsyms | tail -n 2
+ffffffffc004941d t cleanup_module	[pata_acpi]
+ffffffffc004a0c0 r __mod_pci__pacpi_pci_tbl_device_table	[pata_acpi]
+</code></pre>
+<p>如上，我们在将<code>perf_event_paranoid</code>设置为0后，非特权用户就能够获得内核符号地址了。</p>
+<p>那么，设置<code>kptr_restrict</code>限制有什么意义呢？同<code>dmesg_restrict</code>一样，这主要是为了防止内核符号地址被非特权用户恶意利用——例如，用来绕过KASLR。由于KASLR在系统启动时对内核基址做了随机化处理，攻击者在不进行暴力破解的情况下很难命中内核符号的正确地址，继而无法在Exploit中应用关键内核函数去实现权限提升等操作。如果作为非特权用户的攻击者能够借助<code>/proc/kallsyms</code>等方式获得有效的内核符号地址，KASLR就被绕过了。</p>
+<p>例如，攻击者能够借此直接获得权限提升所需的关键内核函数地址：</p>
+<pre><code>lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/kallsyms | grep 'T commit_creds'
+ffffffff9becd770 T commit_creds
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/kallsyms | grep 'T prepare_kernel_cred'
+ffffffff9becdbe0 T prepare_kernel_cred
+</code></pre>
+<h2 id="__ro_after_init">__ro_after_init</h2>
+<p>Linux 内核中有很多数据都只会在 <code>__init</code> 阶段被初始化，而且之后不会被改变。使用 <code>__ro_after_init</code> 标记的内存，在 init 阶段结束后，不能够被再次修改。</p>
+<p>可以使用 <code>set_memory_rw(unsigned long addr, int numpages)</code> 来修改对应页的权限。</p>
+<h2 id="mmap_min_addr">mmap_min_addr</h2>
+<p>限制虚拟地址申请下界，以防NULL Pointer Dereference。</p>
+<p><code>mmap_min_addr</code>用来决定是否限制进程通过<code>mmap</code>能够申请到的内存的最小虚拟地址，或者说，限制进程申请的内存虚拟地址范围的下界。</p>
+<p><strong>Procfs</strong>等伪文件系统是Linux内核向用户态暴露接口的方式之一。<code>mmap_min_addr</code>在Linux下Procfs中对应的文件是<code>/proc/sys/vm/mmap_min_addr</code>。读取该文件即可查询当前系统的<code>mmap_min_addr</code>。</p>
+<p>写该文件（需要满足权限要求）即可改变这个限制值。</p>
+<p>首先查看一下当前的状态：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ whoami
+lzx
+lzx@ubuntu:~/LKPWN/pawnyable$ cat /proc/sys/vm/mmap_min_addr
+65536
+</code></pre>
+<p>可以发现，进程能够申请的最小地址值为65536。在这种设定下，我们编写以下测试代码去申请零地址处的内存并尝试修改其内容：</p>
+<pre><code class="language-c">#include &lt;sys/mman.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(){
+    char hello = &quot;hello, world&quot;;
+    mmap(0, 4096,PROT_READ | PROT_WRITE | PROT_EXEC, MAP_FIXED | MAP_PRIVATE | MAP_ANONYMOUS ,-1, 0);
+    printf(&quot;mmap succeeded!\n&quot;);
+    memcpy(0, hello, sizeof(hello));
+    return 0;
+}
+</code></pre>
+<p>编译运行，出现了段错误：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ vim mmap_min_addr_test.c
+
+lzx@ubuntu:~/LKPWN/pawnyable$ gcc mmap_min_addr_test.c -o mmap_min_addr_test
+...(有一些告警信息)
+
+lzx@ubuntu:~/LKPWN/pawnyable$ ./mmap_min_addr_test
+mmap succeeded!
+Segmentation fault (core dumped)
+</code></pre>
+<p>接着，我们修改<code>mmap_min_addr</code>为0，然后再次执行上述程序：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable$ sudo sh -c &quot;echo 0 &gt; /proc/sys/vm/mmap_min_addr&quot;
+lzx@ubuntu:~/LKPWN/pawnyable$ ./mmap_min_addr_test
+mmap succeeded!
+</code></pre>
+<p>这次就执行成功了，说明<code>mmap_min_addr</code>的确发挥了作用。**然而<code>mmap_min_addr</code>有什么用处呢？**系统为什么要限制进程申请内存的地址范围下界呢？</p>
+<p>简单来说，<code>mmap_min_addr</code>主要是为了限制空指针解引用（NULL Point Dereference）类型的攻击。为了理解这个问题，我们需要补充两个知识点：</p>
+<ol>
+<li>Linux系统将虚拟内存空间划分为用户空间和内核空间。以常见的32位系统为例，内核空间在用户空间之上，低地址的3G空间为用户空间；高地址的1G空间为内核空间。因此，空指针对应的零地址实际上是在用户空间范围内。</li>
+<li>在大多数C语言实现中，未初始化指针的值为零（即零指针）。</li>
+</ol>
+<p>综合起来，设想这样一种情形：<strong>攻击者在某程序中找到一个未初始化的函数指针，同时还能够向该程序的零地址处写入数据，那么攻击者就能够通过调用这个函数指针使该程序的控制流转向他写入的恶意指令。退一步讲，即使攻击者不能够控制该程序零地址处的内容，他也有可能通过空指针解引用触发段错误，从而导致程序崩溃，也就是一种拒绝服务攻击。</strong></p>
+<h1 id="总结">总结</h1>
+<ul>
+<li>KASLR：<code>/etc/default/grub</code></li>
+<li>SMEP/SMAP/KPTI：<code>/proc/cpuinfo</code></li>
+<li>dmesg_restrict：<code>/proc/sys/kernel/dmesg_restrict</code></li>
+<li>KADR（kptr_restrict）：<code>/proc/sys/kernel/kptr_restrict</code></li>
+<li>mmap_min_addr：<code>/proc/sys/vm/mmap_min_addr</code></li>
+</ul>
+<p><code>SMEP/SMAP</code>需要CPU的支持。</p>
+<p>在版本较新的内核中，除了<code>dmesg_restrict</code>，上述漏洞缓解技术往往都处于启用状态。但是在老版本的内核或设备中，受功能限制或处于性能需求，一些漏洞缓解技术可能会被停用。</p>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>
+<p><a href="https://pawnyable.cafe/linux-kernel/introduction/security.html">pawnyable - security mechanism</a></p>
+</li>
+<li>
+<p><a href="https://blog.wohin.me/posts/kernel-mitigation-ctr-related/">容器环境相关的内核漏洞缓解技术</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Supervisor_Mode_Access_Prevention">维基百科 - Supervisor Mode Access Prevention</a></p>
+</li>
+<li>
+<p><a href="https://ctf-wiki.org/pwn/linux/kernel-mode/defense/readme/">ctf-wiki - defense</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/pwl999/article/details/112686914">Linux mem 2.3 内核页表隔离 (KPTI) 详解</a></p>
+</li>
+<li>
+<p><a href="https://www.shellcodes.org/Hacking/Unix-like/Linux%E5%86%85%E5%AD%98%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6%E6%B1%87%E6%80%BB.html">Linux 内存安全机制汇总</a></p>
+</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B">异常检测</a>
+<ul>
+<li><a href="#kernel-stack-canary">Kernel Stack Canary</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81">查看开启状态</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF">开启</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD">关闭</a></li>
+<li><a href="#%E7%BB%95%E8%BF%87">绕过</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%9A%8F%E6%9C%BA%E5%8C%96">随机化</a>
+<ul>
+<li><a href="#kaslr">KASLR</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-2">查看开启状态</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD-2">关闭</a>
+<ul>
+<li><a href="#%E7%89%A9%E7%90%86%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%9C%BA">物理机/虚拟机</a></li>
+<li><a href="#qemu">qemu</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%80%E5%90%AF-2">开启</a>
+<ul>
+<li><a href="#%E7%89%A9%E7%90%86%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%9C%BA-2">物理机/虚拟机</a></li>
+<li><a href="#qemu-2">qemu</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%95%E8%BF%87-2">绕过</a></li>
+</ul>
+</li>
+<li><a href="#fgkaslr">FGKASLR</a>
+<ul>
+<li><a href="#%E5%BC%80%E5%90%AF-3">开启</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD-3">关闭</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%9A%94%E7%A6%BB">隔离</a>
+<ul>
+<li><a href="#%E9%BB%98%E8%AE%A4userkernel">默认（User&amp;Kernel）</a></li>
+<li><a href="#smepuserkernel">SMEP（User&amp;Kernel）</a>
+<ul>
+<li><a href="#%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8E%9F%E5%9B%A0">出现的原因</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-3">查看开启状态</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF-4">开启</a>
+<ul>
+<li><a href="#%E7%89%A9%E7%90%86%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%9C%BA-3">物理机/虚拟机</a></li>
+<li><a href="#qemu-3">qemu</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E9%97%AD-4">关闭</a></li>
+<li><a href="#%E7%BB%95%E8%BF%87-3">绕过</a></li>
+</ul>
+</li>
+<li><a href="#smapuserkernel">SMAP（User&amp;Kernel ）</a>
+<ul>
+<li><a href="#%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8E%9F%E5%9B%A0-2">出现的原因</a>
+<ul>
+<li><a href="#%E9%98%BB%E6%AD%A2stack-pivot">阻止Stack Pivot</a></li>
+<li><a href="#%E9%98%B2%E6%AD%A2%E5%86%85%E6%A0%B8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF">防止内核编程错误</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-4">查看开启状态</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF-5">开启</a>
+<ul>
+<li><a href="#%E7%89%A9%E7%90%86%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%9C%BA-4">物理机/虚拟机</a></li>
+<li><a href="#qemu-4">qemu</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E9%97%AD-5">关闭</a></li>
+<li><a href="#%E7%BB%95%E8%BF%87-4">绕过</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE-cr4-%E5%AF%84%E5%AD%98%E5%99%A8">设置 CR4 寄存器</a></li>
+<li><a href="#copy_fromto_user">copy_from/to_user</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#kptiuserkernel">KPTI（User&amp;Kernel）</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-5">查看开启状态</a></li>
+<li><a href="#qemu%E5%BC%80%E5%90%AF%E5%92%8C%E5%85%B3%E9%97%AD">qemu开启和关闭</a></li>
+<li><a href="#%E7%BB%95%E8%BF%87-5">绕过</a></li>
+<li><a href="#cpu-%E6%BC%8F%E6%B4%9E%E7%BC%93%E8%A7%A3%E6%8A%80%E6%9C%AF">CPU 漏洞缓解技术</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A0%86%E5%9D%97%E9%9A%94%E7%A6%BBinside-kernel">堆块隔离（Inside Kernel）</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6">访问控制</a>
+<ul>
+<li><a href="#dmesg_restrict%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2">dmesg_restrict（信息泄露）</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-6">查看开启状态</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF-6">开启</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD-6">关闭</a></li>
+</ul>
+</li>
+<li><a href="#kadrkptr_restrict%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2">KADR（kptr_restrict）（信息泄露）</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%90%AF%E7%8A%B6%E6%80%81-7">查看开启状态</a></li>
+<li><a href="#%E5%BC%80%E5%90%AF-7">开启</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD-7">关闭</a></li>
+</ul>
+</li>
+<li><a href="#__ro_after_init">__ro_after_init</a></li>
+<li><a href="#mmap_min_addr">mmap_min_addr</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/">https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/&sharesource=qzone&title=Pawnyable2 - Linux Kernel 漏洞缓解技术&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/&sharesource=weibo&title=Pawnyable2 - Linux Kernel 漏洞缓解技术 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/LKPWN/">#
+                    Linux Kernel PWN
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/">
+                                                                                            Pawnyable3 - 编译和传输exp
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/">
+                                                                                                    Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

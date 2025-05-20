@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                《图解密码技术》第1-2章 - 笔记
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2022-04-29</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">3.5
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">978</a></span>
+                                        
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h2 id="第1章-环游密码世界">第1章 环游密码世界</h2>
+<h3 id="12-密码">1.2 密码</h3>
+<ul>
+<li>发送者（sender）：当某个人向另一个人发送信息时，发出信息的人称为发送者。</li>
+<li>接收者（receiver）：收到信息的人称为接收者。</li>
+<li>消息（message）：被发送的信息</li>
+<li>窃听者（eavesdropper）：在发送邮件时，邮件会经过多台计算机和通信设备进行中转，在这个过程中就存在被<strong>恶意窃听者</strong>偷看到的可能性。</li>
+<li>明文（plaintext）：加密之前的消息。</li>
+<li>密文（ciphertext）：加密之后的消息。</li>
+<li>加密（encrypt）</li>
+<li>解密（decrypt）</li>
+</ul>
+<blockquote>
+<p>密码（cryptography）技术可保证机密性（ confidentiality）</p>
+</blockquote>
+<ul>
+<li>密码破译（cryptanalysis）：简称破译，有时也称为密码分析。接受者以外的其他人将密文还原成明文。</li>
+<li>破译者（ cryptanalyst）：进行破译的人，不一定是坏人，也可能是密码学研究者。他们为了研究密码强度（破译密码的困难程度）也会成为破译者。</li>
+</ul>
+<h3 id="13-对称密码与公钥密码">1.3 对称密码与公钥密码</h3>
+<ul>
+<li>算法（algorithm）：解决复杂问题的步骤。</li>
+<li>加密算法：加密的步骤</li>
+<li>解密算法：解密的步骤</li>
+<li>密码算法：加密算法和解密算法合在一起的统称</li>
+<li>密钥（key）</li>
+<li>对称密码（symmetric cryptography）：在加密和解密时使用同一密钥的方式。
+<ul>
+<li>又称公共密钥密码（common-key cryptography）、传统密码（conventional cryptography）、私钥密码（secret-key cryptography）、共享密钥密码（shared-keycryptography）</li>
+</ul>
+</li>
+<li>公钥密码（public-key cryptography）：在加密和解密时使用不同密钥的方式。
+<ul>
+<li>又称非对称密码（asymmetric cryptography）</li>
+</ul>
+</li>
+<li>混合密码系统（hybrid cryptosystem）：将对称密码和公钥密码结合起来的密码方式。</li>
+</ul>
+<h3 id="14-其他密码技术">1.4 其他密码技术</h3>
+<p>密码技术提供的并不仅仅是基于密码的机密性，用于校验消息是否被<strong>篡改</strong>的<strong>完整性</strong>、以及用于确认是否是本人的<strong>认证</strong>等都是密码技术的重要部分。</p>
+<ul>
+<li><strong>单向散列函数</strong>（one-way hash function）</li>
+<li>散列值（hash）：用单向散列函数计算出来的数值
+<ul>
+<li>又称哈希值、密码校验和（cryptographic checksum）、指纹（fingerprint）、消息摘要（message digest）</li>
+</ul>
+</li>
+<li>单向散列函数保证的并不是机密性，而是<strong>完整性</strong>（integrity）。</li>
+<li>完整性：“数据是正派的而不是伪造的”</li>
+<li><strong>消息认证码</strong>（message authentication code）：作用是确认消息是否来自所期望的通信对象。
+<ul>
+<li>不仅能够保证<strong>完整性</strong>，还能提供<strong>认证</strong>（authentication）机制</li>
+</ul>
+</li>
+<li><strong>数字签名</strong>（digital signature）：一种将现实世界中的签名和盖章移植到数字世界中的技术
+<ul>
+<li>能够防止伪装（spoofing）、篡改和否认（repudiation）等威胁</li>
+<li>一种能够确保<strong>完整性</strong>、提供<strong>认证</strong>并<strong>防止否认</strong>的密码技术</li>
+</ul>
+</li>
+<li>伪随机数生成器（Pseudo Random Number Generator，PRNG）：一种能够模拟产生随机数列的算法。
+<ul>
+<li>随机数承担着<strong>密钥生成</strong>的重要职责。</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-密码学家的工具箱">1.5 密码学家的工具箱</h3>
+<ul>
+<li>信息安全所面临的威胁与应对这些威胁的密码技术<br>
+<img src="https://lzxzl.github.io/post-images/1651217395858.jpg" alt="" loading="lazy"></li>
+</ul>
+<h3 id="16-隐写术与数字水印">1.6 隐写术与数字水印</h3>
+<ul>
+<li>密码：让消息内容变得无法解读</li>
+<li>隐写术（steganography）：隐藏消息本身</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://lzxzl.github.io/post-images/1651217916495.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>数字水印：一种将著作权拥有者及购买者的信息嵌入文件中的技术</li>
+</ul>
+<h3 id="17-密码与信息安全常识">1.7 密码与信息安全常识</h3>
+<ul>
+<li>不要使用保密的密码算法</li>
+<li>使用低强度的密码比不进行任何加密更危险</li>
+<li>任何密码总有一天都会被破解</li>
+<li>密码只是信息安全的一部分</li>
+</ul>
+<h2 id="第2章-历史上的密码">第2章 历史上的密码</h2>
+<h3 id="21-凯撒密码">2.1 凯撒密码</h3>
+<ul>
+<li>凯撒密码（Caesar cipher）：通过将明文中所使用的字母表按照一定的字数“平移”来进行加密。</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://lzxzl.github.io/post-images/1651218524269.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>凯撒密码的加密<br>
+<img src="https://lzxzl.github.io/post-images/1651218602669.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>凯撒密码的解密<br>
+<img src="https://lzxzl.github.io/post-images/1651218622937.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>暴力破解凯撒密码：如果不知道密钥，那么可通过暴力破解来破译<br>
+<img src="https://lzxzl.github.io/post-images/1651218633796.jpg" alt="" loading="lazy"></p>
+</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%AC%AC1%E7%AB%A0-%E7%8E%AF%E6%B8%B8%E5%AF%86%E7%A0%81%E4%B8%96%E7%95%8C">第1章 环游密码世界</a>
+<ul>
+<li><a href="#12-%E5%AF%86%E7%A0%81">1.2 密码</a></li>
+<li><a href="#13-%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%B8%8E%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81">1.3 对称密码与公钥密码</a></li>
+<li><a href="#14-%E5%85%B6%E4%BB%96%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF">1.4 其他密码技术</a></li>
+<li><a href="#15-%E5%AF%86%E7%A0%81%E5%AD%A6%E5%AE%B6%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1">1.5 密码学家的工具箱</a></li>
+<li><a href="#16-%E9%9A%90%E5%86%99%E6%9C%AF%E4%B8%8E%E6%95%B0%E5%AD%97%E6%B0%B4%E5%8D%B0">1.6 隐写术与数字水印</a></li>
+<li><a href="#17-%E5%AF%86%E7%A0%81%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E5%B8%B8%E8%AF%86">1.7 密码与信息安全常识</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%AC2%E7%AB%A0-%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E5%AF%86%E7%A0%81">第2章 历史上的密码</a>
+<ul>
+<li><a href="#21-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81">2.1 凯撒密码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/">https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/&sharesource=qzone&title=《图解密码技术》第1-2章 - 笔记&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/&sharesource=weibo&title=《图解密码技术》第1-2章 - 笔记 + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/">
+                                                                                            Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-12/">
+                                                                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part 12.
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

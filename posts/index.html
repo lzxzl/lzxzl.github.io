@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    
+        <meta charset="utf-8" />
+<title>
+    文章 | ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="post-main">
+                <div class="post-list">
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+        
+                
+                    
+    
+                    
+                        
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2024-43047-itw-map-collision-leads-to-uaf-on-4x-kernels-and-some-5x-kernel-configurations/">
+                                                <h2 class="post-title">
+                                                    CVE-2024-43047 (ITW) Map collision leads to UAF on 4.x kernels, and some 5.x kernel configurations
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-05-20</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2024-49848-fastrpc_attr_keep_map-logic-bug-allows-fastrpc_internal_munmap_fd-to-racily-free-in-use-mappings-leading-to-uaf/">
+                                                <h2 class="post-title">
+                                                    CVE-2024-49848 FASTRPC_ATTR_KEEP_MAP logic bug allows fastrpc_internal_munmap_fd to racily free in-use mappings leading to UAF
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-05-20</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pz-issue-42451713fixed-with-cve-2024-33060-incorrect-searching-algorithm-in-fastrpc_mmap_find-leads-to-kernel-address-space-info-leak/">
+                                                <h2 class="post-title">
+                                                    PZ Issue 42451713(fixed with CVE-2024-33060) - Incorrect searching algorithm in fastrpc_mmap_find leads to kernel address space info leak
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-01-27</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/solidity-hacks/">
+                                                <h2 class="post-title">
+                                                    Solidity Hacks
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-01-19</span>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2024-33060-uaf-race-of-global-maps-in-fastrpc_mmap_create-and-epilogue-functions/">
+                                                <h2 class="post-title">
+                                                    CVE-2024-33060 UAF race of global maps in fastrpc_mmap_create (and epilogue functions)
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-01-10</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/cLODIMrMR9/">
+          samsung
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/solidity-ru-men-bi-ji/">
+                                                <h2 class="post-title">
+                                                    solidity入门笔记
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2025-01-01</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/lA8opWZT2D/">
+          web3
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/42dj8xvgT9v/">
+          solidity
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2023-6241-fen-xi-yu-fu-xian/">
+                                                <h2 class="post-title">
+                                                    CVE-2023-6241分析与复现
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                <blockquote>
+<p>对这篇文章 <a href="https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/">Gaining kernel code execution on an MTE-enabled Pixel 8</a> 的分析与复现<br>
+Arm Mali GPU<br>
+（买了台 pixel8，也刚好拿来当备用机~）</p>
+</blockquote>
+<ul>
+<li>镜像版本：<a href="https://developers.google.com/android/images?hl=zh-cn">UD1A.231105.004</a></li>
+<li>ndk版本：26.2.11394342</li>
+<li>open-cl header版本：<a href="https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17">v2023.04.17</a></li>
+</ul>
+<h1 id="复现">复现</h1>
+<ul>
+<li>编译</li>
+</ul>
+<pre><code class="language-bash"># 1. 拉依赖库
+╰─ adb pull vendor/lib64/egl/libGLES_mali.so .
+
+# 2. 拷贝opencl header到exp目录
+╰─ cp -r ../OpenCL-Headers-2023.04.17/CL .
+
+# 3. 编译
+╰─ /Users/lzx/Library/Android/sdk/ndk/26.2.11394342/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android34-clang -DSHELL -DCL_TARGET_OPENCL_VERSION=300 -I. -L. mali_jit_csf.c mem_read_write.c mempool_utils.c -lGLES_mali -o mali_jit_csf
+
+# 4. 得到 mali_jit_csf
+</code></pre>
+<ul>
+<li>运行</li>
+</ul>
+<pre><code class="language-bash">╰─ adb push mali_jit_csf /data/local/tmp
+
+╰─ adb shell
+shiba:/ $ cd /data/local/tmp
+shiba:/data/local/tmp $ LD_LIBRARY_PATH=/vendor/lib64/egl ./mali_jit_csf
+mali_fd 3
+corrupted_jit_addr 6000001000
+kernel success
+kernel success
+queue kernel
+jit_grow addr 6000001000
+Size after grow: 22f6
+Final grow size: 23c7
+keep alive jit_addr 60023d1000
+Size after free: 21fd, trim_level 6
+writing to gpu_va 6002301000
+found reused page 5fffef6000, 0
+pgd entry found at index 0 400008972ef443
+overwrite addr : 5ffff00b50 b50
+overwrite addr : 5fffb00b50 b50
+overwrite addr : 5fff900b50 b50
+overwrite addr : 5ffff00714 714
+overwrite addr : 5fffb00714 714
+overwrite addr : 5fff900714 714
+result 50
+shiba:/data/local/tmp # id
+uid=0(root) gid=0(root) groups=0(root) context=u:r:kernel:s0
+shiba:/data/local/tmp # getenforce
+getenforce: Couldn't get enforcing status: No such file or directory
+1|shiba:/data/local/tmp # ^C
+130|shiba:/data/local/tmp # ^D
+shiba:/data/local/tmp $
+</code></pre>
+<p>第一次运行的时候，确实如readme里所说卡住了，第二次运行就没事了。</p>
+<blockquote>
+<p>When running the first time, the exploit sometimes stalls after printing the last <code>overwrite addr</code> message. If that happens (stalled for more than 10 seconds, though pausing for a few seconds is normal), then simply kill the exploit and rerun it. It should not stall the second time.</p>
+</blockquote>
+<h1 id="漏洞根因">漏洞根因</h1>
+<h1 id="poc">PoC</h1>
+<h1 id="patch">Patch</h1>
+<h1 id="结论">结论</h1>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://github.blog/security/vulnerability-research/gaining-kernel-code-execution-on-an-mte-enabled-pixel-8/</li>
+<li>https://github.com/github/securitylab/tree/main/SecurityExploits/Android/Mali/CVE_2023_6241</li>
+<li>https://developers.google.com/android/images?hl=zh-cn</li>
+<li>https://github.com/KhronosGroup/OpenCL-Headers/releases/tag/v2023.04.17</li>
+</ul>
+
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-12-31</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LCPtoskbRl/">
+          gpu
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/BKUV3xCGrH/">
+          mali
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2024-21455-is_compat-flag-leads-to-access-of-userland-provided-addresses-as-kernel-pointers/">
+                                                <h2 class="post-title">
+                                                    CVE-2024-21455 is_compat flag leads to access of userland provided addresses as kernel pointers
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-12-27</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2024-38402-refcount-leak-leading-to-uaf-in-fastrpc_get_process_gids/">
+                                                <h2 class="post-title">
+                                                    CVE-2024-38402 refcount leak leading to UAF in fastrpc_get_process_gids
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-12-24</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-25458-kernel-null-pointer-dereference-in-exynos-ion-implementation/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-25458 Kernel NULL Pointer Dereference in Exynos ION Implementation
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-12-24</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/cLODIMrMR9/">
+          samsung
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/-TOvc86iuIg/">
+          driver
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/n9VHR0XHxuk/">
+          cve
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2009-2910-linux-kernel-x86-64-register-leak-by-jon-oberheide/">
+                                                <h2 class="post-title">
+                                                    CVE-2009-2910-Linux Kernel x86-64 Register Leak by Jon Oberheide
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-05-07</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/XOAss1DVS/">
+          info-leak
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/LlmtM56SL/">
+          linux kernel exploit
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2009-3001-linux-kernel-getname-stack-memory-disclosures-by-jon-oberheide/">
+                                                <h2 class="post-title">
+                                                    CVE-2009-3001 — Linux Kernel getname() Stack Memory Disclosures by Jon Oberheide
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2024-05-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/kkTayTYwi/">
+          protocol stack
+          
+          ,
+          
+        </a>
+        
+        <a href="https://lzxzl.github.io/tag/LlmtM56SL/">
+          linux kernel exploit
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2023-22436-linux-nei-he-yin-yong-ji-shu/">
+                                                <h2 class="post-title">
+                                                    CVE-2023-22436 - Linux内核 - 引用计数
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-10-24</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LKPWN/">
+          Linux Kernel PWN
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20447-lan-ya-pan-uaf/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20447 - 蓝牙PAN - UAF
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-19</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20410-lan-ya-zheng-shu-yi-chu-greateroob-read/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20410 - 蓝牙 - 整数溢出-&gt;OOB Read
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-17</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20395-mediaprovider-lu-jing-chuan-yue/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20395 - MediaProvider - 路径穿越
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-17</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20445-lan-ya-sdp-zheng-shu-yi-chu/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20445  - 蓝牙SDP - 整数溢出
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-16</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20224-lan-ya-hfp-client-yue-jie-du/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20224 - 蓝牙HFP Client - 越界读
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-15</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20229-lan-ya-hfp-client-yue-jie-xie/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20229 - 蓝牙HFP Client - 越界写
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-15</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2022-20344-surfaceflinger-race-condition/">
+                                                <h2 class="post-title">
+                                                    CVE-2022-20344 - SurfaceFlinger - Race Condition
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-14</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39805-lan-ya-l2cap-oob-read/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39805 - 蓝牙L2CAP - OOB Read
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39703-usb-fu-wu-luo-ji-lou-dong/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39703 - USB服务 - 逻辑漏洞
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39804-libheif-kong-zhi-zhen-jie-yin-yong/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39804 - libheif - 空指针解引用
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39675-nfc-oob-write/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39675 - NFC - OOB Write
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39665-libstagefright-oob-readmd/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39665 - libstagefright - OOB Read
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39629-nfc-uaf/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39629 - NFC - UAF
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-08</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39659-telecom-java-zheng-shu-yi-chu/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39659 - telecom - Java整数溢出
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-07</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/cve-2021-39623-media-libstagefright-heap-oob-write/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39623 - media - libstagefright - heap OOB Write
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/new_cve-2021-39632-recovery-yue-jie-xie/">
+                                                <h2 class="post-title">
+                                                    CVE-2021-39632 - Recovery - 越界写
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/android-an-quan-gong-gao-cve-fen-xi-kai-pian/">
+                                                <h2 class="post-title">
+                                                    Android安全公告CVE分析 - 开篇&amp;总览
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-09-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Android-CVE/">
+          Android-CVE
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/aosp-shang-de-libfuzzer-chang-shi/">
+                                                <h2 class="post-title">
+                                                    AOSP上的libfuzzer尝试
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                <p>这篇主要是记录根据Google官方文档<a href="https://source.android.google.cn/docs/security/test/libfuzzer?hl=zh-cn"> 通过 libFuzzer 进行模糊测试 </a>来尝试在AOSP上使用libfuzzer的记录</p>
+<h2 id="0-环境准备">0 环境准备</h2>
+<ul>
+<li>设备：Pixel 4</li>
+<li>aosp源码：android-13.0.0_r7（这个源码是之前就下载好了的，所以我这里就不去下载main/master分支的了）</li>
+<li>下面命令中的<a href="https://developers.google.cn/android/drivers?hl=zh-cn">驱动程序二进制文件</a>可以根据自己的手机环境下载相应的文件。</li>
+</ul>
+<pre><code class="language-shell">mkdir ~/bin
+export PATH=~/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
+chmod a+x ~/bin/repo
+repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r7
+repo sync -c -j8
+wget https://dl.google.com/dl/android/aosp/google_devices-flame-tp1a.221005.002.b2-22399ead.tgz
+tar xvf google_devices-flame-tp1a.221005.002.b2-22399ead.tgz
+./extract-google_devices-flame.sh
+wget https://dl.google.com/dl/android/aosp/qcom-flame-tp1a.221005.002.b2-358af558.tgz
+tar xvf qcom-flame-tp1a.221005.002.b2-358af558.tgz
+./extract-qcom-flame.sh
+. build/envsetup.sh
+lunch
+
+</code></pre>
+<blockquote>
+<p>注意：lunch命令中选择相应的选项，我这里是flame。选择相应选项后，会设置一些环境变量。</p>
+</blockquote>
+<pre><code class="language-shell">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ lunch
+
+You're building on Linux
+
+Lunch menu .. Here are the common combinations:
+     1. aosp_arm-eng
+     2. aosp_arm64-eng
+     ......
+     22. aosp_flame-userdebug
+     23. aosp_flame_car-userdebug
+     ......
+
+Which would you like? [aosp_arm-eng]
+Pick from common choices above (e.g. 13) or specify your own (e.g. aosp_barbet-eng): 22
+
+Hint: next time you can simply run 'lunch aosp_flame-userdebug'
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=13
+TARGET_PRODUCT=aosp_flame
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=generic
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv8-a
+TARGET_2ND_CPU_VARIANT=generic
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-5.19.0-46-generic-x86_64-Ubuntu-22.04.2-LTS
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=TP1A.221005.002
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=hardware/google/av hardware/google/camera hardware/google/interfaces hardware/google/pixel device/google/coral hardware/qcom/sm8150/display hardware/qcom/sm8150/data/ipacfg-mgr hardware/qcom/sm8150/gps vendor/google/airbrush/floral vendor/google/biometrics/face/florence vendor/google/camera vendor/google/darwinn vendor/google_devices/common/proprietary/confirmatioui_hal vendor/google_nos/host/android vendor/qcom/sm8150 vendor/qcom/sm8150/proprietary/commonsys/telephony-apps/DataStatusNotification vendor/qcom/sm8150/proprietary/gps vendor/qcom/sm8150/proprietary/qmi vendor/qcom/sm8150/codeaurora/location vendor/google/interfaces vendor/google_nos/test/system-test-harness vendor/qcom/sensors vendor/google/tools/sensors vendor/qcom/sm7250/codeaurora/commonsys/telephony/ims/ims-ext-common vendor/qcom/sm7250/codeaurora/dataservices/rmnetctl vendor/qcom/sm7250/proprietary/commonsys/qcrilOemHook vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/ims vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/QtiTelephonyService vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert vendor/qcom/sm7250/proprietary/qcril-data-hal vendor/qcom/sm7250/proprietary/qcril-hal vendor/qcom/sm7250/proprietary/data vendor/qcom/proprietary/bluetooth/hidl_client vendor/qcom/flame/proprietary
+============================================
+</code></pre>
+<h2 id="1-编译并刷入镜像">1 编译并刷入镜像</h2>
+<pre><code class="language-shell"># 编译/构建
+m
+
+# 进入fastboot模式
+adb reboot bootloader
+
+# fastboot命令查看设备，确认fastboot命令是否能正常使用
+fastboot device
+
+# 解锁引导加载程序（如果之前就解锁过，不执行该条命令也可以）
+fastboot oem unlock
+
+# 刷入新编译的映像
+fastboot flashall
+</code></pre>
+<h3 id="探索1fastboot-device报错无权限">探索1：<code>fastboot device</code>报错无权限</h3>
+<p>如果<code>fastboot device</code>报错如下：</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ fastboot devices
+no permissions (missing udev rules? user is in the plugdev group); see [http://developer.android.com/tools/device.html]	fastboot
+</code></pre>
+<p>解决办法如下：</p>
+<pre><code class="language-shell"># 查看usb设备信息，可以看到idVendor是18d1，idProduct是4ee0
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ lsusb
+Bus 004 Device 004: ID 18d1:4ee0 Google Inc. Nexus/Pixel Device (fastboot)
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 003: ID 0489:e0cd Foxconn / Hon Hai Wireless_Device
+Bus 003 Device 002: ID 04f3:0c4b Elan Microelectronics Corp. ELAN:Fingerprint
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 5986:212b Acer, Inc Integrated Camera
+Bus 001 Device 002: ID 046d:c542 Logitech, Inc. Wireless Receiver
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+# 查看之前为解决adb device报错无权限而添加的规则文件
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo cat /etc/udev/rules.d/90-android.rules
+SUBSYSTEM==&quot;usb&quot;,ATTRS{idVendor}==&quot;18d1&quot;,ATTRS{idProduct}==&quot;4ee7&quot;,MODE=&quot;0666&quot;,GROUP=&quot;plugdev&quot;,SYMLINK+=&quot;android&quot;,SYMLINK+=&quot;android_adb&quot;
+
+# 复制一份，命名为91-android.rules
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo cp /etc/udev/rules.d/90-android.rules /etc/udev/rules.d/91-android.rules
+
+# 编辑新规则文件，idVendor仍然是18d1，修改idProduct为4ee0
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo vim /etc/udev/rules.d/91-android.rules
+
+# 刷新规则，重启udev服务
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo udevadm control --reload-rules
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo service udev restart
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ sudo udevadm trigger
+
+# 再次尝试fastboot device，成功
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ fastboot devices
+9B081FFAZ0052M	fastboot
+
+</code></pre>
+<blockquote>
+<p>如果是adb遇到了这个错误，还要重启adb。</p>
+</blockquote>
+<h3 id="探索2-fastboot-flashall-是怎么刷镜像的">探索2： fastboot flashall 是怎么刷镜像的？</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ fastboot --help
+usage: fastboot [OPTION...] COMMAND...
+
+flashing:
+......
+ flashall                   Flash all partitions from $ANDROID_PRODUCT_OUT.
+                            On A/B devices, flashed slot is set as active.
+                            Secondary images may be flashed to inactive slot.
+</code></pre>
+<p>可以看到<code>flashall</code>选项是将环境变量<code>$ANDROID_PRODUCT_OUT</code>中的内容刷到设备中，而该环境变量是在执行<code>. build/envsetup.sh</code>和<code>lunch</code>命令的时候，根据选择的选项而设置的。</p>
+<pre><code class="language-shell">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ echo $ANDROID_PRODUCT_OUT
+/home/ztree/aosp/android-13.0.0_r7/out/target/product/flame
+</code></pre>
+<h2 id="2-编译一个google自有的libfuzzer脚本手机">2 编译一个Google自有的libfuzzer脚本（手机）</h2>
+<p>先尝试在手机上跑libfuzzer，因为有些模块会不支持在host上编译和运行</p>
+<pre><code class="language-c">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ SANITIZE_TARGET=hwaddress m metadataretriever_fuzzer
+......
+[100% 595/595] Install out/target/product/flame/system/lib64/libstagefright.so
+
+#### build completed successfully (03:08 (mm:ss)) ####
+
+</code></pre>
+<p>这个fuzzer是在 frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp 中定义的，也可以从<a href="https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp">这里</a>查看。</p>
+<h2 id="3-运行手机">3 运行（手机）</h2>
+<pre><code class="language-shell"># 手机进入root模式
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ adb root
+
+# 同步更新data目录下的文件到手机（主要是把data/fuzz目录同步到手机上去，该目录包含fuzzer和一些库文件）
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ adb sync data
+/data/: 140 files pushed, 0 skipped. 278.6 MB/s (353442745 bytes in 1.210s)
+
+# 进入手机shell，执行libfuzzer
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ adb shell
+flame:/ # cd /data/fuzz/                                                                                                                                                                                  
+flame:/data/fuzz # ls
+arm64
+flame:/data/fuzz # cd arm64/                                                                                                                                                                              
+flame:/data/fuzz/arm64 # ls
+lib  metadataretriever_fuzzer
+flame:/data/fuzz/arm64 # cd metadataretriever_fuzzer/                                                                                                                                                     
+flame:/data/fuzz/arm64/metadataretriever_fuzzer # ls
+config.json  metadataretriever_fuzzer
+1|flame:/data/fuzz/arm64/metadataretriever_fuzzer # mkdir corpus
+flame:/data/fuzz/arm64/metadataretriever_fuzzer # ./metadataretriever_fuzzer ./corpus/   
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3179219735
+......
+INFO:        0 files found in ./corpus/
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 809 ft: 792 corp: 1/1b exec/s: 0 rss: 67Mb
+	NEW_FUNC[1/19]: 0x7c1515b130  (/data/fuzz/arm64/lib/libdatasource.so+0xc130) (BuildId: e0f84a9199bae756b2cabb11bc30efe4)
+ ......
+</code></pre>
+<h3 id="探索3adb-sync">探索3：adb sync</h3>
+<pre><code class="language-shell">ztree@ubuntu2:~/aosp/android-13.0.0_r7$ adb --help
+Android Debug Bridge version 1.0.41
+Version 34.0.1-9680074
+Installed as /home/ztree/Android/Sdk/platform-tools/adb
+
+......
+
+file transfer:
+......
+ sync [-l] [-z ALGORITHM] [-Z] [all|data|odm|oem|product|system|system_ext|vendor]
+     sync a local build from $ANDROID_PRODUCT_OUT to the device (default all)
+     -n: dry run: push files to device without storing to the filesystem
+     -l: list files that would be copied, but don't copy them
+     -z: enable compression with a specified algorithm (any/none/brotli/lz4/zstd)
+     -Z: disable compression
+
+</code></pre>
+<pre><code class="language-shell"># 该环境变量前面也看过了，是在执行. build/envsetup.sh和lunch命令时设置好的
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ echo $ANDROID_PRODUCT_OUT
+/home/ztree/aosp/android-13.0.0_r7/out/target/product/flame
+</code></pre>
+<h2 id="4-尝试编译host版本的libfuzzer">4 尝试编译host版本的libfuzzer</h2>
+<pre><code class="language-shell"># 在Android.bp中加上支持host的编译选项
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ vim frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp
+
+
+cc_fuzz {
+    name: &quot;metadataretriever_fuzzer&quot;,
+    host_supported: true, // 加上这一行
+    srcs: [
+        &quot;metadataretriever_fuzzer.cpp&quot;,
+    ],
+    defaults: [
+        &quot;libmediaplayerserviceFuzzer_defaults&quot;,
+    ],
+    static_libs: [
+        &quot;libplayerservice_datasource&quot;,
+    ],
+    shared_libs: [
+        &quot;libdatasource&quot;,
+        &quot;libdrmframework&quot;,
+    ],
+}
+
+
+# 编译
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ SANITIZE_HOST=address m metadataretriever_fuzzer
+
+报错如下，也就是依赖的库文件没有x86-64的版本：
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libmediaplayerservice&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:static
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libplayerservice_datasource&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:static
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:static)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:static)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:static)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:static)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:static
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libmedia&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:shared
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libstagefright&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:shared
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libdatasource&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:shared
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:static
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libdrmframework&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:shared
+available variants:
+  os:android,image:,arch:arm64_armv8-a (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk: (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm64_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk: (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:
+  os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:latest (alias to os:android,image:,arch:arm_armv8-a,sdk:,link:shared,version:)
+20:11:52 soong bootstrap failed with: exit status 1
+
+#### failed to build some targets (14 seconds) ####
+
+</code></pre>
+<p>那重新执行一下lunch命令，选择x86-64版本会咋样？</p>
+<pre><code class="language-shell"># 目标设备选择x64版本的
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ lunch aosp_x86_64-eng
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=13
+TARGET_PRODUCT=aosp_x86_64
+TARGET_BUILD_VARIANT=eng
+TARGET_BUILD_TYPE=release
+TARGET_ARCH=x86_64
+TARGET_ARCH_VARIANT=x86_64
+TARGET_2ND_ARCH=x86
+TARGET_2ND_ARCH_VARIANT=x86_64
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-5.19.0-46-generic-x86_64-Ubuntu-22.04.2-LTS
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=TP1A.221005.002
+OUT_DIR=out
+PRODUCT_SOONG_NAMESPACES=device/generic/goldfish device/generic/goldfish-opengl hardware/google/camera hardware/google/camera/devices/EmulatedCamera
+
+# 重新编译
+ztree@ubuntu2:~/aosp/android-13.0.0_r7$ SANITIZE_HOST=address m metadataretriever_fuzzer
+......
+error: frameworks/av/media/libmediaplayerservice/fuzzer/Android.bp:77:1: dependency &quot;libdrmframework&quot; of &quot;metadataretriever_fuzzer&quot; missing variant:
+  os:linux_glibc,arch:x86_64,link:shared
+available variants:
+  os:android,image:,arch:x86_64 (alias to os:android,image:,arch:x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_64,sdk: (alias to os:android,image:,arch:x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_64,sdk:,link:shared (alias to os:android,image:,arch:x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_64,sdk:,link:shared,version:
+  os:android,image:,arch:x86_64,sdk:,link:shared,version:latest (alias to os:android,image:,arch:x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_x86_64 (alias to os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_x86_64,sdk: (alias to os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_x86_64,sdk:,link:shared (alias to os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:)
+  os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:
+  os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:latest (alias to os:android,image:,arch:x86_x86_64,sdk:,link:shared,version:)
+20:18:15 soong bootstrap failed with: exit status 1
+
+#### failed to build some targets (13 seconds) ####
+
+</code></pre>
+<p>还是不行，可以看到目标依赖是<code>os:linux_glibc</code>，而可用的依赖版本是<code>os:android</code>。暂时不知道哪些模块是可以host上运行libfuzzer，以后遇上再补充吧。</p>
+
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-27</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/ns5QF4Wmy/">
+          FUZZ
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/angstromctf2023-pwn/">
+                                                <h2 class="post-title">
+                                                    angstromctf2023 - pwn
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-07-16</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/ctf/">
+          ctf
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/syzkaller-shi-yong-linux/">
+                                                <h2 class="post-title">
+                                                    syzkaller使用-Linux
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-07-04</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/ns5QF4Wmy/">
+          FUZZ
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pwncollege-race-condictions-geng-xin-zhong/">
+                                                <h2 class="post-title">
+                                                    pwn.college - race condictions
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-06-27</span>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/bluetooth-gatt-ble_ctf/">
+                                                <h2 class="post-title">
+                                                    Bluetooth - GATT - BLE_CTF
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-06-27</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/Bluetooth/">
+          Bluetooth
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/codeql-ru-men-u-boot-challenge/">
+                                                <h2 class="post-title">
+                                                    CodeQL入门 - U-Boot Challenge
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-06-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/CodeAudit/">
+          CodeAudit
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/">
+                                                <h2 class="post-title">
+                                                    Pawnyable4 - 熟悉Holstein模块与触发漏洞
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-03-12</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LKPWN/">
+          Linux Kernel PWN
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/">
+                                                <h2 class="post-title">
+                                                    Pawnyable3 - 编译和传输exp
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-03-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LKPWN/">
+          Linux Kernel PWN
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/">
+                                                <h2 class="post-title">
+                                                    Pawnyable2 - Linux Kernel 漏洞缓解技术
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-03-10</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LKPWN/">
+          Linux Kernel PWN
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/pawnyable1-linux-kernel-pwn-jian-jie-yu-diao-shi-huan-jing-da-jian/">
+                                                <h2 class="post-title">
+                                                    Pawnyable1 - Linux Kernel PWN 简介与调试环境搭建
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2023-03-04</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/LKPWN/">
+          Linux Kernel PWN
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/lesslesstu-jie-mi-ma-ji-zhu-greatergreater-di-1-2-zhang-bi-ji/">
+                                                <h2 class="post-title">
+                                                    《图解密码技术》第1-2章 - 笔记
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2022-04-29</span>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-12/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part 12.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-11/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 11.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-10/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part 10.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-06</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part7-abstract-syntax-trees/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part7. Abstract Syntax Trees
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-12-05</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/lets-build-a-simple-interpreter-part6-java-ban-ben/">
+                                                <h2 class="post-title">
+                                                    Let’s Build A Simple Interpreter. Part6. —— Java版本
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part6/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part6.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part5/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part5.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part4/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part4.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part3/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part3.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part2/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part2.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                
+                                    <section class="post-item">
+                                        <div class="content">
+                                            <a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part1/">
+                                                <h2 class="post-title">
+                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part1.
+                                                </h2>
+                                            </a>
+                                            <div class="post-abstract">
+                                                
+                                            </div>
+                                            <div class="post-info">
+                                                <span><i class="fa fa-calendar" aria-hidden="true"></i> 2021-11-11</span>
+                                                
+                                                    <span>
+        <i class="fa fa-tags" aria-hidden="true"></i>
+        
+        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">
+          编译原理
+          
+        </a>
+        
+      </span>
+                                                    
+                                            </div>
+                                        </div>
+                                        
+                                    </section>
+                                    
+                                        
+                                            
+                            
+                                            
+                </div>
+            </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+</body>
+
+</html>

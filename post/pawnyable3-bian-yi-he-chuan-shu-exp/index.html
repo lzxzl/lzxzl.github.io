@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Pawnyable3 - 编译和传输exp
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-03-11</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">7.8
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">1631</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/LKPWN/">Linux Kernel PWN</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <h1 id="在qemu上运行exp">在qemu上运行exp</h1>
+<p>在 qemu 上编写、构建和运行exp很麻烦，因为每次内核崩溃时，都必须重新开始。所以在本地编译好exp后再把它发送到 qemu会方便的多。<br>
+又由于每次都输入一大串命令很麻烦，所以把这些命令放在一个 shell 脚本transfer.sh里，每次执行这个脚本就好了。</p>
+<pre><code class="language-shell">#!/bin/sh
+gcc exploit.c -o exploit # gcc编译exploit.c
+mv exploit rootfs # 将编译结果exploit移动到rootfs（之前第一篇文章解压的那个目录）
+cd rootfs; find . -print0 | cpio -o --null --format=newc --owner=root &gt; ../debugfs.cpio
+cd ../
+
+qemu-system-x86_64 \
+    -m 64M \
+    -nographic \
+    -kernel bzImage \
+    -append &quot;console=ttyS0 loglevel=3 oops=panic panic=-1 nopti nokaslr&quot; \
+    -no-reboot \
+    -cpu qemu64 \
+    -gdb tcp::12345 \
+    -smp 1 \
+    -monitor /dev/null \
+    -initrd debugfs.cpio \
+    -net nic,model=virtio \
+    -net user
+</code></pre>
+<p><code>exploit.c</code> 代码如下</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+  puts(&quot;Hello, World!&quot;);
+  return 0;
+}
+</code></pre>
+<p>将这两个文件放在qemu目录下，如下所示：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ ls
+bzImage  exploit.c  rootfs  rootfs.cpio  rootfs_updated.cpio  run.sh  transfer.sh
+</code></pre>
+<p>然后执行transfer.sh以启动qemu，最后在qemu中执行exploit，但是得到这样的错误：</p>
+<pre><code class="language-shell">[ Holstein v1 (LK01) - Pawnyable ]
+/ # ./exploit
+sh: ./exploit: not found
+/ #
+</code></pre>
+<p>为什么?</p>
+<p>因为这个镜像中使用的库为 uClibc ，而不是通常的 libc。而编译exploit的环境使用的是GCC，也就是libc，所以动态链接失败，exploit也不起作用。<br>
+因此，在 qemu 上运行 exploit 时，要注意静态链接它们。那么，修改脚本：</p>
+<pre><code class="language-shell">gcc exploit.c -o exploit -static
+</code></pre>
+<p>再次重新运行，那么程序应该可以正常工作：</p>
+<pre><code class="language-shell">[ Holstein v1 (LK01) - Pawnyable ]
+/ # ./exploit
+Hello, World!
+/ #
+</code></pre>
+<p>小结：</p>
+<ol>
+<li>将exp源文件和transfer.sh（视情况可能要做一定改变）放在qemu目录下</li>
+<li>执行脚本transfer.sh</li>
+</ol>
+<h1 id="在远程机器上运行exp">在远程机器上运行exp</h1>
+<p>本次分发的环境设置为允许网络连接，所以如果想远程执行，可以在qemu上使用wget命令传输exp。</p>
+<p>但是在CTF等一些环境中，网络是不可用的。在这种情况下，有必要使用 busybox 中的命令远程传输二进制文件。一般使用base64，但是用GCC构建的文件有几百K到几十M，比如前面编译的exploit的大小就是826K，传输很费时间。文件大小的增加是由于外部库 （libc） 函数的静态链接。</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu/rootfs$ ls -lh | grep exploit
+-rwxrwxr-x 1 lzx lzx 826K Mar 11 00:26 exploit
+</code></pre>
+<p>如果想使用 GCC，并保持较小的大小，那么应该避免使用 libc 并使用系统调用（内联汇编）来自己定义读、写等，当然这是非常困难的。<br>
+所以许多 CTFer 使用名为 musl-gcc 的 C 编译器来进行内核利用。它可以从 https://www.musl-libc.org/ 下载源码，然后根据文档 https://git.musl-libc.org/cgit/musl/tree/INSTALL 进行构建并完成安装。</p>
+<pre><code class="language-shell"># 下载
+lzx@ubuntu:~/tools$ wget https://musl.libc.org/releases/musl-1.2.3.tar.gz
+--2023-03-11 00:59:06--  https://musl.libc.org/releases/musl-1.2.3.tar.gz
+Resolving musl.libc.org (musl.libc.org)... 45.63.0.111, 2001:19f0:4009:4061:5400:ff:fe11:6da2
+Connecting to musl.libc.org (musl.libc.org)|45.63.0.111|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1058642 (1.0M) [application/gzip]
+Saving to: ‘musl-1.2.3.tar.gz’
+
+musl-1.2.3.tar.gz                                       100%[=============================================================================================================================&gt;]   1.01M   881KB/s    in 1.2s
+
+2023-03-11 00:59:09 (881 KB/s) - ‘musl-1.2.3.tar.gz’ saved [1058642/1058642]
+
+# 解压
+lzx@ubuntu:~/tools$ tar -xzf musl-1.2.3.tar.gz
+lzx@ubuntu:~/tools$ cd musl-1.2.3/
+
+# 运行配置文件
+lzx@ubuntu:~/tools/musl-1.2.3$ ./configure
+......
+
+# 编译
+lzx@ubuntu:~/tools/musl-1.2.3$ make
+......
+
+# 安装
+lzx@ubuntu:~/tools/musl-1.2.3$ sudo make install
+......
+./tools/install.sh -D obj/musl-gcc /usr/local/musl/bin/musl-gcc
+</code></pre>
+<p>安装完以后，就来使用了。使用musl-gcc编译exploit，然后移动到rootfs目录下（当然这一步可以省略，我只是为了保持统一）：</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ /usr/local/musl/bin/musl-gcc exploit.c -o exploit -static
+
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ mv exploit rootfs
+
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ ls -lh rootfs | grep exploit
+-rwxrwxr-x 1 lzx lzx  11K Mar 11 01:16 exploit
+</code></pre>
+<p>可以看到exploit的大小由826K变成了11K。如果想让它更小，可以用 strip 等删除调试符号。</p>
+<blockquote>
+<p>有些头文件（Linux内核类型）不在musl-gcc中，所以需要设置include路径或者用gcc编译。在这种情况下，先通过gcc汇编器构建<code>.S</code>文件，然后使用musl-gcc进行编译，就可以在使用 gcc 函数的同时，又减小文件大小。</p>
+<pre><code class="language-shell">$ gcc -S sample.c -o sample.S
+$ musl-gcc sample.S -o sample.elf
+</code></pre>
+</blockquote>
+<p>最后编写一个脚本来使用 base64 远程传输（通过 nc）二进制文件。每次CTF都可能会用到这个上传器，所以建议大家自己制作一个模板。</p>
+<pre><code class="language-python">from ptrlib import *
+import time
+import base64
+import os
+
+def run(cmd):
+    sock.sendlineafter(&quot;# &quot;, cmd) # 这个需要根据情况改变，我这里的run.sh是以root启动qemu的，所以是#
+    sock.recvline()
+
+with open(&quot;./rootfs/exploit&quot;, &quot;rb&quot;) as f: # 同样，这个exploit的路径也是要根据情况改变
+    payload = bytes2str(base64.b64encode(f.read()))
+
+#sock = Socket(&quot;HOST&quot;, PORT) # remote
+sock = Process(&quot;./run.sh&quot;)
+
+run('cd /tmp')
+
+logger.info(&quot;Uploading...&quot;)
+for i in range(0, len(payload), 512):
+    print(f&quot;Uploading... {i:x} / {len(payload):x}&quot;)
+    run('echo &quot;{}&quot; &gt;&gt; b64exp'.format(payload[i:i+512]))
+run('base64 -d b64exp &gt; exploit')
+run('rm b64exp')
+run('chmod +x exploit')
+
+sock.interactive()
+</code></pre>
+<p>然后执行这个脚本，要注意的一点是最好使用3.8及之后的python，不然 pip 安装完 ptrlib 之后，使用的时候仍可能报错。</p>
+<pre><code class="language-shell">lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ python -V
+Python 3.9.16 (feeb267ead3e6771d3f2f49b83e1894839f64fb7, Dec 29 2022, 14:23:21)
+[PyPy 7.3.11 with GCC 10.2.1 20210130 (Red Hat 10.2.1-11)]
+
+lzx@ubuntu:~/LKPWN/pawnyable/LK01/qemu$ python upload_exp.py 
+[+] __init__: Successfully created new process (PID=83381)
+[+] &lt;module&gt;: Uploading...
+Uploading... 0 / 3780
+Uploading... 200 / 3780
+Uploading... 400 / 3780
+Uploading... 600 / 3780
+Uploading... 800 / 3780
+Uploading... a00 / 3780
+Uploading... c00 / 3780
+Uploading... e00 / 3780
+Uploading... 1000 / 3780
+Uploading... 1200 / 3780
+Uploading... 1400 / 3780
+Uploading... 1600 / 3780
+Uploading... 1800 / 3780
+Uploading... 1a00 / 3780
+Uploading... 1c00 / 3780
+Uploading... 1e00 / 3780
+Uploading... 2000 / 3780
+Uploading... 2200 / 3780
+Uploading... 2400 / 3780
+Uploading... 2600 / 3780
+Uploading... 2800 / 3780
+Uploading... 2a00 / 3780
+Uploading... 2c00 / 3780
+Uploading... 2e00 / 3780
+Uploading... 3000 / 3780
+Uploading... 3200 / 3780
+Uploading... 3400 / 3780
+Uploading... 3600 / 3780
+[ptrlib]$ /tmp # ls -lah
+ls -lah
+[ptrlib]$ total 44K    
+drwxrwxrwt    2 root     root         100 Mar 10 18:28 .
+drwxrwxr-x   17 root     dhcpcd       420 Mar 10 18:28 ..
+-rwxr-xr-x    1 root     root       10.4K Mar 10 18:28 exploit
+-rw-r--r--    1 root     root       27.9K Mar 10 18:28 messages
+-rw-r--r--    1 root     root         149 Mar 10 18:28 resolv.conf
+/tmp # ./exploit
+.[ptrlib]$ /exploit
+Hello, World!
+/tmp # 
+</code></pre>
+<p>最后小结一下：</p>
+<ol>
+<li>在本地用musl编译好exp（如果有需要，将编译好的文件移动到某个目录下）</li>
+</ol>
+<pre><code class="language-shell">/usr/local/musl/bin/musl-gcc exploit.c -o exploit -static
+</code></pre>
+<ol start="2">
+<li>根据实际情况，稍微修改上传脚本，然后执行脚本，将exp发送到qemu中：</li>
+</ol>
+<pre><code class="language-shell">python upload_exp.py 
+</code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E5%9C%A8qemu%E4%B8%8A%E8%BF%90%E8%A1%8Cexp">在qemu上运行exp</a></li>
+<li><a href="#%E5%9C%A8%E8%BF%9C%E7%A8%8B%E6%9C%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8Cexp">在远程机器上运行exp</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/">https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/&sharesource=qzone&title=Pawnyable3 - 编译和传输exp&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/pawnyable3-bian-yi-he-chuan-shu-exp/&sharesource=weibo&title=Pawnyable3 - 编译和传输exp + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/LKPWN/">#
+                    Linux Kernel PWN
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/pawnyable4-shou-xi-holstein-mo-kuai-yu-hong-fa-lou-dong/">
+                                                                                            Pawnyable4 - 熟悉Holstein模块与触发漏洞
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/pawnyable2-linux-kernel-lou-dong-huan-jie-ji-zhu/">
+                                                                                                    Pawnyable2 - Linux Kernel 漏洞缓解技术
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8.
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-12-06</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">10.9
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">2188</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">编译原理</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>Today we’ll talk about <strong>unary operators</strong>, namely unary plus (+) and unary minus (-) operators.</p>
+<p>今天我们将讨论一元运算符，即一元加号(+)和一元减号(-)运算符。</p>
+<p>A lot of today’s material is based on the material from the previous article, so if you need a refresher just head back to <a href="http://ruslanspivak.com/lsbasi-part7/">Part 7</a> and go over it again. Remember: repetition is the mother of all learning.</p>
+<p>今天的很多内容都是基于前一篇文章的内容，所以如果需要复习一下第7部分，再复习一遍。记住: 重复是学习之母。</p>
+<p>Having said that, this is what you are going to do today:</p>
+<p>话虽如此，这是你今天要做的:</p>
+<ul>
+<li>extend the grammar to handle unary plus and unary minus operators 扩展grammar来处理一元加号和一元减号运算符</li>
+<li>add a new <em>UnaryOp</em> AST node class 添加一个新的UnaryOp AST节点类</li>
+<li>extend the parser to generate an AST with <em>UnaryOp</em> nodes 扩展解析器以生成有UnaryOp节点的AST</li>
+<li>extend the interpreter and add a new <em>visit_UnaryOp unaryop</em> method to interpret unary operators 扩展解释器并添加一个新的visit_UnaryOp方法来解释一元运算符</li>
+</ul>
+<p>Let’s get started, shall we?</p>
+<p>我们开始吧？</p>
+<p>So far we’ve worked with binary operators only (+, -, *, /), that is, the operators that operate on two operands.</p>
+<p>到目前为止，我们只使用了二元运算符(+ ,-，* ,/) ，即对两个操作数进行操作的运算符。</p>
+<p>What is a unary operator then? A <em>unary operator</em> is an operator that operates on one <em>operand</em> only.</p>
+<p>那什么是一元运算符? 一元运算符是只对一个操作数运算的运算符。</p>
+<p>Here are the rules for unary plus and unary minus operators:</p>
+<p>下面是一元加号和一元减号运算符的规则:</p>
+<ul>
+<li>The unary minus (-) operator produces the negation of its numeric operand
+<ul>
+<li>一元减号(-)运算符将对其数值操作数进行求反</li>
+</ul>
+</li>
+<li>The unary plus (+) operator yields its numeric operand without change
+<ul>
+<li>一元加(+)运算符对其数值操作数不做改变</li>
+</ul>
+</li>
+<li>The unary operators have higher precedence than the binary operators +, -, *, and /
+<ul>
+<li>一元运算符的优先级高于二元运算符 + 、-、 * 和/</li>
+</ul>
+</li>
+</ul>
+<p>In the expression “+ - 3” the first ‘+’ operator represents the unary plus operation and the second ‘-‘ operator represents the unary minus operation. The expression “+ - 3” is equivalent to “+ (- (3))” which is equal to -3. One could also say that <strong>-3</strong> in the expression is a negative integer, but in our case we treat it as a unary minus operator with 3 as its positive integer operand:</p>
+<p>在表达式“ +-3”中，第一个“ +”运算符表示一元加运算，第二个“-”运算符表示一元减运算。表达式“ +-3”等于“ + (- (3))”，等于 -3。也可以说表达式中的 -3是一个负整数，但是在我们的例子中，我们把它当作一元减运算符，3作为它的正整数操作数:</p>
+<figure data-type="image" tabindex="1"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_exp1.png" alt="" loading="lazy"></figure>
+<p>Let’s take a look at another expression, “5 - - 2”:<br>
+让我们看看另一个表达式：“5 - - 2”：</p>
+<figure data-type="image" tabindex="2"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_exp2.png" alt="" loading="lazy"></figure>
+<p>In the expression “5 - - 2” the first ‘-‘ represents the <em>binary</em> subtraction operation and the second ‘-‘ represents the <em>unary</em> minus operation, the negation.<br>
+在表达式“5-2”中，第一个“-”表示二元减法运算，第二个“-”表示一元减法运算，即负。<br>
+​</p>
+<p>And some more examples:<br>
+还有一些例子:</p>
+<figure data-type="image" tabindex="3"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_exp3.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_exp4.png" alt="" loading="lazy"></figure>
+<p>Now let’s update our grammar to include unary plus and unary minus operators. We’ll modify the <em>factor</em> rule and add unary operators there because unary operators have higher precedence than binary +, -, * and / operators.<br>
+​</p>
+<p>现在让我们更新我们的语法，包括一元加号和一元减号运算符。我们将修改 factor 规则并在其中添加一元运算符，因为一元运算符的优先级高于二元 + 、-、 * 和/运算符。<br>
+​</p>
+<p>This is our current <em>factor</em> rule:<br>
+这是我们当前的 factor 规则：</p>
+<figure data-type="image" tabindex="5"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_factor_before.png" alt="" loading="lazy"></figure>
+<p>And this is our updated <em>factor</em> rule to handle unary plus and unary minus operators:<br>
+这是我们更新的处理一元加号和一元减号运算符的factor规则:</p>
+<figure data-type="image" tabindex="6"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_factor_after.png" alt="" loading="lazy"></figure>
+<p>As you can see, I extended the <em>factor</em> rule to reference itself, which allows us to derive expressions like “- - - + - 3”, a legitimate expression with a lot of unary operators.<br>
+正如您所看到的，我将 factor 规则扩展到了引用本身，它允许我们派生“-- +-3”之类的表达式，这是一个合法的表达式，有很多一元运算符。</p>
+<p>Here is the full grammar that can now derive expressions with unary plus and unary minus operators:<br>
+下面是完整的语法，现在可以用一元加号和一元减号运算符派生表达式:<br>
+​</p>
+<figure data-type="image" tabindex="7"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_grammar.png" alt="" loading="lazy"></figure>
+<p>The next step is to add an AST node class to represent unary operators.<br>
+下一步是添加一个 AST 节点类来表示一元运算符。</p>
+<p>This one will do:</p>
+<pre><code class="language-python">class UnaryOp(AST):
+    def __init__(self, op, expr):
+        self.token = self.op = op
+        self.expr = expr
+</code></pre>
+<p>The constructor takes two parameters: <em>op</em>, which represents the unary operator token (plus or minus) and <em>expr</em>, which represents an AST node.<br>
+构造函数接受两个参数: op，表示一元运算符 token (加号或减号) ; expr，表示 AST 节点。</p>
+<p>Our updated grammar had changes to the <em>factor</em> rule, so that’s what we’re going to modify in our parser - the <em>factor</em> method. We will add code to the method to handle the “(PLUS | MINUS) factor” sub-rule:<br>
+我们更新的语法对 factor 规则进行了更改，因此我们将在解析器中修改这个factor方法。我们将在方法中添加代码来处理“(PLUS | MINUS) factor”子规则:</p>
+<pre><code class="language-python">def factor(self):
+    &quot;&quot;&quot;factor : (PLUS | MINUS) factor | INTEGER | LPAREN expr RPAREN&quot;&quot;&quot;
+    token = self.current_token
+    if token.type == PLUS:
+        self.eat(PLUS)
+        node = UnaryOp(token, self.factor())
+        return node
+    elif token.type == MINUS:
+        self.eat(MINUS)
+        node = UnaryOp(token, self.factor())
+        return node
+    elif token.type == INTEGER:
+        self.eat(INTEGER)
+        return Num(token)
+    elif token.type == LPAREN:
+        self.eat(LPAREN)
+        node = self.expr()
+        self.eat(RPAREN)
+        return node
+</code></pre>
+<p>And now we need to extend the <em>Interpreter</em> class and add a <em>visit_UnaryOp</em> method to interpret unary nodes:<br>
+现在我们需要扩展 Interpreter 类并添加一个 visit _ unaryop 方法来解释一元节点:</p>
+<pre><code class="language-python">def visit_UnaryOp(self, node):
+    op = node.op.type
+    if op == PLUS:
+        return +self.visit(node.expr)
+    elif op == MINUS:
+        return -self.visit(node.expr)
+</code></pre>
+<p>Onward!</p>
+<p>Let’s manually build an AST for the expression “5 - - - 2” and pass it to our interpreter to verify that the new <em>visit_UnaryOp</em> method works. Here is how you can do it from the Python shell:<br>
+让我们为表达式“5---2”手动构建一个 AST，并将其传递给我们的解释器，以验证新的 visit _ unaryop 方法是否工作。下面是如何在 Python shell 中实现它的方法:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from spi import BinOp, UnaryOp, Num, MINUS, INTEGER, Token
+&gt;&gt;&gt; five_tok = Token(INTEGER, 5)
+&gt;&gt;&gt; two_tok = Token(INTEGER, 2)
+&gt;&gt;&gt; minus_tok = Token(MINUS, '-')
+&gt;&gt;&gt; expr_node = BinOp(
+...     Num(five_tok),
+...     minus_tok,
+...     UnaryOp(minus_token, UnaryOp(minus_token, Num(two_tok)))
+... )
+&gt;&gt;&gt; from spi import Interpreter
+&gt;&gt;&gt; inter = Interpreter(None)
+&gt;&gt;&gt; inter.visit(expr_node)
+3
+</code></pre>
+<p>Visually the above AST tree looks like this:<br>
+从视觉上看，上面的 AST 树是这样的<br>
+<img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_ast.png" alt="" loading="lazy"></p>
+<p>Download the full source code of the interpreter for this article directly from <a href="https://github.com/rspivak/lsbasi/blob/master/part8/python/spi.py">GitHub</a>. Try it out and see for yourself that your updated tree-based interpreter properly evaluates arithmetic expressions containing unary operators.<br>
+直接从 GitHub 下载本文解释器的完整源代码。您可以亲自尝试一下，看看您更新的基于树的解释器是否正确地计算包含一元运算符的算术表达式。<br>
+​</p>
+<p>Here is a sample session:</p>
+<pre><code class="language-python">$ python spi.py
+spi&gt; - 3
+-3
+spi&gt; + 3
+3
+spi&gt; 5 - - - + - 3
+8
+spi&gt; 5 - - - + - (3 + 4) - +2
+10
+</code></pre>
+<p>I also updated the <a href="https://github.com/rspivak/lsbasi/blob/master/part8/python/genastdot.py">genastdot.py</a> utility to handle unary operators. Here are some of the examples of the generated AST images for expressions with unary operators:<br>
+我还更新了 genastdot.py 实用程序来处理一元操作符。下面是一元运算符表达式生成的 AST 图像的一些例子:</p>
+<pre><code class="language-shell">$ python genastdot.py &quot;- 3&quot; &gt; ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_genastdot_01.png" alt="" loading="lazy"></figure>
+<pre><code class="language-shell">$ python genastdot.py &quot;+ 3&quot; &gt; ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_genastdot_02.png" alt="" loading="lazy"></figure>
+<pre><code class="language-python">$ python genastdot.py &quot;5 - - - + - 3&quot; &gt; ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_genastdot_03.png" alt="" loading="lazy"></figure>
+<pre><code class="language-python">$ python genastdot.py &quot;5 - - - + - (3 + 4) - +2&quot; \
+ast.dot &amp;&amp; dot -Tpng -o ast.png ast.dot
+</code></pre>
+<figure data-type="image" tabindex="11"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_genastdot_04.png" alt="" loading="lazy"></figure>
+<p>And here is a new exercise for you:<br>
+练习：</p>
+<figure data-type="image" tabindex="12"><img src="https://ruslanspivak.com/lsbasi-part8/lsbasi_part8_exercises.png" alt="" loading="lazy"></figure>
+<ul>
+<li>Install <a href="http://www.freepascal.org/">Free Pascal</a>, compile and run <a href="https://github.com/rspivak/lsbasi/blob/master/part8/python/testunary.pas">testunary.pas</a>, and verify that the results are the same as produced with your <a href="https://github.com/rspivak/lsbasi/blob/master/part8/python/spi.py">spi</a> interpreter.
+<ul>
+<li>安装<code>Free Pascal</code>，编译并运行<code>testunary.pas</code>，验证结果是否和你的<code>spi</code>解释器的结果一样。</li>
+</ul>
+</li>
+</ul>
+<p>That’s all for today. In the next article, we’ll tackle assignment statements. Stay tuned and see you soon.<br>
+今天就到这里。在下一篇文章中，我们将处理赋值语句。请继续关注，稍后见。​</p>
+<p>Here is a list of books I recommend that will help you in your study of interpreters and compilers:</p>
+<ol>
+<li><a href="http://www.amazon.com/gp/product/193435645X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=193435645X&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=MP4DCXDV6DJMEJBL">Language Implementation Patterns: Create Your Own Domain-Specific and General Programming Languages (Pragmatic Programmers)</a></li>
+<li><a href="http://www.amazon.com/gp/product/0470177071/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0470177071&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=UCLGQTPIYSWYKRRM">Writing Compilers and Interpreters: A Software Engineering Approach</a></li>
+<li><a href="http://www.amazon.com/gp/product/052182060X/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=052182060X&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=ZSKKZMV7YWR22NMW">Modern Compiler Implementation in Java</a></li>
+<li><a href="http://www.amazon.com/gp/product/1461446988/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1461446988&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=PAXWJP5WCPZ7RKRD">Modern Compiler Design</a></li>
+<li><a href="http://www.amazon.com/gp/product/0321486811/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321486811&amp;linkCode=as2&amp;tag=russblo0b-20&amp;linkId=GOEGDQG4HIHU56FQ">Compilers: Principles, Techniques, and Tools (2nd Edition)</a></li>
+</ol>
+<p>If you want to get my newest articles in your inbox, then enter your email address below and click &quot;Get Updates!&quot;<br>
+以下是我推荐的一些书籍，它们可以帮助你学习解释器和编译器:</p>
+<p><strong>All articles in this series:</strong></p>
+<ul>
+<li><a href="https://ruslanspivak.com/lsbasi-part1/">Let's Build A Simple Interpreter. Part 1.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part2/">Let's Build A Simple Interpreter. Part 2.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part3/">Let's Build A Simple Interpreter. Part 3.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part4/">Let's Build A Simple Interpreter. Part 4.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part5/">Let's Build A Simple Interpreter. Part 5.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part6/">Let's Build A Simple Interpreter. Part 6.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part7/">Let's Build A Simple Interpreter. Part 7: Abstract Syntax Trees</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part8/">Let's Build A Simple Interpreter. Part 8.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part9/">Let's Build A Simple Interpreter. Part 9.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part10/">Let's Build A Simple Interpreter. Part 10.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part11/">Let's Build A Simple Interpreter. Part 11.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part12/">Let's Build A Simple Interpreter. Part 12.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part13/">Let's Build A Simple Interpreter. Part 13: Semantic Analysis</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part14/">Let's Build A Simple Interpreter. Part 14: Nested Scopes and a Source-to-Source Compiler</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part15/">Let's Build A Simple Interpreter. Part 15.</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part16/">Let's Build A Simple Interpreter. Part 16: Recognizing Procedure Calls</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part17/">Let's Build A Simple Interpreter. Part 17: Call Stack and Activation Records</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part18/">Let's Build A Simple Interpreter. Part 18: Executing Procedure Calls</a></li>
+<li><a href="https://ruslanspivak.com/lsbasi-part19/">Let's Build A Simple Interpreter. Part 19: Nested Procedure Calls</a></li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/">https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/&sharesource=qzone&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8.&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-8/&sharesource=weibo&title=[翻译与学习] Let&#39;s Build A Simple Interpreter. Part 8. + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/GqQg6_YXk/">#
+                    编译原理
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part-9/">
+                                                                                            [翻译与学习] Let&#39;s Build A Simple Interpreter. Part 9
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/fan-yi-yu-xue-xi-lets-build-a-simple-interpreter-part7-abstract-syntax-trees/">
+                                                                                                    [翻译与学习] Let’s Build A Simple Interpreter. Part7. Abstract Syntax Trees
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

